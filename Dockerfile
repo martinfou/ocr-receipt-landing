@@ -4,7 +4,7 @@
 FROM php:8.3-cli-alpine AS build
 
 # System deps
-RUN apk add --no-cache unzip curl git npm nodejs
+RUN apk add --no-cache unzip curl git npm nodejs sqlite-dev
 
 # Install composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
@@ -37,6 +37,7 @@ RUN apk add --no-cache \
     supervisor \
     curl \
     sqlite \
+    sqlite-dev \
     bash
 
 # PHP extensions
