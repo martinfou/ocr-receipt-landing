@@ -73,4 +73,4 @@ EXPOSE 8080
 
 WORKDIR /app
 
-ENTRYPOINT ["/entrypoint.sh"]
+CMD php-fpm -D && nginx -g "daemon off;"
