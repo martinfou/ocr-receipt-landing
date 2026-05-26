@@ -1,7 +1,7 @@
 # Multi-stage build for Laravel on Fly.io
 
 # ---- Build stage ----
-FROM php:8.3-cli-alpine AS build
+FROM php:8.4-cli-alpine AS build
 
 # System deps
 RUN apk add --no-cache unzip curl git npm nodejs sqlite-dev
@@ -29,7 +29,7 @@ COPY . .
 RUN npm run build
 
 # ---- Runtime stage ----
-FROM php:8.3-fpm-alpine AS runtime
+FROM php:8.4-fpm-alpine AS runtime
 
 # System deps
 RUN apk add --no-cache \
