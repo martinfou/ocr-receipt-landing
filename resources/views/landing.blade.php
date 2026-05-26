@@ -68,9 +68,6 @@
             <a href="#beta" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg shadow-lg shadow-blue-600/25 transition-all hover:shadow-blue-600/40">
                 📥 Obtenir l'accès anticipé
             </a>
-            <a href="https://github.com/martinfou/ocr-receipt" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-gray-700 hover:text-gray-900 font-medium px-6 py-3 border border-gray-200 hover:border-gray-300 rounded-xl transition-colors">
-                Voir le code source ↗
-            </a>
         </div>
         <p class="text-sm text-gray-500">
             Déjà utilisé par des freelances et PME au Québec.
@@ -417,9 +414,7 @@
         <div class="flex items-center justify-center gap-4 text-sm mb-8">
             <a href="https://martinfournier.com" target="_blank" rel="noopener" class="hover:text-white transition-colors">Produit</a>
             <span class="text-gray-700">·</span>
-            <a href="https://github.com/martinfou/ocr-receipt" target="_blank" rel="noopener" class="hover:text-white transition-colors">GitHub</a>
-            <span class="text-gray-700">·</span>
-            <a href="#" class="hover:text-white transition-colors">Contact</a>
+            <a href="mailto:hello@martinfournier.com" class="hover:text-white transition-colors">Contact</a>
         </div>
         <p class="text-xs text-gray-600 text-center">
             © {{ date('Y') }} OCR Receipt. Tous droits réservés.
