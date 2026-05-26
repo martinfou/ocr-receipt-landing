@@ -34,7 +34,6 @@ primary_region = "yyz"  # Toronto — closest to user
   SESSION_DRIVER = "file"
   SESSION_DOMAIN = ".ocrreceipt.com"
   FILESYSTEM_DISK = "local"
-  TRUSTED_PROXIES = "*"
 
 [deploy]
   strategy = "rolling"
