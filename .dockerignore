@@ -15,7 +15,6 @@
 .gitignore
 .editorconfig
 .dockerignore
-docker/
 *bmad*
 docker-compose*
 phpunit.xml
