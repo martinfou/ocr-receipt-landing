@@ -1,15 +1,20 @@
 #!/bin/bash
 set -e
 
-# Create storage directories under the volume mount
+# Create storage dirs under volume
 mkdir -p /app/storage/app /app/storage/logs /app/storage/framework/cache/data \
   /app/storage/framework/sessions /app/storage/framework/views \
   /app/bootstrap/cache
 
-# Set proper permissions
 chown -R www-data:www-data /app/storage /app/bootstrap/cache 2>/dev/null || true
-
-# Touch SQLite DB
 touch /app/storage/app/database.sqlite 2>/dev/null || true
 
-exec /usr/bin/supervisord -c /etc/supervisord.conf -n
+# Start php-fpm in background
+php-fpm -D 2>&1
+echo "PHP-FPM started: $?"
+
+# Test nginx config
+nginx -t 2>&1
+
+# Start nginx in foreground
+nginx -g "daemon off;"

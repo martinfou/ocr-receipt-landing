@@ -37,7 +37,6 @@ FROM php:8.4-fpm-alpine AS runtime
 # System deps
 RUN apk add --no-cache \
     nginx \
-    supervisor \
     curl \
     sqlite \
     sqlite-dev \
@@ -65,10 +64,6 @@ RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache /app/public/bui
 
 # Nginx config
 COPY docker/nginx.conf /etc/nginx/http.d/default.conf
-
-# Supervisor config
-RUN mkdir -p /etc/supervisor
-COPY docker/supervisord.conf /etc/supervisord.conf
 
 # Entrypoint
 COPY docker/entrypoint.sh /entrypoint.sh
