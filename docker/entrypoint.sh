@@ -1,8 +1,16 @@
 #!/bin/bash
 set -e
 
+# Create storage directories under the volume mount
+mkdir -p /app/storage/app /app/storage/framework/cache/data \
+  /app/storage/framework/sessions /app/storage/framework/views \
+  /app/storage/logs /app/bootstrap/cache
+
 # Ensure database file exists
 touch /app/storage/app/database.sqlite 2>/dev/null || true
+
+# Set proper permissions
+chown -R www-data:www-data /app/storage /app/bootstrap/cache 2>/dev/null || true
 
 # Run Laravel setup on first deploy or after volume mount
 php artisan storage:link --force 2>/dev/null || true
