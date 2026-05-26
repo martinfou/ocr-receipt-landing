@@ -1,0 +1,45 @@
+# fly.toml - OCR Receipt Landing
+app = "ocr-receipt-landing"
+primary_region = "yyz"  # Toronto — closest to user
+
+[build]
+  dockerfile = "Dockerfile"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["app"]
+
+[[vm]]
+  memory = "512mb"
+  cpu_kind = "shared"
+  cpus = 1
+
+[mounts]
+  source = "ocr_receipt_data"
+  destination = "/app/storage"
+
+[env]
+  APP_ENV = "production"
+  APP_DEBUG = "false"
+  APP_URL = "https://ocrreceipt.com"
+  LOG_CHANNEL = "stderr"
+  LOG_LEVEL = "warning"
+  DB_CONNECTION = "sqlite"
+  DB_DATABASE = "/app/storage/app/database.sqlite"
+  CACHE_STORE = "file"
+  SESSION_DRIVER = "file"
+  SESSION_DOMAIN = ".ocrreceipt.com"
+  FILESYSTEM_DISK = "local"
+  TRUSTED_PROXIES = "*"
+
+[deploy]
+  strategy = "rolling"
+  release_command = "php artisan migrate --force"
+
+[[statics]]
+  guest_path = "/app/public"
+  url_prefix = "/"

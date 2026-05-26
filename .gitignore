@@ -1,0 +1,14 @@
+# OCR Receipt Landing - .gitignore
+/node_modules
+/.npm
+/vendor
+/storage/framework/cache/data
+/storage/framework/sessions
+/storage/framework/views
+/storage/logs
+/storage/app/private
+.env
+.phpunit.*
+.php_cs.*
+_bmad*
+_bmad-output*
