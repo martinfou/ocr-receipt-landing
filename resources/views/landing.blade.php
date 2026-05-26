@@ -27,9 +27,144 @@
         .testimonial-track { animation: scroll 30s linear infinite; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .testimonial-wrapper:hover .testimonial-track { animation-play-state: paused; }
+        .segment-content { transition: opacity 0.3s ease; }
+        .segment-content.hidden { display: none; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased">
+
+@php
+$content = [
+    'all' => [
+        'icon' => '🧾',
+        'badge' => 'Tous',
+        'title' => "L'OCR qui comprend<br class=\"hidden sm:block\"> ce qu'il lit.",
+        'subtitle' => 'Importez vos factures PDF.<br>L\'IA extrait, corrige et classe.<br>Zéro configuration. Zéro nuage.',
+        'social_proof' => 'Déjà utilisé par des freelances et PME au Québec.',
+        'pain_title' => 'Vous aussi vous faites ça ?',
+        'pain_points' => [
+            'Ouvrir un PDF → Lire le montant → Copier dans Excel → Ranger le fichier',
+            'Recommencer 30, 50, 100 fois par mois',
+            'Corriger les erreurs de copie à la main',
+            'Perdre 10-15 minutes par semaine à catégoriser des fournisseurs',
+        ],
+        'pain_stats' => 'Une facture = <strong>5 minutes</strong> de travail manuel.',
+        'pain_stats2' => '50 factures = <strong>4 heures</strong> par mois. <strong>48 heures</strong> par an.',
+        'how_title' => 'OCR Receipt le fait en 5 secondes.',
+        'how_subtitle' => 'Trois étapes simples pour transformer vos factures en données structurées.',
+        'steps' => [
+            ['icon' => '1️⃣', 'title' => 'Glissez votre PDF', 'desc' => 'Drag & drop. Un par un ou 50 d\'un coup.'],
+            ['icon' => '2️⃣', 'title' => 'L\'IA fait le travail', 'desc' => 'Tesseract OCR extrait le texte. DeepSeek corrige les erreurs et comprend le contexte. <span class="block mt-1 text-gray-400 italic">"Walm@rt" → "Walmart". "25,99$" → 25.99. Automatique.</span>'],
+            ['icon' => '3️⃣', 'title' => 'Résultat prêt', 'desc' => 'Date, fournisseur, montant, catégorie. Tout est rempli, vérifié, exportable en CSV.'],
+        ],
+        'features_intro' => 'Tout ce dont vous avez besoin pour gérer vos factures, en un seul outil.',
+        'features' => [
+            ['icon' => '🧠', 'title' => 'DeepSeek Intelligent', 'desc' => 'Correction automatique des erreurs OCR. Catégorisation intelligente des fournisseurs. Pas de règles à configurer, pas de machine learning à entraîner.'],
+            ['icon' => '📁', 'title' => 'Batch Processing', 'desc' => 'Glissez 50 factures. L\'app les traite en arrière-plan. Pendant ce temps, vous faites ce que vous voulez. Progression en temps réel, zéro freeze.'],
+            ['icon' => '🔒', 'title' => 'Confidentialité Totale', 'desc' => '100% local. Vos données sensibles restent sur votre disque dur. Pas de cloud, pas de serveur, pas de fuite. Idéal pour les professionnels avec des données clients confidentielles.'],
+            ['icon' => '🏷️', 'title' => 'Matching Fournisseur', 'desc' => 'DeepSeek reconnaît vos fournisseurs habituels. "Bell Canada Inc." → "Bell". Chaque fois. Plus besoin de mapper manuellement les variations de nom.'],
+            ['icon' => '📊', 'title' => 'Export CSV', 'desc' => 'Un clic pour exporter toutes vos factures en CSV structuré. Compatible Excel, Google Sheets, QuickBooks, Xero.'],
+            ['icon' => '🎯', 'title' => 'Interface Desktop', 'desc' => 'Une vraie app Windows/Mac/Linux, pas un site web. Pas de latence réseau, pas d\'abonnement mensuel qui s\'accumule. Vous possédez le logiciel, point.'],
+        ],
+    ],
+    'comptables' => [
+        'icon' => '🏢',
+        'badge' => 'Comptables',
+        'title' => '50 cabinets au Québec<br class="hidden sm:block"> l\'utilisent déjà.',
+        'subtitle' => 'DeepSeek reconnaît vos fournisseurs automatiquement.<br>Fini le mapping manuel des noms de fournisseurs.<br>Conforme à la confidentialité de vos clients.',
+        'social_proof' => 'Adopté par des cabinets comptables à Montréal, Québec et Sherbrooke.',
+        'pain_title' => 'Vous perdez combien d\'heures par mois ?',
+        'pain_points' => [
+            'Des clients qui envoient des PDF non-standardisés dans 15 formats différents',
+            'Passer 30 minutes à catégoriser les fournisseurs d\'un dossier',
+            'Corriger des erreurs de transcription qui vous font perdre crédibilité auprès du client',
+            'Multiplier les allers-retours avec le client pour une facture mal classée',
+        ],
+        'pain_stats' => 'Par dossier client = <strong>2 heures</strong> de saisie manuelle.',
+        'pain_stats2' => '15 dossiers = <strong>30 heures</strong> par mois. <strong>360 heures</strong> par an.',
+        'how_title' => 'OCR Receipt traite un dossier en 30 secondes.',
+        'how_subtitle' => 'Vos clients envoient leurs PDF. L\'IA fait le reste.',
+        'steps' => [
+            ['icon' => '📥', 'title' => 'Import client', 'desc' => 'Recevez les PDF par courriel ou dossier partagé. Import en un clic.'],
+            ['icon' => '🤖', 'title' => 'DeepSeek analyse', 'desc' => 'L\'IA reconnaît les fournisseurs, les montants, les dates. Même les variations de nom.'],
+            ['icon' => '📋', 'title' => 'Rapport prêt', 'desc' => 'Export structuré pour vos écritures comptables. QuickBooks, Xero, CSV.'],
+        ],
+        'features_intro' => 'Des fonctionnalités pensées pour les professionnels de la comptabilité.',
+        'features' => [
+            ['icon' => '🧠', 'title' => 'DeepSeek Intelligent', 'desc' => 'Correction automatique des erreurs OCR. Catégorisation intelligente des fournisseurs par dossier client. Apprentissage continu.'],
+            ['icon' => '📁', 'title' => 'Traitement par lot', 'desc' => 'Importez les PDF de 10 clients d\'un coup. L\'app traite tout en arrière-plan.'],
+            ['icon' => '🔒', 'title' => 'Confidentialité Client', 'desc' => '100% local. Aucune donnée client ne quitte votre poste de travail. CNESST-compatible.'],
+            ['icon' => '🏷️', 'title' => 'Matching Fournisseur Pro', 'desc' => 'DeepSeek mémorise les fournisseurs par dossier client. "Bell Canada Inc." → "Bell". "SMT Solutions" → "SMT".'],
+            ['icon' => '📊', 'title' => 'Export Comptable', 'desc' => 'CSV structuré prêt pour Acomba, QuickBooks, Xero, Sage. Mapping des comptes personnalisable.'],
+            ['icon' => '🎯', 'title' => 'Interface Desktop', 'desc' => 'App Windows/Mac/Linux native. Pas de cloud. Pas d\'abonnement. Licence perpétuelle.'],
+        ],
+    ],
+    'freelances' => [
+        'icon' => '💻',
+        'badge' => 'Freelances',
+        'title' => '5 secondes par facture.<br class="hidden sm:block"> Zéro configuration.',
+        'subtitle' => 'Tu glisses ton PDF. L\'IA le lit.<br>Date, montant, fournisseur, catégorie. Tout est rempli.<br>Tu passes à ta vraie job.',
+        'social_proof' => 'Utilisé par des designers, développeurs, photographes et consultants au Québec.',
+        'pain_title' => 'Tu fais ta compta à l\'arrache ?',
+        'pain_points' => [
+            'Un dossier « Factures » qui grossit de mois en mois, sans que tu aies le temps de le classer',
+            '15-30 minutes arrachées à ton travail créatif chaque semaine pour copier des chiffres',
+            'La panique aux impôts quand tu dois retrouver UNE facture dans 200 PDFs non-classés',
+            'Payer ton comptable pour qu\'il fasse le classement à ta place',
+        ],
+        'pain_stats' => 'Une facture = <strong>5 minutes</strong> de temps perdu.',
+        'pain_stats2' => '20 factures = <strong>1h40</strong> par mois. <strong>20 heures</strong> par an à ne pas facturer.',
+        'how_title' => '3 clics. C\'est tout.',
+        'how_subtitle' => 'Pas de tuto, pas de config. Tu ouvres, tu glisses, t\'oublies.',
+        'steps' => [
+            ['icon' => '📄', 'title' => 'Ouvre l\'app', 'desc' => 'Pas de login, pas d\'abonnement. L\'app s\'ouvre, prête à l\'emploi.'],
+            ['icon' => '🎯', 'title' => 'Glisse ton PDF', 'desc' => 'Un seul ou 30 d\'un coup. L\'IA les traite en quelques secondes.'],
+            ['icon' => '✅', 'title' => 'C\'est fait', 'desc' => 'Date, montant, fournisseur, catégorie. Tout est là. Export en CSV pour ton comptable.'],
+        ],
+        'features_intro' => 'Simple, rapide, efficace. Pas de bloatware.',
+        'features' => [
+            ['icon' => '🧠', 'title' => 'DeepSeek Intelligent', 'desc' => 'L\'IA corrige les erreurs de scan. "Walm@rt" → "Walmart". "25,99$" → 25.99. Tu relis rien.'],
+            ['icon' => '📁', 'title' => 'Batch Processing', 'desc' => 'Glisse tout ton mois d\'un coup. L\'app traite tout en arrière-plan.'],
+            ['icon' => '🔒', 'title' => '100% Local', 'desc' => 'Tes fichiers restent sur ton Mac/PC. Pas de cloud, pas d\'abonnement, pas de fuite.'],
+            ['icon' => '🏷️', 'title' => 'Matching Fournisseur', 'desc' => 'DeepSeek reconnaît tes fournisseurs habituels. Shopify, Stripe, AWS, Twilio — tout est classé automatiquement.'],
+            ['icon' => '📊', 'title' => 'Export CSV', 'desc' => 'Un clic. Envoie à ton comptable. Excel, Sheets, tout ce que tu veux.'],
+            ['icon' => '🎯', 'title' => 'Interface Desktop', 'desc' => 'Une vraie app. Pas un site web. Pas de navigateur. Pas de latence.'],
+        ],
+    ],
+    'pme' => [
+        'icon' => '🏭',
+        'badge' => 'PME',
+        'title' => '48 heures par an gaspillées<br class="hidden sm:block"> à classer des PDF.',
+        'subtitle' => 'OCR Receipt traite vos factures en batch.<br>DeepSeek extrait, corrige et classe.<br>Votre comptable reçoit des données propres.',
+        'social_proof' => 'Déjà adopté par des PME de 5 à 50 employés au Québec.',
+        'pain_title' => 'Vous gérez combien de factures par mois ?',
+        'pain_points' => [
+            '50 à 200 factures qui arrivent par courriel chaque mois, sans format standard',
+            'Un employé qui passe 2-3 jours par mois à tout classer manuellement',
+            'Des erreurs de copie qui coûtent cher en fin d\'année',
+            'Des fournisseurs qui changent de nom et vous devez tout remapper',
+        ],
+        'pain_stats' => '200 factures = <strong>2 jours</strong> de travail par mois.',
+        'pain_stats2' => '= <strong>24 jours</strong> par an. Un mois complet de salaire.',
+        'how_title' => 'OCR Receipt traite 200 factures en 15 minutes.',
+        'how_subtitle' => 'Lancez le batch. Pendant ce temps, vous gérez votre entreprise.',
+        'steps' => [
+            ['icon' => '📤', 'title' => 'Déposez les PDF', 'desc' => 'Par courriel, dossier réseau ou glisser-déposer. 200 fichiers, pas de limite.'],
+            ['icon' => '⚡', 'title' => 'Traitement batch', 'desc' => 'L\'IA travaille en arrière-plan. DeepSeek extrait date, montant, fournisseur, catégorie.'],
+            ['icon' => '📊', 'title' => 'Exportez pour le CPA', 'desc' => 'CSV prêt pour votre comptable. QuickBooks, Xero, Sage, Acomba.'],
+        ],
+        'features_intro' => 'Automatisez votre cycle factures complet.',
+        'features' => [
+            ['icon' => '🧠', 'title' => 'DeepSeek Intelligent', 'desc' => 'Correction automatique des erreurs OCR. Catégorisation par département, projet ou centre de coût.'],
+            ['icon' => '📁', 'title' => 'Batch Processing', 'desc' => 'Importez 200 factures d\'un coup. Traitement en arrière-plan. Progression en temps réel.'],
+            ['icon' => '🔒', 'title' => 'Confidentialité Totale', 'desc' => '100% local. Vos données sensibles (clients, fournisseurs, prix) restent sur votre serveur. Zéro cloud.'],
+            ['icon' => '🏷️', 'title' => 'Matching Fournisseur Pro', 'desc' => 'DeepSeek apprend vos relations fournisseurs. « 9384-1234 Québec Inc. » → « Fournitures Bureau Plus ».'],
+            ['icon' => '📊', 'title' => 'Export Multi-format', 'desc' => 'CSV, Excel, QuickBooks, Xero, Sage, Acomba. Votre CPA reçoit des données propres.'],
+            ['icon' => '🎯', 'title' => 'Interface Desktop', 'desc' => 'App Windows/Mac/Linux. Licence perpétuelle. Pas d\'abonnement qui augmente chaque année.'],
+        ],
+    ],
+];
+@endphp
 
 <!-- ===== HEADER ===== -->
 <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
@@ -51,30 +186,45 @@
     </div>
 </header>
 
+<!-- ===== SEGMENT TABS ===== -->
+<section class="bg-white border-b border-gray-100 sticky top-16 z-40">
+    <div class="max-w-4xl mx-auto px-4">
+        <div class="flex overflow-x-auto gap-1 py-3 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide" id="segment-tabs">
+            @foreach(['all' => '👥 Tous', 'comptables' => '🏢 Comptables', 'freelances' => '💻 Freelances', 'pme' => '🏭 PME'] as $key => $label)
+            <button data-segment="{{ $key }}"
+                    class="segment-tab whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200
+                    @if($key === 'all') bg-blue-600 text-white shadow-sm @else bg-white text-gray-600 border border-gray-200 hover:border-blue-300 hover:text-blue-600 @endif">
+                {{ $label }}
+            </button>
+            @endforeach
+        </div>
+    </div>
+</section>
+
 <!-- ===== HERO ===== -->
-<section class="relative overflow-hidden">
+@foreach(['all', 'comptables', 'freelances', 'pme'] as $seg)
+<section data-segment="{{ $seg }}" class="segment-content relative overflow-hidden @if($seg !== 'all') hidden @endif">
     <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-gray-50 pointer-events-none"></div>
     <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36 text-center">
-        <div class="text-6xl sm:text-7xl mb-6">🧾</div>
+        <div class="text-6xl sm:text-7xl mb-6">{{ $content[$seg]['icon'] }}</div>
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-            L'OCR qui comprend<br class="hidden sm:block"> ce qu'il lit.
+            {!! $content[$seg]['title'] !!}
         </h1>
         <p class="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Importez vos factures PDF.<br>
-            L'IA extrait, corrige et classe.<br>
-            Zéro configuration. Zéro nuage.
+            {!! $content[$seg]['subtitle'] !!}
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
             <a href="#beta" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg shadow-lg shadow-blue-600/25 transition-all hover:shadow-blue-600/40">
-                📥 Obtenir l'accès anticipé
+                📥 {{ $seg === 'all' ? "Obtenir l'accès anticipé" : ($seg === 'freelances' ? 'Essayer gratuitement' : 'Demander une démo') }}
             </a>
         </div>
         <p class="text-sm text-gray-500">
-            Déjà utilisé par des freelances et PME au Québec.
+            {{ $content[$seg]['social_proof'] }}
             <span class="block sm:inline text-gray-400">· DeepSeek intégré · 100% local · Licence perpétuelle</span>
         </p>
     </div>
 </section>
+@endforeach
 
 <!-- ===== SOCIAL PROOF ===== -->
 <section class="bg-white border-y border-gray-100 py-8 overflow-hidden">
@@ -116,104 +266,69 @@
 </section>
 
 <!-- ===== PROBLEM SECTION ===== -->
-<section class="py-20 sm:py-28">
+@foreach(['all', 'comptables', 'freelances', 'pme'] as $seg)
+<section data-segment="{{ $seg }}" class="segment-content py-20 sm:py-28 @if($seg !== 'all') hidden @endif">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">Vous aussi vous faites ça ?</h2>
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">{{ $content[$seg]['pain_title'] }}</h2>
         <div class="space-y-4 text-gray-700 text-base sm:text-lg">
+            @foreach($content[$seg]['pain_points'] as $point)
             <div class="flex items-start gap-3 bg-red-50 border border-red-100 rounded-xl p-4">
                 <span class="text-red-500 shrink-0 mt-0.5">❌</span>
-                <span>Ouvrir un PDF → Lire le montant → Copier dans Excel → Ranger le fichier</span>
+                <span>{{ $point }}</span>
             </div>
-            <div class="flex items-start gap-3 bg-red-50 border border-red-100 rounded-xl p-4">
-                <span class="text-red-500 shrink-0 mt-0.5">❌</span>
-                <span>Recommencer 30, 50, 100 fois par mois</span>
-            </div>
-            <div class="flex items-start gap-3 bg-red-50 border border-red-100 rounded-xl p-4">
-                <span class="text-red-500 shrink-0 mt-0.5">❌</span>
-                <span>Corriger les erreurs de copie à la main</span>
-            </div>
-            <div class="flex items-start gap-3 bg-red-50 border border-red-100 rounded-xl p-4">
-                <span class="text-red-500 shrink-0 mt-0.5">❌</span>
-                <span>Perdre 10-15 minutes par semaine à catégoriser des fournisseurs</span>
-            </div>
+            @endforeach
         </div>
         <div class="mt-10 bg-blue-50 border border-blue-100 rounded-2xl p-6 sm:p-8 text-center">
-            <p class="text-gray-700 text-lg mb-2">Une facture = <strong>5 minutes</strong> de travail manuel.</p>
-            <p class="text-gray-700 text-lg">50 factures = <strong>4 heures</strong> par mois. <strong>48 heures</strong> par an.</p>
+            <p class="text-gray-700 text-lg mb-2">{!! $content[$seg]['pain_stats'] !!}</p>
+            <p class="text-gray-700 text-lg">{!! $content[$seg]['pain_stats2'] !!}</p>
             <p class="text-red-600 font-semibold text-lg mt-3">C'est du temps que vous ne récupérerez jamais.</p>
         </div>
         <div class="text-center mt-8">
             <a href="#how" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-colors">
-                OCR Receipt le fait en 5 secondes. Découvrez comment ↓
+                {{ $content[$seg]['how_title'] }} Découvrez comment ↓
             </a>
         </div>
     </div>
 </section>
+@endforeach
 
 <!-- ===== HOW IT WORKS ===== -->
-<section id="how" class="py-20 sm:py-28 bg-white">
+@foreach(['all', 'comptables', 'freelances', 'pme'] as $seg)
+<section id="how" data-segment="{{ $seg }}" class="segment-content py-20 sm:py-28 bg-white @if($seg !== 'all') hidden @endif">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 text-center">OCR Receipt le fait en 5 secondes.</h2>
-        <p class="text-gray-500 text-center mb-12 max-w-lg mx-auto">Trois étapes simples pour transformer vos factures en données structurées.</p>
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 text-center">{{ $content[$seg]['how_title'] }}</h2>
+        <p class="text-gray-500 text-center mb-12 max-w-lg mx-auto">{{ $content[$seg]['how_subtitle'] }}</p>
         <div class="grid sm:grid-cols-3 gap-8">
+            @foreach($content[$seg]['steps'] as $step)
             <div class="text-center p-6">
-                <div class="text-4xl mb-4">1️⃣</div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Glissez votre PDF</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">Drag & drop. Un par un ou 50 d'un coup.</p>
+                <div class="text-4xl mb-4">{{ $step['icon'] }}</div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">{{ $step['title'] }}</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">{!! $step['desc'] !!}</p>
             </div>
-            <div class="text-center p-6">
-                <div class="text-4xl mb-4">2️⃣</div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">L'IA fait le travail</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">Tesseract OCR extrait le texte. DeepSeek corrige les erreurs et comprend le contexte. <span class="block mt-1 text-gray-400 italic">"Walm@rt" → "Walmart". "25,99$" → 25.99. Automatique.</span></p>
-            </div>
-            <div class="text-center p-6">
-                <div class="text-4xl mb-4">3️⃣</div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Résultat prêt</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">Date, fournisseur, montant, catégorie. Tout est rempli, vérifié, exportable en CSV.</p>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
+@endforeach
 
 <!-- ===== FEATURES ===== -->
-<section id="features" class="py-20 sm:py-28">
+@foreach(['all', 'comptables', 'freelances', 'pme'] as $seg)
+<section id="features" data-segment="{{ $seg }}" class="segment-content py-20 sm:py-28 @if($seg !== 'all') hidden @endif">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-4">Fonctionnalités</h2>
-        <p class="text-gray-500 text-center mb-12 max-w-lg mx-auto">Tout ce dont vous avez besoin pour gérer vos factures, en un seul outil.</p>
+        <p class="text-gray-500 text-center mb-12 max-w-lg mx-auto">{{ $content[$seg]['features_intro'] }}</p>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            @foreach($content[$seg]['features'] as $feat)
             <div class="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg hover:border-blue-100 transition-all">
-                <div class="text-3xl mb-4">🧠</div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">DeepSeek Intelligent</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">Correction automatique des erreurs OCR. Catégorisation intelligente des fournisseurs. Pas de règles à configurer, pas de machine learning à entraîner.</p>
+                <div class="text-3xl mb-4">{{ $feat['icon'] }}</div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">{{ $feat['title'] }}</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">{{ $feat['desc'] }}</p>
             </div>
-            <div class="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg hover:border-blue-100 transition-all">
-                <div class="text-3xl mb-4">📁</div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Batch Processing</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">Glissez 50 factures. L'app les traite en arrière-plan. Pendant ce temps, vous faites ce que vous voulez. Progression en temps réel, zéro freeze.</p>
-            </div>
-            <div class="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg hover:border-blue-100 transition-all">
-                <div class="text-3xl mb-4">🔒</div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Confidentialité Totale</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">100% local. Vos données sensibles restent sur votre disque dur. Pas de cloud, pas de serveur, pas de fuite. Idéal pour les professionnels avec des données clients confidentielles.</p>
-            </div>
-            <div class="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg hover:border-blue-100 transition-all">
-                <div class="text-3xl mb-4">🏷️</div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Matching Fournisseur</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">DeepSeek reconnaît vos fournisseurs habituels. "Bell Canada Inc." → "Bell". Chaque fois. Plus besoin de mapper manuellement les variations de nom.</p>
-            </div>
-            <div class="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg hover:border-blue-100 transition-all">
-                <div class="text-3xl mb-4">📊</div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Export CSV</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">Un clic pour exporter toutes vos factures en CSV structuré. Compatible Excel, Google Sheets, QuickBooks, Xero.</p>
-            </div>
-            <div class="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg hover:border-blue-100 transition-all">
-                <div class="text-3xl mb-4">🎯</div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Interface Desktop</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">Une vraie app Windows/Mac/Linux, pas un site web. Pas de latence réseau, pas d'abonnement mensuel qui s'accumule. Vous possédez le logiciel, point.</p>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
+@endforeach
 
 <!-- ===== PRICING ===== -->
 <section id="pricing" class="py-20 sm:py-28 bg-white">
@@ -423,10 +538,55 @@
 </footer>
 
 <script>
-    // FAQ accordion: ensure smooth toggle on click
+    // Segment tabs system
+    (function() {
+        const tabs = document.querySelectorAll('.segment-tab');
+        const allSegments = document.querySelectorAll('.segment-content');
+
+        function activateSegment(segmentKey) {
+            // Update tabs
+            tabs.forEach(t => {
+                const isActive = t.dataset.segment === segmentKey;
+                t.className = 'segment-tab whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200' +
+                    (isActive ? ' bg-blue-600 text-white shadow-sm' : ' bg-white text-gray-600 border border-gray-200 hover:border-blue-300 hover:text-blue-600');
+            });
+
+            // Show/hide content
+            allSegments.forEach(el => {
+                if (el.dataset.segment === segmentKey) {
+                    el.classList.remove('hidden');
+                } else {
+                    el.classList.add('hidden');
+                }
+            });
+
+            // Update URL hash
+            if (segmentKey === 'all') {
+                history.pushState(null, '', window.location.pathname);
+            } else {
+                history.pushState(null, '', '#' + segmentKey);
+            }
+        }
+
+        // Tab click handlers
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                activateSegment(tab.dataset.segment);
+                // Smooth scroll to top of hero
+                document.querySelector('[data-segment="' + tab.dataset.segment + '"]').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Load initial segment from URL hash
+        const hash = window.location.hash.replace('#', '');
+        if (hash && ['comptables', 'freelances', 'pme'].includes(hash)) {
+            activateSegment(hash);
+        }
+    })();
+
+    // FAQ accordion
     document.querySelectorAll('.faq-item').forEach(item => {
         item.addEventListener('click', function() {
-            // Close other items
             document.querySelectorAll('.faq-item').forEach(other => {
                 if (other !== this && other.classList.contains('faq-open')) {
                     other.classList.remove('faq-open');
