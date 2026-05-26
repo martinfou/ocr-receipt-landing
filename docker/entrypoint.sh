@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+# Ensure database file exists
+touch /app/storage/app/database.sqlite 2>/dev/null || true
+
 # Run Laravel setup on first deploy or after volume mount
 php artisan storage:link --force 2>/dev/null || true
 

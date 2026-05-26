@@ -38,7 +38,6 @@ primary_region = "yyz"  # Toronto — closest to user
 
 [deploy]
   strategy = "rolling"
-  release_command = "php artisan migrate --force"
 
 [[statics]]
   guest_path = "/app/public"
