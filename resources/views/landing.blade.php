@@ -51,7 +51,7 @@ $content = [
         'how_subtitle' => 'Trois étapes simples pour transformer vos factures en données structurées.',
         'steps' => [
             ['icon' => '1️⃣', 'title' => 'Glissez votre PDF', 'desc' => 'Drag & drop. Un par un ou 50 d\'un coup.'],
-            ['icon' => '2️⃣', 'title' => 'L\'IA fait le travail', 'desc' => 'L'OCR extrait le texte. L\'IA corrige les erreurs et comprend le contexte. <span class="block mt-1 text-gray-400 italic">"Walm@rt" → "Walmart". "25,99$" → 25.99. Automatique.</span>'],
+            ['icon' => '2️⃣', 'title' => 'L\'IA fait le travail', 'desc' => 'L\'OCR extrait le texte. L\'IA corrige les erreurs et comprend le contexte. <span class="block mt-1 text-gray-400 italic">"Walm@rt" → "Walmart". "25,99$" → 25.99. Automatique.</span>'],
             ['icon' => '3️⃣', 'title' => 'Résultat prêt', 'desc' => 'Date, fournisseur, montant, catégorie. Tout est rempli, vérifié, exportable en CSV.'],
         ],
         'features_intro' => 'Tout ce dont vous avez besoin pour gérer vos factures, en un seul outil.',
@@ -147,7 +147,7 @@ $content = [
         'how_subtitle' => 'Lancez le batch. Pendant ce temps, vous gérez votre entreprise.',
         'steps' => [
             ['icon' => '📤', 'title' => 'Déposez les PDF', 'desc' => 'Par courriel, dossier réseau ou glisser-déposer. 200 fichiers, pas de limite.'],
-            ['icon' => '⚡', 'title' => 'Traitement batch', 'desc' => 'L\'IA travaille en arrière-plan. l'IA extrait date, montant, fournisseur, catégorie.'],
+            ['icon' => '⚡', 'title' => 'Traitement batch', 'desc' => 'L\'IA travaille en arrière-plan. l\'IA extrait date, montant, fournisseur, catégorie.'],
             ['icon' => '📊', 'title' => 'Exportez pour le CPA', 'desc' => 'CSV prêt pour votre comptable. QuickBooks, Xero, Sage, Acomba.'],
         ],
         'features_intro' => 'Automatisez votre cycle factures complet.',
