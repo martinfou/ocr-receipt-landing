@@ -20,7 +20,7 @@ RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --no-interaction --no-p
 
 # Copy package files
 COPY package.json package-lock.json* ./
-RUN npm ci --no-optional 2>/dev/null || npm install --no-optional
+RUN npm ci 2>/dev/null || npm install
 
 # Copy source
 COPY . .
