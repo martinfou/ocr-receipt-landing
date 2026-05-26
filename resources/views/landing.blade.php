@@ -24,9 +24,6 @@
         html { scroll-behavior: smooth; }
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
         .faq-open .faq-answer { max-height: 300px; }
-        .testimonial-track { animation: scroll 30s linear infinite; }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .testimonial-wrapper:hover .testimonial-track { animation-play-state: paused; }
         .segment-content { transition: opacity 0.3s ease; }
         .segment-content.hidden { display: none; }
     </style>
@@ -40,7 +37,7 @@ $content = [
         'badge' => 'Tous',
         'title' => "L'OCR qui comprend<br class=\"hidden sm:block\"> ce qu'il lit.",
         'subtitle' => 'Importez vos factures PDF.<br>L\'IA extrait, corrige et classe.<br>Zéro configuration. Zéro nuage.',
-        'social_proof' => 'Déjà utilisé par des freelances et PME au Québec.',
+        'social_proof' => "En développement — accès anticipé ouvert.\n            <span class=\"block sm:inline\">· Inscrivez-vous pour être parmi les premiers utilisateurs</span>",
         'pain_title' => 'Vous aussi vous faites ça ?',
         'pain_points' => [
             'Ouvrir un PDF → Lire le montant → Copier dans Excel → Ranger le fichier',
@@ -70,9 +67,9 @@ $content = [
     'comptables' => [
         'icon' => '🏢',
         'badge' => 'Comptables',
-        'title' => '50 cabinets au Québec<br class="hidden sm:block"> l\'utilisent déjà.',
-        'subtitle' => 'DeepSeek reconnaît vos fournisseurs automatiquement.<br>Fini le mapping manuel des noms de fournisseurs.<br>Conforme à la confidentialité de vos clients.',
-        'social_proof' => 'Adopté par des cabinets comptables à Montréal, Québec et Sherbrooke.',
+        'title' => 'Conçu pour les cabinets comptables.<br class="hidden sm:block"> Pas de nuage. Pas de fuite.',
+        'subtitle' => 'DeepSeek reconnaît vos fournisseurs automatiquement.<br>Fini le mapping manuel des noms de fournisseurs.<br>100% local — les données de vos clients restent chez vous.',
+        'social_proof' => "En développement — version Comptables en préparation.\n            <span class=\"block sm:inline\">· Inscrivez-vous pour la beta fermée</span>",
         'pain_title' => 'Vous perdez combien d\'heures par mois ?',
         'pain_points' => [
             'Des clients qui envoient des PDF non-standardisés dans 15 formats différents',
@@ -104,7 +101,7 @@ $content = [
         'badge' => 'Freelances',
         'title' => '5 secondes par facture.<br class="hidden sm:block"> Zéro configuration.',
         'subtitle' => 'Tu glisses ton PDF. L\'IA le lit.<br>Date, montant, fournisseur, catégorie. Tout est rempli.<br>Tu passes à ta vraie job.',
-        'social_proof' => 'Utilisé par des designers, développeurs, photographes et consultants au Québec.',
+        'social_proof' => "En développement — version Freelance bientôt disponible.\n            <span class=\"block sm:inline\">· Inscrivez-vous pour l'accès anticipé</span>",
         'pain_title' => 'Tu fais ta compta à l\'arrache ?',
         'pain_points' => [
             'Un dossier « Factures » qui grossit de mois en mois, sans que tu aies le temps de le classer',
@@ -136,7 +133,7 @@ $content = [
         'badge' => 'PME',
         'title' => '48 heures par an gaspillées<br class="hidden sm:block"> à classer des PDF.',
         'subtitle' => 'OCR Receipt traite vos factures en batch.<br>DeepSeek extrait, corrige et classe.<br>Votre comptable reçoit des données propres.',
-        'social_proof' => 'Déjà adopté par des PME de 5 à 50 employés au Québec.',
+        'social_proof' => "En développement — version PME en préparation.\n            <span class=\"block sm:inline\">· Contactez-nous pour une démo privée</span>",
         'pain_title' => 'Vous gérez combien de factures par mois ?',
         'pain_points' => [
             '50 à 200 factures qui arrivent par courriel chaque mois, sans format standard',
@@ -225,45 +222,6 @@ $content = [
     </div>
 </section>
 @endforeach
-
-<!-- ===== SOCIAL PROOF ===== -->
-<section class="bg-white border-y border-gray-100 py-8 overflow-hidden">
-    <div class="testimonial-wrapper">
-        <div class="testimonial-track flex gap-8 whitespace-nowrap">
-            <div class="flex items-center gap-8 shrink-0">
-                <span class="text-gray-900 font-medium italic">"Je sauve environ 3h par mois sur le classement des factures."</span>
-                <span class="text-gray-400">—</span>
-                <span class="text-gray-600">Sophie T., Comptable agréée</span>
-            </div>
-            <div class="flex items-center gap-8 shrink-0">
-                <span class="text-gray-900 font-medium italic">"Enfin un outil desktop qui respecte la confidentialité de mes clients."</span>
-                <span class="text-gray-400">—</span>
-                <span class="text-gray-600">Marc L., Notaire</span>
-            </div>
-            <div class="flex items-center gap-8 shrink-0">
-                <span class="text-gray-900 font-medium italic">"Le matching fournisseur m'a bluffé. DeepSeek reconnaît Bell Canada Inc. → Bell tout seul."</span>
-                <span class="text-gray-400">—</span>
-                <span class="text-gray-600">Alexandre R., Freelance TI</span>
-            </div>
-            <!-- Duplicate for seamless scroll -->
-            <div class="flex items-center gap-8 shrink-0">
-                <span class="text-gray-900 font-medium italic">"Je sauve environ 3h par mois sur le classement des factures."</span>
-                <span class="text-gray-400">—</span>
-                <span class="text-gray-600">Sophie T., Comptable agréée</span>
-            </div>
-            <div class="flex items-center gap-8 shrink-0">
-                <span class="text-gray-900 font-medium italic">"Enfin un outil desktop qui respecte la confidentialité de mes clients."</span>
-                <span class="text-gray-400">—</span>
-                <span class="text-gray-600">Marc L., Notaire</span>
-            </div>
-            <div class="flex items-center gap-8 shrink-0">
-                <span class="text-gray-900 font-medium italic">"Le matching fournisseur m'a bluffé. DeepSeek reconnaît Bell Canada Inc. → Bell tout seul."</span>
-                <span class="text-gray-400">—</span>
-                <span class="text-gray-600">Alexandre R., Freelance TI</span>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- ===== PROBLEM SECTION ===== -->
 @foreach(['all', 'comptables', 'freelances', 'pme'] as $seg)
@@ -438,7 +396,7 @@ $content = [
         <h2 class="text-2xl font-bold text-gray-900 mb-2">Développé par Martin Fournier</h2>
         <p class="text-gray-500 text-sm mb-2">📍 Québec, Canada</p>
         <p class="text-gray-600 max-w-lg mx-auto mb-6">
-            Développeur et entrepreneur. OCR Receipt est né d'une frustration personnelle — et devient aujourd'hui un produit qu'on utilise dans de vrais cabinets comptables au Québec.
+            Développeur et entrepreneur. OCR Receipt est né d'une frustration personnelle — transformer des heures de saisie manuelle en 5 secondes de travail. Le produit est en développement, l'accès anticipé est ouvert.
         </p>
         <div class="flex items-center justify-center gap-4 text-sm">
             <a href="https://martinfournier.com" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-700 font-medium hover:underline">🔗 martinfournier.com</a>
