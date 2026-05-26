@@ -67,7 +67,8 @@ RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache /app/public/bui
 COPY docker/nginx.conf /etc/nginx/http.d/default.conf
 
 # Supervisor config
-COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+RUN mkdir -p /etc/supervisor
+COPY docker/supervisord.conf /etc/supervisord.conf
 
 # Entrypoint
 COPY docker/entrypoint.sh /entrypoint.sh

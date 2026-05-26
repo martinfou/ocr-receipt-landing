@@ -16,4 +16,4 @@ php artisan view:cache --ansi 2>/dev/null || true
 php artisan migrate --force --ansi 2>/dev/null || true
 
 # Start supervisor (runs nginx + php-fpm)
-exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
+exec /usr/bin/supervisord -c /etc/supervisord.conf
