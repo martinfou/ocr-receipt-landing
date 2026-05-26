@@ -16,7 +16,7 @@ RUN docker-php-ext-install pdo pdo_sqlite bcmath
 
 # Copy dependency files
 COPY composer.json composer.lock ./
-RUN composer install --no-dev --no-interaction --no-progress --optimize-autoloader
+RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --no-interaction --no-progress --optimize-autoloader --no-scripts
 
 # Copy package files
 COPY package.json package-lock.json* ./
@@ -24,6 +24,9 @@ RUN npm ci --no-optional 2>/dev/null || npm install --no-optional
 
 # Copy source
 COPY . .
+
+# Run post-autoload scripts now that artisan exists
+RUN php artisan package:discover --ansi 2>/dev/null || true
 
 # Build Vite assets
 RUN npm run build
