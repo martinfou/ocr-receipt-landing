@@ -26,6 +26,8 @@ RUN npm ci 2>/dev/null || npm install
 COPY . .
 
 # Run post-autoload scripts now that artisan exists
+# Delete stale dev cache first, then regenerate
+RUN rm -f bootstrap/cache/packages.php bootstrap/cache/services.php || true
 RUN php artisan package:discover --ansi 2>/dev/null || true
 
 # Build Vite assets
@@ -73,4 +75,4 @@ EXPOSE 8080
 
 WORKDIR /app
 
-CMD php-fpm -D 2>&1 || true; nginx -g "daemon off;"
+ENTRYPOINT ["/entrypoint.sh"]

@@ -12,3 +12,4 @@
 .php_cs.*
 _bmad*
 _bmad-output*
+bootstrap/cache/*.php

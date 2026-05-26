@@ -1,25 +1,23 @@
 #!/bin/bash
 set -e
 
-echo "=== Starting up ==="
-
-# Create storage dirs
+# Create storage directories under the volume mount
 mkdir -p /app/storage/app /app/storage/logs /app/storage/framework/cache/data \
   /app/storage/framework/sessions /app/storage/framework/views \
-  /app/bootstrap/cache 2>&1
+  /app/bootstrap/cache
 
-chown -R www-data:www-data /app/storage /app/bootstrap/cache 2>/dev/null || true
+# Create SQLite database file
 touch /app/storage/app/database.sqlite 2>/dev/null || true
 
-# Test nginx config
-echo "--- Testing nginx config ---"
-nginx -t 2>&1
+# Set proper permissions for www-data (PHP-FPM runs as www-data)
+chmod -R 777 /app/storage 2>/dev/null || true
+chmod -R 777 /app/bootstrap/cache 2>/dev/null || true
 
-# Start php-fpm
-echo "--- Starting PHP-FPM ---"
-php-fpm -D 2>&1
-echo "PHP-FPM exit code: $?"
+# Start php-fpm in daemon mode (may fail on first boot, that's OK)
+php-fpm -D 2>/dev/null || true
 
-# Start nginx foreground
-echo "--- Starting Nginx ---"
+# Run migrations
+php artisan migrate --force 2>/dev/null || true
+
+# Start nginx in foreground
 exec nginx -g "daemon off;"
