@@ -73,4 +73,4 @@ EXPOSE 8080
 
 WORKDIR /app
 
-CMD php-fpm -D && nginx -g "daemon off;"
+CMD php-fpm -D 2>&1 || true; nginx -g "daemon off;"
