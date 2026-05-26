@@ -51,15 +51,15 @@ $content = [
         'how_subtitle' => 'Trois étapes simples pour transformer vos factures en données structurées.',
         'steps' => [
             ['icon' => '1️⃣', 'title' => 'Glissez votre PDF', 'desc' => 'Drag & drop. Un par un ou 50 d\'un coup.'],
-            ['icon' => '2️⃣', 'title' => 'L\'IA fait le travail', 'desc' => 'Tesseract OCR extrait le texte. DeepSeek corrige les erreurs et comprend le contexte. <span class="block mt-1 text-gray-400 italic">"Walm@rt" → "Walmart". "25,99$" → 25.99. Automatique.</span>'],
+            ['icon' => '2️⃣', 'title' => 'L\'IA fait le travail', 'desc' => 'L'OCR extrait le texte. L\'IA corrige les erreurs et comprend le contexte. <span class="block mt-1 text-gray-400 italic">"Walm@rt" → "Walmart". "25,99$" → 25.99. Automatique.</span>'],
             ['icon' => '3️⃣', 'title' => 'Résultat prêt', 'desc' => 'Date, fournisseur, montant, catégorie. Tout est rempli, vérifié, exportable en CSV.'],
         ],
         'features_intro' => 'Tout ce dont vous avez besoin pour gérer vos factures, en un seul outil.',
         'features' => [
-            ['icon' => '🧠', 'title' => 'DeepSeek Intelligent', 'desc' => 'Correction automatique des erreurs OCR. Catégorisation intelligente des fournisseurs. Pas de règles à configurer, pas de machine learning à entraîner.'],
+            ['icon' => '🧠', 'title' => 'IA Intelligente', 'desc' => 'Correction automatique des erreurs OCR. Catégorisation intelligente des fournisseurs. Pas de règles à configurer, pas de machine learning à entraîner.'],
             ['icon' => '📁', 'title' => 'Batch Processing', 'desc' => 'Glissez 50 factures. L\'app les traite en arrière-plan. Pendant ce temps, vous faites ce que vous voulez. Progression en temps réel, zéro freeze.'],
             ['icon' => '🔒', 'title' => 'Confidentialité Totale', 'desc' => '100% local. Vos données sensibles restent sur votre disque dur. Pas de cloud, pas de serveur, pas de fuite. Idéal pour les professionnels avec des données clients confidentielles.'],
-            ['icon' => '🏷️', 'title' => 'Matching Fournisseur', 'desc' => 'DeepSeek reconnaît vos fournisseurs habituels. "Bell Canada Inc." → "Bell". Chaque fois. Plus besoin de mapper manuellement les variations de nom.'],
+            ['icon' => '🏷️', 'title' => 'Matching Fournisseur', 'desc' => 'L\'IA reconnaît vos fournisseurs habituels. "Bell Canada Inc." → "Bell". Chaque fois. Plus besoin de mapper manuellement les variations de nom.'],
             ['icon' => '📊', 'title' => 'Export CSV', 'desc' => 'Un clic pour exporter toutes vos factures en CSV structuré. Compatible Excel, Google Sheets, QuickBooks, Xero.'],
             ['icon' => '🎯', 'title' => 'Interface Desktop', 'desc' => 'Une vraie app Windows/Mac/Linux, pas un site web. Pas de latence réseau, pas d\'abonnement mensuel qui s\'accumule. Vous possédez le logiciel, point.'],
         ],
@@ -68,7 +68,7 @@ $content = [
         'icon' => '🏢',
         'badge' => 'Comptables',
         'title' => 'Conçu pour les cabinets comptables.<br class="hidden sm:block"> Pas de nuage. Pas de fuite.',
-        'subtitle' => 'DeepSeek reconnaît vos fournisseurs automatiquement.<br>Fini le mapping manuel des noms de fournisseurs.<br>100% local — les données de vos clients restent chez vous.',
+        'subtitle' => 'L\'IA reconnaît vos fournisseurs automatiquement.<br>Fini le mapping manuel des noms de fournisseurs.<br>100% local — les données de vos clients restent chez vous.',
         'social_proof' => "En développement — version Comptables en préparation.\n            <span class=\"block sm:inline\">· Inscrivez-vous pour la beta fermée</span>",
         'pain_title' => 'Vous perdez combien d\'heures par mois ?',
         'pain_points' => [
@@ -83,15 +83,15 @@ $content = [
         'how_subtitle' => 'Vos clients envoient leurs PDF. L\'IA fait le reste.',
         'steps' => [
             ['icon' => '📥', 'title' => 'Import client', 'desc' => 'Recevez les PDF par courriel ou dossier partagé. Import en un clic.'],
-            ['icon' => '🤖', 'title' => 'DeepSeek analyse', 'desc' => 'L\'IA reconnaît les fournisseurs, les montants, les dates. Même les variations de nom.'],
+            ['icon' => '🤖', 'title' => 'IA analyse', 'desc' => 'L\'IA reconnaît les fournisseurs, les montants, les dates. Même les variations de nom.'],
             ['icon' => '📋', 'title' => 'Rapport prêt', 'desc' => 'Export structuré pour vos écritures comptables. QuickBooks, Xero, CSV.'],
         ],
         'features_intro' => 'Des fonctionnalités pensées pour les professionnels de la comptabilité.',
         'features' => [
-            ['icon' => '🧠', 'title' => 'DeepSeek Intelligent', 'desc' => 'Correction automatique des erreurs OCR. Catégorisation intelligente des fournisseurs par dossier client. Apprentissage continu.'],
+            ['icon' => '🧠', 'title' => 'IA Intelligente', 'desc' => 'Correction automatique des erreurs OCR. Catégorisation intelligente des fournisseurs par dossier client. Apprentissage continu.'],
             ['icon' => '📁', 'title' => 'Traitement par lot', 'desc' => 'Importez les PDF de 10 clients d\'un coup. L\'app traite tout en arrière-plan.'],
             ['icon' => '🔒', 'title' => 'Confidentialité Client', 'desc' => '100% local. Aucune donnée client ne quitte votre poste de travail. CNESST-compatible.'],
-            ['icon' => '🏷️', 'title' => 'Matching Fournisseur Pro', 'desc' => 'DeepSeek mémorise les fournisseurs par dossier client. "Bell Canada Inc." → "Bell". "SMT Solutions" → "SMT".'],
+            ['icon' => '🏷️', 'title' => 'Matching Fournisseur Pro', 'desc' => 'L\'IA mémorise les fournisseurs par dossier client. "Bell Canada Inc." → "Bell". "SMT Solutions" → "SMT".'],
             ['icon' => '📊', 'title' => 'Export Comptable', 'desc' => 'CSV structuré prêt pour Acomba, QuickBooks, Xero, Sage. Mapping des comptes personnalisable.'],
             ['icon' => '🎯', 'title' => 'Interface Desktop', 'desc' => 'App Windows/Mac/Linux native. Pas de cloud. Pas d\'abonnement. Licence perpétuelle.'],
         ],
@@ -120,10 +120,10 @@ $content = [
         ],
         'features_intro' => 'Simple, rapide, efficace. Pas de bloatware.',
         'features' => [
-            ['icon' => '🧠', 'title' => 'DeepSeek Intelligent', 'desc' => 'L\'IA corrige les erreurs de scan. "Walm@rt" → "Walmart". "25,99$" → 25.99. Tu relis rien.'],
+            ['icon' => '🧠', 'title' => 'IA Intelligente', 'desc' => 'L\'IA corrige les erreurs de scan. "Walm@rt" → "Walmart". "25,99$" → 25.99. Tu relis rien.'],
             ['icon' => '📁', 'title' => 'Batch Processing', 'desc' => 'Glisse tout ton mois d\'un coup. L\'app traite tout en arrière-plan.'],
             ['icon' => '🔒', 'title' => '100% Local', 'desc' => 'Tes fichiers restent sur ton Mac/PC. Pas de cloud, pas d\'abonnement, pas de fuite.'],
-            ['icon' => '🏷️', 'title' => 'Matching Fournisseur', 'desc' => 'DeepSeek reconnaît tes fournisseurs habituels. Shopify, Stripe, AWS, Twilio — tout est classé automatiquement.'],
+            ['icon' => '🏷️', 'title' => 'Matching Fournisseur', 'desc' => 'L\'IA reconnaît tes fournisseurs habituels. Shopify, Stripe, AWS, Twilio — tout est classé automatiquement.'],
             ['icon' => '📊', 'title' => 'Export CSV', 'desc' => 'Un clic. Envoie à ton comptable. Excel, Sheets, tout ce que tu veux.'],
             ['icon' => '🎯', 'title' => 'Interface Desktop', 'desc' => 'Une vraie app. Pas un site web. Pas de navigateur. Pas de latence.'],
         ],
@@ -132,7 +132,7 @@ $content = [
         'icon' => '🏭',
         'badge' => 'PME',
         'title' => '48 heures par an gaspillées<br class="hidden sm:block"> à classer des PDF.',
-        'subtitle' => 'OCR Receipt traite vos factures en batch.<br>DeepSeek extrait, corrige et classe.<br>Votre comptable reçoit des données propres.',
+        'subtitle' => 'OCR Receipt traite vos factures en batch.<br>L\'IA extrait, corrige et classe.<br>Votre comptable reçoit des données propres.',
         'social_proof' => "En développement — version PME en préparation.\n            <span class=\"block sm:inline\">· Contactez-nous pour une démo privée</span>",
         'pain_title' => 'Vous gérez combien de factures par mois ?',
         'pain_points' => [
@@ -147,15 +147,15 @@ $content = [
         'how_subtitle' => 'Lancez le batch. Pendant ce temps, vous gérez votre entreprise.',
         'steps' => [
             ['icon' => '📤', 'title' => 'Déposez les PDF', 'desc' => 'Par courriel, dossier réseau ou glisser-déposer. 200 fichiers, pas de limite.'],
-            ['icon' => '⚡', 'title' => 'Traitement batch', 'desc' => 'L\'IA travaille en arrière-plan. DeepSeek extrait date, montant, fournisseur, catégorie.'],
+            ['icon' => '⚡', 'title' => 'Traitement batch', 'desc' => 'L\'IA travaille en arrière-plan. l'IA extrait date, montant, fournisseur, catégorie.'],
             ['icon' => '📊', 'title' => 'Exportez pour le CPA', 'desc' => 'CSV prêt pour votre comptable. QuickBooks, Xero, Sage, Acomba.'],
         ],
         'features_intro' => 'Automatisez votre cycle factures complet.',
         'features' => [
-            ['icon' => '🧠', 'title' => 'DeepSeek Intelligent', 'desc' => 'Correction automatique des erreurs OCR. Catégorisation par département, projet ou centre de coût.'],
+            ['icon' => '🧠', 'title' => 'IA Intelligente', 'desc' => 'Correction automatique des erreurs OCR. Catégorisation par département, projet ou centre de coût.'],
             ['icon' => '📁', 'title' => 'Batch Processing', 'desc' => 'Importez 200 factures d\'un coup. Traitement en arrière-plan. Progression en temps réel.'],
             ['icon' => '🔒', 'title' => 'Confidentialité Totale', 'desc' => '100% local. Vos données sensibles (clients, fournisseurs, prix) restent sur votre serveur. Zéro cloud.'],
-            ['icon' => '🏷️', 'title' => 'Matching Fournisseur Pro', 'desc' => 'DeepSeek apprend vos relations fournisseurs. « 9384-1234 Québec Inc. » → « Fournitures Bureau Plus ».'],
+            ['icon' => '🏷️', 'title' => 'Matching Fournisseur Pro', 'desc' => 'L\'IA apprend vos relations fournisseurs. « 9384-1234 Québec Inc. » → « Fournitures Bureau Plus ».'],
             ['icon' => '📊', 'title' => 'Export Multi-format', 'desc' => 'CSV, Excel, QuickBooks, Xero, Sage, Acomba. Votre CPA reçoit des données propres.'],
             ['icon' => '🎯', 'title' => 'Interface Desktop', 'desc' => 'App Windows/Mac/Linux. Licence perpétuelle. Pas d\'abonnement qui augmente chaque année.'],
         ],
@@ -217,7 +217,7 @@ $content = [
         </div>
         <p class="text-sm text-gray-500">
             {{ $content[$seg]['social_proof'] }}
-            <span class="block sm:inline text-gray-400">· DeepSeek intégré · 100% local · Licence perpétuelle</span>
+            <span class="block sm:inline text-gray-400">· IA intégrée · 100% local · Licence perpétuelle · Cloud IA optionnel</span>
         </p>
     </div>
 </section>
@@ -290,40 +290,40 @@ $content = [
 
 <!-- ===== PRICING ===== -->
 <section id="pricing" class="py-20 sm:py-28 bg-white">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-4">Tarifs</h2>
-        <p class="text-gray-500 text-center mb-12 max-w-lg mx-auto">Commencez gratuitement. Pas de carte de crédit requise.</p>
-        <div class="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            <!-- Free Plan -->
+        <p class="text-gray-500 text-center mb-12 max-w-lg mx-auto">L'application desktop est gratuite. Si l'IA locale est trop lente ou la qualité insuffisante, basculez dans le cloud.</p>
+        <div class="grid sm:grid-cols-3 gap-6">
+            <!-- Desktop Gratuit -->
             <div class="border border-gray-200 rounded-2xl p-8 flex flex-col">
-                <div class="text-4xl mb-4">🎁</div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Gratuit</h3>
+                <div class="text-4xl mb-4">🖥️</div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Desktop Gratuit</h3>
                 <p class="text-4xl font-extrabold text-gray-900 mb-6">0$</p>
                 <ul class="space-y-3 text-sm text-gray-700 mb-8 flex-1">
-                    <li class="flex items-start gap-2"><span class="text-green-500 shrink-0">✅</span> 100 reçus/mois</li>
-                    <li class="flex items-start gap-2"><span class="text-green-500 shrink-0">✅</span> OCR Tesseract</li>
+                    <li class="flex items-start gap-2"><span class="text-green-500 shrink-0">✅</span> OCR + IA local</li>
+                    <li class="flex items-start gap-2"><span class="text-green-500 shrink-0">✅</span> 100 pages/mois</li>
                     <li class="flex items-start gap-2"><span class="text-green-500 shrink-0">✅</span> Champs : date, montant</li>
-                    <li class="flex items-start gap-2"><span class="text-gray-300 shrink-0">❌</span> <span class="text-gray-400">Correction DeepSeek</span></li>
                     <li class="flex items-start gap-2"><span class="text-gray-300 shrink-0">❌</span> <span class="text-gray-400">Export CSV</span></li>
                     <li class="flex items-start gap-2"><span class="text-gray-300 shrink-0">❌</span> <span class="text-gray-400">Batch processing</span></li>
+                    <li class="flex items-start gap-2"><span class="text-gray-300 shrink-0">❌</span> <span class="text-gray-400">Cloud fallback</span></li>
                 </ul>
                 <a href="#" class="block text-center bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold py-3 rounded-xl transition-colors">
                     ⬇️ Télécharger gratuit
                 </a>
             </div>
-            <!-- Pro Plan -->
+            <!-- Pro Desktop -->
             <div class="border-2 border-blue-500 rounded-2xl p-8 flex flex-col relative">
                 <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1 rounded-full">Populaire</div>
                 <div class="text-4xl mb-4">⭐</div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Pro</h3>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Pro Desktop</h3>
                 <p class="text-4xl font-extrabold text-gray-900 mb-1">199$</p>
                 <p class="text-sm text-gray-400 mb-6">licence perpétuelle</p>
-                <p class="text-xs text-gray-400 mb-6 italic">+ 5$/mois (sync cloud, optionnel)</p>
+                <p class="text-xs text-gray-400 mb-6 italic">+ cloud fallback optionnel</p>
                 <ul class="space-y-3 text-sm text-gray-700 mb-8 flex-1">
-                    <li class="flex items-start gap-2"><span class="text-green-500 shrink-0">✅</span> Reçus illimités</li>
-                    <li class="flex items-start gap-2"><span class="text-green-500 shrink-0">✅</span> OCR + DeepSeek (correction IA)</li>
+                    <li class="flex items-start gap-2"><span class="text-green-500 shrink-0">✅</span> Pages illimitées en local</li>
+                    <li class="flex items-start gap-2"><span class="text-green-500 shrink-0">✅</span> OCR + IA (correction intelligente)</li>
                     <li class="flex items-start gap-2"><span class="text-green-500 shrink-0">✅</span> Line items + catégories</li>
-                    <li class="flex items-start gap-2"><span class="text-green-500 shrink-0">✅</span> Export CSV</li>
+                    <li class="flex items-start gap-2"><span class="text-green-500 shrink-0">✅</span> Export CSV + QuickBooks</li>
                     <li class="flex items-start gap-2"><span class="text-green-500 shrink-0">✅</span> Matching fournisseur</li>
                     <li class="flex items-start gap-2"><span class="text-green-500 shrink-0">✅</span> Batch processing</li>
                 </ul>
@@ -331,7 +331,28 @@ $content = [
                     💳 Acheter — Accès anticipé
                 </a>
             </div>
+            <!-- Cloud API -->
+            <div class="border border-gray-200 rounded-2xl p-8 flex flex-col relative">
+                <div class="text-4xl mb-4">☁️</div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Cloud API</h3>
+                <p class="text-4xl font-extrabold text-gray-900 mb-1">5$</p>
+                <p class="text-sm text-gray-400 mb-2">à partir de</p>
+                <p class="text-xs text-gray-400 mb-6 italic">forfaits prépayés · pas d'abonnement</p>
+                <ul class="space-y-3 text-sm text-gray-700 mb-8 flex-1">
+                    <li class="flex items-start gap-2"><span class="text-green-500 shrink-0">✅</span> Fallback auto si l'IA locale est trop lente</li>
+                    <li class="flex items-start gap-2"><span class="text-green-500 shrink-0">✅</span> OCR + IA cloud performant</li>
+                    <li class="flex items-start gap-2"><span class="text-green-500 shrink-0">✅</span> Upload direct via API web</li>
+                    <li class="flex items-start gap-2"><span class="text-green-500 shrink-0">✅</span> 5$ → 100 pages · 10$ → 250 pages · 20$ → 600 pages</li>
+                    <li class="flex items-start gap-2"><span class="text-green-500 shrink-0">✅</span> Pages valides à vie</li>
+                </ul>
+                <a href="#beta" class="block text-center bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold py-3 rounded-xl transition-colors border border-blue-200">
+                    ☁️ Recharger des pages
+                </a>
+            </div>
         </div>
+        <p class="text-center text-sm text-gray-400 mt-8">
+            💡 L'app desktop essaie d'abord en local. Si c'est trop lent ou la qualité insuffisante, elle envoie automatiquement dans le cloud — les pages sont déduites de votre forfait.
+        </p>
     </div>
 </section>
 
@@ -419,7 +440,7 @@ $content = [
                     <span class="text-blue-600 shrink-0 transition-transform duration-200">▼</span>
                 </div>
                 <div class="faq-answer px-4 sm:px-5">
-                    <p class="text-gray-600 text-sm pb-4">Non. L'OCR se fait en local avec Tesseract. DeepSeek peut fonctionner en local ou via API (optionnel). Vous choisissez.</p>
+                    <p class="text-gray-600 text-sm pb-4">Par défaut, oui — tout se fait en local. Si vous activez le cloud (quand l\'IA locale est trop lente), seules les pages que vous traitez sont envoyées de fa\u00e7on sécuritaire.</p>
                 </div>
             </div>
             <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden cursor-pointer" onclick="this.classList.toggle('faq-open')">
