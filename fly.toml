@@ -35,6 +35,13 @@ primary_region = "yyz"  # Toronto — closest to user
   SESSION_DOMAIN = ".ocrreceipt.com"
   FILESYSTEM_DISK = "local"
 
+  # Stripe
+  STRIPE_SECRET_KEY = ""
+  STRIPE_PUBLISHABLE_KEY = ""
+  STRIPE_WEBHOOK_SECRET = ""
+  STRIPE_PRODUCT_ID = "ocr-receipt-pro-license"
+  LICENSE_HMAC_SECRET = "ocr-receipt-hmac-secret-v1-2026"
+
 [deploy]
   strategy = "rolling"
 

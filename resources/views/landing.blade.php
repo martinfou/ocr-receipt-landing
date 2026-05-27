@@ -26,6 +26,9 @@
         .faq-open .faq-answer { max-height: 300px; }
         .segment-content { transition: opacity 0.3s ease; }
         .segment-content.hidden { display: none; }
+        .modal-hidden { display: none; }
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 100; }
+        .modal-content { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); background: #fff; border-radius: 1.5rem; padding: 2.5rem; z-index: 101; max-width: 440px; width: 90%; text-align: center; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased">
@@ -327,9 +330,10 @@ $content = [
                     <li class="flex items-start gap-2"><span class="text-green-500 shrink-0">✅</span> Matching fournisseur</li>
                     <li class="flex items-start gap-2"><span class="text-green-500 shrink-0">✅</span> Batch processing</li>
                 </ul>
-                <a href="#beta" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors shadow-lg shadow-blue-600/25">
+                <button type="button" onclick="document.getElementById('checkout-modal').classList.remove('hidden'); document.getElementById('checkout-overlay').classList.remove('hidden');"
+                        class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors shadow-lg shadow-blue-600/25">
                     💳 Acheter — Accès anticipé
-                </a>
+                </button>
             </div>
             <!-- Cloud API -->
             <div class="border border-gray-200 rounded-2xl p-8 flex flex-col relative">
@@ -515,6 +519,42 @@ $content = [
         </p>
     </div>
 </footer>
+
+<!-- ===== CHECKOUT MODAL ===== -->
+<div id="checkout-overlay" class="modal-hidden modal-overlay" onclick="closeCheckout()"></div>
+<div id="checkout-modal" class="modal-hidden modal-content">
+    <div style="font-size:2.5rem;margin-bottom:.75rem">⭐</div>
+    <h3 style="font-size:1.25rem;font-weight:700;color:#111827;margin-bottom:.25rem">Licence Pro Desktop</h3>
+    <p style="color:#6b7280;font-size:.875rem;margin-bottom:1rem">199$ — licence perpétuelle · pages illimitées</p>
+
+    @if(session('error'))
+        <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:.75rem;padding:.75rem;margin-bottom:1rem;font-size:.875rem;color:#b91c1c">
+            {{ session('error') }}
+        </div>
+    @endif
+
+    <form method="POST" action="{{ route('license.checkout') }}" style="text-align:left">
+        @csrf
+        <label style="display:block;font-size:.875rem;font-weight:600;color:#374151;margin-bottom:.375rem">Votre email</label>
+        <input type="email" name="email" required placeholder="vous@exemple.com"
+               style="width:100%;padding:.75rem 1rem;border:1px solid #d1d5db;border-radius:.75rem;font-size:1rem;outline:none;box-sizing:border-box">
+        <p style="font-size:.75rem;color:#6b7280;margin-top:.375rem;margin-bottom:1.25rem">La clé de licence sera envoyée à cette adresse et affichée après le paiement.</p>
+        <button type="submit"
+                style="width:100%;background:#2563eb;color:#fff;font-weight:700;padding:.875rem;border:none;border-radius:.75rem;font-size:1rem;cursor:pointer;transition:background .2s"
+                onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">
+            💳 Payer 199$ par carte
+        </button>
+    </form>
+    <p style="font-size:.75rem;color:#9ca3af;margin-top:.75rem">Paiement sécurisé via Stripe · Satisfait ou remboursé sous 30 jours</p>
+    <button onclick="closeCheckout()" style="margin-top:1rem;background:none;border:none;color:#6b7280;font-size:.875rem;cursor:pointer;text-decoration:underline">Annuler</button>
+</div>
+
+<script>
+    function closeCheckout() {
+        document.getElementById('checkout-modal').classList.add('modal-hidden');
+        document.getElementById('checkout-overlay').classList.add('modal-hidden');
+    }
+</script>
 
 <script>
     // Segment tabs system
