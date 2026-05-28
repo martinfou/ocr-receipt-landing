@@ -25,6 +25,12 @@ class LicenseController extends Controller
             'email' => 'required|email',
         ]);
 
+        // Graceful fallback when Stripe is not configured
+        $secretKey = config('services.stripe.secret_key');
+        if (empty($secretKey)) {
+            return back()->with('error', 'Le paiement en ligne sera bientôt disponible ! OCR Receipt est en phase d\'accès anticipé. Pour obtenir votre licence Pro dès maintenant, contactez-nous à hello@martinfournier.com.');
+        }
+
         $email = $request->input('email');
 
         try {
@@ -54,8 +60,23 @@ class LicenseController extends Controller
             return redirect($session->url);
         } catch (\Exception $e) {
             Log::error('Stripe checkout failed: ' . $e->getMessage());
-            return back()->with('error', 'Erreur lors de la création de la session de paiement. Veuillez réessayer.');
+            return back()->with('error', 'Erreur lors de la création de la session de paiement. Veuillez réessayer ou contacter hello@martinfournier.com.');
         }
+    }
+
+    /**
+     * Quick check endpoint — tells the UI whether Stripe is configured.
+     */
+    public function status()
+    {
+        $configured = !empty(config('services.stripe.secret_key'))
+            && !empty(config('services.stripe.publishable_key'));
+
+        return response()->json([
+            'stripe_configured' => $configured,
+            'app' => 'OCR Receipt',
+            'version' => '1.0.0',
+        ]);
     }
 
     /**

@@ -15,3 +15,6 @@ Route::get('/checkout/cancel', [LicenseController::class, 'cancel'])->name('lice
 // Download page (with license verification)
 Route::get('/download/{email}/{licenseKey}', [LicenseController::class, 'download'])->name('license.download');
 Route::get('/download-file/{filename}', [LicenseController::class, 'serveFile'])->name('license.serve');
+
+// Health / status
+Route::get('/api/status', [LicenseController::class, 'status'])->name('license.status');
