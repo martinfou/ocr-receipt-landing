@@ -223,4 +223,47 @@ class LicenseController extends Controller
         $msg = "{$email}|1.0";
         return hash_hmac('sha256', $msg, $secret);
     }
+
+    /**
+     * Serve the Sparkle-compatible appcast.xml for the auto-updater.
+     *
+     * The desktop app fetches this at startup to check for new versions.
+     * The current version (0.1.0) is the latest — when we release 0.2.0,
+     * we add a new <item> and existing apps will show an update notification.
+     */
+    public function appcast()
+    {
+        $downloadUrl = route('license.serve', [
+            'filename' => 'OCR-Receipt-0.1.0-linux-x86_64.tar.gz',
+        ], true) . '?email={email}&license_key={licenseKey}';
+
+        $appUrl = config('app.url', 'https://ocrreceipt.com');
+
+        $xml = '<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+     xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>OCR Receipt Appcast</title>
+    <link>' . $appUrl . '/appcast.xml</link>
+    <language>en</language>
+    <item>
+      <title>Version 0.1.0</title>
+      <description>Première version publique — accès anticipé.</description>
+      <pubDate>' . now()->format('D, d M Y H:i:s O') . '</pubDate>
+      <sparkle:version>0.1.0</sparkle:version>
+      <sparkle:releaseNotesLink>' . $appUrl . '/#features</sparkle:releaseNotesLink>
+      <enclosure
+        url="' . e($downloadUrl) . '"
+        sparkle:edSignature=""
+        length="243864053"
+        type="application/octet-stream"/>
+    </item>
+  </channel>
+</rss>';
+
+        return response($xml, 200, [
+            'Content-Type' => 'application/xml; charset=utf-8',
+        ]);
+    }
 }

@@ -18,3 +18,6 @@ Route::get('/download-file/{filename}', [LicenseController::class, 'serveFile'])
 
 // Health / status
 Route::get('/api/status', [LicenseController::class, 'status'])->name('license.status');
+
+// Appcast (auto-update feed for desktop app)
+Route::get('/appcast.xml', [LicenseController::class, 'appcast'])->name('license.appcast');
