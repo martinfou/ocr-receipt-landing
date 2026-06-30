@@ -18,20 +18,39 @@ class LicenseController extends Controller
 
     /**
      * Create a Stripe Checkout Session for the Pro license ($199).
+     * Accepts JSON (from Vue) or form (from Blade) requests.
      */
     public function checkout(Request $request)
     {
-        $request->validate([
-            'email' => 'required|email',
-        ]);
+        $email = $request->input('email', '');
+        $tier = $request->input('tier', 'pro');
+
+        // Allow JSON requests from Vue
+        $isJson = $request->expectsJson() || $request->isJson();
+
+        // If no email provided via AJAX, return config so Vue can prompt
+        if (empty($email) && $isJson) {
+            $secretKey = config('services.stripe.secret_key');
+            return response()->json([
+                'needs_email' => true,
+                'stripe_configured' => !empty($secretKey),
+            ]);
+        }
 
         // Graceful fallback when Stripe is not configured
         $secretKey = config('services.stripe.secret_key');
         if (empty($secretKey)) {
-            return back()->with('error', 'Le paiement en ligne sera bientôt disponible ! OCR Receipt est en phase d\'accès anticipé. Pour obtenir votre licence Pro dès maintenant, contactez-nous à hello@martinfournier.com.');
+            $msg = 'Le paiement en ligne sera bientôt disponible ! OCR Receipt est en phase d\'accès anticipé. Pour obtenir votre licence Pro dès maintenant, contactez-nous à hello@martinfournier.com.';
+            return $isJson ? response()->json(['error' => $msg], 503) : back()->with('error', $msg);
         }
 
-        $email = $request->input('email');
+        // Price configuration
+        $prices = [
+            'pro' => ['amount' => 19900, 'name' => 'OCR Receipt — Pro Desktop License', 'desc' => 'Licence perpétuelle — pages illimitées, DeepSeek IA, export CSV, batch processing.'],
+            'cloud' => ['amount' => 500, 'name' => 'OCR Receipt — Cloud Credits (100 pages)', 'desc' => '100 pages de cloud AI. 5¢/page. Utilisation unique.'],
+        ];
+
+        $product = $prices[$tier] ?? $prices['pro'];
 
         try {
             $session = Session::create([
@@ -44,23 +63,28 @@ class LicenseController extends Controller
                     'price_data' => [
                         'currency' => 'usd',
                         'product_data' => [
-                            'name' => 'OCR Receipt — Pro Desktop License',
-                            'description' => 'Licence perpétuelle — pages illimitées, DeepSeek IA, export CSV, batch processing, matching fournisseur.',
+                            'name' => $product['name'],
+                            'description' => $product['desc'],
                         ],
-                        'unit_amount' => 19900, // $199.00 in cents
+                        'unit_amount' => $product['amount'],
                     ],
                     'quantity' => 1,
                 ]],
                 'metadata' => [
                     'email' => $email,
-                    'product' => 'ocr-receipt-pro-license',
+                    'tier' => $tier,
+                    'product' => 'ocr-receipt-' . $tier,
                 ],
             ]);
 
+            if ($isJson) {
+                return response()->json(['url' => $session->url]);
+            }
             return redirect($session->url);
         } catch (\Exception $e) {
             Log::error('Stripe checkout failed: ' . $e->getMessage());
-            return back()->with('error', 'Erreur lors de la création de la session de paiement. Veuillez réessayer ou contacter hello@martinfournier.com.');
+            $msg = 'Erreur lors de la création de la session de paiement. Veuillez réessayer ou contacter hello@martinfournier.com.';
+            return $isJson ? response()->json(['error' => $msg], 500) : back()->with('error', $msg);
         }
     }
 
