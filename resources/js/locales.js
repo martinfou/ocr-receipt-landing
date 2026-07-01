@@ -56,18 +56,19 @@ export const locales = {
             financialLossLabel: "Perte financière / An"
         },
         howItWorks: {
+            subtitle: "Fonctionnement",
             title: "Automatisé en 5 secondes.",
             step1: {
-                title: "1. Glissez vos PDF",
-                desc: "Importez vos documents d'un coup."
+                title: "Glissez vos PDF",
+                desc: "Importez vos documents ou images de reçus instantanément."
             },
             step2: {
-                title: "2. Inférence locale",
-                desc: "L'IA extrait les données et corrige le texte."
+                title: "IA 100% Locale",
+                desc: "Analyse sémantique et extraction de données hors ligne par LLM, sans aucune connexion serveur."
             },
             step3: {
-                title: "3. Exports CSV & PDF",
-                desc: "Téléchargez vos données en CSV, ou générez un rapport PDF d'audit complet listant vos dépenses et incluant une copie de chaque reçu à la fin."
+                title: "Rapports CSV & PDF",
+                desc: "Téléchargez vos dépenses structurées en CSV, ou générez un rapport PDF d'audit complet listant vos dépenses et incluant une copie de chaque reçu à la fin."
             }
         },
         features: {
@@ -407,18 +408,19 @@ export const locales = {
             financialLossLabel: "Yearly monetary value lost"
         },
         howItWorks: {
+            subtitle: "How It Works",
             title: "Automated in 5 seconds.",
             step1: {
-                title: "1. Drag & Drop",
+                title: "Drag & Drop",
                 desc: "Import your receipt PDFs or images instantly."
             },
             step2: {
-                title: "2. Local AI Processing",
-                desc: "Automatic text extraction and context parsing."
+                title: "100% Local AI",
+                desc: "Secure offline semantic parsing via local LLM without external server connections."
             },
             step3: {
-                title: "3. CSV & PDF Reports",
-                desc: "Download structured expense data in CSV, or generate a complete PDF audit report listing your expenses with copies of each receipt embedded at the end."
+                title: "CSV & PDF Reports",
+                desc: "Download structured CSV expense data, or compile complete PDF audit reports with original receipt copies appended."
             }
         },
         features: {
