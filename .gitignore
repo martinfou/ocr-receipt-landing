@@ -17,3 +17,7 @@ bootstrap/cache/*.php
 _bmad-output/
 _bmad/
 .agents/
+/database/*.sqlite
+/database/*.sqlite-journal
+/database/*.sqlite-shm
+/database/*.sqlite-wal
