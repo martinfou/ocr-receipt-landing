@@ -89,8 +89,8 @@ export const locales = {
                 desc: "Association intelligente des fournisseurs habituels sans configuration requise."
             },
             export: {
-                title: "Export Structuré",
-                desc: "Un clic pour exporter vos reçus au format CSV compatible avec Excel, Google Sheets, QuickBooks et Xero."
+                title: "Rapports PDF & Exports CSV",
+                desc: "Générez des rapports PDF d'audit complets avec une copie de chaque reçu intégrée, ou exportez en un clic vers un fichier CSV compatible Excel et QuickBooks."
             },
             desktop: {
                 title: "Application Native",
@@ -362,8 +362,8 @@ export const locales = {
                 desc: "Intelligent vendor association and normalization with zero configuration."
             },
             export: {
-                title: "Excel-Ready Export",
-                desc: "One-click export to CSV compatible with Excel, Sheets, and QuickBooks."
+                title: "PDF Reports & CSV Exports",
+                desc: "Generate complete PDF audit reports with a copy of each receipt embedded, or export to CSV compatible with Excel, Google Sheets, and QuickBooks."
             },
             desktop: {
                 title: "Native Desktop App",
