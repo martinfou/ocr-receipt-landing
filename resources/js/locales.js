@@ -40,10 +40,10 @@ export const locales = {
         },
         problem: {
             title: "Vous aussi vous faites ça ?",
-            item1: "❌ Ouvrir un PDF → Lire le montant → Copier dans Excel → Ranger le fichier",
-            item2: "❌ Recommencer 30, 50, 100 fois par mois",
-            item3: "❌ Corriger les erreurs de copie à la main",
-            item4: "❌ Perdre 10-15 minutes par semaine à catégoriser des fournisseurs",
+            item1: "Ouvrir un PDF → Lire le montant → Copier dans Excel → Ranger le fichier",
+            item2: "Recommencer 30, 50, 100 fois par mois",
+            item3: "Corriger les erreurs de copie à la main",
+            item4: "Perdre 10-15 minutes par semaine à catégoriser des fournisseurs",
             summary1: "Une facture = 5 minutes de travail manuel.",
             summary2: "50 factures = 4 heures par mois. 48 heures par an.",
             summary3: "C'est du temps que vous ne récupérerez jamais."
@@ -67,27 +67,27 @@ export const locales = {
             title: "Tout ce dont vous avez besoin pour<br/>gérer vos reçus",
             subtitle: "Du PDF aux données structurées en quelques secondes. Pas d'internet requis. Pas d'abonnement mensuel.",
             ai: {
-                title: "🧠 Correction par IA",
+                title: "Correction par IA",
                 desc: "Correction automatique des erreurs OCR. Catégorisation intelligente des fournisseurs. Pas de règles à configurer, pas de machine learning à entraîner."
             },
             batch: {
-                title: "📁 Batch Processing",
+                title: "Batch Processing",
                 desc: "Glissez 50 factures. L'app les traite en arrière-plan. Pendant ce temps, vous faites ce que vous voulez. Progression en temps réel, zéro freeze."
             },
             privacy: {
-                title: "🔒 Confidentialité Totale",
+                title: "Confidentialité Totale",
                 desc: "100% local. Vos données sensibles restent sur votre disque dur. Pas de cloud, pas de serveur, pas de fuite. Idéal pour les professionnels avec des données clients confidentielles."
             },
             match: {
-                title: "🏷️ Matching Fournisseur",
+                title: "Matching Fournisseur",
                 desc: "L'IA reconnaît vos fournisseurs habituels. \"Bell Canada Inc.\" → \"Bell\". Chaque fois. Plus besoin de mapper manuellement les variations de nom."
             },
             export: {
-                title: "📊 Export CSV",
+                title: "Export CSV",
                 desc: "Un clic pour exporter toutes vos factures en CSV structuré. Compatible Excel, Google Sheets, QuickBooks, Xero."
             },
             desktop: {
-                title: "🎯 Interface Desktop",
+                title: "Interface Desktop",
                 desc: "Une vraie app Windows/Mac/Linux, pas un site web. Pas de latence réseau, pas d'abonnement mensuel qui s'accumule. Vous possédez le logiciel, point."
             }
         },
@@ -192,10 +192,10 @@ export const locales = {
         beta: {
             title: "Accès anticipé — Lancement dans 3 mois",
             subtitle: "Inscrivez-vous pour obtenir :",
-            bullet1: "🎯 Accès à la beta fermée (places limitées)",
-            bullet2: "💬 Devenir bêta-testeur → licence gratuite à vie",
-            bullet3: "📬 Annonce du lancement officiel",
-            bullet4: "🎟️ Prix early adopter : 149$ au lieu de 199$",
+            bullet1: "Accès à la beta fermée (places limitées)",
+            bullet2: "Devenir bêta-testeur → licence gratuite à vie",
+            bullet3: "Annonce du lancement officiel",
+            bullet4: "Prix early adopter : 149$ au lieu de 199$",
             firstname: "Prénom",
             email: "Email",
             profession: "Profession (comptable, freelance, PME…)",
@@ -287,10 +287,10 @@ export const locales = {
         },
         problem: {
             title: "Are you still doing this?",
-            item1: "❌ Open PDF → Read total → Copy to Excel → Move file to folder",
-            item2: "❌ Repeat 30, 50, 100 times a month",
-            item3: "❌ Manually correct typos and parsing errors",
-            item4: "❌ Waste 10-15 minutes a week organizing vendor folders",
+            item1: "Open PDF → Read total → Copy to Excel → Move file to folder",
+            item2: "Repeat 30, 50, 100 times a month",
+            item3: "Manually correct typos and parsing errors",
+            item4: "Waste 10-15 minutes a week organizing vendor folders",
             summary1: "One receipt = 5 minutes of manual labor.",
             summary2: "50 receipts = 4 hours a month. 48 hours a year.",
             summary3: "This is time you will never get back."
@@ -314,27 +314,27 @@ export const locales = {
             title: "Everything you need to<br/>manage your receipts",
             subtitle: "From PDF to structured data in seconds. No internet required. No monthly fees.",
             ai: {
-                title: "🧠 AI-Powered Correction",
+                title: "AI-Powered Correction",
                 desc: "Automatic OCR error sanitization. Intelligent vendor categorization. No complex rules to configure, no machine learning to train."
             },
             batch: {
-                title: "📁 Batch Processing",
+                title: "Batch Processing",
                 desc: "Drop 50 receipts at once. The app processes them in the background while you work on other tasks. Real-time progress, zero UI freeze."
             },
             privacy: {
-                title: "🔒 100% Private & Offline",
+                title: "100% Private & Offline",
                 desc: "Your sensitive financial data stays on your hard drive. No cloud, no servers, no leaks. Perfect for professionals handling confidential client files."
             },
             match: {
-                title: "🏷️ Vendor Matching",
+                title: "Vendor Matching",
                 desc: "The AI matches your recurring vendors automatically. \"Bell Canada Inc.\" → \"Bell\". Every single time. No need for manual aliases."
             },
             export: {
-                title: "📊 Structured Exports",
+                title: "Structured Exports",
                 desc: "One click to export all receipts to structured CSV. Fully compatible with Excel, Google Sheets, QuickBooks, and Xero."
             },
             desktop: {
-                title: "🎯 Native Desktop App",
+                title: "Native Desktop App",
                 desc: "A real app for Windows, Mac, and Linux, not a web wrapper. No network delays, no monthly subscription bloat. You own the software, period."
             }
         },
@@ -439,10 +439,10 @@ export const locales = {
         beta: {
             title: "Early Access — Launching in 3 months",
             subtitle: "Sign up to get:",
-            bullet1: "🎯 Closed beta access (limited seats)",
-            bullet2: "💬 Become a beta tester → lifetime free license",
-            bullet3: "📬 Official launch announcement",
-            bullet4: "🎟️ Early adopter price: $149 instead of $199",
+            bullet1: "Closed beta access (limited seats)",
+            bullet2: "Become a beta tester → lifetime free license",
+            bullet3: "Official launch announcement",
+            bullet4: "Early adopter price: $149 instead of $199",
             firstname: "First Name",
             email: "Email Address",
             profession: "Profession (CPA, freelancer, SMB…)",
