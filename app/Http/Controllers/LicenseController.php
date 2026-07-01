@@ -30,61 +30,41 @@ class LicenseController extends Controller
 
         // If no email provided via AJAX, return config so Vue can prompt
         if (empty($email) && $isJson) {
-            $secretKey = config('services.stripe.secret_key');
             return response()->json([
                 'needs_email' => true,
-                'stripe_configured' => !empty($secretKey),
+                'stripe_configured' => false,
             ]);
         }
 
-        // Graceful fallback when Stripe is not configured
-        $secretKey = config('services.stripe.secret_key');
-        if (empty($secretKey)) {
-            $msg = 'Le paiement en ligne sera bientôt disponible ! OCR Receipt est en phase d\'accès anticipé. Pour obtenir votre licence Pro dès maintenant, contactez-nous à hello@martinfournier.com.';
-            return $isJson ? response()->json(['error' => $msg], 503) : back()->with('error', $msg);
-        }
-
-        // Price configuration
-        $prices = [
-            'solo' => ['amount' => 14900, 'name' => 'OCR Receipt — Solo Desktop License', 'desc' => 'Licence perpétuelle — pages illimitées, IA locale (tiny), export CSV & Excel.'],
-            'pro' => ['amount' => 19900, 'name' => 'OCR Receipt — Pro Desktop License', 'desc' => 'Licence perpétuelle — pages illimitées, IA locale avancée (smol/base), traitement par lots illimité.'],
-            'comptable' => ['amount' => 39900, 'name' => 'OCR Receipt — Comptable Desktop License', 'desc' => 'Pack de 5 licences perpétuelles — pages illimitées, IA locale avancée, traitement par lots illimité.'],
-        ];
-
-        $product = $prices[$tier] ?? $prices['pro'];
-
         try {
-            $session = Session::create([
-                'payment_method_types' => ['card'],
-                'mode' => 'payment',
-                'success_url' => route('license.success', ['session_id' => '{CHECKOUT_SESSION_ID}']),
-                'cancel_url' => route('license.cancel'),
-                'customer_email' => $email,
-                'line_items' => [[
-                    'price_data' => [
-                        'currency' => 'usd',
-                        'product_data' => [
-                            'name' => $product['name'],
-                            'description' => $product['desc'],
-                        ],
-                        'unit_amount' => $product['amount'],
-                    ],
-                    'quantity' => 1,
-                ]],
-                'metadata' => [
-                    'email' => $email,
-                    'tier' => $tier,
-                    'product' => 'ocr-receipt-' . $tier,
-                ],
+            // Generate license key matching the desktop app activation algorithm
+            $licenseKey = $this->generateLicenseKey($email);
+
+            // Record purchase locally
+            $purchase = LicensePurchase::updateOrCreate(
+                ['email' => $email],
+                [
+                    'license_key' => $licenseKey,
+                    'stripe_session_id' => 'early-access-' . uniqid(),
+                    'stripe_payment_intent' => 'early-access-intent',
+                    'status' => 'completed',
+                    'amount_cents' => 0,
+                    'version' => '1.0',
+                ]
+            );
+
+            $downloadUrl = route('license.download', [
+                'email' => $email,
+                'licenseKey' => $licenseKey
             ]);
 
             if ($isJson) {
-                return response()->json(['url' => $session->url]);
+                return response()->json(['url' => $downloadUrl]);
             }
-            return redirect($session->url);
+            return redirect($downloadUrl);
         } catch (\Exception $e) {
-            Log::error('Stripe checkout failed: ' . $e->getMessage());
-            $msg = 'Erreur lors de la création de la session de paiement. Veuillez réessayer ou contacter hello@martinfournier.com.';
+            Log::error('Early access registration failed: ' . $e->getMessage());
+            $msg = 'Erreur lors de la création de la licence. Veuillez contacter hello@martinfou.com.';
             return $isJson ? response()->json(['error' => $msg], 500) : back()->with('error', $msg);
         }
     }
