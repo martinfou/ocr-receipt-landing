@@ -7,6 +7,7 @@
 
     <title>OCR Receipt — Extract receipt data without the cloud</title>
     <meta name="description" content="Offline-first receipt OCR app with local AI. Extract vendor, amount, date, and category from PDF receipts. No subscription. Windows, Mac & Linux.">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
