@@ -74,7 +74,7 @@ export const locales = {
             subtitle: "Du fichier brut aux données structurées en quelques secondes. Pas d'internet requis. Pas d'abonnement.",
             ai: {
                 title: "Correction par IA",
-                desc: "Correction intelligente des erreurs OCR et catégorisation automatique des fournisseurs."
+                desc: "Nettoyage automatique des erreurs OCR, association intelligente des fournisseurs et extraction complète des taxes et articles de ligne."
             },
             batch: {
                 title: "Traitement par Lots",
@@ -167,6 +167,20 @@ export const locales = {
                 closeBtn: "Fermer",
                 statusScanning: "Analyse des flux...",
                 statusChecked: "Sécurisé hors ligne"
+            },
+            aiBadge: "IA Locale",
+            aiClickToOpen: "Lancer le correcteur d'IA",
+            aiModal: {
+                title: "Correcteur IA & Extraction Structurée (Simulation)",
+                rawOcr: "Texte OCR Brut (Avec Erreurs)",
+                structuredData: "Données IA Structurées (Propres)",
+                vendorMatched: "Fournisseur Associé",
+                taxes: "Taxes Extraites",
+                runBtn: "Lancer la correction par IA",
+                closeBtn: "Fermer",
+                statusIdle: "En attente de traitement",
+                statusProcessing: "Nettoyage OCR et parsing local...",
+                statusDone: "Correction & Structuration terminées"
             }
         },
         pricing: {
@@ -419,7 +433,7 @@ export const locales = {
             subtitle: "From raw receipts to clean data in seconds. No internet required. No subscriptions.",
             ai: {
                 title: "AI-Powered Correction",
-                desc: "Automatic OCR typo cleaning and intelligent supplier categorization."
+                desc: "Automatic OCR typo cleaning, supplier categorization, and complete extraction of all line items and tax values."
             },
             batch: {
                 title: "Batch Processing",
@@ -512,6 +526,20 @@ export const locales = {
                 closeBtn: "Close",
                 statusScanning: "Analyzing sockets...",
                 statusChecked: "Secured Offline"
+            },
+            aiBadge: "Local AI",
+            aiClickToOpen: "Launch AI correction",
+            aiModal: {
+                title: "AI Correction & Structured Extraction (Simulation)",
+                rawOcr: "Raw OCR Text (With Typos)",
+                structuredData: "Structured AI Data (Clean)",
+                vendorMatched: "Matched Vendor",
+                taxes: "Extracted Taxes",
+                runBtn: "Run AI Correction",
+                closeBtn: "Close",
+                statusIdle: "Ready to process",
+                statusProcessing: "Typo cleaning and local parsing...",
+                statusDone: "Extraction & Formatting Completed"
             }
         },
         pricing: {

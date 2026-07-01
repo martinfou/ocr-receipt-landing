@@ -43,17 +43,26 @@
                 </div>>
 
                 <!-- Card 2: Correction par IA (1 col) -->
-                <div class="card flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:border-border-hover">
+                <div @click="openAiModal" class="card flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:border-brand/45 hover:bg-brand/[0.01] cursor-pointer group relative">
+                    <div class="absolute top-4 right-4 text-[8px] font-mono text-brand uppercase tracking-wider border border-brand/30 px-2 py-0.5 rounded-full bg-brand/5 group-hover:bg-brand/10 transition-colors">
+                        {{ $t('features.aiBadge') }}
+                    </div>
                     <div>
-                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center mb-5 border border-border">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-[#e5e5e5] w-5 h-5">
+                        <div class="w-10 h-10 rounded-lg bg-[#161615] flex items-center justify-center mb-5 border border-border group-hover:border-brand/30 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-[#e5e5e5] group-hover:text-brand w-5 h-5 transition-colors">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
                             </svg>
                         </div>
-                        <h3 class="font-serif font-semibold text-lg mb-2 text-[#e5e5e5]">{{ $t('features.ai.title') }}</h3>
-                        <p class="text-sm text-text-muted leading-relaxed">
+                        <h3 class="font-serif font-semibold text-lg mb-2 text-[#e5e5e5] group-hover:text-[#ffffff] transition-colors">{{ $t('features.ai.title') }}</h3>
+                        <p class="text-sm text-text-muted leading-relaxed group-hover:text-[#e5e5e5] transition-colors">
                             {{ $t('features.ai.desc') }}
                         </p>
+                    </div>
+                    <div class="mt-4 flex items-center gap-1.5 text-xs font-mono text-brand/80 group-hover:text-brand transition-colors">
+                        <span>{{ $t('features.aiClickToOpen') }}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                        </svg>
                     </div>
                 </div>
 
@@ -1152,6 +1161,145 @@
 
             </div>
         </div>
+
+        <!-- Interactive AI Correction Modal -->
+        <div v-if="aiModalOpen" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md transition-all duration-300" @click.self="closeAiModal">
+            <div class="relative w-full max-w-5xl bg-[#161615] border border-border/80 rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(96,165,250,0.15)] flex flex-col min-h-[550px] max-h-[90vh] animate-fadeIn">
+                
+                <!-- Modal Header -->
+                <div class="p-6 border-b border-border/60 flex items-center justify-between bg-surface-light/40">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-brand w-4 h-4 animate-pulse">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-[#e5e5e5] font-serif font-semibold text-lg leading-tight">{{ $t('features.aiModal.title') }}</h2>
+                            <p class="text-[10px] font-mono text-text-muted uppercase tracking-wider mt-0.5">// REAL-TIME LOCAL OCR CLEANING & PARSING</p>
+                        </div>
+                    </div>
+                    
+                    <button @click="closeAiModal" class="p-2 text-text-muted hover:text-[#e5e5e5] transition-colors rounded-lg hover:bg-white/5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="flex-1 flex flex-col md:flex-row overflow-y-auto min-h-0 bg-[#0a0a0a]">
+                    
+                    <!-- Left Column: Raw OCR Input -->
+                    <div class="flex-1 p-6 space-y-4 overflow-y-auto border-r border-border/40">
+                        <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider border-b border-border/40 pb-1.5 flex justify-between items-center">
+                            <span>{{ $t('features.aiModal.rawOcr') }}</span>
+                            <span class="text-red-400 font-mono text-[8px]">// RAW EXTRACTED TYPOS</span>
+                        </div>
+                        
+                        <div class="bg-[#0e0e0d] border border-border/60 rounded-xl p-5 h-[340px] overflow-y-auto font-mono text-xs text-text-muted space-y-3 select-none shadow-inner leading-relaxed">
+                            <div>
+                                <span class="text-[#e5e5e5] font-bold">PLOM8ER1E 10/30 INC.</span> <span class="text-red-400 bg-red-500/10 px-1 rounded text-[10px] ml-1 font-bold">typo: 8/B, 1/I</span>
+                            </div>
+                            <div class="text-text-muted">
+                                St-Jean-sur-Riche1ieu, Qc
+                            </div>
+                            <div class="border-t border-border/20 pt-2 space-y-1">
+                                <div>N° DE FACTURE: <span class="text-red-400 font-bold bg-red-500/10 px-1 rounded">17O0</span> <span class="text-red-400 text-[10px] ml-1">typo: O/0</span></div>
+                                <div>DATE: <span class="text-[#e5e5e5]">19/O6/2O25</span> <span class="text-red-400 text-[10px] ml-1 bg-red-500/10 px-1 rounded">typo: O/0</span></div>
+                            </div>
+                            <div class="border-t border-border/20 pt-2 space-y-2">
+                                <div>- Remplacer un reservoir 40 gal electrique ... <span class="text-red-400 font-bold bg-red-500/10 px-1 rounded">$895.O0</span></div>
+                                <div>- Tuyaux PEX et raccords... <span class="text-[#e5e5e5]">$53.35</span></div>
+                                <div>- Main d'oeuvre qualifiee (2 hommes/heure)... <span class="text-red-400 font-bold bg-red-500/10 px-1 rounded">$29O.0O</span></div>
+                            </div>
+                            <div class="border-t border-border/20 pt-2 space-y-1">
+                                <div>TPS/TVQ TAX (14.975%): <span class="text-red-400 font-bold bg-red-500/10 px-1 rounded">2O9.72</span></div>
+                                <div class="font-bold text-[#e5e5e5]">TOTAL CAD: <span class="text-red-400 font-bold bg-red-500/10 px-1 rounded">16O9.O2</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Clean Structured output -->
+                    <div class="w-full md:w-[460px] p-6 bg-[#161615]/30 flex flex-col justify-between overflow-y-auto font-sans">
+                        <div class="space-y-6">
+                            
+                            <!-- Header status -->
+                            <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider border-b border-border/40 pb-1.5 flex justify-between items-center">
+                                <span>{{ $t('features.aiModal.structuredData') }}</span>
+                                <span v-if="aiStep === 'done'" class="text-[#27c93f] font-mono text-[8px] animate-pulse">✓ {{ $t('features.aiModal.statusDone') }}</span>
+                            </div>
+
+                            <!-- Processing Widget -->
+                            <div v-if="aiStep === 'processing'" class="p-4 bg-brand/5 border border-brand/20 rounded-xl flex items-center gap-3 animate-pulse font-mono text-xs">
+                                <span class="animate-spin inline-block w-3.5 h-3.5 border-2 border-brand border-t-transparent rounded-full"></span>
+                                <span class="text-brand font-bold">{{ $t('features.aiModal.statusProcessing') }}</span>
+                            </div>
+
+                            <div v-if="aiStep === 'done'" class="space-y-4 animate-fadeIn">
+                                <!-- Matched Vendor Info Card -->
+                                <div class="p-4 bg-[#0a0a0a] border border-border/80 rounded-xl space-y-2">
+                                    <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider">{{ $t('features.aiModal.vendorMatched') }}</div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-[#e5e5e5] font-serif font-bold text-sm">Plomberie 10/30 Inc.</span>
+                                        <span class="text-[9px] bg-green-500/10 text-green-400 border border-green-500/20 px-2 py-0.5 rounded font-mono font-bold uppercase">réparation-et-entretien</span>
+                                    </div>
+                                </div>
+
+                                <!-- Line Items table -->
+                                <div class="space-y-1.5 font-mono text-[10px]">
+                                    <div class="flex justify-between border-b border-border/40 pb-1 text-text-muted text-[8px] font-bold">
+                                        <span>LINE ITEMS EXTRACTED</span>
+                                        <span>AMOUNT</span>
+                                    </div>
+                                    <div class="flex justify-between text-[#e5e5e5] py-1 border-b border-white/[0.02]">
+                                        <span>Remplacer un réservoir 40 gal électrique</span>
+                                        <span class="text-brand font-bold">$895.00</span>
+                                    </div>
+                                    <div class="flex justify-between text-[#e5e5e5] py-1 border-b border-white/[0.02]">
+                                        <span>Tuyaux PEX et raccords en laiton</span>
+                                        <span class="text-brand font-bold">$53.35</span>
+                                    </div>
+                                    <div class="flex justify-between text-[#e5e5e5] py-1">
+                                        <span>Main d'oeuvre qualifiée (2 hommes/heure)</span>
+                                        <span class="text-brand font-bold">$290.00</span>
+                                    </div>
+                                </div>
+
+                                <!-- Tax details -->
+                                <div class="p-3 bg-[#0a0a0a] border border-border/40 rounded-lg flex justify-between items-center font-mono text-[10px]">
+                                    <span class="text-text-muted">{{ $t('features.aiModal.taxes') }} (TPS/TVQ 14.975%)</span>
+                                    <span class="text-[#27c93f] font-bold font-mono">$209.72</span>
+                                </div>
+
+                                <!-- Total cleaned -->
+                                <div class="flex justify-between items-center pt-2 border-t border-border/40 font-mono">
+                                    <span class="text-xs text-text-muted">Total CAD</span>
+                                    <span class="text-sm text-[#e5e5e5] font-bold">$1,609.02</span>
+                                </div>
+                            </div>
+
+                            <div v-if="aiStep === 'idle'" class="p-8 text-center text-text-muted font-mono text-xs border border-dashed border-border/60 rounded-xl select-none">
+                                {{ $t('features.aiModal.statusIdle') }}.
+                            </div>
+
+                        </div>
+
+                        <!-- Actions Buttons -->
+                        <div class="pt-6 border-t border-border/40 flex items-center justify-between gap-4 mt-6">
+                            <button @click="runAiCorrection" :disabled="aiStep === 'processing'" class="flex-1 py-3 px-4 bg-brand hover:bg-brand-hover disabled:bg-brand/50 text-[#0a0a0a] font-serif font-bold text-sm rounded-lg transition-colors select-none text-center">
+                                {{ aiStep === 'processing' ? 'Running AI Correction...' : $t('features.aiModal.runBtn') }}
+                            </button>
+                            <button @click="closeAiModal" class="py-2.5 px-4 border border-border hover:border-brand/40 text-text-muted hover:text-[#e5e5e5] text-xs font-mono rounded-lg transition-colors select-none">
+                                {{ $t('features.aiModal.closeBtn') }}
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
     </section>
 </template>
 
@@ -1197,7 +1345,11 @@ export default {
             // Privacy audit modal state
             privacyModalOpen: false,
             privacyStep: 'idle', // 'idle', 'active', 'done'
-            privacyLogs: []
+            privacyLogs: [],
+
+            // AI correction modal state
+            aiModalOpen: false,
+            aiStep: 'idle' // 'idle', 'processing', 'done'
         };
     },
     methods: {
@@ -1448,6 +1600,28 @@ export default {
                     }
                 }, (idx + 1) * 300);
             });
+        },
+
+        // AI Correction modal methods
+        openAiModal() {
+            this.aiModalOpen = true;
+            this.aiStep = 'idle';
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                this.runAiCorrection();
+            }, 400);
+        },
+        closeAiModal() {
+            this.aiModalOpen = false;
+            document.body.style.overflow = '';
+        },
+        runAiCorrection() {
+            this.aiStep = 'processing';
+            setTimeout(() => {
+                if (this.aiModalOpen && this.aiStep === 'processing') {
+                    this.aiStep = 'done';
+                }
+            }, 1500);
         }
     },
     beforeUnmount() {
