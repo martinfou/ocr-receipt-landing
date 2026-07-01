@@ -13,13 +13,13 @@
     <!-- Schema.org JSON-LD Metadata -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
+      "@@context": "https://schema.org",
+      "@@type": "SoftwareApplication",
       "name": "OCR Receipt",
       "operatingSystem": "Windows, macOS, Linux",
       "applicationCategory": "BusinessApplication",
       "offers": {
-        "@type": "AggregateOffer",
+        "@@type": "AggregateOffer",
         "priceCurrency": "USD",
         "lowPrice": "0",
         "highPrice": "399"
