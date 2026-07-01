@@ -24,15 +24,15 @@
                             {{ $lang.lang === 'fr' ? 'Fatigué des abonnements ?' : 'Tired of subscriptions?' }}
                         </h3>
                         <p class="text-xs text-text-muted leading-relaxed mb-6">
-                            {{ $lang.lang === 'fr' ? 'La plupart des services OCR vous facturent chaque mois et verrouillent vos données clients dans le cloud. OCR Receipt renverse la table : vous achetez une licence, elle fonctionne hors ligne à vie sur votre disque dur.' : 'Most OCR tools force monthly fees and store sensitive client files in third-party clouds. OCR Receipt breaks the cycle: pay once, run locally, and own your tools forever.' }}
+                            {{ $lang.lang === 'fr' ? 'Pourquoi devoir payer tous les mois pour un outil qui tourne sur votre propre ordinateur ? Pire encore : la plupart des services cloud exigent d\'envoyer vos reçus sémantiques sur des serveurs distants, vous exposant à des fuites de données et à l\'exploitation de vos informations financières par des tiers. OCR Receipt fonctionne localement à vie sur votre disque dur : aucun abonnement, aucune donnée partagée.' : 'Why pay a recurring fee every month just to use software on your own computer? Worse, most cloud services force you to upload your sensitive financial receipts to remote servers, exposing you to data breaches, trackers, and corporate surveillance. OCR Receipt runs strictly on your machine: pay once, run offline, and keep your data private.' }}
                         </p>
                         
                         <!-- Financial ROI highlight -->
                         <div class="inline-flex items-center gap-3 px-4 py-2.5 rounded-lg border border-brand/20 bg-brand/[0.02] text-xs font-mono text-[#60A5FA]">
-                            <span class="text-lg">💰</span>
+                            <span class="text-lg">🛡️</span>
                             <div>
-                                <span class="font-bold">{{ $lang.lang === 'fr' ? 'Économisez 391 $+' : 'Save $391+' }}</span>
-                                <span class="text-[10px] text-text-muted block font-sans">{{ $lang.lang === 'fr' ? 'Par rapport à un SaaS à 15$/mois sur 3 ans' : 'Compared to a typical $15/mo subscription over 3 years' }}</span>
+                                <span class="font-bold">{{ $lang.lang === 'fr' ? 'Données 100% Souveraines' : '100% Sovereign Data' }}</span>
+                                <span class="text-[10px] text-text-muted block font-sans">{{ $lang.lang === 'fr' ? 'Aucune connexion requise, aucun cloud forced' : 'No connection required, zero cloud forced' }}</span>
                             </div>
                         </div>
                     </div>
@@ -49,19 +49,19 @@
                             <ul class="space-y-3 text-[11px] text-text-muted">
                                 <li class="flex items-start gap-2">
                                     <span class="text-red-400 font-bold select-none">&times;</span>
-                                    <span>{{ $lang.lang === 'fr' ? 'Coût cumulé sans fin (ex: 540$ sur 3 ans)' : 'Continuous cost creep ($540/3 years)' }}</span>
+                                    <span>{{ $lang.lang === 'fr' ? 'Facture mensuelle récurrente et prélèvements sans fin' : 'Endless monthly billing cycles and micro-transactions' }}</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span class="text-red-400 font-bold select-none">&times;</span>
-                                    <span>{{ $lang.lang === 'fr' ? 'Données sur serveurs tiers' : 'Data stored on third-party servers' }}</span>
+                                    <span>{{ $lang.lang === 'fr' ? 'Données hébergées sur le cloud (risque de piratage)' : 'Cloud database hosting (vulnerable to breaches)' }}</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span class="text-red-400 font-bold select-none">&times;</span>
-                                    <span>{{ $lang.lang === 'fr' ? 'Accès coupé si paiement arrêté' : 'Loss of access if billing lapses' }}</span>
+                                    <span>{{ $lang.lang === 'fr' ? 'Accès bloqué instantanément en cas d\'impayé' : 'Instant loss of tool access if billing lapses' }}</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span class="text-red-400 font-bold select-none">&times;</span>
-                                    <span>{{ $lang.lang === 'fr' ? 'Dépendance réseau (panne cloud)' : 'Offline access impossible' }}</span>
+                                    <span>{{ $lang.lang === 'fr' ? 'Vos reçus confidentiels analysés par des tiers' : 'Your financial files processed by corporate clouds' }}</span>
                                 </li>
                             </ul>
                         </div>
@@ -75,19 +75,19 @@
                             <ul class="space-y-3 text-[11px] text-[#e5e5e5]">
                                 <li class="flex items-start gap-2">
                                     <span class="text-[#27c93f] font-semibold select-none">✓</span>
-                                    <span>{{ $lang.lang === 'fr' ? 'Achat unique (149$), aucun frais caché' : 'One-time fee ($149), zero hidden fees' }}</span>
+                                    <span>{{ $lang.lang === 'fr' ? 'Achat unique à vie, aucun frais récurrent' : 'One-time purchase, zero monthly billing cycles' }}</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span class="text-[#27c93f] font-semibold select-none">✓</span>
-                                    <span>{{ $lang.lang === 'fr' ? '100% sur votre disque dur' : '100% files stored on your local disk' }}</span>
+                                    <span>{{ $lang.lang === 'fr' ? '100% stocké sur votre disque dur (sécurité absolue)' : '100% on your local drive (zero external access)' }}</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span class="text-[#27c93f] font-semibold select-none">✓</span>
-                                    <span>{{ $lang.lang === 'fr' ? 'Licence perpétuelle sans expiration' : 'Perpetual key never expires' }}</span>
+                                    <span>{{ $lang.lang === 'fr' ? 'Licence perpétuelle sans expiration' : 'Perpetual key that is yours to keep forever' }}</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span class="text-[#27c93f] font-semibold select-none">✓</span>
-                                    <span>{{ $lang.lang === 'fr' ? '100% offline, fonctionne sans internet' : '100% offline, guaranteed uptime' }}</span>
+                                    <span>{{ $lang.lang === 'fr' ? 'Aucune télémétrie, aucune donnée partagée' : 'Zero telemetry, zero remote server sharing' }}</span>
                                 </li>
                             </ul>
                         </div>
