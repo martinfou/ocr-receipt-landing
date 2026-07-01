@@ -47,13 +47,13 @@ export const locales = {
             item4: "Organiser péniblement les répertoires et les pièces jointes",
             sheetTitle: "RAPPORT DE TEMPS PERDU",
             sheetSubtitle: "ADMIN NON FACTURABLE",
-            rateLabel: "1 Reçu / Facture",
-            rateValue: "≈ 90 sec",
-            monthLabel: "100 Reçus / Mois",
-            monthValue: "≈ 2,5 Heures",
-            yearLabel: "Perte Annuelle Totale",
-            yearValue: "30 Heures / An",
-            summary3: "30 heures par an gâchées à jamais."
+            rateLabel: "Temps moyen / Reçu",
+            monthLabel: "Reçus / Mois",
+            timePerReceiptLabel: "Temps par reçu",
+            hourlyLabel: "Valeur horaire de votre temps",
+            wastedHoursMonthLabel: "Temps perdu / Mois",
+            yearLabel: "Temps perdu / An",
+            financialLossLabel: "Perte financière / An"
         },
         howItWorks: {
             title: "Automatisé en 5 secondes.",
@@ -398,13 +398,13 @@ export const locales = {
             item4: "Waste hours organizing folders and matching vendors",
             sheetTitle: "WASTED TIME AUDIT SHEET",
             sheetSubtitle: "UNBILLED ADMIN TIME",
-            rateLabel: "1 Invoice / Receipt",
-            rateValue: "≈ 90 sec",
-            monthLabel: "100 Receipts / Month",
-            monthValue: "≈ 2.5 Hours",
-            yearLabel: "Total Yearly Loss",
-            yearValue: "30 Hours / Year",
-            summary3: "30 hours a year wasted forever."
+            rateLabel: "Average Time / Invoice",
+            monthLabel: "Receipts / Month",
+            timePerReceiptLabel: "Time per Receipt",
+            hourlyLabel: "Hourly value of your time",
+            wastedHoursMonthLabel: "Wasted time / Month",
+            yearLabel: "Time Lost / Year",
+            financialLossLabel: "Yearly monetary value lost"
         },
         howItWorks: {
             title: "Automated in 5 seconds.",
