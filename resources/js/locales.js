@@ -95,6 +95,16 @@ export const locales = {
             desktop: {
                 title: "Application Native",
                 desc: "App rapide pour Windows, macOS, Linux. Pas d'abonnement mensuel, licence perpétuelle."
+            },
+            demoBadge: "Aperçu Interactif",
+            clickToOpen: "Lancer la démo du rapport",
+            modal: {
+                title: "Générateur de Rapports (Simulation)",
+                generate: "Générer le rapport",
+                generating: "Génération en cours...",
+                emptyState: "Prêt à compiler les reçus. Cliquez sur Générer pour simuler le processus local.",
+                viewReceipt: "Voir la pièce jointe",
+                receiptImage: "Copie du Reçu Original"
             }
         },
         pricing: {
@@ -368,6 +378,16 @@ export const locales = {
             desktop: {
                 title: "Native Desktop App",
                 desc: "Fast app for Windows, macOS, and Linux. No subscriptions, perpetual license."
+            },
+            demoBadge: "Interactive Demo",
+            clickToOpen: "Launch report preview",
+            modal: {
+                title: "Report Builder (Simulation)",
+                generate: "Generate Report",
+                generating: "Generating Report...",
+                emptyState: "Ready to compile receipts. Click Generate to simulate the local build process.",
+                viewReceipt: "View Attachment",
+                receiptImage: "Original Receipt Copy"
             }
         },
         pricing: {
