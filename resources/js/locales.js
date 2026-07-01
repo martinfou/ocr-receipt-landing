@@ -1,6 +1,7 @@
 export const locales = {
     fr: {
         nav: {
+            workflow: "Optimisation",
             features: "Fonctionnalités",
             pricing: "Tarifs",
             contact: "Contact",
@@ -39,13 +40,19 @@ export const locales = {
         },
         problem: {
             title: "La corvée des factures manuelles",
-            item1: "Ouvrir le PDF → Lire le montant → Recopier dans Excel → Ranger le fichier",
-            item2: "Répéter ce process 50 à 100 fois par mois",
-            item3: "Corriger manuellement les erreurs de saisie",
-            item4: "Perdre son temps à classer et catégoriser les fournisseurs",
-            summary1: "1 facture = 5 min",
-            summary2: "50 factures = 4h / mois",
-            summary3: "48 heures par an perdues à jamais."
+            item1: "Ouvrir le PDF → Trouver le total → Recopier dans Excel → Classer le fichier",
+            item2: "Répéter ce rituel 100 fois chaque fin de mois",
+            item3: "Rechercher et corriger les fautes de frappe manuellement",
+            item4: "Organiser péniblement les répertoires et les pièces jointes",
+            sheetTitle: "RAPPORT DE TEMPS PERDU",
+            sheetSubtitle: "ADMIN NON FACTURABLE",
+            rateLabel: "1 Reçu / Facture",
+            rateValue: "≈ 90 sec",
+            monthLabel: "100 Reçus / Mois",
+            monthValue: "≈ 2,5 Heures",
+            yearLabel: "Perte Annuelle Totale",
+            yearValue: "30 Heures / An",
+            summary3: "30 heures par an gâchées à jamais."
         },
         howItWorks: {
             title: "Automatisé en 5 secondes.",
@@ -58,8 +65,8 @@ export const locales = {
                 desc: "L'IA extrait les données et corrige le texte."
             },
             step3: {
-                title: "3. Exportez en CSV",
-                desc: "Données structurées prêtes à l'emploi."
+                title: "3. Exports CSV & PDF",
+                desc: "Téléchargez vos données en CSV, ou générez un rapport PDF d'audit complet listant vos dépenses et incluant une copie de chaque reçu à la fin."
             }
         },
         features: {
@@ -267,6 +274,7 @@ export const locales = {
     },
     en: {
         nav: {
+            workflow: "Workflow",
             features: "Features",
             pricing: "Pricing",
             contact: "Contact",
@@ -305,13 +313,19 @@ export const locales = {
         },
         problem: {
             title: "The Manual Invoice Chore",
-            item1: "Open PDF → Read total → Copy to Excel → Move file",
-            item2: "Repeat 50 to 100 times every single month",
-            item3: "Manually correct typos and parsing errors",
-            item4: "Waste hours organizing vendors and folders",
-            summary1: "1 receipt = 5 min",
-            summary2: "50 receipts = 4 hours / month",
-            summary3: "48 hours a year wasted forever."
+            item1: "Open PDF → Search for totals → Copy to Excel → File document",
+            item2: "Repeat this process 100 times every single month",
+            item3: "Manually correct typos and transcribing errors",
+            item4: "Waste hours organizing folders and matching vendors",
+            sheetTitle: "WASTED TIME AUDIT SHEET",
+            sheetSubtitle: "UNBILLED ADMIN TIME",
+            rateLabel: "1 Invoice / Receipt",
+            rateValue: "≈ 90 sec",
+            monthLabel: "100 Receipts / Month",
+            monthValue: "≈ 2.5 Hours",
+            yearLabel: "Total Yearly Loss",
+            yearValue: "30 Hours / Year",
+            summary3: "30 hours a year wasted forever."
         },
         howItWorks: {
             title: "Automated in 5 seconds.",
@@ -324,8 +338,8 @@ export const locales = {
                 desc: "Automatic text extraction and context parsing."
             },
             step3: {
-                title: "3. CSV Export",
-                desc: "Download structured, validated expense data."
+                title: "3. CSV & PDF Reports",
+                desc: "Download structured expense data in CSV, or generate a complete PDF audit report listing your expenses with copies of each receipt embedded at the end."
             }
         },
         features: {

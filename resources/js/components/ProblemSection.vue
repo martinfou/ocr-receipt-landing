@@ -76,22 +76,22 @@
                         
                         <div class="space-y-6">
                             <div class="text-[9px] font-mono text-red-400 uppercase tracking-wider border-b border-border/40 pb-2 flex justify-between items-center">
-                                <span>YEARLY TIME LOSS SHEET</span>
-                                <span>UNRECOVERED TIME</span>
+                                <span>{{ $t('problem.sheetTitle') }}</span>
+                                <span>{{ $t('problem.sheetSubtitle') }}</span>
                             </div>
                             
                             <div class="space-y-4 font-mono">
                                 <div class="flex items-center justify-between border-b border-border/30 pb-3">
-                                    <span class="text-xs text-text-muted">1 Invoice / Receipt</span>
-                                    <span class="text-xs text-[#e5e5e5] font-semibold">&approx; 5 Min</span>
+                                    <span class="text-xs text-text-muted">{{ $t('problem.rateLabel') }}</span>
+                                    <span class="text-xs text-[#e5e5e5] font-semibold">{{ $t('problem.rateValue') }}</span>
                                 </div>
                                 <div class="flex items-center justify-between border-b border-border/30 pb-3">
-                                    <span class="text-xs text-text-muted">50 Receipts / Month</span>
-                                    <span class="text-xs text-[#e5e5e5] font-semibold">&approx; 4 Hours</span>
+                                    <span class="text-xs text-text-muted">{{ $t('problem.monthLabel') }}</span>
+                                    <span class="text-xs text-[#e5e5e5] font-semibold">{{ $t('problem.monthValue') }}</span>
                                 </div>
                                 <div class="flex items-center justify-between pb-1">
-                                    <span class="text-xs text-text-muted">Total Yearly Loss</span>
-                                    <span class="text-sm font-bold text-red-400">48 Hours / Year</span>
+                                    <span class="text-xs text-text-muted">{{ $t('problem.yearLabel') }}</span>
+                                    <span class="text-sm font-bold text-red-400">{{ $t('problem.yearValue') }}</span>
                                 </div>
                             </div>
                         </div>
