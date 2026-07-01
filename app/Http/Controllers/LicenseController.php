@@ -46,8 +46,9 @@ class LicenseController extends Controller
 
         // Price configuration
         $prices = [
-            'pro' => ['amount' => 19900, 'name' => 'OCR Receipt — Pro Desktop License', 'desc' => 'Licence perpétuelle — pages illimitées, DeepSeek IA, export CSV, batch processing.'],
-            'cloud' => ['amount' => 500, 'name' => 'OCR Receipt — Cloud Credits (100 pages)', 'desc' => '100 pages de cloud AI. 5¢/page. Utilisation unique.'],
+            'solo' => ['amount' => 14900, 'name' => 'OCR Receipt — Solo Desktop License', 'desc' => 'Licence perpétuelle — pages illimitées, IA locale (tiny), export CSV & Excel.'],
+            'pro' => ['amount' => 19900, 'name' => 'OCR Receipt — Pro Desktop License', 'desc' => 'Licence perpétuelle — pages illimitées, IA locale avancée (smol/base), traitement par lots illimité.'],
+            'comptable' => ['amount' => 39900, 'name' => 'OCR Receipt — Comptable Desktop License', 'desc' => 'Pack de 5 licences perpétuelles — pages illimitées, IA locale avancée, traitement par lots illimité.'],
         ];
 
         $product = $prices[$tier] ?? $prices['pro'];

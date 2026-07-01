@@ -3,23 +3,42 @@
         <nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-border">
             <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
                 <div class="flex items-center gap-2 cursor-pointer select-none" @click="scrollToTop">
-                    <span class="text-lg font-serif font-semibold">OCR Receipt</span>
+                    <span class="text-lg font-serif font-semibold">📄✓ OCR Receipt</span>
                 </div>
                 <div class="flex items-center gap-4">
-                    <a href="#features" class="text-sm text-text-muted hover:text-brand transition-colors">Features</a>
-                    <a href="#pricing" class="text-sm text-text-muted hover:text-brand transition-colors">Pricing</a>
-                    <a href="#faq" class="text-sm text-text-muted hover:text-brand transition-colors">FAQ</a>
-                    <button @click="scrollToPricing" class="btn-brand text-xs px-4 py-2">
-                        Buy Now
-                    </button>
+                    <a href="#features" class="text-sm text-text-muted hover:text-brand transition-colors">{{ $t('nav.features') }}</a>
+                    <a href="#pricing" class="text-sm text-text-muted hover:text-brand transition-colors">{{ $t('nav.pricing') }}</a>
+                    <a href="#beta" class="text-sm text-text-muted hover:text-brand transition-colors">{{ $t('nav.contact') }}</a>
+                    
+                    <!-- Language Switcher -->
+                    <div class="flex items-center gap-1.5 px-2 py-1 rounded-md border border-border/50 bg-[#0a0a0a]/50 text-[10px] font-mono select-none mr-1">
+                        <button 
+                            @click="$setLang('fr')" 
+                            :class="[$lang.lang === 'fr' ? 'text-brand font-semibold' : 'text-text-muted hover:text-[#e5e5e5]']"
+                            class="transition-colors cursor-pointer"
+                        >FR</button>
+                        <span class="text-border/60">|</span>
+                        <button 
+                            @click="$setLang('en')" 
+                            :class="[$lang.lang === 'en' ? 'text-brand font-semibold' : 'text-text-muted hover:text-[#e5e5e5]']"
+                            class="transition-colors cursor-pointer"
+                        >EN</button>
+                    </div>
+
+                    <a href="#beta" class="btn-brand text-xs px-4 py-2">
+                        {{ $t('nav.cta') }}
+                    </a>
                 </div>
             </div>
         </nav>
 
         <main class="pt-16">
             <HeroSection />
+            <ProblemSection />
+            <HowItWorksSection />
             <FeaturesSection />
             <PricingSection />
+            <BetaSection />
             <FaqSection />
             <FooterSection />
         </main>
@@ -39,8 +58,11 @@
 
 <script>
 import HeroSection from './HeroSection.vue';
+import ProblemSection from './ProblemSection.vue';
+import HowItWorksSection from './HowItWorksSection.vue';
 import FeaturesSection from './FeaturesSection.vue';
 import PricingSection from './PricingSection.vue';
+import BetaSection from './BetaSection.vue';
 import FaqSection from './FaqSection.vue';
 import FooterSection from './FooterSection.vue';
 
@@ -48,8 +70,11 @@ export default {
     name: 'App',
     components: {
         HeroSection,
+        ProblemSection,
+        HowItWorksSection,
         FeaturesSection,
         PricingSection,
+        BetaSection,
         FaqSection,
         FooterSection,
     },
@@ -77,4 +102,3 @@ export default {
     }
 };
 </script>
-

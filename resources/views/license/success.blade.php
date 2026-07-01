@@ -27,9 +27,17 @@
 </head>
 <body>
     <div class="card">
+        @php
+            $tierName = 'Pro';
+            if (isset($purchase) && $purchase->amount_cents == 14900) {
+                $tierName = 'Solo';
+            } elseif (isset($purchase) && $purchase->amount_cents == 39900) {
+                $tierName = 'Comptable';
+            }
+        @endphp
         <div class="badge">✅ Paiement confirmé</div>
         <h1>Merci {{ $email }} ! 🎉</h1>
-        <p style="color:#6b7280;margin-bottom:1rem">Votre licence Pro Desktop est prête. Conservez précieusement la clé ci-dessous.</p>
+        <p style="color:#6b7280;margin-bottom:1rem">Votre licence {{ $tierName }} Desktop est prête. Conservez précieusement la clé ci-dessous.</p>
 
         <div class="license-box">
             <div style="font-size:.75rem;color:#6b7280;text-transform:uppercase;letter-spacing:.05em">Votre clé de licence</div>
@@ -41,7 +49,15 @@
             <li><span class="num">1</span> <span><strong>Téléchargez OCR Receipt</strong> — Utilisez le bouton ci-dessous pour télécharger la dernière version.</span></li>
             <li><span class="num">2</span> <span><strong>Lancez l'application</strong> — Allez dans Paramètres → Licence.</span></li>
             <li><span class="num">3</span> <span><strong>Entrez votre email et la clé</strong> — Collez l'email et la clé ci-dessus. La licence est instantanément activée.</span></li>
-            <li><span class="num">4</span> <span><strong>Profitez</strong> — Pages illimitées, DeepSeek IA, export CSV, batch processing, tout est débloqué.</span></li>
+            <li><span class="num">4</span> <span><strong>Profitez</strong> — 
+                @if($tierName === 'Solo')
+                    Pages illimitées, IA locale (tiny), export CSV & Excel, tout est prêt.
+                @elseif($tierName === 'Comptable')
+                    Pack de 5 licences, modèles avancés, traitement par lots, tout est prêt.
+                @else
+                    Pages illimitées, modèles avancés, traitement par lots, tout est débloqué.
+                @endif
+            </span></li>
         </ol>
 
         <div class="btn-group">

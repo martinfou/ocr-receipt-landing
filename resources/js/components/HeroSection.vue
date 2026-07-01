@@ -20,28 +20,32 @@
                 
                 <!-- Left Column: Copy & CTAs -->
                 <div class="lg:col-span-5 text-left flex flex-col items-start bg-surface-light/35 backdrop-blur-lg p-8 lg:p-10 rounded-2xl border border-border/40 shadow-2xl">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border text-xs text-text-muted mb-6 bg-surface-light/50 backdrop-blur-sm">
-                        <span class="w-2 h-2 rounded-full bg-blue-500 inline-block shadow-[0_0_8px_rgba(59,130,246,0.6)] animate-pulse"></span>
-                        Offline-First · Local AI
+                    <div class="text-3xl mb-4 select-none">🧾</div>
+                    
+                    <div class="text-sm font-serif italic text-brand mb-4">
+                        {{ $t('hero.subtitle') }}
                     </div>
 
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-semibold leading-[1.1] mb-6 tracking-[-0.02em] text-wrap-balance">
-                        Extract receipt data<br/>
-                        <span class="text-brand">without the cloud</span>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-semibold leading-[1.2] mb-6 tracking-[-0.02em] text-wrap-balance" v-html="$t('hero.title')">
                     </h1>
 
-                    <p class="text-base sm:text-lg text-text-muted max-w-xl mb-8 leading-relaxed">
-                        OCR Receipt uses local AI to extract vendor, amount, date, and category from your PDF receipts — 
-                        <span class="text-[#e5e5e5] font-medium">completely offline, no subscription, your financial data stays on your machine.</span>
-                    </p>
-
-                    <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto">
-                        <button @click="$root.scrollToPricing" class="btn-brand text-base px-8 py-3 w-full sm:w-auto shadow-lg shadow-brand-dark/20 hover:shadow-brand/30 transition-all duration-300">
-                            Get OCR Receipt
-                        </button>
-                        <a href="#features" class="btn-outline bg-surface/50 backdrop-blur-sm text-base px-8 py-3 w-full sm:w-auto text-center">
-                            See Features
+                    <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-8">
+                        <a href="#beta" class="btn-brand text-sm px-6 py-3 w-full sm:w-auto shadow-lg shadow-brand-dark/20 hover:shadow-brand/30 transition-all duration-300 text-center">
+                            {{ $t('hero.cta1') }}
                         </a>
+                        <a href="https://github.com/martinfou/ocr-receipt" target="_blank" rel="noopener" class="btn-outline bg-surface/50 backdrop-blur-sm text-sm px-6 py-3 w-full sm:w-auto text-center hover:text-brand hover:border-brand/40">
+                            {{ $t('hero.cta2') }}
+                        </a>
+                    </div>
+
+                    <div class="border-t border-border/40 pt-4 w-full">
+                        <p class="text-xs text-text-muted leading-relaxed mb-3">
+                            {{ $t('hero.designedFor') }}
+                        </p>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border text-[10px] text-text-muted bg-surface-light/50 font-mono">
+                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500 inline-block shadow-[0_0_8px_rgba(59,130,246,0.6)] animate-pulse"></span>
+                            {{ $t('hero.badges') }}
+                        </div>
                     </div>
                 </div>
 
@@ -57,10 +61,10 @@
                                     <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
                                     <span class="w-3 h-3 rounded-full bg-[#27c93f]"></span>
                                 </div>
-                                <span class="font-mono text-[10px] text-text-muted uppercase tracking-wider">PDF Unique</span>
+                                <span class="font-mono text-[10px] text-text-muted uppercase tracking-wider">{{ $t('hero.simulator.title') }}</span>
                             </div>
                             <div class="text-[10px] text-text-muted font-mono">
-                                Process an individual receipt for data extraction and renaming
+                                {{ $t('hero.simulator.subtitle') }}
                             </div>
                         </div>
 
@@ -70,7 +74,7 @@
                                 <div class="absolute left-0 right-0 h-0.5 bg-border z-0"></div>
                                 <div class="absolute left-0 h-0.5 bg-brand transition-all duration-500 z-0" :style="{ width: stepProgress + '%' }"></div>
                                 
-                                <div v-for="(step, idx) in steps" :key="step.label" class="relative z-10 flex flex-col items-center">
+                                <div v-for="(step, idx) in steps" :key="step.key" class="relative z-10 flex flex-col items-center">
                                     <div class="w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-mono transition-all duration-300"
                                          :class="[
                                              idx <= currentStep ? 'bg-brand text-surface font-semibold shadow-[0_0_8px_rgba(96,165,250,0.6)]' : 'bg-surface border border-border text-text-muted'
@@ -79,7 +83,7 @@
                                     </div>
                                     <span class="text-[8px] font-mono uppercase mt-1 tracking-wider" 
                                           :class="idx <= currentStep ? 'text-brand font-medium' : 'text-text-muted'">
-                                        {{ step.label }}
+                                        {{ $t('hero.simulator.steps.' + step.key) }}
                                     </span>
                                 </div>
                             </div>
@@ -129,8 +133,8 @@
                                 <!-- Document Fields -->
                                 <div class="space-y-2.5">
                                     <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider border-b border-border/30 pb-1.5 mb-1.5 flex items-center justify-between">
-                                        <span>Document Fields</span>
-                                        <span class="text-[#27c93f] font-mono text-[8px]" v-if="currentStep >= 2">✓ Match Confirmed</span>
+                                        <span>{{ $t('hero.simulator.fields') }}</span>
+                                        <span class="text-[#27c93f] font-mono text-[8px]" v-if="currentStep >= 2">{{ $t('hero.simulator.matchConfirmed') }}</span>
                                     </div>
                                     
                                     <!-- Vendor Field -->
@@ -175,14 +179,14 @@
 
                                 <!-- File Naming Preview -->
                                 <div class="bg-surface/60 border border-border/50 rounded-lg p-3 space-y-1">
-                                    <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider">File Naming Preview</div>
+                                    <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider">{{ $t('hero.simulator.preview') }}</div>
                                     <div class="font-mono text-[9px] text-[#60A5FA] break-all h-6 overflow-hidden flex items-center">
                                         <span class="transition-opacity duration-300" :class="currentStep >= 3 ? 'opacity-100' : 'opacity-0'">
                                             bolt_facture_2026-06-19_plomberie10-30_1609.02.pdf
                                         </span>
                                     </div>
                                     <div class="text-[8px] text-[#27c93f] font-mono transition-opacity duration-300" :class="currentStep >= 3 ? 'opacity-100' : 'opacity-0'">
-                                        ✓ Valid local filename.
+                                        {{ $t('hero.simulator.validFilename') }}
                                     </div>
                                 </div>
                             </div>
@@ -191,13 +195,13 @@
                         <!-- Footer Control & Status bar -->
                         <div class="bg-surface/40 px-4 py-3 border-t border-border/40 flex items-center justify-between gap-4">
                             <div class="text-[10px] font-mono text-text-muted">
-                                Status: <span :class="steps[currentStep].statusColor" class="font-semibold">{{ steps[currentStep].statusText }}</span>
+                                Status: <span :class="steps[currentStep].statusColor" class="font-semibold">{{ $t('hero.simulator.status.' + steps[currentStep].statusKey) }}</span>
                             </div>
                             <div class="flex items-center gap-2">
-                                <button class="btn-outline text-[9px] font-mono px-3.5 py-1.5 h-7">Discard</button>
+                                <button class="btn-outline text-[9px] font-mono px-3.5 py-1.5 h-7">{{ $t('hero.simulator.discard') }}</button>
                                 <button class="btn-brand text-[9px] font-mono px-3.5 py-1.5 h-7 flex items-center gap-1 bg-[#27c93f] hover:bg-[#22a835]"
                                         :class="{'opacity-50 cursor-not-allowed': currentStep < 4}">
-                                    Rename &amp; Save
+                                    {{ $t('hero.simulator.save') }}
                                 </button>
                             </div>
                         </div>
@@ -217,11 +221,11 @@ export default {
         return {
             currentStep: 0,
             steps: [
-                { label: 'Load File', statusText: 'Ready', statusColor: 'text-text-muted' },
-                { label: 'OCR Scan', statusText: 'Extracting text local OCR...', statusColor: 'text-[#60A5FA]' },
-                { label: 'Extract', statusText: 'DeepSeek-LLM analyzing fields...', statusColor: 'text-[#60A5FA]' },
-                { label: 'Rename', statusText: 'Formatting file template name...', statusColor: 'text-[#60A5FA]' },
-                { label: 'Save', statusText: 'Ready to Rename & Save locally.', statusColor: 'text-[#27c93f]' }
+                { key: 'load', statusKey: 'ready', statusColor: 'text-text-muted' },
+                { key: 'ocr', statusKey: 'ocr', statusColor: 'text-[#60A5FA]' },
+                { key: 'extract', statusKey: 'extract', statusColor: 'text-[#60A5FA]' },
+                { key: 'rename', statusKey: 'rename', statusColor: 'text-[#60A5FA]' },
+                { key: 'saveStep', statusKey: 'save', statusColor: 'text-[#27c93f]' }
             ],
             intervalId: null
         };
@@ -263,5 +267,3 @@ export default {
     }
 };
 </script>
-
-

@@ -35,6 +35,13 @@ class LandingController extends Controller
         $csvPath = storage_path('app/leads.csv');
         file_put_contents($csvPath, $line . PHP_EOL, FILE_APPEND | LOCK_EX);
 
+        if ($request->expectsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Merci ! Vous êtes inscrit à l\'accès anticipé 🎉'
+            ]);
+        }
+
         return redirect('/#beta')->with('success', 'Merci ! Vous êtes inscrit à l\'accès anticipé 🎉');
     }
 }

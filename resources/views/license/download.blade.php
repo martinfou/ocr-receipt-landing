@@ -31,9 +31,17 @@
         <a href="/" class="header">📄✓ OCR Receipt</a>
 
         <div class="card">
-            <div class="badge">✅ Licence Pro vérifiée</div>
+            @php
+                $tierName = 'Pro';
+                if (isset($purchase) && $purchase->amount_cents == 14900) {
+                    $tierName = 'Solo';
+                } elseif (isset($purchase) && $purchase->amount_cents == 39900) {
+                    $tierName = 'Comptable';
+                }
+            @endphp
+            <div class="badge">✅ Licence {{ $tierName }} vérifiée</div>
             <h1>⬇️ Téléchargement</h1>
-            <p class="info">Bienvenue <strong>{{ $email }}</strong>. Voici les fichiers disponibles pour votre licence Pro.</p>
+            <p class="info">Bienvenue <strong>{{ $email }}</strong>. Voici les fichiers disponibles pour votre licence {{ $tierName }}.</p>
 
             <div class="license-key">
                 <label>Votre clé de licence</label>
