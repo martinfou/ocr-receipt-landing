@@ -21,3 +21,12 @@ _bmad/
 /database/*.sqlite-journal
 /database/*.sqlite-shm
 /database/*.sqlite-wal
+
+# Agent & Dev Environment Local Files
+.codex/
+.impeccable/
+.github/hooks/
+.github/skills/
+/public/hot
+/public/fonts-manifest.dev.json
+/storage/pail/
