@@ -20,7 +20,7 @@
             </p>
 
             <div class="flex items-center justify-center gap-4">
-                <button @click="$root.scrollToPricing" class="btn-amber text-base px-8 py-3 glow">
+                <button @click="$root.scrollToPricing" class="btn-brand text-base px-8 py-3 glow">
                     Get OCR Receipt
                 </button>
                 <a href="#features" class="btn-outline text-base px-8 py-3">
@@ -30,15 +30,15 @@
 
             <div class="mt-16 grid grid-cols-3 gap-8 max-w-lg mx-auto">
                 <div class="text-center">
-                    <div class="text-2xl font-bold text-amber">100%</div>
+                    <div class="text-2xl font-bold text-brand">100%</div>
                     <div class="text-xs text-text-muted mt-1">Offline</div>
                 </div>
                 <div class="text-center">
-                    <div class="text-2xl font-bold text-amber">$0</div>
+                    <div class="text-2xl font-bold text-brand">$0</div>
                     <div class="text-xs text-text-muted mt-1">Free to try</div>
                 </div>
                 <div class="text-center">
-                    <div class="text-2xl font-bold text-amber">3</div>
+                    <div class="text-2xl font-bold text-brand">3</div>
                     <div class="text-xs text-text-muted mt-1">Platforms</div>
                 </div>
             </div>

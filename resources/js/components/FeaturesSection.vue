@@ -12,8 +12,8 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div v-for="feature in features" :key="feature.title" class="card">
-                    <div class="w-10 h-10 rounded-lg bg-amber/10 flex items-center justify-center mb-4">
-                        <span class="text-amber text-lg">{{ feature.icon }}</span>
+                    <div class="w-10 h-10 rounded-lg bg-brand/10 flex items-center justify-center mb-4">
+                        <span class="text-brand text-lg">{{ feature.icon }}</span>
                     </div>
                     <h3 class="font-serif font-semibold text-lg mb-2">{{ feature.title }}</h3>
                     <p class="text-sm text-text-muted leading-relaxed">{{ feature.description }}</p>

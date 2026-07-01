@@ -11,7 +11,7 @@
                      @click="toggle(i)">
                     <div class="flex items-center justify-between">
                         <h3 class="font-medium text-sm">{{ item.q }}</h3>
-                        <span class="text-amber text-lg transition-transform" :class="openIndex === i ? 'rotate-45' : ''">+</span>
+                        <span class="text-brand text-lg transition-transform" :class="openIndex === i ? 'rotate-45' : ''">+</span>
                     </div>
                     <div v-if="openIndex === i" class="mt-4 text-sm text-text-muted leading-relaxed">
                         {{ item.a }}

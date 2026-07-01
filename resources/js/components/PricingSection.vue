@@ -18,7 +18,7 @@
                     <div class="text-3xl font-bold mb-6">$0</div>
                     <ul class="space-y-3 text-sm mb-8 flex-1">
                         <li v-for="item in freeTier" :key="item" class="flex items-start gap-2">
-                            <span class="text-amber mt-0.5">✓</span>
+                            <span class="text-brand mt-0.5">✓</span>
                             <span>{{ item }}</span>
                         </li>
                     </ul>
@@ -28,8 +28,8 @@
                 </div>
 
                 <!-- Cloud Pay-per-use -->
-                <div class="card flex flex-col border-amber/30 glow relative">
-                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-amber text-black text-xs font-semibold rounded-full">
+                <div class="card flex flex-col border-brand/30 glow relative">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-brand text-white text-xs font-semibold rounded-full">
                         MOST POPULAR
                     </div>
                     <h3 class="font-serif font-semibold text-xl mb-1">Cloud</h3>
@@ -38,11 +38,11 @@
                     <div class="text-sm text-text-muted mb-6">per page</div>
                     <ul class="space-y-3 text-sm mb-8 flex-1">
                         <li v-for="item in cloudTier" :key="item" class="flex items-start gap-2">
-                            <span class="text-amber mt-0.5">✓</span>
+                            <span class="text-brand mt-0.5">✓</span>
                             <span>{{ item }}</span>
                         </li>
                     </ul>
-                    <button @click="startCheckout('cloud')" class="btn-amber w-full text-center">
+                    <button @click="startCheckout('cloud')" class="btn-brand w-full text-center">
                         Buy Credits
                     </button>
                 </div>
@@ -55,11 +55,11 @@
                     <div class="text-sm text-text-muted mb-6">one-time</div>
                     <ul class="space-y-3 text-sm mb-8 flex-1">
                         <li v-for="item in proTier" :key="item" class="flex items-start gap-2">
-                            <span class="text-amber mt-0.5">✓</span>
+                            <span class="text-brand mt-0.5">✓</span>
                             <span>{{ item }}</span>
                         </li>
                     </ul>
-                    <button @click="startCheckout('pro')" class="btn-amber w-full text-center">
+                    <button @click="startCheckout('pro')" class="btn-brand w-full text-center">
                         Buy Pro
                     </button>
                 </div>

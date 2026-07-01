@@ -6,10 +6,10 @@
                     <span class="text-lg font-serif font-semibold">OCR Receipt</span>
                 </div>
                 <div class="flex items-center gap-4">
-                    <a href="#features" class="text-sm text-text-muted hover:text-amber transition-colors">Features</a>
-                    <a href="#pricing" class="text-sm text-text-muted hover:text-amber transition-colors">Pricing</a>
-                    <a href="#faq" class="text-sm text-text-muted hover:text-amber transition-colors">FAQ</a>
-                    <button @click="scrollToPricing" class="btn-amber text-xs px-4 py-2">
+                    <a href="#features" class="text-sm text-text-muted hover:text-brand transition-colors">Features</a>
+                    <a href="#pricing" class="text-sm text-text-muted hover:text-brand transition-colors">Pricing</a>
+                    <a href="#faq" class="text-sm text-text-muted hover:text-brand transition-colors">FAQ</a>
+                    <button @click="scrollToPricing" class="btn-brand text-xs px-4 py-2">
                         Buy Now
                     </button>
                 </div>

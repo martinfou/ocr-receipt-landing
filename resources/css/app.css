@@ -12,8 +12,10 @@
     --font-serif: 'Playfair Display', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
     --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
-    --color-amber-400: #d97706;
-    --color-amber-500: #d97706;
+    --color-brand: #60A5FA;
+    --color-brand-dark: #3B82F6;
+    --color-brand-deep: #2563EB;
+    --color-scan: #3B82F6;
     --color-surface: #0a0a0a;
     --color-surface-light: #161615;
     --color-text: #e5e5e5;
@@ -43,17 +45,17 @@
 @layer utilities {
     .bg-surface { background-color: var(--color-surface); }
     .bg-surface-light { background-color: var(--color-surface-light); }
-    .text-amber { color: var(--color-amber-400); }
-    .border-amber { border-color: var(--color-amber-400); }
+    .text-brand { color: var(--color-brand); }
+    .border-brand { border-color: var(--color-brand); }
     .border-border { border-color: var(--color-border); }
 
-    .btn-amber {
+    .btn-brand {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         padding: 0.75rem 1.5rem;
-        background-color: var(--color-amber-400);
-        color: #0a0a0a;
+        background-color: var(--color-brand-dark);
+        color: #ffffff;
         font-weight: 600;
         font-size: 0.875rem;
         border-radius: 0.5rem;
@@ -61,10 +63,10 @@
         cursor: pointer;
         border: none;
     }
-    .btn-amber:hover {
-        background-color: #f59e0b;
+    .btn-brand:hover {
+        background-color: var(--color-brand);
     }
-    .btn-amber:disabled {
+    .btn-brand:disabled {
         opacity: 0.5;
         cursor: not-allowed;
     }
@@ -84,8 +86,8 @@
         background: transparent;
     }
     .btn-outline:hover {
-        border-color: var(--color-amber-400);
-        color: var(--color-amber-400);
+        border-color: var(--color-brand);
+        color: var(--color-brand);
     }
 
     .card {
@@ -96,13 +98,13 @@
     }
 
     .gradient-text {
-        background: linear-gradient(135deg, #d97706, #f59e0b);
+        background: linear-gradient(135deg, #60A5FA, #3B82F6);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
     }
 
     .glow {
-        box-shadow: 0 0 40px rgba(217, 119, 6, 0.15);
+        box-shadow: 0 0 40px rgba(59, 130, 246, 0.15);
     }
 }
