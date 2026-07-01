@@ -35,7 +35,7 @@
                     </h1>
 
                     <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-10">
-                        <a href="#pricing" class="btn-brand text-sm px-7 py-3.5 w-full sm:w-auto shadow-lg shadow-brand-dark/20 hover:shadow-brand/35 transition-all duration-300 text-center cursor-pointer">
+                        <a href="#download" class="btn-brand text-sm px-7 py-3.5 w-full sm:w-auto shadow-lg shadow-brand-dark/20 hover:shadow-brand/35 transition-all duration-300 text-center cursor-pointer">
                             {{ $t('hero.cta1') }}
                         </a>
                     </div>

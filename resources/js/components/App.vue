@@ -30,7 +30,7 @@
                         >EN</button>
                     </div>
 
-                    <a href="#pricing" class="btn-brand text-[10px] font-mono uppercase tracking-wider px-4 py-2 shadow-md shadow-brand-dark/10 hover:shadow-brand/20 transition-all cursor-pointer">
+                    <a href="#download" class="btn-brand text-[10px] font-mono uppercase tracking-wider px-4 py-2 shadow-md shadow-brand-dark/10 hover:shadow-brand/20 transition-all cursor-pointer">
                         {{ $t('nav.cta') }}
                     </a>
                 </div>
@@ -43,6 +43,7 @@
             <HowItWorksSection />
             <FeaturesSection />
             <PricingSection />
+            <DownloadsSection />
             <BetaSection />
             <FaqSection />
             <FooterSection />
@@ -67,6 +68,7 @@ import ProblemSection from './ProblemSection.vue';
 import HowItWorksSection from './HowItWorksSection.vue';
 import FeaturesSection from './FeaturesSection.vue';
 import PricingSection from './PricingSection.vue';
+import DownloadsSection from './DownloadsSection.vue';
 import BetaSection from './BetaSection.vue';
 import FaqSection from './FaqSection.vue';
 import FooterSection from './FooterSection.vue';
@@ -79,6 +81,7 @@ export default {
         HowItWorksSection,
         FeaturesSection,
         PricingSection,
+        DownloadsSection,
         BetaSection,
         FaqSection,
         FooterSection,

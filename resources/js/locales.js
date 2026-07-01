@@ -243,6 +243,26 @@ export const locales = {
                 contact: "Contact"
             },
             rights: "© 2026 OCR Receipt. Tous droits réservés."
+        },
+        downloads: {
+            title: "Téléchargements",
+            subtitle: "Installez l'application sur votre système. Licence active au premier lancement.",
+            mac: {
+                platform: "macOS",
+                desc: "Intel & Apple Silicon (M1/M2/M3)",
+                btn: "Télécharger (.DMG)"
+            },
+            windows: {
+                platform: "Windows",
+                desc: "Windows 10 / 11 (64-bit)",
+                btn: "Télécharger (.EXE)"
+            },
+            linux: {
+                platform: "Linux",
+                desc: "Toutes distributions (tar.gz)",
+                btn: "Télécharger (.TAR.GZ)"
+            },
+            licenseNote: "Clé d'activation requise. Obtenez une clé d'accès anticipé gratuite dans la section tarifs ci-dessus."
         }
     },
     en: {
@@ -489,6 +509,26 @@ export const locales = {
                 contact: "Contact"
             },
             rights: "© 2026 OCR Receipt. All rights reserved."
+        },
+        downloads: {
+            title: "Downloads",
+            subtitle: "Install the app locally on your machine. Activate your license on first launch.",
+            mac: {
+                platform: "macOS",
+                desc: "Intel & Apple Silicon (M1/M2/M3)",
+                btn: "Download (.DMG)"
+            },
+            windows: {
+                platform: "Windows",
+                desc: "Windows 10 / 11 (64-bit)",
+                btn: "Download (.EXE)"
+            },
+            linux: {
+                platform: "Linux",
+                desc: "All distributions (tar.gz)",
+                btn: "Download (.TAR.GZ)"
+            },
+            licenseNote: "Activation key required. Obtain a free early access license key in the pricing section above."
         }
     }
 };
