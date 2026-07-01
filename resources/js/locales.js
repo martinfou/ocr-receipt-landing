@@ -1,6 +1,7 @@
 export const locales = {
     fr: {
         nav: {
+            problem: "Pourquoi",
             workflow: "Comment ça marche",
             features: "Fonctionnalités",
             pricing: "Tarifs",
@@ -353,6 +354,7 @@ export const locales = {
     },
     en: {
         nav: {
+            problem: "Why",
             workflow: "How It Works",
             features: "Features",
             pricing: "Pricing",

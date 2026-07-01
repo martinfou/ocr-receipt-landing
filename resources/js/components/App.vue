@@ -11,6 +11,7 @@
                     <span class="font-serif font-bold text-base text-[#e5e5e5] tracking-tight">OCR Receipt</span>
                 </div>
                 <div class="flex items-center gap-6">
+                    <a href="#problem" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-[#e5e5e5] transition-colors">{{ $t('nav.problem') }}</a>
                     <a href="#how-it-works" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-[#e5e5e5] transition-colors">{{ $t('nav.workflow') }}</a>
                     <a href="#features" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-[#e5e5e5] transition-colors">{{ $t('nav.features') }}</a>
                     <a href="#pricing" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-[#e5e5e5] transition-colors">{{ $t('nav.pricing') }}</a>
