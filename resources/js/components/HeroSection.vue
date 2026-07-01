@@ -7,7 +7,7 @@
             loop 
             muted 
             playsinline 
-            src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-connection-background-28313-large.mp4">
+            src="/bg-video.mp4">
         </video>
         
         <!-- Overlays -->
