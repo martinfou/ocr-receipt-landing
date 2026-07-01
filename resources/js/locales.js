@@ -13,7 +13,7 @@ export const locales = {
             cta1: "⬇️ Télécharger l'application",
             designedFor: "Pour freelances et PME soucieux de leur confidentialité.",
             badges: "IA locale & cloud · Zéro abonnement · Licence perpétuelle",
-            carouselTabs: ['Paramètres', 'Correcteur IA', 'Par Lots', 'Fuzzy Match', 'Rapports'],
+            carouselTabs: ['Parser', 'Paramètres', 'Correcteur IA', 'Par Lots', 'Fuzzy Match', 'Rapports'],
             simulator: {
                 title: "PDF Unique",
                 subtitle: "Traiter un reçu individuel pour l'extraction de données et le renommage",
@@ -364,7 +364,7 @@ export const locales = {
             cta1: "⬇️ Download the App",
             designedFor: "Built for privacy-conscious freelancers and SMBs.",
             badges: "Local & Cloud AI · No Subscriptions · Perpetual License",
-            carouselTabs: ['Settings', 'AI Clean', 'Batch Scan', 'Fuzzy Match', 'Reports'],
+            carouselTabs: ['Parser', 'Settings', 'AI Clean', 'Batch Scan', 'Fuzzy Match', 'Reports'],
             simulator: {
                 title: "PDF Unique",
                 subtitle: "Process an individual receipt for data extraction and renaming",

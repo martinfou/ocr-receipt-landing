@@ -85,8 +85,126 @@
                         <!-- Active Simulation Panes -->
                         <div class="p-5 bg-[#0a0a0a]/20 min-h-[350px] flex flex-col justify-between">
                             
-                            <!-- Tab 0: Local Settings Configuration -->
-                            <div v-if="activeTab === 0" class="space-y-4 animate-fadeIn">
+                            <!-- Tab 0: Parser (Original interactive OCR receipt simulator) -->
+                            <div v-if="activeTab === 0" class="grid sm:grid-cols-12 gap-4 animate-fadeIn">
+                                <!-- Left column: Mock PDF viewer representation -->
+                                <div class="sm:col-span-5 space-y-2">
+                                    <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider border-b border-border/30 pb-1">// PDF Viewer</div>
+                                    <div class="relative bg-white text-[#111111] p-3 rounded-lg border border-border/60 shadow-lg h-[240px] flex flex-col justify-between overflow-hidden">
+                                        <!-- Laser scanning line -->
+                                        <div v-show="parserStep === 1" class="absolute left-0 right-0 h-[2px] bg-brand animate-scan-laser shadow-[0_0_12px_#3B82F6] z-20"></div>
+                                        
+                                        <!-- Document representation -->
+                                        <div class="space-y-1.5 relative z-10 text-[7px] font-sans">
+                                            <div class="flex items-center justify-between border-b border-[#cccccc] pb-1.5 mb-2">
+                                                <div class="w-7 h-7 rounded-full bg-brand/10 border border-brand/20 flex items-center justify-center font-bold text-brand text-[8px]">ACME</div>
+                                                <div class="text-right">
+                                                    <div class="font-bold text-[8px] uppercase tracking-wider">ACME COPIER SERVICES</div>
+                                                    <div class="text-[6px] text-[#555555]">St-Jean-sur-Richelieu</div>
+                                                </div>
+                                            </div>
+                                            <div class="font-bold border-b border-[#dddddd] pb-1">FACTURE N° 1700</div>
+                                            <div class="flex justify-between font-bold text-[7px] border-b border-[#dddddd] pb-1">
+                                                <span>Maintenance Copieur</span>
+                                                <span>$120.00</span>
+                                            </div>
+                                            <div class="flex justify-between font-bold text-[7px] border-b border-[#dddddd] pb-1">
+                                                <span>Papier Lettre</span>
+                                                <span>$10.00</span>
+                                            </div>
+                                            <div class="flex justify-between font-bold text-[7px]">
+                                                <span>Taxes (TPS/TVQ)</span>
+                                                <span>$19.50</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-center justify-between border-t border-[#cccccc] pt-2 text-[8px] font-mono text-text-muted relative z-10 bg-white">
+                                            <span>ACME_COPIER.PDF</span>
+                                            <span>PAGE 1 OF 1</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Right column: Extracted fields & rename preview -->
+                                <div class="sm:col-span-7 flex flex-col justify-between space-y-4">
+                                    
+                                    <!-- Document Fields -->
+                                    <div class="space-y-2.5">
+                                        <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider border-b border-border/30 pb-1.5 mb-1.5 flex items-center justify-between">
+                                            <span>{{ $t('hero.simulator.fields') }}</span>
+                                            <span class="text-[#27c93f] font-mono text-[8px]" v-if="parserStep >= 2">{{ $t('hero.simulator.matchConfirmed') }}</span>
+                                        </div>
+                                        
+                                        <!-- Vendor Field -->
+                                        <div class="flex items-center gap-2">
+                                            <span class="w-16 text-text-muted text-[10px]">Vendor:</span>
+                                            <div class="flex-1 bg-[#0a0a0a]/50 border border-border/60 rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden">
+                                                <span class="font-mono text-[10px] text-[#e5e5e5] transition-opacity duration-300" :class="parserStep >= 2 ? 'opacity-100' : 'opacity-0'">
+                                                    acme-copier
+                                                </span>
+                                                <span v-if="parserStep >= 2" class="text-[8px] bg-green-500/10 text-[#27c93f] border border-green-500/20 px-1 rounded font-mono font-medium scale-90">
+                                                    95% Match
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Date Field -->
+                                        <div class="flex items-center gap-2">
+                                            <span class="w-16 text-text-muted text-[10px]">Date:</span>
+                                            <div class="flex-1 bg-[#0a0a0a]/50 border border-border/60 rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden">
+                                                <span class="font-mono text-[10px] text-[#e5e5e5] transition-opacity duration-300" :class="parserStep >= 2 ? 'opacity-100' : 'opacity-0'">
+                                                    2026-06-19
+                                                </span>
+                                                <span v-if="parserStep >= 2" class="text-[8px] bg-green-500/10 text-[#27c93f] border border-green-500/20 px-1 rounded font-mono font-medium scale-90">
+                                                    95% Match
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Taxes Field -->
+                                        <div class="flex items-center gap-2">
+                                            <span class="w-16 text-text-muted text-[10px]">Taxes ($):</span>
+                                            <div class="flex-1 bg-[#0a0a0a]/50 border border-border/60 rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden">
+                                                <span class="font-mono text-[10px] text-[#e5e5e5] transition-opacity duration-300" :class="parserStep >= 2 ? 'opacity-100' : 'opacity-0'">
+                                                    19.50
+                                                </span>
+                                                <span v-if="parserStep >= 2" class="text-[8px] bg-green-500/10 text-[#27c93f] border border-green-500/20 px-1 rounded font-mono font-medium scale-90">
+                                                    95% Match
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Total Field -->
+                                        <div class="flex items-center gap-2">
+                                            <span class="w-16 text-text-muted text-[10px]">Total ($):</span>
+                                            <div class="flex-1 bg-[#0a0a0a]/50 border border-border/60 rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden">
+                                                <span class="font-mono text-[10px] text-[#e5e5e5] transition-opacity duration-300" :class="parserStep >= 2 ? 'opacity-100' : 'opacity-0'">
+                                                    149.50
+                                                </span>
+                                                <span v-if="parserStep >= 2" class="text-[8px] bg-green-500/10 text-[#27c93f] border border-green-500/20 px-1 rounded font-mono font-medium scale-90">
+                                                    95% Match
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- File Naming Preview -->
+                                    <div class="bg-surface/60 border border-border/50 rounded-lg p-3 space-y-1">
+                                        <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider">{{ $t('hero.simulator.preview') }}</div>
+                                        <div class="font-mono text-[9px] text-[#60A5FA] break-all h-6 overflow-hidden flex items-center">
+                                            <span class="transition-opacity duration-300" :class="parserStep >= 3 ? 'opacity-100' : 'opacity-0'">
+                                                acme-copier_facture_2026-06-19_149.50.pdf
+                                            </span>
+                                        </div>
+                                        <div class="text-[8px] text-[#27c93f] font-mono transition-opacity duration-300" :class="parserStep >= 3 ? 'opacity-100' : 'opacity-0'">
+                                            {{ $t('hero.simulator.validFilename') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Tab 1: Local Settings Configuration -->
+                            <div v-if="activeTab === 1" class="space-y-4 animate-fadeIn">
                                 <div class="grid sm:grid-cols-2 gap-4">
                                     <!-- Left half: Model config -->
                                     <div class="space-y-3 p-3.5 bg-[#0a0a0a]/60 border border-border/60 rounded-xl">
@@ -139,26 +257,25 @@
                                 </div>
                             </div>
 
-                            <!-- Tab 1: AI Clean (OCR correction) -->
-                            <div v-if="activeTab === 1" class="grid sm:grid-cols-12 gap-4 animate-fadeIn">
+                            <!-- Tab 2: AI Clean (OCR correction) -->
+                            <div v-if="activeTab === 2" class="grid sm:grid-cols-12 gap-4 animate-fadeIn">
                                 <!-- Left column: raw ocr text -->
                                 <div class="sm:col-span-5 space-y-2">
                                     <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider border-b border-border/30 pb-1">// Raw OCR Stream (Typos)</div>
                                     <div class="bg-[#0e0e0d] border border-border/40 rounded-lg p-3 h-[250px] overflow-y-auto font-mono text-[9px] text-text-muted space-y-2 select-none leading-relaxed">
-                                        <div><span class="text-[#e5e5e5] font-bold">PLOM8ER1E 10/30 INC.</span> <span class="text-red-400 text-[8px] font-bold">[typo: 8/B]</span></div>
-                                        <div>St-Jean-sur-Riche1ieu, Qc</div>
+                                        <div><span class="text-[#e5e5e5] font-bold">ACME COPIER 5ERVICE5 INC.</span> <span class="text-red-400 text-[8px] font-bold">[typo: 5/S]</span></div>
+                                        <div>St-Jean-sur-Richelieu, Qc</div>
                                         <div class="border-t border-border/10 pt-1">
                                             <div>FACT: <span class="text-red-400 bg-red-500/5 px-1 rounded">17O0</span> <span class="text-red-400">[typo: O/0]</span></div>
-                                            <div>DATE: 19/O6/2O25 <span class="text-red-400">[typo: O/0]</span></div>
+                                            <div>DATE: 19/O6/2O26 <span class="text-red-400">[typo: O/0]</span></div>
                                         </div>
                                         <div class="border-t border-border/10 pt-1 space-y-1">
-                                            <div>- Remplacer un reservoir... <span class="text-red-400 font-bold">$895.O0</span></div>
-                                            <div>- Tuyaux PEX et raccords... $53.35</div>
-                                            <div>- Main d'oeuvre... <span class="text-red-400 font-bold">$29O.0O</span></div>
+                                            <div>- Maintenance... <span class="text-red-400 font-bold">$12O.O0</span></div>
+                                            <div>- Papier Lettre... $10.00</div>
                                         </div>
                                         <div class="border-t border-border/10 pt-1">
-                                            <div>TAX: <span class="text-red-400 font-bold">2O9.72</span></div>
-                                            <div class="font-bold">TOTAL: <span class="text-red-400 font-bold">16O9.O2</span></div>
+                                            <div>TAX: <span class="text-red-400 font-bold">19.5O</span></div>
+                                            <div class="font-bold">TOTAL: <span class="text-red-400 font-bold">149.5O</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -179,7 +296,7 @@
                                         <!-- Vendor match -->
                                         <div class="p-2 bg-[#0a0a0a]/50 border border-border/80 rounded-lg flex justify-between items-center font-mono">
                                             <span class="text-text-muted">Vendor Matched:</span>
-                                            <span class="text-[#e5e5e5] font-serif font-bold">Plomberie 10/30 Inc.</span>
+                                            <span class="text-[#e5e5e5] font-serif font-bold">ACME Copier Services Inc.</span>
                                         </div>
                                         <!-- Line items table representation -->
                                         <div class="space-y-1 font-mono text-[9px]">
@@ -188,27 +305,23 @@
                                                 <span>AMOUNT</span>
                                             </div>
                                             <div class="flex justify-between text-[#e5e5e5]">
-                                                <span class="truncate max-w-[160px]">Remplacer un réservoir électrique</span>
-                                                <span class="text-brand">$895.00</span>
+                                                <span class="truncate max-w-[160px]">Maintenance Copieur</span>
+                                                <span class="text-brand">$120.00</span>
                                             </div>
                                             <div class="flex justify-between text-[#e5e5e5]">
-                                                <span class="truncate max-w-[160px]">Tuyaux PEX et raccords</span>
-                                                <span class="text-brand">$53.35</span>
-                                            </div>
-                                            <div class="flex justify-between text-[#e5e5e5]">
-                                                <span class="truncate max-w-[160px]">Main d'oeuvre (2 h/homme)</span>
-                                                <span class="text-brand">$290.00</span>
+                                                <span class="truncate max-w-[160px]">Papier Lettre</span>
+                                                <span class="text-brand">$10.00</span>
                                             </div>
                                         </div>
                                         <!-- Tax & Total details -->
                                         <div class="pt-2 border-t border-border/40 space-y-1 font-mono text-[9px]">
                                             <div class="flex justify-between text-text-muted">
                                                 <span>TPS/TVQ Tax (14.975%)</span>
-                                                <span class="text-[#27c93f]">$209.72</span>
+                                                <span class="text-[#27c93f]">$19.50</span>
                                             </div>
                                             <div class="flex justify-between text-[#e5e5e5] font-bold text-xs">
                                                 <span>Cleaned Total CAD</span>
-                                                <span>$1,609.02</span>
+                                                <span>$149.50</span>
                                             </div>
                                         </div>
                                     </div>
@@ -225,8 +338,8 @@
                                 </div>
                             </div>
 
-                            <!-- Tab 2: Parallel Batch Scan -->
-                            <div v-if="activeTab === 2" class="space-y-4 animate-fadeIn">
+                            <!-- Tab 3: Parallel Batch Scan -->
+                            <div v-if="activeTab === 3" class="space-y-4 animate-fadeIn">
                                 <div class="text-[8px] font-mono text-brand uppercase tracking-wider border-b border-border/30 pb-1 flex justify-between items-center">
                                     <span>// Parallel Batch Processor</span>
                                     <span v-if="batchStep === 'done'" class="text-green-400 font-mono text-[8px]">✓ Done</span>
@@ -275,8 +388,8 @@
                                 </div>
                             </div>
 
-                            <!-- Tab 3: Fuzzy Matching -->
-                            <div v-if="activeTab === 3" class="grid sm:grid-cols-12 gap-4 animate-fadeIn">
+                            <!-- Tab 4: Fuzzy Matching -->
+                            <div v-if="activeTab === 4" class="grid sm:grid-cols-12 gap-4 animate-fadeIn">
                                 <!-- Mock invoice page (Left column) -->
                                 <div class="sm:col-span-5 space-y-2">
                                     <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider border-b border-border/30 pb-1">// PDF Viewer (Input)</div>
@@ -286,25 +399,25 @@
                                         
                                         <div class="space-y-1.5 relative z-10 text-[7px] font-sans">
                                             <div class="flex items-center justify-between border-b border-[#cccccc] pb-1.5 mb-2">
-                                                <div class="w-7 h-7 rounded-full bg-brand/10 border border-brand/20 flex items-center justify-center font-bold text-brand text-[8px]">10/30</div>
+                                                <div class="w-7 h-7 rounded-full bg-brand/10 border border-brand/20 flex items-center justify-center font-bold text-brand text-[8px]">ACME</div>
                                                 <div class="text-right">
-                                                    <div class="font-bold text-[8px] uppercase tracking-wider">PLOMBERIE 10/30 Inc.</div>
+                                                    <div class="font-bold text-[8px] uppercase tracking-wider">ACME COPIER SERVICES</div>
                                                     <div class="text-[6px] text-[#555555]">St-Jean-sur-Richelieu</div>
                                                 </div>
                                             </div>
                                             <div class="font-bold border-b border-[#dddddd] pb-1">FACTURE N° 1700</div>
                                             <div class="flex justify-between font-bold text-[7px] border-b border-[#dddddd] pb-1">
-                                                <span>Remplacer un réservoir 40 gal électrique</span>
-                                                <span>$895.00</span>
+                                                <span>Maintenance Copieur</span>
+                                                <span>$120.00</span>
                                             </div>
                                             <div class="flex justify-between font-bold text-[7px]">
-                                                <span>Main d'oeuvre qualifiée (2h)</span>
-                                                <span>$290.00</span>
+                                                <span>Papier Lettre</span>
+                                                <span>$10.00</span>
                                             </div>
                                         </div>
 
                                         <div class="border-t border-[#cccccc] pt-1 text-[7px] text-[#555555] font-mono flex justify-between items-center relative z-10 bg-white">
-                                            <span>plomberie_10-30.pdf</span>
+                                            <span>acme_copier_invoice.pdf</span>
                                             <span>PAGE 1 OF 1</span>
                                         </div>
                                     </div>
@@ -321,7 +434,7 @@
                                         <div class="flex items-center gap-2">
                                             <span class="w-16 text-text-muted text-[10px]">Project:</span>
                                             <div class="flex-1 bg-[#0a0a0a]/50 border border-border/60 rounded px-2.5 py-1 text-[10px] text-[#e5e5e5] font-mono flex justify-between items-center">
-                                                <span>bolt</span>
+                                                <span>office</span>
                                                 <span class="text-[8px]">▼</span>
                                             </div>
                                         </div>
@@ -329,7 +442,7 @@
                                         <div class="flex items-center gap-2">
                                             <span class="w-16 text-text-muted text-[10px]">Destination:</span>
                                             <div class="flex-1 bg-[#0a0a0a]/50 border border-border/60 rounded px-2.5 py-1 text-[9px] text-[#e5e5e5] font-mono truncate select-none">
-                                                📁 /Dropbox/Factures/@CHEVROLET BOLT EUV PREMIER 2023/
+                                                📁 /Dropbox/Factures/Office/
                                             </div>
                                         </div>
 
@@ -337,7 +450,7 @@
                                             <div class="text-[8px] font-mono text-text-muted uppercase">File Naming Template Preview</div>
                                             <div class="font-mono text-[10px] text-brand break-all min-h-5 flex items-center">
                                                 <span class="transition-opacity duration-300" :class="matchStep === 'done' ? 'opacity-100' : 'opacity-0'">
-                                                    bolt_facture_2025-06-19_plomberie10-30_1609.02.pdf
+                                                    office_facture_2026-06-19_acme-copier_149.50.pdf
                                                 </span>
                                             </div>
                                         </div>
@@ -351,8 +464,8 @@
                                 </div>
                             </div>
 
-                            <!-- Tab 4: PDF Report Builder -->
-                            <div v-if="activeTab === 4" class="grid sm:grid-cols-12 gap-4 animate-fadeIn">
+                            <!-- Tab 5: PDF Report Builder -->
+                            <div v-if="activeTab === 5" class="grid sm:grid-cols-12 gap-4 animate-fadeIn">
                                 <!-- Build logs (Left column) -->
                                 <div class="sm:col-span-5 space-y-2">
                                     <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider border-b border-border/30 pb-1">// Build logs</div>
@@ -381,6 +494,7 @@
                                                 <tr class="bg-surface/50 border-b border-border/30 font-bold text-text-muted">
                                                     <th class="p-1.5">Date</th>
                                                     <th class="p-1.5">Supplier</th>
+                                                    <th class="p-1.5 text-right">Taxes</th>
                                                     <th class="p-1.5 text-right">Total</th>
                                                     <th class="p-1.5 text-center">Receipt</th>
                                                 </tr>
@@ -389,6 +503,7 @@
                                                 <tr v-for="receipt in receipts" :key="receipt.file" class="border-b border-border/10 text-[9px] hover:bg-white/[0.01]">
                                                     <td class="p-1.5 text-[#e5e5e5]">{{ receipt.date }}</td>
                                                     <td class="p-1.5 text-text-muted truncate max-w-[80px]">{{ receipt.vendor }}</td>
+                                                    <td class="p-1.5 text-right text-[#e5e5e5]">{{ receipt.tax }}</td>
                                                     <td class="p-1.5 text-right text-brand font-bold">{{ receipt.amount }}</td>
                                                     <td class="p-1.5 text-center text-blue-400 underline cursor-pointer hover:text-blue-300">📄 view</td>
                                                 </tr>
@@ -408,6 +523,20 @@
                                 </div>
                             </div>
 
+                        </div>
+
+                        <!-- Footer Control & Status bar (Only shown for Parser Tab 0) -->
+                        <div v-if="activeTab === 0" class="bg-surface/40 px-4 py-3 border-t border-border/40 flex items-center justify-between gap-4">
+                            <div class="text-[10px] font-mono text-text-muted">
+                                Status: <span :class="parserSteps[parserStep].statusColor" class="font-semibold">{{ $t('hero.simulator.status.' + parserSteps[parserStep].statusKey) }}</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button class="btn-outline text-[9px] font-mono px-3.5 py-1.5 h-7">{{ $t('hero.simulator.discard') }}</button>
+                                <button class="btn-brand text-[9px] font-mono px-3.5 py-1.5 h-7 flex items-center gap-1 bg-[#27c93f] hover:bg-[#22a835]"
+                                        :class="{'opacity-50 cursor-not-allowed': parserStep < 4}">
+                                    {{ $t('hero.simulator.save') }}
+                                </button>
+                            </div>
                         </div>
 
                     </div>
@@ -432,14 +561,24 @@ export default {
             testingModel: false,
             testResult: '',
 
+            parserStep: 0,
+            parserSteps: [
+                { key: 'load', statusKey: 'ready', statusColor: 'text-text-muted' },
+                { key: 'ocr', statusKey: 'ocr', statusColor: 'text-[#60A5FA]' },
+                { key: 'extract', statusKey: 'extract', statusColor: 'text-[#60A5FA]' },
+                { key: 'rename', statusKey: 'rename', statusColor: 'text-[#60A5FA]' },
+                { key: 'saveStep', statusKey: 'save', statusColor: 'text-[#27c93f]' }
+            ],
+            parserIntervalId: null,
+
             aiStep: 'idle',
             batchStep: 'idle',
             batchFiles: [
-                { name: 'facture_hydro_quebec_2026_06.pdf', size: '420 KB', status: 'pending', progress: 0 },
-                { name: 'bell_internet_2026_05.pdf', size: '1.2 MB', status: 'pending', progress: 0 },
-                { name: 'videotron_mobile_2026_06.pdf', size: '850 KB', status: 'pending', progress: 0 },
-                { name: 'amazon_aws_invoice_2991.pdf', size: '340 KB', status: 'pending', progress: 0 },
-                { name: 'provigo_epicerie_2026.pdf', size: '180 KB', status: 'pending', progress: 0 }
+                { name: 'invoice_utility_2026_06.pdf', size: '420 KB', status: 'pending', progress: 0 },
+                { name: 'invoice_telecom_2026_05.pdf', size: '1.2 MB', status: 'pending', progress: 0 },
+                { name: 'invoice_mobile_2026_06.pdf', size: '850 KB', status: 'pending', progress: 0 },
+                { name: 'invoice_cloud_2026_04.pdf', size: '340 KB', status: 'pending', progress: 0 },
+                { name: 'invoice_office_supplies_2026.pdf', size: '180 KB', status: 'pending', progress: 0 }
             ],
 
             matchStep: 'idle',
@@ -448,17 +587,17 @@ export default {
             progress: 0,
             logs: [],
             receipts: [
-                { date: '2025-01-01', vendor: 'banque-scotia', amount: '$13,291.95', tax: '$1,727.95', file: 'invoice_scotia_jan.pdf' },
-                { date: '2025-01-02', vendor: 'canac', amount: '$417.21', tax: '$54.24', file: 'canac_0102.pdf' },
-                { date: '2025-01-19', vendor: 'bell', amount: '$63.32', tax: '$8.23', file: 'bell_internet.pdf' },
-                { date: '2025-01-20', vendor: 'coopsco', amount: '$23.95', tax: '$3.11', file: 'coopsco_books.pdf' }
+                { date: '2025-01-01', vendor: 'office-depot', amount: '$149.50', tax: '$19.50', file: 'acme_copier_jan.pdf' },
+                { date: '2025-01-02', vendor: 'hardware-store', amount: '$417.21', tax: '$54.24', file: 'hardware_0102.pdf' },
+                { date: '2025-01-19', vendor: 'telecom-local', amount: '$63.32', tax: '$8.23', file: 'telecom_internet.pdf' },
+                { date: '2025-01-20', vendor: 'bookstore', amount: '$23.95', tax: '$3.11', file: 'office_books.pdf' }
             ],
             intervalId: null
         };
     },
     computed: {
         tabNames() {
-            return this.$t('hero.carouselTabs') || ['Settings', 'AI Clean', 'Batch Scan', 'Fuzzy Match', 'Reports'];
+            return this.$t('hero.carouselTabs') || ['Parser', 'Settings', 'AI Clean', 'Batch Scan', 'Fuzzy Match', 'Reports'];
         }
     },
     watch: {
@@ -469,20 +608,39 @@ export default {
     mounted() {
         this.handleTabActivation(this.activeTab);
     },
+    beforeUnmount() {
+        this.clearAllSimulationIntervals();
+    },
     methods: {
         selectTab(idx) {
             this.$emit('tab-changed', idx);
         },
+        clearAllSimulationIntervals() {
+            if (this.parserIntervalId) {
+                clearInterval(this.parserIntervalId);
+                this.parserIntervalId = null;
+            }
+            if (this.intervalId) {
+                clearInterval(this.intervalId);
+                this.intervalId = null;
+            }
+        },
         handleTabActivation(tabIdx) {
+            this.clearAllSimulationIntervals();
+
             if (tabIdx === 0) {
+                this.parserStep = 0;
+                this.runParserSimulation();
+                this.parserIntervalId = setInterval(this.runParserSimulation, 10000);
+            } else if (tabIdx === 1) {
                 this.testResult = '';
                 this.testingModel = false;
-            } else if (tabIdx === 1) {
+            } else if (tabIdx === 2) {
                 this.aiStep = 'idle';
                 setTimeout(() => {
                     this.runAiCorrection();
                 }, 300);
-            } else if (tabIdx === 2) {
+            } else if (tabIdx === 3) {
                 this.batchStep = 'idle';
                 this.batchFiles.forEach(f => {
                     f.status = 'pending';
@@ -491,18 +649,45 @@ export default {
                 setTimeout(() => {
                     this.runBatchScan();
                 }, 300);
-            } else if (tabIdx === 3) {
+            } else if (tabIdx === 4) {
                 this.matchStep = 'idle';
                 setTimeout(() => {
                     this.runFuzzyMatchingScan();
                 }, 300);
-            } else if (tabIdx === 4) {
+            } else if (tabIdx === 5) {
                 this.reportStep = 'idle';
                 this.logs = [];
                 setTimeout(() => {
                     this.startGeneration();
                 }, 300);
             }
+        },
+        runParserSimulation() {
+            this.parserStep = 0;
+
+            setTimeout(() => {
+                if (this.activeTab === 0) {
+                    this.parserStep = 1; // OCR Scan
+                }
+            }, 1500);
+
+            setTimeout(() => {
+                if (this.activeTab === 0) {
+                    this.parserStep = 2; // Extract
+                }
+            }, 3500);
+
+            setTimeout(() => {
+                if (this.activeTab === 0) {
+                    this.parserStep = 3; // Rename
+                }
+            }, 5500);
+
+            setTimeout(() => {
+                if (this.activeTab === 0) {
+                    this.parserStep = 4; // Save
+                }
+            }, 7500);
         },
         testModelConnection() {
             this.testingModel = true;
@@ -515,7 +700,7 @@ export default {
         runAiCorrection() {
             this.aiStep = 'processing';
             setTimeout(() => {
-                if (this.activeTab === 1 && this.aiStep === 'processing') {
+                if (this.activeTab === 2 && this.aiStep === 'processing') {
                     this.aiStep = 'done';
                 }
             }, 1500);
@@ -528,14 +713,15 @@ export default {
             });
 
             let elapsed = 0;
-            const interval = setInterval(() => {
-                if (this.activeTab !== 2 || this.batchStep !== 'active') {
-                    clearInterval(interval);
+            this.intervalId = setInterval(() => {
+                if (this.activeTab !== 3 || this.batchStep !== 'active') {
+                    clearInterval(this.intervalId);
+                    this.intervalId = null;
                     return;
                 }
                 elapsed += 100;
 
-                // File 1 (Hydro Quebec)
+                // File 1
                 if (elapsed <= 1000) {
                     this.batchFiles[0].status = 'active';
                     this.batchFiles[0].progress = Math.min(100, Math.floor((elapsed / 1000) * 100));
@@ -544,7 +730,7 @@ export default {
                     this.batchFiles[0].progress = 100;
                 }
 
-                // File 2 (Bell Internet)
+                // File 2
                 if (elapsed <= 1500) {
                     this.batchFiles[1].status = 'active';
                     this.batchFiles[1].progress = Math.min(100, Math.floor((elapsed / 1500) * 100));
@@ -553,7 +739,7 @@ export default {
                     this.batchFiles[1].progress = 100;
                 }
 
-                // File 3 (Videotron Mobile)
+                // File 3
                 if (elapsed >= 300) {
                     if (elapsed <= 2000) {
                         this.batchFiles[2].status = 'active';
@@ -564,7 +750,7 @@ export default {
                     }
                 }
 
-                // File 4 (Amazon AWS)
+                // File 4
                 if (elapsed >= 600) {
                     if (elapsed <= 2200) {
                         this.batchFiles[3].status = 'active';
@@ -575,7 +761,7 @@ export default {
                     }
                 }
 
-                // File 5 (Provigo)
+                // File 5
                 if (elapsed >= 900) {
                     if (elapsed <= 2500) {
                         this.batchFiles[4].status = 'active';
@@ -584,7 +770,8 @@ export default {
                         this.batchFiles[4].status = 'done';
                         this.batchFiles[4].progress = 100;
                         this.batchStep = 'done';
-                        clearInterval(interval);
+                        clearInterval(this.intervalId);
+                        this.intervalId = null;
                     }
                 }
             }, 100);
@@ -592,7 +779,7 @@ export default {
         runFuzzyMatchingScan() {
             this.matchStep = 'scanning';
             setTimeout(() => {
-                if (this.activeTab === 3 && this.matchStep === 'scanning') {
+                if (this.activeTab === 4 && this.matchStep === 'scanning') {
                     this.matchStep = 'done';
                 }
             }, 1500);
@@ -602,7 +789,7 @@ export default {
             this.logs = [];
 
             const logSteps = [
-                '📂 Indexing source directory: /Dropbox/Factures/Facture 2025...',
+                '📂 Indexing source directory: /Dropbox/Factures/Office 2025...',
                 '🔍 Scanning 152 PDFs and receipt images locally...',
                 '🧠 Executing local AI OCR data extraction...',
                 '📋 Generating tabular Reconciliation Register...',
@@ -612,7 +799,7 @@ export default {
 
             logSteps.forEach((step, idx) => {
                 setTimeout(() => {
-                    if (this.activeTab === 4 && this.reportStep === 'generating') {
+                    if (this.activeTab === 5 && this.reportStep === 'generating') {
                         this.logs.push(step);
                         if (idx === logSteps.length - 1) {
                             this.reportStep = 'done';
@@ -625,3 +812,20 @@ export default {
 };
 </script>
 
+<style scoped>
+@keyframes scan {
+    0% { top: 0%; }
+    50% { top: 100%; }
+    100% { top: 0%; }
+}
+.animate-scan-laser {
+    animation: scan 3s infinite linear;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+.animate-fadeIn {
+    animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+</style>
