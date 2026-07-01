@@ -2,7 +2,7 @@
     <section class="relative overflow-hidden py-24 lg:py-32 min-h-screen flex items-center justify-center">
         <!-- Background Video -->
         <video 
-            class="absolute inset-0 w-full h-full object-cover z-0 opacity-50" 
+            class="absolute inset-0 w-full h-full object-cover z-0 opacity-40" 
             autoplay 
             loop 
             muted 
@@ -11,7 +11,7 @@
         </video>
         
         <!-- Overlays -->
-        <div class="absolute inset-0 bg-surface/70 z-0"></div>
+        <div class="absolute inset-0 bg-surface/75 z-0"></div>
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(96,165,250,0.1),transparent_50%)] z-0"></div>
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(96,165,250,0.05),transparent_50%)] z-0"></div>
 
@@ -19,7 +19,7 @@
             <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                 
                 <!-- Left Column: Copy & CTAs -->
-                <div class="lg:col-span-6 text-left flex flex-col items-start bg-surface-light/35 backdrop-blur-lg p-8 lg:p-10 rounded-2xl border border-border/40 shadow-2xl">
+                <div class="lg:col-span-5 text-left flex flex-col items-start bg-surface-light/35 backdrop-blur-lg p-8 lg:p-10 rounded-2xl border border-border/40 shadow-2xl">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border text-xs text-text-muted mb-6 bg-surface-light/50 backdrop-blur-sm">
                         <span class="w-2 h-2 rounded-full bg-blue-500 inline-block shadow-[0_0_8px_rgba(59,130,246,0.6)] animate-pulse"></span>
                         Offline-First · Local AI
@@ -45,83 +45,163 @@
                     </div>
                 </div>
 
-                <!-- Right Column: Interactive Local OCR Simulator -->
-                <div class="lg:col-span-6 w-full max-w-xl mx-auto lg:mx-0">
-                    <div class="border border-border bg-surface-light/70 backdrop-blur-md rounded-xl overflow-hidden p-6 shadow-xl relative">
-                        <!-- Top status bar -->
-                        <div class="flex items-center justify-between border-b border-border/60 pb-3 mb-4">
-                            <div class="flex items-center gap-1.5">
-                                <span class="w-2.5 h-2.5 rounded-full bg-[#3e3e3a]"></span>
-                                <span class="w-2.5 h-2.5 rounded-full bg-[#3e3e3a]"></span>
-                                <span class="w-2.5 h-2.5 rounded-full bg-[#3e3e3a]"></span>
+                <!-- Right Column: Recapture OCR App Simulator -->
+                <div class="lg:col-span-7 w-full max-w-2xl mx-auto lg:mx-0">
+                    <div class="border border-border bg-[#161615]/95 backdrop-blur-md rounded-xl overflow-hidden shadow-2xl relative font-sans text-xs">
+                        
+                        <!-- Top Header bar (OS Window style) -->
+                        <div class="flex items-center justify-between bg-surface/60 px-4 py-3 border-b border-border/60">
+                            <div class="flex items-center gap-2">
+                                <div class="flex items-center gap-1.5 mr-2">
+                                    <span class="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
+                                    <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
+                                    <span class="w-3 h-3 rounded-full bg-[#27c93f]"></span>
+                                </div>
+                                <span class="font-mono text-[10px] text-text-muted uppercase tracking-wider">PDF Unique</span>
                             </div>
-                            <div class="text-[10px] font-mono text-text-muted tracking-wider uppercase">
-                                LOCAL SCAN ENGINE
-                            </div>
-                            <div class="text-[10px] font-mono text-[#3B82F6] font-medium bg-[#3B82F6]/10 px-2 py-0.5 rounded">
-                                v1.0.0
+                            <div class="text-[10px] text-text-muted font-mono">
+                                Process an individual receipt for data extraction and renaming
                             </div>
                         </div>
 
-                        <!-- Simulator Panels -->
-                        <div class="grid sm:grid-cols-2 gap-4">
-                            
-                            <!-- Left: Mock Receipt with Scan Line -->
-                            <div class="relative bg-surface/60 border border-border/80 rounded-lg p-4 h-[190px] overflow-hidden flex flex-col justify-between">
-                                <!-- Glowing Laser Beam -->
-                                <div v-if="scanning" class="absolute left-0 right-0 h-[2px] bg-brand animate-scan-laser shadow-[0_0_8px_#3B82F6] z-10"></div>
+                        <!-- Progress Tracker -->
+                        <div class="px-6 py-4 bg-surface/20 border-b border-border/40">
+                            <div class="relative flex items-center justify-between">
+                                <div class="absolute left-0 right-0 h-0.5 bg-border z-0"></div>
+                                <div class="absolute left-0 h-0.5 bg-brand transition-all duration-500 z-0" :style="{ width: stepProgress + '%' }"></div>
                                 
-                                <!-- Mock Receipt Content -->
-                                <div class="space-y-2 opacity-80">
-                                    <div class="h-3 w-16 bg-text-muted/30 rounded mx-auto mb-3"></div>
-                                    <div class="h-1.5 w-full bg-text-muted/20 rounded"></div>
-                                    <div class="h-1.5 w-3/4 bg-text-muted/20 rounded"></div>
-                                    <div class="h-1.5 w-5/6 bg-text-muted/20 rounded"></div>
-                                    <div class="border-t border-dashed border-border/50 my-2"></div>
-                                    <div class="h-2 w-12 bg-text-muted/20 rounded"></div>
-                                    <div class="h-1.5 w-1/2 bg-text-muted/10 rounded"></div>
+                                <div v-for="(step, idx) in steps" :key="step.label" class="relative z-10 flex flex-col items-center">
+                                    <div class="w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-mono transition-all duration-300"
+                                         :class="[
+                                             idx <= currentStep ? 'bg-brand text-surface font-semibold shadow-[0_0_8px_rgba(96,165,250,0.6)]' : 'bg-surface border border-border text-text-muted'
+                                         ]">
+                                        {{ idx + 1 }}
+                                    </div>
+                                    <span class="text-[8px] font-mono uppercase mt-1 tracking-wider" 
+                                          :class="idx <= currentStep ? 'text-brand font-medium' : 'text-text-muted'">
+                                        {{ step.label }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Main Interface Body -->
+                        <div class="grid sm:grid-cols-12 gap-5 p-5">
+                            
+                            <!-- Left 5 Cols: Mock PDF Document Viewer -->
+                            <div class="sm:col-span-5 relative bg-[#0a0a0a] border border-border/80 rounded-lg p-3 h-[250px] overflow-hidden flex flex-col justify-between shadow-inner">
+                                <!-- Glowing Scan Laser Beam -->
+                                <div v-show="currentStep === 1 || currentStep === 2" class="absolute left-0 right-0 h-[2px] bg-brand animate-scan-laser shadow-[0_0_12px_#3B82F6] z-20"></div>
+                                
+                                <!-- Mock Document Content (French Invoice style) -->
+                                <div class="space-y-2 opacity-90 relative z-10">
+                                    <div class="flex items-center justify-between mb-3 border-b border-border/40 pb-2">
+                                        <div class="w-8 h-8 rounded-full border border-border/80 flex items-center justify-center bg-surface-light/40">
+                                            <span class="text-[8px] font-serif font-bold text-brand">10/30</span>
+                                        </div>
+                                        <div class="text-[10px] font-bold tracking-widest text-[#e5e5e5]">FACTURE</div>
+                                    </div>
+                                    <div class="h-2 w-16 bg-text-muted/30 rounded"></div>
+                                    <div class="h-1 w-full bg-text-muted/20 rounded"></div>
+                                    <div class="h-1 w-5/6 bg-text-muted/20 rounded"></div>
+                                    
+                                    <!-- Invoice Table representation -->
+                                    <div class="mt-4 space-y-1.5">
+                                        <div class="flex justify-between border-t border-border/40 pt-2 text-[8px] text-text-muted">
+                                            <span>DESC</span>
+                                            <span>AMOUNT</span>
+                                        </div>
+                                        <div class="h-1 w-full bg-text-muted/15 rounded"></div>
+                                        <div class="h-1 w-5/6 bg-text-muted/15 rounded"></div>
+                                        <div class="h-1 w-11/12 bg-text-muted/15 rounded"></div>
+                                    </div>
                                 </div>
 
-                                <div class="flex items-center justify-between border-t border-border/40 pt-2 text-[9px] font-mono text-text-muted">
-                                    <span>RECEIPT.PDF</span>
-                                    <span>100% LOCAL</span>
+                                <div class="flex items-center justify-between border-t border-border/40 pt-2 text-[8px] font-mono text-text-muted relative z-10 bg-[#0a0a0a]/80">
+                                    <span>PLOMBERIE.PDF</span>
+                                    <span>PAGE 1 OF 1</span>
                                 </div>
                             </div>
 
-                            <!-- Right: Terminal Output Logs -->
-                            <div class="bg-surface/85 border border-border/80 rounded-lg p-3.5 h-[190px] font-mono text-[10px] text-text-muted overflow-y-auto flex flex-col justify-between">
-                                <div class="space-y-1.5 leading-relaxed">
-                                    <div v-for="(log, idx) in logs" :key="idx" :class="log.color">
-                                        {{ log.text }}
+                            <!-- Right 7 Cols: Fields Extraction Form & Naming Preview -->
+                            <div class="sm:col-span-7 flex flex-col justify-between space-y-4">
+                                
+                                <!-- Document Fields -->
+                                <div class="space-y-2.5">
+                                    <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider border-b border-border/30 pb-1.5 mb-1.5 flex items-center justify-between">
+                                        <span>Document Fields</span>
+                                        <span class="text-[#27c93f] font-mono text-[8px]" v-if="currentStep >= 2">✓ Match Confirmed</span>
+                                    </div>
+                                    
+                                    <!-- Vendor Field -->
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-16 text-text-muted text-[10px]">Vendor:</span>
+                                        <div class="flex-1 bg-[#0a0a0a]/50 border border-border/60 rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden">
+                                            <span class="font-mono text-[10px] text-[#e5e5e5] transition-opacity duration-300" :class="currentStep >= 2 ? 'opacity-100' : 'opacity-0'">
+                                                plomberie10-30
+                                            </span>
+                                            <span v-if="currentStep >= 2" class="text-[8px] bg-green-500/10 text-[#27c93f] border border-green-500/20 px-1 rounded font-mono font-medium scale-90">
+                                                95% Match
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Date Field -->
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-16 text-text-muted text-[10px]">Date:</span>
+                                        <div class="flex-1 bg-[#0a0a0a]/50 border border-border/60 rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden">
+                                            <span class="font-mono text-[10px] text-[#e5e5e5] transition-opacity duration-300" :class="currentStep >= 2 ? 'opacity-100' : 'opacity-0'">
+                                                2026-06-19
+                                            </span>
+                                            <span v-if="currentStep >= 2" class="text-[8px] bg-green-500/10 text-[#27c93f] border border-green-500/20 px-1 rounded font-mono font-medium scale-90">
+                                                95% Match
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Total Field -->
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-16 text-text-muted text-[10px]">Total ($):</span>
+                                        <div class="flex-1 bg-[#0a0a0a]/50 border border-border/60 rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden">
+                                            <span class="font-mono text-[10px] text-[#e5e5e5] transition-opacity duration-300" :class="currentStep >= 2 ? 'opacity-100' : 'opacity-0'">
+                                                1609.02
+                                            </span>
+                                            <span v-if="currentStep >= 2" class="text-[8px] bg-green-500/10 text-[#27c93f] border border-green-500/20 px-1 rounded font-mono font-medium scale-90">
+                                                95% Match
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div v-if="success" class="mt-2 pt-2 border-t border-border/40 text-brand">
-                                    <div class="font-semibold text-[11px] mb-1">Extracted Fields:</div>
-                                    <div class="space-y-0.5">
-                                        <div><span class="text-text-muted">Vendor:</span> Cafe Nero</div>
-                                        <div><span class="text-text-muted">Total:</span> $12.50</div>
-                                        <div><span class="text-text-muted">Date:</span> 2026-06-30</div>
+
+                                <!-- File Naming Preview -->
+                                <div class="bg-surface/60 border border-border/50 rounded-lg p-3 space-y-1">
+                                    <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider">File Naming Preview</div>
+                                    <div class="font-mono text-[9px] text-[#60A5FA] break-all h-6 overflow-hidden flex items-center">
+                                        <span class="transition-opacity duration-300" :class="currentStep >= 3 ? 'opacity-100' : 'opacity-0'">
+                                            bolt_facture_2026-06-19_plomberie10-30_1609.02.pdf
+                                        </span>
+                                    </div>
+                                    <div class="text-[8px] text-[#27c93f] font-mono transition-opacity duration-300" :class="currentStep >= 3 ? 'opacity-100' : 'opacity-0'">
+                                        ✓ Valid local filename.
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Scan Trigger Button -->
-                        <div class="mt-4 flex items-center justify-between gap-4">
-                            <div class="text-[10px] text-text-muted">
-                                Click scan to test offline extraction pipeline.
+                        <!-- Footer Control & Status bar -->
+                        <div class="bg-surface/40 px-4 py-3 border-t border-border/40 flex items-center justify-between gap-4">
+                            <div class="text-[10px] font-mono text-text-muted">
+                                Status: <span :class="steps[currentStep].statusColor" class="font-semibold">{{ steps[currentStep].statusText }}</span>
                             </div>
-                            <button 
-                                @click="runOcrSequence" 
-                                :disabled="running"
-                                class="btn-brand text-xs px-4 py-2 font-mono flex items-center gap-1.5 shrink-0">
-                                <svg v-if="running" class="animate-spin h-3.5 w-3.5 text-white" fill="none" viewBox="0 0 24 24">
-                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                </svg>
-                                {{ running ? 'SCANNING...' : 'RUN OCR SCAN' }}
-                            </button>
+                            <div class="flex items-center gap-2">
+                                <button class="btn-outline text-[9px] font-mono px-3.5 py-1.5 h-7">Discard</button>
+                                <button class="btn-brand text-[9px] font-mono px-3.5 py-1.5 h-7 flex items-center gap-1 bg-[#27c93f] hover:bg-[#22a835]"
+                                        :class="{'opacity-50 cursor-not-allowed': currentStep < 4}">
+                                    Rename &amp; Save
+                                </button>
+                            </div>
                         </div>
+
                     </div>
                 </div>
 
@@ -135,23 +215,25 @@ export default {
     name: 'HeroSection',
     data() {
         return {
-            running: false,
-            scanning: false,
-            success: false,
-            logs: [
-                { text: '[ready] local AI pipeline idle', color: 'text-text-muted' }
+            currentStep: 0,
+            steps: [
+                { label: 'Load File', statusText: 'Ready', statusColor: 'text-text-muted' },
+                { label: 'OCR Scan', statusText: 'Extracting text local OCR...', statusColor: 'text-[#60A5FA]' },
+                { label: 'Extract', statusText: 'DeepSeek-LLM analyzing fields...', statusColor: 'text-[#60A5FA]' },
+                { label: 'Rename', statusText: 'Formatting file template name...', statusColor: 'text-[#60A5FA]' },
+                { label: 'Save', statusText: 'Ready to Rename & Save locally.', statusColor: 'text-[#27c93f]' }
             ],
             intervalId: null
         };
     },
+    computed: {
+        stepProgress() {
+            return (this.currentStep / (this.steps.length - 1)) * 100;
+        }
+    },
     mounted() {
-        // Run once on load, then auto-cycle
-        this.runOcrSequence();
-        this.intervalId = setInterval(() => {
-            if (!this.running) {
-                this.runOcrSequence();
-            }
-        }, 12000);
+        this.runSimulation();
+        this.intervalId = setInterval(this.runSimulation, 10000);
     },
     beforeUnmount() {
         if (this.intervalId) {
@@ -159,35 +241,27 @@ export default {
         }
     },
     methods: {
-        runOcrSequence() {
-            if (this.running) return;
-            this.running = true;
-            this.scanning = true;
-            this.success = false;
-            this.logs = [
-                { text: '> init local_ai_engine', color: 'text-[#60A5FA]' }
-            ];
+        runSimulation() {
+            this.currentStep = 0;
 
             setTimeout(() => {
-                this.logs.push({ text: '[ok] model deepseek-v2 loaded', color: 'text-green-500' });
-            }, 600);
-
-            setTimeout(() => {
-                this.logs.push({ text: '> ocr: parsing document layout', color: 'text-[#60A5FA]' });
+                this.currentStep = 1; // OCR Scan
             }, 1500);
 
             setTimeout(() => {
-                this.logs.push({ text: '> llm: structuring entities', color: 'text-[#60A5FA]' });
-            }, 2500);
+                this.currentStep = 2; // Extract
+            }, 3500);
 
             setTimeout(() => {
-                this.scanning = false;
-                this.success = true;
-                this.logs.push({ text: '[success] data extracted safely', color: 'text-green-500' });
-                this.running = false;
-            }, 3600);
+                this.currentStep = 3; // Rename
+            }, 5500);
+
+            setTimeout(() => {
+                this.currentStep = 4; // Save
+            }, 7500);
         }
     }
 };
 </script>
+
 
