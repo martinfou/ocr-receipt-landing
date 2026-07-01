@@ -156,6 +156,17 @@ export const locales = {
                 discardBtn: "Ignorer",
                 statusScanning: "Scan en cours...",
                 statusMatched: "Correspondance confirmée"
+            },
+            privacyBadge: "Audit de Sécurité",
+            privacyClickToOpen: "Lancer l'audit de trafic réseau",
+            privacyModal: {
+                title: "Audit Réseau & Confidentialité (Simulation)",
+                statusPrivate: "100% Privé — Aucun paquet sortant détecté",
+                scanLogs: "Traces Système Locales",
+                networkTitle: "Moniteur Réseau Actif",
+                closeBtn: "Fermer",
+                statusScanning: "Analyse des flux...",
+                statusChecked: "Sécurisé hors ligne"
             }
         },
         pricing: {
@@ -490,6 +501,17 @@ export const locales = {
                 discardBtn: "Discard",
                 statusScanning: "Scanning...",
                 statusMatched: "Match Confirmed"
+            },
+            privacyBadge: "Security Audit",
+            privacyClickToOpen: "Run network traffic audit",
+            privacyModal: {
+                title: "Network Traffic & Privacy Audit (Simulation)",
+                statusPrivate: "100% Private — Zero outbound packets detected",
+                scanLogs: "Local System Trace",
+                networkTitle: "Live Network Monitor",
+                closeBtn: "Close",
+                statusScanning: "Analyzing sockets...",
+                statusChecked: "Secured Offline"
             }
         },
         pricing: {

@@ -13,23 +13,34 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 <!-- Card 1: Confidentialité Totale (2 cols) -->
-                <div class="card md:col-span-2 border-brand/20 bg-brand/5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_0_30px_rgba(59,130,246,0.03)] flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:border-brand/40">
+                <div @click="openPrivacyModal" class="card md:col-span-2 border-brand/20 bg-brand/5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_0_30px_rgba(59,130,246,0.03)] flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:border-brand/45 cursor-pointer group relative">
+                    <div class="absolute top-4 right-4 text-[8px] font-mono text-brand uppercase tracking-wider border border-brand/30 px-2 py-0.5 rounded-full bg-brand/5 group-hover:bg-brand/10 transition-colors">
+                        {{ $t('features.privacyBadge') }}
+                    </div>
                     <div>
-                        <div class="w-10 h-10 rounded-lg bg-brand/10 flex items-center justify-center mb-5 border border-brand/20">
+                        <div class="w-10 h-10 rounded-lg bg-brand/10 flex items-center justify-center mb-5 border border-brand/20 group-hover:border-brand/35 transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-brand w-5 h-5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
                             </svg>
                         </div>
-                        <h3 class="font-serif font-semibold text-xl mb-2 text-[#e5e5e5]">{{ $t('features.privacy.title') }}</h3>
-                        <p class="text-sm text-text-muted leading-relaxed max-w-xl">
+                        <h3 class="font-serif font-semibold text-xl mb-2 text-[#e5e5e5] group-hover:text-[#ffffff] transition-colors">{{ $t('features.privacy.title') }}</h3>
+                        <p class="text-sm text-text-muted leading-relaxed max-w-xl group-hover:text-[#e5e5e5] transition-colors">
                             {{ $t('features.privacy.desc') }}
                         </p>
                     </div>
-                    <div class="mt-4 flex items-center gap-4 text-xs font-mono text-brand/80">
-                        <span>// SECURE ENCLAVE</span>
-                        <span>// NO SERVER LOGS</span>
+                    <div class="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div class="flex items-center gap-4 text-xs font-mono text-brand/80">
+                            <span>// SECURE ENCLAVE</span>
+                            <span>// NO SERVER LOGS</span>
+                        </div>
+                        <div class="flex items-center gap-1.5 text-xs font-mono text-brand/80 group-hover:text-brand transition-colors">
+                            <span>{{ $t('features.privacyClickToOpen') }}</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                            </svg>
+                        </div>
                     </div>
-                </div>
+                </div>>
 
                 <!-- Card 2: Correction par IA (1 col) -->
                 <div class="card flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:border-border-hover">
@@ -1002,6 +1013,145 @@
 
             </div>
         </div>
+
+        <!-- Interactive Privacy Modal -->
+        <div v-if="privacyModalOpen" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md transition-all duration-300" @click.self="closePrivacyModal">
+            <div class="relative w-full max-w-5xl bg-[#161615] border border-border/80 rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(96,165,250,0.15)] flex flex-col min-h-[550px] max-h-[90vh] animate-fadeIn">
+                
+                <!-- Modal Header -->
+                <div class="p-6 border-b border-border/60 flex items-center justify-between bg-surface-light/40">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-brand w-4 h-4 animate-pulse">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-[#e5e5e5] font-serif font-semibold text-lg leading-tight">{{ $t('features.privacyModal.title') }}</h2>
+                            <p class="text-[10px] font-mono text-text-muted uppercase tracking-wider mt-0.5">// NETWORK SOCKET SANDBOX INSPECTOR</p>
+                        </div>
+                    </div>
+                    
+                    <button @click="closePrivacyModal" class="p-2 text-text-muted hover:text-[#e5e5e5] transition-colors rounded-lg hover:bg-white/5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="flex-1 flex flex-col md:flex-row overflow-y-auto min-h-0 bg-[#0a0a0a]">
+                    
+                    <!-- Left Column: System Trace -->
+                    <div class="flex-1 p-6 space-y-4 overflow-y-auto border-r border-border/40">
+                        <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider border-b border-border/40 pb-1.5 flex justify-between items-center">
+                            <span>{{ $t('features.privacyModal.scanLogs') }}</span>
+                            <span class="text-brand font-mono text-[8px] animate-pulse">// OFFLINE RUNTIME</span>
+                        </div>
+                        
+                        <div class="bg-[#0e0e0d] border border-border/60 rounded-xl p-4 h-[340px] overflow-y-auto font-mono text-[10px] text-text-muted space-y-2 select-none shadow-inner">
+                            <div v-for="(log, idx) in privacyLogs" :key="idx" class="leading-relaxed animate-fadeIn">
+                                <span class="text-brand mr-1.5">[local-engine]</span>
+                                <span class="text-[#e5e5e5]">{{ log }}</span>
+                            </div>
+                            <div v-if="privacyStep === 'active'" class="flex items-center gap-1.5 text-brand animate-pulse mt-2">
+                                <span class="animate-spin inline-block w-2.5 h-2.5 border-2 border-brand border-t-transparent rounded-full"></span>
+                                <span>{{ $t('features.privacyModal.statusScanning') }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Network Sockets Monitor -->
+                    <div class="w-full md:w-[420px] p-6 bg-[#161615]/30 flex flex-col justify-between overflow-y-auto font-sans">
+                        <div class="space-y-6">
+                            
+                            <div class="space-y-3">
+                                <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider border-b border-border/40 pb-1.5 flex justify-between items-center">
+                                    <span>{{ $t('features.privacyModal.networkTitle') }}</span>
+                                    <span v-if="privacyStep === 'done'" class="text-green-400 font-mono text-[8px] animate-pulse">✓ {{ $t('features.privacyModal.statusChecked') }}</span>
+                                </div>
+                                
+                                <div class="space-y-3">
+                                    <!-- Network state widget -->
+                                    <div class="p-4 rounded-xl border border-border/80 flex items-center justify-between transition-all font-sans"
+                                         :class="privacyStep === 'done' ? 'bg-green-500/10 border-green-500/30' : 'bg-brand/5 border-brand/20'">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-2.5 h-2.5 rounded-full"
+                                                 :class="privacyStep === 'done' ? 'bg-green-500 animate-pulse' : 'bg-brand animate-ping'"></div>
+                                            <div>
+                                                <div class="text-xs font-mono text-[#e5e5e5] font-bold">
+                                                    {{ privacyStep === 'done' ? 'Network State: Sandbox Secured' : 'Network Audit: Analyzing connections' }}
+                                                </div>
+                                                <div class="text-[9px] font-mono text-text-muted mt-0.5">
+                                                    Outbound Sockets: 0 active
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Monitored list -->
+                                    <div class="space-y-2.5 font-mono text-xs">
+                                        <!-- Google check -->
+                                        <div class="flex justify-between items-center p-2.5 bg-[#0a0a0a] border border-border/40 rounded-lg">
+                                            <span class="text-text-muted">google.com (Outbound)</span>
+                                            <span class="text-[10px] uppercase font-bold"
+                                                  :class="privacyStep === 'done' ? 'text-red-400' : 'text-text-muted'">
+                                                {{ privacyStep === 'done' ? '⚠️ BLOCKED' : 'MONITORING' }}
+                                            </span>
+                                        </div>
+
+                                        <!-- Telemetry check -->
+                                        <div class="flex justify-between items-center p-2.5 bg-[#0a0a0a] border border-border/40 rounded-lg">
+                                            <span class="text-text-muted">telemetry.recapture.ai</span>
+                                            <span class="text-[10px] uppercase font-bold"
+                                                  :class="privacyStep === 'done' ? 'text-red-400' : 'text-text-muted'">
+                                                {{ privacyStep === 'done' ? '⚠️ DISCONNECTED' : 'MONITORING' }}
+                                            </span>
+                                        </div>
+
+                                        <!-- Cloud OCR check -->
+                                        <div class="flex justify-between items-center p-2.5 bg-[#0a0a0a] border border-border/40 rounded-lg">
+                                            <span class="text-text-muted">cloud-ocr-api.services</span>
+                                            <span class="text-[10px] uppercase font-bold"
+                                                  :class="privacyStep === 'done' ? 'text-red-400' : 'text-text-muted'">
+                                                {{ privacyStep === 'done' ? '⚠️ NOT LOADED' : 'MONITORING' }}
+                                            </span>
+                                        </div>
+
+                                        <!-- Local Database write -->
+                                        <div class="flex justify-between items-center p-2.5 bg-[#0a0a0a] border border-border/40 rounded-lg">
+                                            <span class="text-text-muted">local_sqlite.db (Local disk)</span>
+                                            <span class="text-[10px] uppercase font-bold"
+                                                  :class="privacyStep === 'done' ? 'text-green-400' : 'text-text-muted'">
+                                                {{ privacyStep === 'done' ? '✓ READ_WRITE' : 'MONITORING' }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Final confirmation badge -->
+                            <div v-if="privacyStep === 'done'" class="p-4 bg-green-500/10 border border-green-500/30 rounded-xl text-xs text-green-400 leading-relaxed font-mono animate-fadeIn">
+                                🔒 <strong>{{ $t('features.privacyModal.statusPrivate') }}</strong>. All calculations remain inside your secure CPU boundary. No remote telemetry or cloud databases have been engaged.
+                            </div>
+
+                        </div>
+
+                        <!-- Actions Buttons -->
+                        <div class="pt-6 border-t border-border/40 flex items-center justify-between gap-4 mt-6">
+                            <button @click="runPrivacyAudit" :disabled="privacyStep === 'active'" class="flex-1 py-3 px-4 bg-brand hover:bg-brand-hover disabled:bg-brand/50 text-[#0a0a0a] font-serif font-bold text-sm rounded-lg transition-colors select-none text-center">
+                                {{ privacyStep === 'active' ? 'Analyzing Sockets...' : 'Re-Run Security Audit' }}
+                            </button>
+                            <button @click="closePrivacyModal" class="py-2.5 px-4 border border-border hover:border-brand/40 text-text-muted hover:text-[#e5e5e5] text-xs font-mono rounded-lg transition-colors select-none">
+                                {{ $t('features.privacyModal.closeBtn') }}
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
     </section>
 </template>
 
@@ -1042,7 +1192,12 @@ export default {
 
             // Fuzzy match modal state
             matchModalOpen: false,
-            matchStep: 'idle' // 'idle', 'scanning', 'done'
+            matchStep: 'idle', // 'idle', 'scanning', 'done'
+
+            // Privacy audit modal state
+            privacyModalOpen: false,
+            privacyStep: 'idle', // 'idle', 'active', 'done'
+            privacyLogs: []
         };
     },
     methods: {
@@ -1252,6 +1407,47 @@ export default {
                     this.matchStep = 'done';
                 }
             }, 1500);
+        },
+
+        // Privacy audit modal methods
+        openPrivacyModal() {
+            this.privacyModalOpen = true;
+            this.privacyStep = 'idle';
+            this.privacyLogs = [];
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                this.runPrivacyAudit();
+            }, 400);
+        },
+        closePrivacyModal() {
+            this.privacyModalOpen = false;
+            document.body.style.overflow = '';
+        },
+        runPrivacyAudit() {
+            this.privacyStep = 'active';
+            this.privacyLogs = [];
+            
+            const traceSteps = [
+                'Initializing network socket interceptor sandbox...',
+                'Opening local database data/databases/ocr_receipts.db...',
+                'Loading NuExtract-1.5-tiny.Q4_K_M.gguf onto local CPU memory...',
+                'Validating offline vocabularies and weights...',
+                'Receipt parsing active: localhost loopback socket only.',
+                'Intercepting network requests outbound: google.com BLOCKED.',
+                'Intercepting network requests outbound: telemetry.recapture.ai BLOCKED.',
+                'Audit success: Zero remote bytes transferred.'
+            ];
+
+            traceSteps.forEach((step, idx) => {
+                setTimeout(() => {
+                    if (this.privacyModalOpen && this.privacyStep === 'active') {
+                        this.privacyLogs.push(step);
+                        if (idx === traceSteps.length - 1) {
+                            this.privacyStep = 'done';
+                        }
+                    }
+                }, (idx + 1) * 300);
+            });
         }
     },
     beforeUnmount() {
