@@ -95,6 +95,10 @@ jobs:
             touch database/database.sqlite
             /usr/local/php84/bin/php artisan migrate --force
 
+            # Ensure framework storage directories exist before optimizing
+            mkdir -p storage/framework/{sessions,views,cache}
+            mkdir -p bootstrap/cache
+
             # Clear and rebuild caches
             /usr/local/php84/bin/php artisan optimize:clear --no-ansi
             /usr/local/php84/bin/php artisan optimize --no-ansi
