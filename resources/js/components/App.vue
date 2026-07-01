@@ -1,6 +1,6 @@
 <template>
     <div id="app" class="min-h-screen bg-surface text-[#e5e5e5]">
-        <nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-border">
+        <nav class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-md border-b border-border/40">
             <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
                 <div class="flex items-center gap-2 cursor-pointer select-none" @click="scrollToTop">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-brand fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -10,19 +10,19 @@
                     </svg>
                     <span class="font-serif font-bold text-base text-[#e5e5e5] tracking-tight">OCR Receipt</span>
                 </div>
-                <div class="flex items-center gap-4">
-                    <a href="#features" class="text-sm text-text-muted hover:text-brand transition-colors">{{ $t('nav.features') }}</a>
-                    <a href="#pricing" class="text-sm text-text-muted hover:text-brand transition-colors">{{ $t('nav.pricing') }}</a>
-                    <a href="#beta" class="text-sm text-text-muted hover:text-brand transition-colors">{{ $t('nav.contact') }}</a>
+                <div class="flex items-center gap-6">
+                    <a href="#features" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-[#e5e5e5] transition-colors">{{ $t('nav.features') }}</a>
+                    <a href="#pricing" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-[#e5e5e5] transition-colors">{{ $t('nav.pricing') }}</a>
+                    <a href="#beta" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-[#e5e5e5] transition-colors">{{ $t('nav.contact') }}</a>
                     
                     <!-- Language Switcher -->
-                    <div class="flex items-center gap-1.5 px-2 py-1 rounded-md border border-border/50 bg-[#0a0a0a]/50 text-[10px] font-mono select-none mr-1">
+                    <div class="flex items-center gap-1.5 px-2.5 py-1 rounded border border-border/60 bg-[#0a0a0a]/60 text-[10px] font-mono select-none">
                         <button 
                             @click="$setLang('fr')" 
                             :class="[$lang.lang === 'fr' ? 'text-brand font-semibold' : 'text-text-muted hover:text-[#e5e5e5]']"
                             class="transition-colors cursor-pointer"
                         >FR</button>
-                        <span class="text-border/60">|</span>
+                        <span class="text-border/40">|</span>
                         <button 
                             @click="$setLang('en')" 
                             :class="[$lang.lang === 'en' ? 'text-brand font-semibold' : 'text-text-muted hover:text-[#e5e5e5]']"
@@ -30,7 +30,7 @@
                         >EN</button>
                     </div>
 
-                    <a href="#beta" class="btn-brand text-xs px-4 py-2">
+                    <a href="#beta" class="btn-brand text-[10px] font-mono uppercase tracking-wider px-4 py-2 shadow-md shadow-brand-dark/10 hover:shadow-brand/20 transition-all cursor-pointer">
                         {{ $t('nav.cta') }}
                     </a>
                 </div>
