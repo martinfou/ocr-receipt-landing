@@ -82,7 +82,7 @@ export const locales = {
             },
             privacy: {
                 title: "Confidentialité Totale",
-                desc: "Vos données restent sur votre disque. Pas de cloud, pas de serveurs, pas de fuite."
+                desc: "Le modèle d'IA et vos données de facturation sont 100% locaux. L'inférence s'effectue sur le CPU de votre machine et les reçus restent sur votre disque dur."
             },
             match: {
                 title: "Fuzzy Matching",
@@ -161,7 +161,7 @@ export const locales = {
             privacyClickToOpen: "Lancer l'audit de trafic réseau",
             privacyModal: {
                 title: "Audit Réseau & Confidentialité (Simulation)",
-                statusPrivate: "100% Privé — Aucun paquet sortant détecté",
+                statusPrivate: "Modèle local & Données locales — 100% Privé, aucun paquet sortant",
                 scanLogs: "Traces Système Locales",
                 networkTitle: "Moniteur Réseau Actif",
                 closeBtn: "Fermer",
@@ -427,7 +427,7 @@ export const locales = {
             },
             privacy: {
                 title: "100% Private",
-                desc: "Your financial data stays on your drive. No servers, no accounts, no leak risk."
+                desc: "The AI model and your financial data are 100% local. LLM inference runs directly on your own device CPU, and files stay on your local disk."
             },
             match: {
                 title: "Vendor Matching",
@@ -506,7 +506,7 @@ export const locales = {
             privacyClickToOpen: "Run network traffic audit",
             privacyModal: {
                 title: "Network Traffic & Privacy Audit (Simulation)",
-                statusPrivate: "100% Private — Zero outbound packets detected",
+                statusPrivate: "Local AI Model & Local Data — 100% Private, zero outbound packets",
                 scanLogs: "Local System Trace",
                 networkTitle: "Live Network Monitor",
                 closeBtn: "Close",
