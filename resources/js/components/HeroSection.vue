@@ -28,8 +28,7 @@
                         </svg>
                     </div>
                     
-                    <div class="text-sm font-serif italic text-brand mb-4 tracking-wide">
-                        {{ $t('hero.subtitle') }}
+                    <div class="text-[11px] font-mono text-brand mb-4 tracking-wider uppercase" v-html="$t('hero.subtitle')">
                     </div>
 
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-semibold leading-[1.15] mb-6 tracking-[-0.02em] text-wrap-balance text-[#e5e5e5]" v-html="$t('hero.title')">
