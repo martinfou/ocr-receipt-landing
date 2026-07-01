@@ -117,6 +117,89 @@
                 </div>
 
             </div>
+
+            <!-- Subscription Fatigue & Data Ownership Comparison -->
+            <div class="mt-20 border border-border/40 bg-surface-light/50 backdrop-blur-md rounded-2xl p-8 lg:p-10 shadow-xl max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <!-- Left: Anti-SaaS Hook -->
+                    <div class="lg:col-span-5">
+                        <div class="text-[9px] font-mono text-brand uppercase tracking-wider mb-2">// OWNERSHIP REVOLUTION</div>
+                        <h3 class="font-serif font-semibold text-2xl text-[#e5e5e5] mb-4">
+                            {{ $lang.lang === 'fr' ? 'Fatigué des abonnements ?' : 'Tired of subscriptions?' }}
+                        </h3>
+                        <p class="text-xs text-text-muted leading-relaxed mb-6">
+                            {{ $lang.lang === 'fr' ? 'La plupart des services OCR vous facturent chaque mois et verrouillent vos données clients dans le cloud. OCR Receipt renverse la table : vous achetez une licence, elle fonctionne hors ligne à vie sur votre disque dur.' : 'Most OCR tools force monthly fees and store sensitive client files in third-party clouds. OCR Receipt breaks the cycle: pay once, run locally, and own your tools forever.' }}
+                        </p>
+                        
+                        <!-- Financial ROI highlight -->
+                        <div class="inline-flex items-center gap-3 px-4 py-2.5 rounded-lg border border-brand/20 bg-brand/[0.02] text-xs font-mono text-[#60A5FA]">
+                            <span class="text-lg">💰</span>
+                            <div>
+                                <span class="font-bold">{{ $lang.lang === 'fr' ? 'Économisez 391 $+' : 'Save $391+' }}</span>
+                                <span class="text-[10px] text-text-muted block font-sans">{{ $lang.lang === 'fr' ? 'Par rapport à un SaaS à 15$/mois sur 3 ans' : 'Compared to a typical $15/mo subscription over 3 years' }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Comparison Grid -->
+                    <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 border-l border-border/20 pl-0 lg:pl-8">
+                        
+                        <!-- Column 1: Renting (SaaS) -->
+                        <div class="p-4 rounded-xl border border-red-500/20 bg-red-500/[0.01]">
+                            <div class="text-[9px] font-mono text-red-400 uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-red-400"></span>
+                                {{ $lang.lang === 'fr' ? 'SaaS (Louer)' : 'SaaS (Rent)' }}
+                            </div>
+                            <ul class="space-y-3 text-[11px] text-text-muted">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-red-400 font-bold select-none">&times;</span>
+                                    <span>{{ $lang.lang === 'fr' ? 'Coût cumulé sans fin (ex: 540$ sur 3 ans)' : 'Continuous cost creep ($540/3 years)' }}</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-red-400 font-bold select-none">&times;</span>
+                                    <span>{{ $lang.lang === 'fr' ? 'Données sur serveurs tiers' : 'Data stored on third-party servers' }}</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-red-400 font-bold select-none">&times;</span>
+                                    <span>{{ $lang.lang === 'fr' ? 'Accès coupé si paiement arrêté' : 'Loss of access if billing lapses' }}</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-red-400 font-bold select-none">&times;</span>
+                                    <span>{{ $lang.lang === 'fr' ? 'Dépendance réseau (panne cloud)' : 'Offline access impossible' }}</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Column 2: Owning (OCR Receipt) -->
+                        <div class="p-4 rounded-xl border border-brand bg-[#60A5FA]/[0.01] shadow-[0_0_20px_rgba(96,165,250,0.03)]">
+                            <div class="text-[9px] font-mono text-[#60A5FA] uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#60A5FA] shadow-[0_0_8px_rgba(96,165,250,0.4)]"></span>
+                                {{ $lang.lang === 'fr' ? 'OCR Receipt (Posséder)' : 'OCR Receipt (Own)' }}
+                            </div>
+                            <ul class="space-y-3 text-[11px] text-[#e5e5e5]">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-[#27c93f] font-semibold select-none">✓</span>
+                                    <span>{{ $lang.lang === 'fr' ? 'Achat unique (149$), aucun frais caché' : 'One-time fee ($149), zero hidden fees' }}</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-[#27c93f] font-semibold select-none">✓</span>
+                                    <span>{{ $lang.lang === 'fr' ? '100% sur votre disque dur' : '100% files stored on your local disk' }}</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-[#27c93f] font-semibold select-none">✓</span>
+                                    <span>{{ $lang.lang === 'fr' ? 'Licence perpétuelle sans expiration' : 'Perpetual key never expires' }}</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-[#27c93f] font-semibold select-none">✓</span>
+                                    <span>{{ $lang.lang === 'fr' ? '100% offline, fonctionne sans internet' : '100% offline, guaranteed uptime' }}</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Checkout Email Modal Dialog -->
