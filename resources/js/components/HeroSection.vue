@@ -4,7 +4,6 @@
         <video 
             class="absolute inset-0 w-full h-full object-cover z-0 opacity-40" 
             autoplay 
-            loop 
             muted 
             playsinline 
             :src="'/bg-video.mp4'">
