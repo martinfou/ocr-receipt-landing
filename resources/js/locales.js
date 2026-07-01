@@ -7,8 +7,8 @@ export const locales = {
             cta: "Accès anticipé"
         },
         hero: {
-            subtitle: "L'OCR local intelligent.",
-            title: "Vos reçus extraits. 100% localement.",
+            subtitle: "Extraction par IA locale. Zéro cloud. Zéro abonnement.",
+            title: "L'OCR de factures 100% privé.",
             cta1: "📥 Obtenir l'accès anticipé",
             designedFor: "Pour freelances et PME soucieux de leur confidentialité.",
             badges: "IA locale & cloud · Zéro abonnement · Licence perpétuelle",
@@ -253,8 +253,8 @@ export const locales = {
             cta: "Early Access"
         },
         hero: {
-            subtitle: "Intelligent local OCR.",
-            title: "Your receipts, parsed. 100% locally.",
+            subtitle: "AI-powered extraction. Zero cloud dependency. No subscriptions.",
+            title: "100% Private Receipt OCR.",
             cta1: "📥 Get Early Access",
             designedFor: "Built for privacy-conscious freelancers and SMBs.",
             badges: "Local & Cloud AI · No Subscriptions · Perpetual License",

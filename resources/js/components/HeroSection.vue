@@ -18,7 +18,7 @@
             <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                 
                 <!-- Left Column: Copy & CTAs -->
-                <div class="lg:col-span-6 text-left flex flex-col items-start relative z-10">
+                <div class="lg:col-span-6 text-left flex flex-col items-start bg-[#161615]/80 border border-border/60 p-8 lg:p-10 rounded-2xl backdrop-blur-md shadow-2xl relative z-10 transition-all duration-300 hover:border-border/80">
                     <div class="w-12 h-12 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center mb-6 select-none shadow-[0_0_15px_rgba(96,165,250,0.1)]">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-brand fill-none" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1z"></path>
