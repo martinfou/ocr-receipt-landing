@@ -3,46 +3,103 @@ name: Deploy to Dreamhost
 on:
   push:
     branches: [ master ]
+  workflow_dispatch:
 
 jobs:
-  deploy:
+  build-and-deploy:
     name: Build & Deploy
     runs-on: ubuntu-latest
+    concurrency:
+      group: deploy-ocr-receipt-landing
+      cancel-in-progress: true
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.4'
-          extensions: mbstring, xml, ctype, iconv, mysql, sqlite
-
-      - name: Install Composer Dependencies
-        run: composer install --no-dev --optimize-autoloader --no-interaction --no-progress
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: npm
 
       - name: Install NPM Dependencies & Build Assets
         run: |
           npm ci
           npm run build
 
-      - name: Prepare Deployment Package
+      - name: Commit built assets
         run: |
-          rm -rf .git .github node_modules tests phpunit.xml
-          rm -f database/database.sqlite
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No asset changes to commit"
+          else
+            git commit -m "chore: rebuilt frontend assets [skip ci]"
+            git push origin HEAD:master
+          fi
 
-      - name: Deploy via SFTP (lftp)
-        env:
-          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
-        run: |
-          sudo apt-get update && sudo apt-get install -y lftp
-          mkdir -p ~/.ssh
-          echo "StrictHostKeyChecking no" >> ~/.ssh/config
-          # Using username 'ocrreceipt' based on your previous message.
-          lftp -u "ocrreceipt,${SFTP_PASSWORD}" sftp://ocrreceipt.com -e "mirror -R . /home/ocrreceipt/ocrreceipt.com/public; quit"
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ocrreceipt.com
+          username: ocrreceipt
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            set -e
+            
+            # Setup repository if it does not exist
+            if [ ! -d ~/ocrreceipt.com/.git ]; then
+              echo "Initializing repository for the first time..."
+              # Backup the folder if it exists but isn't a git repo
+              [ -d ~/ocrreceipt.com ] && mv ~/ocrreceipt.com ~/ocrreceipt.com.bak.$(date +%s)
+              git clone https://github.com/martinfou/ocr-receipt-landing.git ~/ocrreceipt.com
+            fi
+
+            cd ~/ocrreceipt.com
+
+            # Stash any local changes (just in case)
+            git stash --include-untracked || true
+
+            # Pull latest
+            git fetch origin master
+            git reset --hard origin/master
+
+            # Ensure PHP settings for this domain
+            echo 'memory_limit = 256M' > .user.ini
+            echo 'max_execution_time = 120' >> .user.ini
+
+            # Copy .env.example to .env if not exists
+            [ -f .env ] || cp .env.example .env
+
+            # Install composer locally if not available
+            command -v composer >/dev/null 2>&1 || \
+              curl -sS https://getcomposer.org/installer | /usr/local/php84/bin/php -- --install-dir=. --quiet 2>&1
+
+            # Composer install with PHP 8.4
+            COMPOSER_CMD="composer"
+            [ -f ./composer.phar ] && COMPOSER_CMD="./composer.phar"
+            /usr/local/php84/bin/php -d memory_limit=-1 $COMPOSER_CMD install --no-dev --no-interaction --prefer-dist 2>&1
+
+            # Migrate Database
+            # We are using sqlite, so ensure the database file exists
+            mkdir -p database
+            touch database/database.sqlite
+            /usr/local/php84/bin/php artisan migrate --force
+
+            # Clear and rebuild caches
+            /usr/local/php84/bin/php artisan optimize:clear --no-ansi
+            /usr/local/php84/bin/php artisan optimize --no-ansi
+
+            # Ensure storage links and permissions
+            /usr/local/php84/bin/php artisan storage:link || true
+            chmod -R 775 storage bootstrap/cache
+
+            echo "✅ Deploy complete"
