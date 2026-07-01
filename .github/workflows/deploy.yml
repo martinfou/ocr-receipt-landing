@@ -32,21 +32,17 @@ jobs:
           npm ci
           npm run build
 
+      - name: Prepare Deployment Package
+        run: |
+          rm -rf .git .github node_modules tests phpunit.xml
+          rm -f database/database.sqlite
+
       - name: Sync Files via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: appleboy/scp-action@v0.1.7
         with:
-          server: ocrreceipt.com
+          host: ocrreceipt.com
           username: ocrrecript
           password: ${{ secrets.SFTP_PASSWORD }}
           port: 22
-          protocol: sftp
-          local-dir: ./
-          server-dir: /home/ocrrecript/ocrreceipt.com/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/tests/**
-            **/phpunit.xml
-            **/.env
-            **/database/database.sqlite
+          source: "."
+          target: "/home/ocrrecript/ocrreceipt.com/"
