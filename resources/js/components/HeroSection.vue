@@ -33,9 +33,6 @@
                         <a href="#beta" class="btn-brand text-sm px-6 py-3 w-full sm:w-auto shadow-lg shadow-brand-dark/20 hover:shadow-brand/30 transition-all duration-300 text-center">
                             {{ $t('hero.cta1') }}
                         </a>
-                        <a href="https://github.com/martinfou/ocr-receipt" target="_blank" rel="noopener" class="btn-outline bg-surface/50 backdrop-blur-sm text-sm px-6 py-3 w-full sm:w-auto text-center hover:text-brand hover:border-brand/40">
-                            {{ $t('hero.cta2') }}
-                        </a>
                     </div>
 
                     <div class="border-t border-border/40 pt-4 w-full">

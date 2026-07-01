@@ -10,7 +10,6 @@ export const locales = {
             subtitle: "L'OCR qui comprend ce qu'il lit.",
             title: "Importez vos factures PDF.<br/>L'IA extrait, corrige et classe.<br/>Zéro configuration. Zéro nuage.",
             cta1: "📥 Obtenir l'accès anticipé",
-            cta2: "Voir le code source ↗",
             designedFor: "Conçu pour les freelances et PME soucieux de la confidentialité.",
             badges: "IA locale & cloud · 100% local · Licence perpétuelle",
             simulator: {
@@ -257,7 +256,6 @@ export const locales = {
             subtitle: "The OCR that understands what it reads.",
             title: "Import your PDF receipts.<br/>The AI extracts, sanitizes, and categorizes.<br/>Zero configuration. Zero cloud.",
             cta1: "📥 Get Early Access",
-            cta2: "View Source Code ↗",
             designedFor: "Built for privacy-conscious freelancers and SMBs.",
             badges: "Local & Cloud AI · 100% Local · Perpetual License",
             simulator: {
