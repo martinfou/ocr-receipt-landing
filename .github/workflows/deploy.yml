@@ -37,12 +37,13 @@ jobs:
           rm -rf .git .github node_modules tests phpunit.xml
           rm -f database/database.sqlite
 
-      - name: Sync Files via SFTP
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ocrreceipt.com
-          username: ocrrecript
-          password: ${{ secrets.SFTP_PASSWORD }}
-          port: 22
-          source: "."
-          target: "/home/ocrrecript/ocrreceipt.com/"
+      - name: Deploy via SFTP (lftp)
+        env:
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        run: |
+          sudo apt-get update && sudo apt-get install -y lftp
+          mkdir -p ~/.ssh
+          echo "StrictHostKeyChecking no" >> ~/.ssh/config
+          # Using username 'ocrreceipt' based on your previous message.
+          # The path uses 'ocrrecript' as you indicated earlier.
+          lftp -u "ocrreceipt,${SFTP_PASSWORD}" sftp://ocrreceipt.com -e "mirror -R . /home/ocrrecript/ocrreceipt.com/public; quit"
