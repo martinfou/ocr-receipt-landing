@@ -71,17 +71,26 @@
                 </div>
 
                 <!-- Card 4: Matching Fournisseur (1 col) -->
-                <div class="card flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:border-border-hover">
+                <div @click="openMatchModal" class="card flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:border-brand/45 hover:bg-brand/[0.01] cursor-pointer group relative">
+                    <div class="absolute top-4 right-4 text-[8px] font-mono text-brand uppercase tracking-wider border border-brand/30 px-2 py-0.5 rounded-full bg-brand/5 group-hover:bg-brand/10 transition-colors">
+                        {{ $t('features.matchBadge') }}
+                    </div>
                     <div>
-                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center mb-5 border border-border">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-[#e5e5e5] w-5 h-5">
+                        <div class="w-10 h-10 rounded-lg bg-[#161615] flex items-center justify-center mb-5 border border-border group-hover:border-brand/30 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-[#e5e5e5] group-hover:text-brand w-5 h-5 transition-colors">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                             </svg>
                         </div>
-                        <h3 class="font-serif font-semibold text-lg mb-2 text-[#e5e5e5]">{{ $t('features.match.title') }}</h3>
-                        <p class="text-sm text-text-muted leading-relaxed">
+                        <h3 class="font-serif font-semibold text-lg mb-2 text-[#e5e5e5] group-hover:text-[#ffffff] transition-colors">{{ $t('features.match.title') }}</h3>
+                        <p class="text-sm text-text-muted leading-relaxed group-hover:text-[#e5e5e5] transition-colors">
                             {{ $t('features.match.desc') }}
                         </p>
+                    </div>
+                    <div class="mt-4 flex items-center gap-1.5 text-xs font-mono text-brand/80 group-hover:text-brand transition-colors">
+                        <span>{{ $t('features.matchClickToOpen') }}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                        </svg>
                     </div>
                 </div>
 
@@ -759,6 +768,236 @@
                         </div>
                     </div>
 
+            </div>
+        </div>
+        </div>
+
+        <!-- Interactive Fuzzy Matching Modal -->
+        <div v-if="matchModalOpen" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md transition-all duration-300" @click.self="closeMatchModal">
+            <div class="relative w-full max-w-5xl bg-[#161615] border border-border/80 rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(96,165,250,0.15)] flex flex-col min-h-[550px] max-h-[90vh] animate-fadeIn">
+                
+                <!-- Modal Header -->
+                <div class="p-6 border-b border-border/60 flex items-center justify-between bg-surface-light/40">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-brand w-4 h-4 animate-pulse">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-[#e5e5e5] font-serif font-semibold text-lg leading-tight">{{ $t('features.matchModal.title') }}</h2>
+                            <p class="text-[10px] font-mono text-text-muted uppercase tracking-wider mt-0.5">// FUZZY MATCH & DATA VERIFICATION</p>
+                        </div>
+                    </div>
+                    
+                    <button @click="closeMatchModal" class="p-2 text-text-muted hover:text-[#e5e5e5] transition-colors rounded-lg hover:bg-white/5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="flex-1 flex flex-col md:flex-row overflow-y-auto min-h-0 bg-[#0a0a0a]">
+                    
+                    <!-- Left Column: PDF Receipt Viewer -->
+                    <div class="flex-1 p-6 bg-[#0e0e0d] flex items-center justify-center relative overflow-hidden min-h-[300px]">
+                        <!-- Scan laser line -->
+                        <div v-if="matchStep === 'scanning'" class="absolute left-0 right-0 h-[2px] bg-brand animate-scan-laser shadow-[0_0_12px_#3B82F6] z-20"></div>
+
+                        <!-- Styled Invoice Copy matching Plomberie 10/30 -->
+                        <div class="bg-white text-[#111111] p-6 sm:p-8 rounded-lg shadow-xl font-mono text-[10px] w-full max-w-[380px] border border-[#dddddd] space-y-4 transition-all duration-300 select-none"
+                             :class="{ 'opacity-60 scale-[0.99]': matchStep === 'scanning' }">
+                            
+                            <!-- Logo and Title -->
+                            <div class="flex justify-between items-start border-b border-[#bbbbbb] pb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full border-2 border-[#111111] flex flex-col items-center justify-center bg-black text-white p-1">
+                                        <span class="text-[7px] font-bold tracking-tighter">10/30</span>
+                                        <span class="text-[4px] font-serif uppercase tracking-[1px] leading-[4px]">PLOMBERIE</span>
+                                    </div>
+                                    <div class="leading-tight">
+                                        <div class="font-bold text-xs">PLOMBERIE 10/30 Inc.</div>
+                                        <div class="text-[7px] text-[#555555]">Saint-Jean-sur-Richelieu, Qc</div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-bold text-sm tracking-wider uppercase text-black">FACTURE</div>
+                                    <div class="text-[8px] text-[#555555]">N° DE FACTURE: <strong>1700</strong></div>
+                                    <div class="text-[8px] text-[#555555]">DATE: 19/06/2025</div>
+                                </div>
+                            </div>
+
+                            <!-- Billing Info -->
+                            <div class="grid grid-cols-2 gap-4 text-[8px] text-[#444444] border-b border-[#eeeeee] pb-3">
+                                <div>
+                                    <div class="font-bold uppercase text-[#666666] mb-1">Facturé à:</div>
+                                    <div>Sonia Tremblay</div>
+                                    <div>890 Boulevard Des Écluses</div>
+                                    <div>Sainte-Catherine, QC</div>
+                                </div>
+                                <div>
+                                    <div class="font-bold uppercase text-[#666666] mb-1">Description Projet:</div>
+                                    <div>bolt</div>
+                                    <div>COMMISSION #9822</div>
+                                </div>
+                            </div>
+
+                            <!-- Items Table representation -->
+                            <div class="space-y-1.5 border-b border-[#eeeeee] pb-4">
+                                <div class="flex justify-between font-bold border-b border-[#dddddd] pb-1 text-[#666666] text-[8px]">
+                                    <span>DESCRIPTION TRAVAUX</span>
+                                    <span>MONTANT</span>
+                                </div>
+                                <div class="flex justify-between text-[#333333]">
+                                    <span>Remplacer un réservoir 40 gal électrique</span>
+                                    <span>$895.00</span>
+                                </div>
+                                <div class="flex justify-between text-[#333333]">
+                                    <span>Tuyaux PEX et raccords en laiton</span>
+                                    <span>$53.35</span>
+                                </div>
+                                <div class="flex justify-between text-[#333333]">
+                                    <span>Main d'oeuvre qualifiée (2 hommes/heure)</span>
+                                    <span>$290.00</span>
+                                </div>
+                            </div>
+
+                            <!-- Totals -->
+                            <div class="space-y-1 text-right text-xs">
+                                <div class="flex justify-between text-[8px] text-[#555555]">
+                                    <span>TPS/TVQ TAX (14.975%)</span>
+                                    <span>$209.72</span>
+                                </div>
+                                <div class="flex justify-between font-bold text-sm text-black pt-1 border-t border-[#bbbbbb]">
+                                    <span>TOTAL CAD</span>
+                                    <span>$1,609.02</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Settings & Verified Fields Form -->
+                    <div class="w-full md:w-[420px] p-6 border-l border-border/40 bg-[#161615]/30 flex flex-col justify-between overflow-y-auto font-sans">
+                        <div class="space-y-6">
+                            
+                            <!-- Project Settings -->
+                            <div class="space-y-3">
+                                <h3 class="text-text-muted font-mono text-[9px] uppercase tracking-wider border-b border-border/40 pb-1.5">Project Settings</h3>
+                                <div class="space-y-3">
+                                    <div class="space-y-1">
+                                        <label class="text-[10px] font-mono text-text-muted uppercase tracking-wider">{{ $t('features.matchModal.project') }}</label>
+                                        <div class="px-3 py-2 bg-[#0a0a0a] border border-border/60 rounded-lg text-xs text-[#e5e5e5] font-mono flex justify-between items-center select-none cursor-pointer">
+                                            <span>bolt</span>
+                                            <span class="text-[8px]">▼</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="p-2.5 bg-[#0a0a0a] border border-border/40 rounded-lg text-[10px] font-mono text-text-muted leading-relaxed">
+                                        📁 Destination: <span class="text-[#e5e5e5]">/Dropbox/Factures/@CHEVROLET BOLT EUV PREMIER 2023/</span>
+                                        <span class="text-[#27c93f] ml-1 font-bold">✓</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Extracted Fields form -->
+                            <div class="space-y-3">
+                                <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider border-b border-border/40 pb-1.5 flex justify-between items-center">
+                                    <span>{{ $t('features.matchModal.fields') }}</span>
+                                    <span v-if="matchStep === 'done'" class="text-[#27c93f] font-mono text-[8px] animate-pulse">✓ {{ $t('features.matchModal.statusMatched') }}</span>
+                                </div>
+
+                                <div class="space-y-2.5">
+                                    <!-- Vendor Field -->
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-24 text-text-muted text-[10px]">Vendor:</span>
+                                        <div class="flex-1 bg-[#0a0a0a] border border-border/60 rounded px-2.5 py-1.5 h-7 flex items-center justify-between overflow-hidden font-mono text-xs">
+                                            <span class="text-[#e5e5e5] transition-all duration-300" :class="matchStep === 'done' ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'">
+                                                plomberie10-30
+                                            </span>
+                                            <span v-if="matchStep === 'done'" class="text-[8px] bg-green-500/10 text-[#27c93f] border border-green-500/20 px-1 rounded font-mono font-medium scale-90">
+                                                95% Match
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Category Field -->
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-24 text-text-muted text-[10px]">Category:</span>
+                                        <div class="flex-1 bg-[#0a0a0a] border border-border/60 rounded px-2.5 py-1.5 h-7 flex items-center justify-between font-mono text-xs text-text-muted">
+                                            <span v-if="matchStep === 'done'" class="text-[#e5e5e5]">réparation-et-entretien</span>
+                                            <span v-else>--</span>
+                                            <span class="text-[8px]">▼</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Date Field -->
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-24 text-text-muted text-[10px]">Date:</span>
+                                        <div class="flex-1 bg-[#0a0a0a] border border-border/60 rounded px-2.5 py-1.5 h-7 flex items-center justify-between overflow-hidden font-mono text-xs">
+                                            <span class="text-[#e5e5e5] transition-all duration-300" :class="matchStep === 'done' ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'">
+                                                2025-06-19
+                                            </span>
+                                            <span v-if="matchStep === 'done'" class="text-[8px] bg-green-500/10 text-[#27c93f] border border-green-500/20 px-1 rounded font-mono font-medium scale-90">
+                                                95% Match
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Total Field -->
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-24 text-text-muted text-[10px]">Total ($):</span>
+                                        <div class="flex-1 bg-[#0a0a0a] border border-border/60 rounded px-2.5 py-1.5 h-7 flex items-center justify-between overflow-hidden font-mono text-xs">
+                                            <span class="text-[#e5e5e5] transition-all duration-300" :class="matchStep === 'done' ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'">
+                                                1609.02
+                                            </span>
+                                            <span v-if="matchStep === 'done'" class="text-[8px] bg-green-500/10 text-[#27c93f] border border-green-500/20 px-1 rounded font-mono font-medium scale-90">
+                                                95% Match
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Invoice Number -->
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-24 text-text-muted text-[10px]">Invoice Number:</span>
+                                        <div class="flex-1 bg-[#0a0a0a] border border-border/60 rounded px-2.5 py-1.5 h-7 flex items-center justify-between overflow-hidden font-mono text-xs">
+                                            <span class="text-[#e5e5e5] transition-all duration-300" :class="matchStep === 'done' ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'">
+                                                1700
+                                            </span>
+                                            <span v-if="matchStep === 'done'" class="text-[8px] bg-green-500/10 text-[#27c93f] border border-green-500/20 px-1 rounded font-mono font-medium scale-90">
+                                                95% Match
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- File Naming Preview -->
+                            <div class="bg-surface-light/40 border border-border/60 rounded-xl p-4 space-y-2">
+                                <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider">{{ $t('features.matchModal.namingPreview') }}</div>
+                                <div class="font-mono text-xs text-brand break-all h-6 overflow-hidden flex items-center">
+                                    <span class="transition-opacity duration-300" :class="matchStep === 'done' ? 'opacity-100' : 'opacity-0'">
+                                        bolt_facture_2025-06-19_plomberie10-30_1609.02.pdf
+                                    </span>
+                                </div>
+                                <div class="text-[9px] text-[#27c93f] font-mono flex items-center gap-1 transition-opacity duration-300" :class="matchStep === 'done' ? 'opacity-100' : 'opacity-0'">
+                                    <span>✓</span> Nom de fichier valide.
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Actions Buttons -->
+                        <div class="pt-6 border-t border-border/40 flex items-center justify-between gap-4 mt-6">
+                            <button @click="runFuzzyMatchingScan" :disabled="matchStep === 'scanning'" class="flex-1 py-3 px-4 bg-green-500 hover:bg-green-600 disabled:bg-green-600/50 text-[#0a0a0a] font-serif font-bold text-sm rounded-lg transition-colors select-none text-center">
+                                {{ matchStep === 'scanning' ? $t('features.matchModal.statusScanning') : $t('features.matchModal.saveBtn') }}
+                            </button>
+                            <button @click="closeMatchModal" class="py-2.5 px-4 border border-border hover:border-red-500/40 text-text-muted hover:text-red-400 text-xs font-mono rounded-lg transition-colors select-none">
+                                {{ $t('features.matchModal.discardBtn') }}
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -799,7 +1038,11 @@ export default {
             settingsModalOpen: false,
             selectedModelSize: 'Tiny (0.5B - ~140 MB)',
             testingModel: false,
-            testResult: ''
+            testResult: '',
+
+            // Fuzzy match modal state
+            matchModalOpen: false,
+            matchStep: 'idle' // 'idle', 'scanning', 'done'
         };
     },
     methods: {
@@ -987,6 +1230,28 @@ export default {
         resetSettingsResult() {
             this.selectedModelSize = 'Tiny (0.5B - ~140 MB)';
             this.testResult = '';
+        },
+
+        // Fuzzy match modal methods
+        openMatchModal() {
+            this.matchModalOpen = true;
+            this.matchStep = 'idle';
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                this.runFuzzyMatchingScan();
+            }, 400);
+        },
+        closeMatchModal() {
+            this.matchModalOpen = false;
+            document.body.style.overflow = '';
+        },
+        runFuzzyMatchingScan() {
+            this.matchStep = 'scanning';
+            setTimeout(() => {
+                if (this.matchModalOpen && this.matchStep === 'scanning') {
+                    this.matchStep = 'done';
+                }
+            }, 1500);
         }
     },
     beforeUnmount() {

@@ -141,6 +141,21 @@ export const locales = {
                 saveBtn: "Enregistrer",
                 applyBtn: "Appliquer",
                 resetBtn: "Réinitialiser"
+            },
+            matchBadge: "Aperçu Interactif",
+            matchClickToOpen: "Lancer la démo de correspondance",
+            matchModal: {
+                title: "Fuzzy Matching & IA (Simulation)",
+                project: "Projet",
+                docType: "Type de document",
+                template: "Gabarit",
+                fields: "Champs du document",
+                lineItems: "Lignes d'articles (9)",
+                namingPreview: "Aperçu du nom de fichier",
+                saveBtn: "Renommer & Enregistrer",
+                discardBtn: "Ignorer",
+                statusScanning: "Scan en cours...",
+                statusMatched: "Correspondance confirmée"
             }
         },
         pricing: {
@@ -460,6 +475,21 @@ export const locales = {
                 saveBtn: "Save Settings",
                 applyBtn: "Apply",
                 resetBtn: "Reset"
+            },
+            matchBadge: "Interactive Demo",
+            matchClickToOpen: "Launch matching demo",
+            matchModal: {
+                title: "Fuzzy Matching & AI (Simulation)",
+                project: "Project",
+                docType: "Document Type",
+                template: "Template",
+                fields: "Document Fields",
+                lineItems: "Line Items (9)",
+                namingPreview: "File Naming Preview",
+                saveBtn: "Rename & Save",
+                discardBtn: "Discard",
+                statusScanning: "Scanning...",
+                statusMatched: "Match Confirmed"
             }
         },
         pricing: {
