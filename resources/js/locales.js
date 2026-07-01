@@ -8,7 +8,7 @@ export const locales = {
         },
         hero: {
             subtitle: "IA Locale · Zéro Cloud · <span class='text-[#e5e5e5]'>Zéro Abonnement</span>",
-            title: "Vos factures structurées. <span class='text-[#60A5FA]'>100% localement.</span>",
+            title: "Vos factures et reçus classés. <span class='text-[#60A5FA]'>100% localement.</span>",
             cta1: "📥 Obtenir l'accès anticipé",
             designedFor: "Pour freelances et PME soucieux de leur confidentialité.",
             badges: "IA locale & cloud · Zéro abonnement · Licence perpétuelle",
