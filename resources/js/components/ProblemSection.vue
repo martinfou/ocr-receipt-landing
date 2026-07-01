@@ -19,8 +19,11 @@
                     <div class="relative pl-8 border-l border-border/60 ml-4 space-y-6 mt-8">
                         <div class="relative group p-5 rounded-xl border border-border/50 bg-surface-light/40 backdrop-blur-sm transition-all duration-300 hover:border-red-500/30 hover:bg-red-500/[0.01]">
                             <!-- Timeline Dot Indicator -->
-                            <div class="absolute -left-[41px] top-7 w-4.5 h-4.5 rounded-full bg-surface border-2 border-red-500 flex items-center justify-center text-[10px] font-mono font-bold text-red-500 shadow-[0_0_8px_rgba(239,68,68,0.3)]">
-                                1
+                            <div class="absolute -left-[43px] top-6 w-5.5 h-5.5 rounded-full bg-[#0a0a0a] border border-red-500/50 flex items-center justify-center shadow-[0_0_8px_rgba(239,68,68,0.2)] text-red-400 select-none transition-transform duration-300 group-hover:scale-110">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5 stroke-red-500 fill-none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
                             </div>
                             <p class="text-xs text-text-muted leading-relaxed group-hover:text-text transition-colors duration-200">
                                 {{ $t('problem.item1') }}
@@ -28,8 +31,11 @@
                         </div>
 
                         <div class="relative group p-5 rounded-xl border border-border/50 bg-surface-light/40 backdrop-blur-sm transition-all duration-300 hover:border-red-500/30 hover:bg-red-500/[0.01]">
-                            <div class="absolute -left-[41px] top-7 w-4.5 h-4.5 rounded-full bg-surface border-2 border-red-500 flex items-center justify-center text-[10px] font-mono font-bold text-red-500 shadow-[0_0_8px_rgba(239,68,68,0.3)]">
-                                2
+                            <div class="absolute -left-[43px] top-6 w-5.5 h-5.5 rounded-full bg-[#0a0a0a] border border-red-500/50 flex items-center justify-center shadow-[0_0_8px_rgba(239,68,68,0.2)] text-red-400 select-none transition-transform duration-300 group-hover:scale-110">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5 stroke-red-500 fill-none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
                             </div>
                             <p class="text-xs text-text-muted leading-relaxed group-hover:text-text transition-colors duration-200">
                                 {{ $t('problem.item2') }}
@@ -37,8 +43,11 @@
                         </div>
 
                         <div class="relative group p-5 rounded-xl border border-border/50 bg-surface-light/40 backdrop-blur-sm transition-all duration-300 hover:border-red-500/30 hover:bg-red-500/[0.01]">
-                            <div class="absolute -left-[41px] top-7 w-4.5 h-4.5 rounded-full bg-surface border-2 border-red-500 flex items-center justify-center text-[10px] font-mono font-bold text-red-500 shadow-[0_0_8px_rgba(239,68,68,0.3)]">
-                                3
+                            <div class="absolute -left-[43px] top-6 w-5.5 h-5.5 rounded-full bg-[#0a0a0a] border border-red-500/50 flex items-center justify-center shadow-[0_0_8px_rgba(239,68,68,0.2)] text-red-400 select-none transition-transform duration-300 group-hover:scale-110">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5 stroke-red-500 fill-none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
                             </div>
                             <p class="text-xs text-text-muted leading-relaxed group-hover:text-text transition-colors duration-200">
                                 {{ $t('problem.item3') }}
@@ -46,8 +55,11 @@
                         </div>
 
                         <div class="relative group p-5 rounded-xl border border-border/50 bg-surface-light/40 backdrop-blur-sm transition-all duration-300 hover:border-red-500/30 hover:bg-red-500/[0.01]">
-                            <div class="absolute -left-[41px] top-7 w-4.5 h-4.5 rounded-full bg-surface border-2 border-red-500 flex items-center justify-center text-[10px] font-mono font-bold text-red-500 shadow-[0_0_8px_rgba(239,68,68,0.3)]">
-                                4
+                            <div class="absolute -left-[43px] top-6 w-5.5 h-5.5 rounded-full bg-[#0a0a0a] border border-red-500/50 flex items-center justify-center shadow-[0_0_8px_rgba(239,68,68,0.2)] text-red-400 select-none transition-transform duration-300 group-hover:scale-110">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5 stroke-red-500 fill-none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
                             </div>
                             <p class="text-xs text-text-muted leading-relaxed group-hover:text-text transition-colors duration-200">
                                 {{ $t('problem.item4') }}

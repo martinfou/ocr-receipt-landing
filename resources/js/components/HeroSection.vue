@@ -18,27 +18,34 @@
             <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                 
                 <!-- Left Column: Copy & CTAs -->
-                <div class="lg:col-span-5 text-left flex flex-col items-start bg-surface-light/35 backdrop-blur-lg p-8 lg:p-10 rounded-2xl border border-border/40 shadow-2xl">
-                    <div class="text-3xl mb-4 select-none">🧾</div>
+                <div class="lg:col-span-6 text-left flex flex-col items-start relative z-10">
+                    <div class="w-12 h-12 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center mb-6 select-none shadow-[0_0_15px_rgba(96,165,250,0.1)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-brand fill-none" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1z"></path>
+                            <path d="M16 8H8"></path>
+                            <path d="M16 12H8"></path>
+                            <path d="M16 16H8"></path>
+                        </svg>
+                    </div>
                     
-                    <div class="text-sm font-serif italic text-brand mb-4">
+                    <div class="text-sm font-serif italic text-brand mb-4 tracking-wide">
                         {{ $t('hero.subtitle') }}
                     </div>
 
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-semibold leading-[1.2] mb-6 tracking-[-0.02em] text-wrap-balance" v-html="$t('hero.title')">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-semibold leading-[1.15] mb-6 tracking-[-0.02em] text-wrap-balance text-[#e5e5e5]" v-html="$t('hero.title')">
                     </h1>
 
-                    <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-8">
-                        <a href="#beta" class="btn-brand text-sm px-6 py-3 w-full sm:w-auto shadow-lg shadow-brand-dark/20 hover:shadow-brand/30 transition-all duration-300 text-center">
+                    <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-10">
+                        <a href="#beta" class="btn-brand text-sm px-7 py-3.5 w-full sm:w-auto shadow-lg shadow-brand-dark/20 hover:shadow-brand/35 transition-all duration-300 text-center cursor-pointer">
                             {{ $t('hero.cta1') }}
                         </a>
                     </div>
 
-                    <div class="border-t border-border/40 pt-4 w-full">
-                        <p class="text-xs text-text-muted leading-relaxed mb-3">
+                    <div class="border-t border-border/30 pt-6 w-full max-w-lg">
+                        <p class="text-xs text-text-muted leading-relaxed mb-4">
                             {{ $t('hero.designedFor') }}
                         </p>
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border text-[10px] text-text-muted bg-surface-light/50 font-mono">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border/80 text-[10px] text-text-muted bg-surface-light/50 font-mono select-none">
                             <span class="w-1.5 h-1.5 rounded-full bg-blue-500 inline-block shadow-[0_0_8px_rgba(59,130,246,0.6)] animate-pulse"></span>
                             {{ $t('hero.badges') }}
                         </div>
@@ -46,7 +53,7 @@
                 </div>
 
                 <!-- Right Column: Recapture OCR App Simulator -->
-                <div class="lg:col-span-7 w-full max-w-2xl mx-auto lg:mx-0">
+                <div class="lg:col-span-6 w-full max-w-2xl mx-auto lg:mx-0 relative z-10">
                     <div class="border border-border bg-[#161615]/95 backdrop-blur-md rounded-xl overflow-hidden shadow-2xl relative font-sans text-xs">
                         
                         <!-- Top Header bar (OS Window style) -->

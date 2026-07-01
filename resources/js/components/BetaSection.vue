@@ -22,19 +22,39 @@
                         <!-- Benefit grid - clean alignment, glowing hover border -->
                         <div class="grid sm:grid-cols-2 gap-4 mb-8">
                             <div class="flex items-center gap-3.5 p-4 rounded-xl bg-[#0a0a0a] border border-border/40 hover:border-brand/40 transition-colors duration-300">
-                                <span class="text-xl w-8 h-8 rounded-lg bg-surface-light border border-border/60 flex items-center justify-center shrink-0">🎯</span>
+                                <div class="w-8 h-8 rounded-lg bg-surface-light border border-border/60 flex items-center justify-center shrink-0 text-brand select-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 stroke-brand fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <circle cx="12" cy="12" r="6"></circle>
+                                        <circle cx="12" cy="12" r="2"></circle>
+                                    </svg>
+                                </div>
                                 <span class="text-xs text-text-muted leading-relaxed">{{ $t('beta.bullet1') }}</span>
                             </div>
                             <div class="flex items-center gap-3.5 p-4 rounded-xl bg-[#0a0a0a] border border-border/40 hover:border-brand/40 transition-colors duration-300">
-                                <span class="text-xl w-8 h-8 rounded-lg bg-surface-light border border-border/60 flex items-center justify-center shrink-0">💬</span>
+                                <div class="w-8 h-8 rounded-lg bg-surface-light border border-border/60 flex items-center justify-center shrink-0 text-brand select-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 stroke-brand fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                </div>
                                 <span class="text-xs text-text-muted leading-relaxed">{{ $t('beta.bullet2') }}</span>
                             </div>
                             <div class="flex items-center gap-3.5 p-4 rounded-xl bg-[#0a0a0a] border border-border/40 hover:border-brand/40 transition-colors duration-300">
-                                <span class="text-xl w-8 h-8 rounded-lg bg-surface-light border border-border/60 flex items-center justify-center shrink-0">📬</span>
+                                <div class="w-8 h-8 rounded-lg bg-surface-light border border-border/60 flex items-center justify-center shrink-0 text-brand select-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 stroke-brand fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                                    </svg>
+                                </div>
                                 <span class="text-xs text-text-muted leading-relaxed">{{ $t('beta.bullet3') }}</span>
                             </div>
                             <div class="flex items-center gap-3.5 p-4 rounded-xl bg-[#0a0a0a] border border-border/40 hover:border-brand/40 transition-colors duration-300">
-                                <span class="text-xl w-8 h-8 rounded-lg bg-surface-light border border-border/60 flex items-center justify-center shrink-0">🎟️</span>
+                                <div class="w-8 h-8 rounded-lg bg-surface-light border border-border/60 flex items-center justify-center shrink-0 text-brand select-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 stroke-brand fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                                        <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                                    </svg>
+                                </div>
                                 <span class="text-xs text-text-muted leading-relaxed">{{ $t('beta.bullet4') }}</span>
                             </div>
                         </div>

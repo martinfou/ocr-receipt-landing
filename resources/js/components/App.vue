@@ -3,7 +3,12 @@
         <nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-border">
             <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
                 <div class="flex items-center gap-2 cursor-pointer select-none" @click="scrollToTop">
-                    <span class="text-lg font-serif font-semibold">📄✓ OCR Receipt</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-brand fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <polyline points="9 15 11 17 15 13"></polyline>
+                    </svg>
+                    <span class="font-serif font-bold text-base text-[#e5e5e5] tracking-tight">OCR Receipt</span>
                 </div>
                 <div class="flex items-center gap-4">
                     <a href="#features" class="text-sm text-text-muted hover:text-brand transition-colors">{{ $t('nav.features') }}</a>
