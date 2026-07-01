@@ -1,0 +1,26 @@
+# OCR Receipt
+
+> 100% Offline Local AI & OCR receipt parser for Windows, macOS, and Linux.
+
+OCR Receipt is a multi-platform desktop application built using PyQt6, Tesseract OCR, and local CPU-optimized LLM models (GGUF, NuExtract) that extracts structured data (vendor, date, taxes, line items, and totals) from invoices and PDF receipts without sending any client data to the cloud.
+
+## Core Features
+
+- **Local AI Correction**: Automatic correction of OCR typos and intelligent category mapping using offline models.
+- **Batch Processing**: Background queue for importing and parsing up to 50 receipts concurrently with zero UI freeze.
+- **100% Confidential**: Zero cloud forced, zero servers, zero risk of data leaks.
+- **Fuzzy Matching**: Automated supplier matching to normalization lists (e.g. "Bell Canada Inc." to "Bell").
+- **Structured Export**: Compile all receipt metrics into Excel-compatible CSV formats or QBO-ready QuickBooks sheets.
+- **Native Experience**: Native client on Windows, macOS, and Linux with a one-time perpetual license.
+
+## Pricing
+
+- **Free Lite ($0)**: Unlimited receipt scans, simple OCR (10 AI extractions/month), standard CSV and watermarked PDF reports.
+- **Solo ($149)**: Unlimited auto-renames, Local GGUF NuExtract-tiny model, clean PDF exports, custom Cloud AI keys (BYOK).
+- **Pro ($199)**: Unlimited batch processing, advanced models (smol/base), 2 seats (PC + Laptop).
+- **Firm / CPA ($399)**: Pack of 5 licenses, advanced features, custom support.
+
+## FAQ
+
+- **Data Privacy**: All inference and OCR processing run 100% locally on the device CPU.
+- **Hubdoc Alternative**: Perfect offline-first alternative to Hubdoc following its retirement by Xero on May 8, 2026.
