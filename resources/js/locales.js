@@ -7,11 +7,11 @@ export const locales = {
             cta: "⬇️ Accès anticipé"
         },
         hero: {
-            subtitle: "L'OCR qui comprend ce qu'il lit.",
-            title: "Importez vos factures PDF.<br/>L'IA extrait, corrige et classe.<br/>Zéro configuration. Zéro nuage.",
+            subtitle: "L'OCR local intelligent.",
+            title: "Vos reçus extraits.<br/>100% localement.",
             cta1: "📥 Obtenir l'accès anticipé",
-            designedFor: "Conçu pour les freelances et PME soucieux de la confidentialité.",
-            badges: "IA locale & cloud · 100% local · Licence perpétuelle",
+            designedFor: "Pour freelances et PME soucieux de leur confidentialité.",
+            badges: "IA locale & cloud · Zéro abonnement · Licence perpétuelle",
             simulator: {
                 title: "PDF Unique",
                 subtitle: "Traiter un reçu individuel pour l'extraction de données et le renommage",
@@ -38,56 +38,56 @@ export const locales = {
             }
         },
         problem: {
-            title: "Vous aussi vous faites ça ?",
-            item1: "Ouvrir un PDF → Lire le montant → Copier dans Excel → Ranger le fichier",
-            item2: "Recommencer 30, 50, 100 fois par mois",
-            item3: "Corriger les erreurs de copie à la main",
-            item4: "Perdre 10-15 minutes par semaine à catégoriser des fournisseurs",
-            summary1: "Une facture = 5 minutes de travail manuel.",
-            summary2: "50 factures = 4 heures par mois. 48 heures par an.",
-            summary3: "C'est du temps que vous ne récupérerez jamais."
+            title: "La corvée des factures manuelles",
+            item1: "Ouvrir le PDF → Lire le montant → Recopier dans Excel → Ranger le fichier",
+            item2: "Répéter ce process 50 à 100 fois par mois",
+            item3: "Corriger manuellement les erreurs de saisie",
+            item4: "Perdre son temps à classer et catégoriser les fournisseurs",
+            summary1: "1 facture = 5 min",
+            summary2: "50 factures = 4h / mois",
+            summary3: "48 heures par an perdues à jamais."
         },
         howItWorks: {
-            title: "OCR Receipt le fait en 5 secondes.",
+            title: "Automatisé en 5 secondes.",
             step1: {
-                title: "1️⃣ Glissez votre PDF",
-                desc: "Drag & drop. Un par un ou 50 d'un coup."
+                title: "1. Glissez vos PDF",
+                desc: "Importez vos documents d'un coup."
             },
             step2: {
-                title: "2️⃣ L'IA fait le travail",
-                desc: "Tesseract OCR extrait le texte. L'IA corrige les erreurs et comprend le contexte. \"Walm@rt\" → \"Walmart\". \"25,99$\" → 25.99. Automatique."
+                title: "2. Inférence locale",
+                desc: "L'IA extrait les données et corrige le texte."
             },
             step3: {
-                title: "3️⃣ Résultat prêt",
-                desc: "Date, fournisseur, montant, catégorie. Tout est rempli, vérifié, exportable en CSV."
+                title: "3. Exportez en CSV",
+                desc: "Données structurées prêtes à l'emploi."
             }
         },
         features: {
-            title: "Tout ce dont vous avez besoin pour<br/>gérer vos reçus",
-            subtitle: "Du PDF aux données structurées en quelques secondes. Pas d'internet requis. Pas d'abonnement mensuel.",
+            title: "Gérez vos reçus sans effort",
+            subtitle: "Du fichier brut aux données structurées en quelques secondes. Pas d'internet requis. Pas d'abonnement.",
             ai: {
                 title: "Correction par IA",
-                desc: "Correction automatique des erreurs OCR. Catégorisation intelligente des fournisseurs. Pas de règles à configurer, pas de machine learning à entraîner."
+                desc: "Correction intelligente des erreurs OCR et catégorisation automatique des fournisseurs."
             },
             batch: {
-                title: "Batch Processing",
-                desc: "Glissez 50 factures. L'app les traite en arrière-plan. Pendant ce temps, vous faites ce que vous voulez. Progression en temps réel, zéro freeze."
+                title: "Traitement par Lots",
+                desc: "Glissez 50 reçus à la fois. L'application les traite en arrière-plan en arrière-plan sans ralentissement."
             },
             privacy: {
                 title: "Confidentialité Totale",
-                desc: "100% local. Vos données sensibles restent sur votre disque dur. Pas de cloud, pas de serveur, pas de fuite. Idéal pour les professionnels avec des données clients confidentielles."
+                desc: "Vos données restent sur votre disque. Pas de cloud, pas de serveurs, pas de fuite."
             },
             match: {
-                title: "Matching Fournisseur",
-                desc: "L'IA reconnaît vos fournisseurs habituels. \"Bell Canada Inc.\" → \"Bell\". Chaque fois. Plus besoin de mapper manuellement les variations de nom."
+                title: "Fuzzy Matching",
+                desc: "Association intelligente des fournisseurs habituels sans configuration requise."
             },
             export: {
-                title: "Export CSV",
-                desc: "Un clic pour exporter toutes vos factures en CSV structuré. Compatible Excel, Google Sheets, QuickBooks, Xero."
+                title: "Export Structuré",
+                desc: "Un clic pour exporter vos reçus au format CSV compatible avec Excel, Google Sheets, QuickBooks et Xero."
             },
             desktop: {
-                title: "Interface Desktop",
-                desc: "Une vraie app Windows/Mac/Linux, pas un site web. Pas de latence réseau, pas d'abonnement mensuel qui s'accumule. Vous possédez le logiciel, point."
+                title: "Application Native",
+                desc: "App rapide pour Windows, macOS, Linux. Pas d'abonnement mensuel, licence perpétuelle."
             }
         },
         pricing: {
@@ -107,7 +107,7 @@ export const locales = {
             localAdvanced: "Modèles avancés (smol/base)",
             freeLite: {
                 name: "GRATUIT (Free Lite)",
-                desc: "Pour un usage personnel ou léger",
+                desc: "Usage personnel ou léger",
                 btn: "⬇️ Télécharger gratuit",
                 features: [
                     "Reçus illimités",
@@ -149,7 +149,7 @@ export const locales = {
             },
             pro: {
                 name: "PRO",
-                desc: "Pour les professionnels exigeants",
+                desc: "Professionnels exigeants",
                 btn: "💳 Acheter Pro",
                 features: [
                     "Reçus illimités",
@@ -169,7 +169,7 @@ export const locales = {
             },
             comptable: {
                 name: "COMPTABLE",
-                desc: "Pour les cabinets et PME",
+                desc: "Cabinets et PME",
                 btn: "💳 Acheter Comptable",
                 features: [
                     "Reçus illimités",
@@ -189,22 +189,22 @@ export const locales = {
             }
         },
         beta: {
-            title: "Accès anticipé — Lancement dans 3 mois",
-            subtitle: "Inscrivez-vous pour obtenir :",
-            bullet1: "Accès à la beta fermée (places limitées)",
-            bullet2: "Devenir bêta-testeur → licence gratuite à vie",
-            bullet3: "Annonce du lancement officiel",
-            bullet4: "Prix early adopter : 149$ au lieu de 199$",
+            title: "Rejoindre l'accès anticipé",
+            subtitle: "Inscrivez-vous pour le lancement privé :",
+            bullet1: "Accès prioritaire à la bêta fermée",
+            bullet2: "Licence à vie offerte pour les bêta-testeurs",
+            bullet3: "Notifications de mise à jour en temps réel",
+            bullet4: "Tarif de lancement de 149$ au lieu de 199$",
             firstname: "Prénom",
-            email: "Email",
-            profession: "Profession (comptable, freelance, PME…)",
-            btn: "📥 Je veux l'accès anticipé",
+            email: "Adresse email",
+            profession: "Profession (Freelance, PME, CPA...)",
+            btn: "Je veux l'accès anticipé",
             success: "Merci ! Vous êtes inscrit à l'accès anticipé 🎉"
         },
         about: {
-            title: "Développé par Martin Fournier",
-            location: "📍 Québec, Canada",
-            bio: "Développeur et entrepreneur. OCR Receipt est né d'une frustration personnelle pour automatiser la corvée des factures professionnelles tout en garantissant la confidentialité des données."
+            title: "Martin Fournier",
+            location: "Québec, Canada",
+            bio: "Développeur et entrepreneur. J'ai créé OCR Receipt pour automatiser la gestion des dépenses professionnelles tout en conservant une confidentialité absolue."
         },
         faq: {
             title: "Questions Fréquentes",
@@ -253,11 +253,11 @@ export const locales = {
             cta: "⬇️ Early Access"
         },
         hero: {
-            subtitle: "The OCR that understands what it reads.",
-            title: "Import your PDF receipts.<br/>The AI extracts, sanitizes, and categorizes.<br/>Zero configuration. Zero cloud.",
+            subtitle: "Intelligent local OCR.",
+            title: "Your receipts, parsed.<br/>100% locally.",
             cta1: "📥 Get Early Access",
             designedFor: "Built for privacy-conscious freelancers and SMBs.",
-            badges: "Local & Cloud AI · 100% Local · Perpetual License",
+            badges: "Local & Cloud AI · No Subscriptions · Perpetual License",
             simulator: {
                 title: "PDF Unique",
                 subtitle: "Process an individual receipt for data extraction and renaming",
@@ -284,56 +284,56 @@ export const locales = {
             }
         },
         problem: {
-            title: "Are you still doing this?",
-            item1: "Open PDF → Read total → Copy to Excel → Move file to folder",
-            item2: "Repeat 30, 50, 100 times a month",
+            title: "The Manual Invoice Chore",
+            item1: "Open PDF → Read total → Copy to Excel → Move file",
+            item2: "Repeat 50 to 100 times every single month",
             item3: "Manually correct typos and parsing errors",
-            item4: "Waste 10-15 minutes a week organizing vendor folders",
-            summary1: "One receipt = 5 minutes of manual labor.",
-            summary2: "50 receipts = 4 hours a month. 48 hours a year.",
-            summary3: "This is time you will never get back."
+            item4: "Waste hours organizing vendors and folders",
+            summary1: "1 receipt = 5 min",
+            summary2: "50 receipts = 4 hours / month",
+            summary3: "48 hours a year wasted forever."
         },
         howItWorks: {
-            title: "OCR Receipt does it in 5 seconds.",
+            title: "Automated in 5 seconds.",
             step1: {
-                title: "1️⃣ Drag & Drop your PDFs",
-                desc: "One by one or 50 at once."
+                title: "1. Drag & Drop",
+                desc: "Import your receipt PDFs or images instantly."
             },
             step2: {
-                title: "2️⃣ Let the AI work",
-                desc: "Tesseract OCR extracts text. The AI fixes typos and understands context. \"Walm@rt\" → \"Walmart\", \"$25.99\" → 25.99. Automatically."
+                title: "2. Local AI Processing",
+                desc: "Automatic text extraction and context parsing."
             },
             step3: {
-                title: "3️⃣ Ready to Export",
-                desc: "Date, vendor, amount, category. Everything is parsed, checked, and exportable to CSV."
+                title: "3. CSV Export",
+                desc: "Download structured, validated expense data."
             }
         },
         features: {
-            title: "Everything you need to<br/>manage your receipts",
-            subtitle: "From PDF to structured data in seconds. No internet required. No monthly fees.",
+            title: "Manage your expenses effortlessly",
+            subtitle: "From raw receipts to clean data in seconds. No internet required. No subscriptions.",
             ai: {
                 title: "AI-Powered Correction",
-                desc: "Automatic OCR error sanitization. Intelligent vendor categorization. No complex rules to configure, no machine learning to train."
+                desc: "Automatic OCR typo cleaning and intelligent supplier categorization."
             },
             batch: {
                 title: "Batch Processing",
-                desc: "Drop 50 receipts at once. The app processes them in the background while you work on other tasks. Real-time progress, zero UI freeze."
+                desc: "Drop 50 receipts at once. The app processes them in the background without UI lag."
             },
             privacy: {
-                title: "100% Private & Offline",
-                desc: "Your sensitive financial data stays on your hard drive. No cloud, no servers, no leaks. Perfect for professionals handling confidential client files."
+                title: "100% Private",
+                desc: "Your financial data stays on your drive. No servers, no accounts, no leak risk."
             },
             match: {
                 title: "Vendor Matching",
-                desc: "The AI matches your recurring vendors automatically. \"Bell Canada Inc.\" → \"Bell\". Every single time. No need for manual aliases."
+                desc: "Intelligent vendor association and normalization with zero configuration."
             },
             export: {
-                title: "Structured Exports",
-                desc: "One click to export all receipts to structured CSV. Fully compatible with Excel, Google Sheets, QuickBooks, and Xero."
+                title: "Excel-Ready Export",
+                desc: "One-click export to CSV compatible with Excel, Sheets, and QuickBooks."
             },
             desktop: {
                 title: "Native Desktop App",
-                desc: "A real app for Windows, Mac, and Linux, not a web wrapper. No network delays, no monthly subscription bloat. You own the software, period."
+                desc: "Fast app for Windows, macOS, and Linux. No subscriptions, perpetual license."
             }
         },
         pricing: {
@@ -435,22 +435,22 @@ export const locales = {
             }
         },
         beta: {
-            title: "Early Access — Launching in 3 months",
-            subtitle: "Sign up to get:",
-            bullet1: "Closed beta access (limited seats)",
-            bullet2: "Become a beta tester → lifetime free license",
-            bullet3: "Official launch announcement",
-            bullet4: "Early adopter price: $149 instead of $199",
+            title: "Join the Early Access",
+            subtitle: "Sign up for the private release program:",
+            bullet1: "Priority access to the closed beta release",
+            bullet2: "Lifetime free license for active beta-testers",
+            bullet3: "Real-time updates and launch announcements",
+            bullet4: "Early-adopter price: $149 instead of $199",
             firstname: "First Name",
             email: "Email Address",
-            profession: "Profession (CPA, freelancer, SMB…)",
-            btn: "📥 Get Early Access",
+            profession: "Profession (Freelancer, SMB, CPA...)",
+            btn: "Get Early Access",
             success: "Thank you! You have successfully joined the early access list 🎉"
         },
         about: {
-            title: "Developed by Martin Fournier",
-            location: "📍 Québec, Canada",
-            bio: "Developer & entrepreneur. OCR Receipt was born from personal frustration to automate invoice chores while keeping data 100% confidential."
+            title: "Martin Fournier",
+            location: "Québec, Canada",
+            bio: "Developer & entrepreneur. I built OCR Receipt to automate the invoicing chore while keeping client data 100% offline."
         },
         faq: {
             title: "Frequently Asked Questions",
