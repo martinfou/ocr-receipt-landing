@@ -119,6 +119,13 @@
                                 <span v-else>{{ $t('beta.btn') }}</span>
                             </button>
                         </form>
+
+                        <!-- Pro Early Access Note -->
+                        <div class="mt-6 p-4 rounded-xl border border-brand/20 bg-brand/[0.02] text-xs leading-relaxed text-text-muted">
+                            <span class="text-brand font-semibold font-mono">{{ $lang.lang === 'fr' ? '💡 ACCÈS PRO :' : '💡 PRO ACCESS:' }}</span>
+                            {{ $lang.lang === 'fr' ? " L'accès anticipé est gratuit pour la version Pro. Pour recevoir votre clé d'activation gratuite, veuillez nous envoyer un e-mail à " : " Early access is free for the Pro tier. To receive your free activation key, please email us at " }}
+                            <a href="mailto:contact@ocrreceipt.com" class="text-brand hover:underline font-mono">contact@ocrreceipt.com</a>.
+                        </div>
                     </div>
                 </div>
 
