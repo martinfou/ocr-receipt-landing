@@ -19,7 +19,7 @@
             <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                 
                 <!-- Left Column: Copy & CTAs -->
-                <div class="lg:col-span-6 text-left flex flex-col items-start">
+                <div class="lg:col-span-6 text-left flex flex-col items-start bg-surface-light/35 backdrop-blur-lg p-8 lg:p-10 rounded-2xl border border-border/40 shadow-2xl">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border text-xs text-text-muted mb-6 bg-surface-light/50 backdrop-blur-sm">
                         <span class="w-2 h-2 rounded-full bg-blue-500 inline-block shadow-[0_0_8px_rgba(59,130,246,0.6)] animate-pulse"></span>
                         Offline-First · Local AI
