@@ -7,7 +7,7 @@
             loop 
             muted 
             playsinline 
-            src="/bg-video.mp4">
+            :src="'/bg-video.mp4'">
         </video>
         
         <!-- Overlays -->
