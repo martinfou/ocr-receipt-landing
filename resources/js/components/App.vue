@@ -2,7 +2,7 @@
     <div id="app" class="min-h-screen bg-surface text-[#e5e5e5]">
         <nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-border">
             <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 cursor-pointer select-none" @click="scrollToTop">
                     <span class="text-lg font-serif font-semibold">OCR Receipt</span>
                 </div>
                 <div class="flex items-center gap-4">
@@ -23,6 +23,17 @@
             <FaqSection />
             <FooterSection />
         </main>
+
+        <!-- Floating Scroll to Top Button -->
+        <button 
+            @click="scrollToTop" 
+            :class="[showScrollTop ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none']"
+            class="fixed bottom-6 right-6 z-50 w-10 h-10 rounded-full border border-border bg-surface-light/80 text-text-muted hover:text-brand hover:border-brand/40 backdrop-blur-md flex items-center justify-center transition-all duration-300 shadow-lg cursor-pointer"
+            aria-label="Back to top">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+            </svg>
+        </button>
     </div>
 </template>
 
@@ -42,10 +53,28 @@ export default {
         FaqSection,
         FooterSection,
     },
+    data() {
+        return {
+            showScrollTop: false
+        };
+    },
+    mounted() {
+        window.addEventListener('scroll', this.handleScroll);
+    },
+    beforeUnmount() {
+        window.removeEventListener('scroll', this.handleScroll);
+    },
     methods: {
         scrollToPricing() {
             document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+        },
+        scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        },
+        handleScroll() {
+            this.showScrollTop = window.scrollY > 400;
         }
     }
 };
 </script>
+

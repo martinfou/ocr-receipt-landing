@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-01T17:37:35Z",
+  "title": "Design System: OCR Receipt",
+  "extensions": {
+    "colorMeta": {
+      "brand": {
+        "role": "primary",
+        "displayName": "Brand Glow Accent",
+        "canonical": "#60A5FA"
+      },
+      "brand-dark": {
+        "role": "primary",
+        "displayName": "Secure Scan Blue",
+        "canonical": "#3B82F6",
+        "tonalRamp": ["#0b162c", "#12254b", "#1c3c74", "#25519d", "#3b82f6", "#6bb5ff", "#add6ff", "#ebf5ff"]
+      },
+      "brand-deep": {
+        "role": "primary",
+        "displayName": "Brand Deep Focus",
+        "canonical": "#2563EB"
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Obsidian Black",
+        "canonical": "#0a0a0a",
+        "tonalRamp": ["#000000", "#050505", "#0a0a0a", "#101010", "#1b1b1b", "#2a2a2a", "#5a5a5a", "#e5e5e5"]
+      },
+      "surface-light": {
+        "role": "neutral",
+        "displayName": "Enclave Gray",
+        "canonical": "#161615",
+        "tonalRamp": ["#090909", "#0f0f0e", "#161615", "#20201e", "#30302d", "#4b4b47", "#787873", "#dcdcd9"]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Active Ink",
+        "canonical": "#e5e5e5"
+      },
+      "text-muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "#a1a09a"
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Solid Gray Border",
+        "canonical": "#3e3e3a"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display Serif",
+        "purpose": "Hero headline titles only."
+      },
+      "headline": {
+        "displayName": "Headline Serif",
+        "purpose": "Section H2/H3 titles."
+      },
+      "body": {
+        "displayName": "Body Sans",
+        "purpose": "Standard reading text."
+      },
+      "label": {
+        "displayName": "Metadata Mono",
+        "purpose": "Monospace labels and receipt details."
+      }
+    },
+    "shadows": [
+      {
+        "name": "Scan Glow",
+        "value": "0 0 40px rgba(59, 130, 246, 0.15)",
+        "purpose": "Active scanning beam animation highlights."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-standard",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "State changes and hover transitions."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Call-to-action button for main conversions.",
+      "html": "<button class=\"ds-btn-primary\">Get Started</button>",
+      "css": ".ds-btn-primary { background: #3B82F6; color: #ffffff; padding: 12px 24px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.15s ease, transform 0.15s ease; } .ds-btn-primary:hover { background-color: #60A5FA; } .ds-btn-primary:active { background-color: #2563EB; transform: scale(0.98); }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-primary-hover",
+      "description": "Secondary action button.",
+      "html": "<button class=\"ds-btn-outline\">View Specs</button>",
+      "css": ".ds-btn-outline { background: transparent; color: #e5e5e5; padding: 12px 24px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; border: 1px solid #3e3e3a; border-radius: 8px; cursor: pointer; transition: border-color 0.15s ease, color 0.15s ease; } .ds-btn-outline:hover { border-color: #60A5FA; color: #60A5FA; }"
+    },
+    {
+      "name": "Feature Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Standard container for receipt features.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">Local Security</h3><p class=\"ds-card-text\">Receipt data is processed strictly on your hardware. No cloud, no external servers, absolute privacy.</p></div>",
+      "css": ".ds-card { background-color: #161615; border: 1px solid #3e3e3a; border-radius: 12px; padding: 24px; font-family: 'Inter', sans-serif; } .ds-card-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: #e5e5e5; margin-bottom: 8px; margin-top: 0; } .ds-card-text { font-size: 14px; color: #a1a09a; line-height: 1.5; margin: 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Local Enclave",
+    "overview": "\"The Local Enclave\" is a secure, dark-themed digital sanctuary focusing on isolated local processing, sleek lines, and high-performance receipt data extraction. It reflects the core brand promise of privacy: financial data never leaves the user's computer. The design language avoids generic, soft SaaS pastel palettes and warm, saturating AI-beige default tones in favor of deep obsidian black backgrounds, structured grids, and striking blue scan glows.",
+    "keyCharacteristics": [
+      "Deep obsidian backdrop for visual focus and battery-saving efficiency.",
+      "Flat surfaces structured by dark colors and crisp borders.",
+      "Glowing active scan cues in high-contrast cyan/blue.",
+      "Crisp, restrained transitions for high-performance interactive feedback."
+    ],
+    "rules": [
+      {
+        "name": "The Rarity Rule",
+        "body": "Secure Scan Blue is reserved strictly for interactive components, status indicators, and active scan highlights. It must cover less than 10% of any screen layout to preserve visual impact.",
+        "section": "colors"
+      },
+      {
+        "name": "The Balance Rule",
+        "body": "All Display and Headline headings must use text-wrap: balance to prevent awkward orphaned words and uneven line wrapping.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Elements do not float. Card containers remain flush with the background, using #3e3e3a borders for containment. Soft shadows are prohibited unless signifying an active, state-triggered scan glow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do wrap all headings with text-wrap: balance or text-wrap: pretty.",
+      "Do use JetBrains Mono for metadata details such as file sizes, dates, and JSON tags.",
+      "Do preserve body text contrast of at least 4.5:1 against the dark background.",
+      "Do implement standard ease-out transitions (transition: all 0.15s ease) for hover states."
+    ],
+    "donts": [
+      "Don't use warm cream, sand, paper, or beige background colors.",
+      "Don't use gradient text headers.",
+      "Don't use card side-stripe borders as accents.",
+      "Don't add arbitrary shadows to card components; rely on flat tonal layering instead."
+    ]
+  }
+}
