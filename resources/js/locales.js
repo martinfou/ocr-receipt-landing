@@ -1,7 +1,7 @@
 export const locales = {
     fr: {
         nav: {
-            workflow: "Fonctionnement",
+            workflow: "Comment ça marche",
             features: "Fonctionnalités",
             pricing: "Tarifs",
             contact: "Contact",
@@ -56,7 +56,7 @@ export const locales = {
             financialLossLabel: "Perte financière / An"
         },
         howItWorks: {
-            subtitle: "Fonctionnement",
+            subtitle: "Comment ça marche",
             title: "Automatisé en 5 secondes.",
             step1: {
                 title: "Glissez vos PDF",
