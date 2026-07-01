@@ -39,10 +39,10 @@
         </nav>
 
         <main class="pt-16">
-            <HeroSection />
+            <HeroSection :active-tab="activeTab" @tab-changed="activeTab = $event" />
             <ProblemSection />
             <HowItWorksSection />
-            <FeaturesSection />
+            <FeaturesSection @select-feature-tab="handleSelectFeatureTab" />
             <PricingSection />
             <DownloadsSection />
             <BetaSection />
@@ -89,7 +89,8 @@ export default {
     },
     data() {
         return {
-            showScrollTop: false
+            showScrollTop: false,
+            activeTab: 0
         };
     },
     mounted() {
@@ -107,6 +108,10 @@ export default {
         },
         handleScroll() {
             this.showScrollTop = window.scrollY > 400;
+        },
+        handleSelectFeatureTab(index) {
+            this.activeTab = index;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     }
 };
