@@ -44,8 +44,8 @@
             <HowItWorksSection />
             <FeaturesSection @select-feature-tab="handleSelectFeatureTab" />
             <PricingSection />
-            <DownloadsSection />
             <BetaSection />
+            <DownloadsSection />
             <FaqSection />
             <FooterSection />
         </main>

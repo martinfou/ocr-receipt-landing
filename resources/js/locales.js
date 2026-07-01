@@ -1,7 +1,7 @@
 export const locales = {
     fr: {
         nav: {
-            workflow: "Optimisation",
+            workflow: "Fonctionnement",
             features: "Fonctionnalités",
             pricing: "Tarifs",
             contact: "Contact",
@@ -352,7 +352,7 @@ export const locales = {
     },
     en: {
         nav: {
-            workflow: "Workflow",
+            workflow: "How It Works",
             features: "Features",
             pricing: "Pricing",
             contact: "Contact",
