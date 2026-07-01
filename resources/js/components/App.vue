@@ -30,7 +30,7 @@
                         >EN</button>
                     </div>
 
-                    <a href="#beta" class="btn-brand text-[10px] font-mono uppercase tracking-wider px-4 py-2 shadow-md shadow-brand-dark/10 hover:shadow-brand/20 transition-all cursor-pointer">
+                    <a href="#pricing" class="btn-brand text-[10px] font-mono uppercase tracking-wider px-4 py-2 shadow-md shadow-brand-dark/10 hover:shadow-brand/20 transition-all cursor-pointer">
                         {{ $t('nav.cta') }}
                     </a>
                 </div>

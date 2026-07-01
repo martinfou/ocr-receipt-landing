@@ -4,7 +4,7 @@ export const locales = {
             features: "Fonctionnalités",
             pricing: "Tarifs",
             contact: "Contact",
-            cta: "Accès anticipé"
+            cta: "Télécharger"
         },
         hero: {
             subtitle: "IA Locale · Zéro Cloud · <span class='text-[#e5e5e5]'>Zéro Abonnement</span>",
@@ -250,7 +250,7 @@ export const locales = {
             features: "Features",
             pricing: "Pricing",
             contact: "Contact",
-            cta: "Early Access"
+            cta: "Download"
         },
         hero: {
             subtitle: "Local AI · Zero Cloud · <span class='text-[#e5e5e5]'>No Subscription</span>",
