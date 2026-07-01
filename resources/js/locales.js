@@ -9,7 +9,7 @@ export const locales = {
         hero: {
             subtitle: "IA Locale · Zéro Cloud · <span class='text-[#e5e5e5]'>Zéro Abonnement</span>",
             title: "Vos factures et reçus classés. <span class='text-[#60A5FA]'>100% localement.</span>",
-            cta1: "📥 Obtenir l'accès anticipé",
+            cta1: "⬇️ Télécharger l'application",
             designedFor: "Pour freelances et PME soucieux de leur confidentialité.",
             badges: "IA locale & cloud · Zéro abonnement · Licence perpétuelle",
             simulator: {
@@ -255,7 +255,7 @@ export const locales = {
         hero: {
             subtitle: "Local AI · Zero Cloud · <span class='text-[#e5e5e5]'>No Subscription</span>",
             title: "Your receipts parsed. <span class='text-[#60A5FA]'>100% offline.</span>",
-            cta1: "📥 Get Early Access",
+            cta1: "⬇️ Download the App",
             designedFor: "Built for privacy-conscious freelancers and SMBs.",
             badges: "Local & Cloud AI · No Subscriptions · Perpetual License",
             simulator: {
