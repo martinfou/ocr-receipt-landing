@@ -2,7 +2,7 @@
     <section class="relative overflow-hidden py-24 lg:py-32 min-h-screen flex items-center justify-center">
         <!-- Background Video -->
         <video 
-            class="absolute inset-0 w-full h-full object-cover z-0 opacity-20" 
+            class="absolute inset-0 w-full h-full object-cover z-0 opacity-50" 
             autoplay 
             loop 
             muted 
@@ -11,7 +11,7 @@
         </video>
         
         <!-- Overlays -->
-        <div class="absolute inset-0 bg-surface/90 z-0"></div>
+        <div class="absolute inset-0 bg-surface/70 z-0"></div>
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(96,165,250,0.1),transparent_50%)] z-0"></div>
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(96,165,250,0.05),transparent_50%)] z-0"></div>
 
