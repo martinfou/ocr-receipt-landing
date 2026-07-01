@@ -157,17 +157,8 @@ export const locales = {
                 statusScanning: "Scan en cours...",
                 statusMatched: "Correspondance confirmée"
             },
-            privacyBadge: "Audit de Sécurité",
-            privacyClickToOpen: "Lancer l'audit de trafic réseau",
-            privacyModal: {
-                title: "Audit Réseau & Confidentialité (Simulation)",
-                statusPrivate: "Modèle local & Données locales — 100% Privé, aucun paquet sortant",
-                scanLogs: "Traces Système Locales",
-                networkTitle: "Moniteur Réseau Actif",
-                closeBtn: "Fermer",
-                statusScanning: "Analyse des flux...",
-                statusChecked: "Sécurisé hors ligne"
-            },
+            privacyBadge: "Modèle & Données Locaux",
+            privacyClickToOpen: "Ouvrir les paramètres locaux",
             aiBadge: "IA Locale",
             aiClickToOpen: "Lancer le correcteur d'IA",
             aiModal: {
@@ -516,17 +507,8 @@ export const locales = {
                 statusScanning: "Scanning...",
                 statusMatched: "Match Confirmed"
             },
-            privacyBadge: "Security Audit",
-            privacyClickToOpen: "Run network traffic audit",
-            privacyModal: {
-                title: "Network Traffic & Privacy Audit (Simulation)",
-                statusPrivate: "Local AI Model & Local Data — 100% Private, zero outbound packets",
-                scanLogs: "Local System Trace",
-                networkTitle: "Live Network Monitor",
-                closeBtn: "Close",
-                statusScanning: "Analyzing sockets...",
-                statusChecked: "Secured Offline"
-            },
+            privacyBadge: "Local Model & Data",
+            privacyClickToOpen: "Open local preferences",
             aiBadge: "Local AI",
             aiClickToOpen: "Launch AI correction",
             aiModal: {
