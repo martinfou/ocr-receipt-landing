@@ -59,7 +59,7 @@
         .files{
             list-style: none;
             padding: 0;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
         .files li{
             background: #0a0a0a;
@@ -71,10 +71,15 @@
             align-items: center;
             justify-content: space-between;
             gap: 1rem;
-            transition: border-color 0.2s;
+            transition: all 0.2s;
         }
         .files li:hover{
             border-color: #60a5fa;
+        }
+        .files li.recommended {
+            border-color: #60a5fa;
+            background: rgba(96, 165, 250, 0.02);
+            box-shadow: 0 0 15px rgba(96, 165, 250, 0.08);
         }
         .files .name{
             font-weight: 500;
@@ -85,13 +90,31 @@
             display: inline-block;
             font-size: 9px;
             font-family: ui-monospace, monospace;
-            color: #60a5fa;
-            background: rgba(96, 165, 250, 0.05);
-            border: 1px solid rgba(96, 165, 250, 0.15);
+            color: #a1a09a;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             padding: 0.15rem 0.4rem;
             border-radius: 4px;
             margin-top: 0.25rem;
             text-transform: uppercase;
+        }
+        .files li.recommended .platform-tag {
+            color: #60a5fa;
+            background: rgba(96, 165, 250, 0.05);
+            border: 1px solid rgba(96, 165, 250, 0.15);
+        }
+        .platform-tag-recommended {
+            display: inline-block;
+            font-size: 9px;
+            font-family: ui-monospace, monospace;
+            color: #10B981;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            margin-top: 0.25rem;
+            text-transform: uppercase;
+            margin-left: 0.35rem;
         }
         .btn{
             display: inline-flex;
@@ -125,6 +148,15 @@
             margin: 2rem 0;
             position: relative;
         }
+        .license-key label{
+            font-family: ui-monospace, monospace;
+            font-size: 10px;
+            color: #a1a09a;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
         .license-key-wrapper {
             display: flex;
             align-items: center;
@@ -153,6 +185,60 @@
         .copy-btn:hover {
             color: #e5e5e5;
             border-color: #60a5fa;
+        }
+        .security-tips {
+            background: rgba(10, 10, 10, 0.4);
+            border: 1px solid #3e3e3a;
+            border-radius: 0.75rem;
+            margin-top: 1.5rem;
+            overflow: hidden;
+        }
+        .security-tips-toggle {
+            width: 100%;
+            background: transparent;
+            border: none;
+            padding: 1rem 1.25rem;
+            color: #e5e5e5;
+            font-size: 12px;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 500;
+        }
+        .security-tips-toggle:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .security-tips-toggle .arrow {
+            font-size: 9px;
+            color: #a1a09a;
+            transition: transform 0.2s;
+        }
+        .security-tips-toggle.active .arrow {
+            transform: rotate(180deg);
+        }
+        .security-tips-content {
+            padding: 0 1.25rem 1.25rem 1.25rem;
+            border-top: 1px solid rgba(62, 62, 58, 0.4);
+            font-size: 11px;
+            line-height: 1.55;
+            color: #a1a09a;
+        }
+        .tip-item {
+            margin-top: 0.75rem;
+        }
+        .tip-item strong {
+            color: #e5e5e5;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+        .tip-item code {
+            font-family: ui-monospace, monospace;
+            background: #0a0a0a;
+            padding: 0.1rem 0.3rem;
+            border-radius: 4px;
+            color: #60a5fa;
         }
         .text-sm{
             font-size: 0.75rem;
@@ -215,36 +301,64 @@
 
             <ul class="files">
                 <!-- macOS -->
-                <li>
+                <li id="card-mac">
                     <div>
                         <div class="name">OCR-Receipt-1.0.0.dmg</div>
-                        <span class="platform-tag">macOS (Intel & Apple Silicon)</span>
+                        <span class="platform-details">
+                            <span class="platform-tag">macOS (Intel & M1/M2/M3)</span>
+                        </span>
                     </div>
                     <a href="{{ route('license.serve', ['filename' => 'OCR-Receipt-1.0.0.dmg']) }}?email={{ urlencode($email) }}&license_key={{ urlencode($license_key) }}" class="btn">
                         Télécharger
                     </a>
                 </li>
                 <!-- Windows -->
-                <li>
+                <li id="card-win">
                     <div>
                         <div class="name">OCR-Receipt-1.0.0-Setup.exe</div>
-                        <span class="platform-tag">Windows (10 / 11)</span>
+                        <span class="platform-details">
+                            <span class="platform-tag">Windows (10 / 11)</span>
+                        </span>
                     </div>
                     <a href="{{ route('license.serve', ['filename' => 'OCR-Receipt-1.0.0-Setup.exe']) }}?email={{ urlencode($email) }}&license_key={{ urlencode($license_key) }}" class="btn">
                         Télécharger
                     </a>
                 </li>
                 <!-- Linux -->
-                <li>
+                <li id="card-linux">
                     <div>
                         <div class="name">OCR-Receipt-1.0.0-linux.tar.gz</div>
-                        <span class="platform-tag">Linux (tar.gz release)</span>
+                        <span class="platform-details">
+                            <span class="platform-tag">Linux (tar.gz release)</span>
+                        </span>
                     </div>
                     <a href="{{ route('license.serve', ['filename' => 'OCR-Receipt-1.0.0-linux.tar.gz']) }}?email={{ urlencode($email) }}&license_key={{ urlencode($license_key) }}" class="btn">
                         Télécharger
                     </a>
                 </li>
             </ul>
+
+            <!-- Security Warnings collapsible guide -->
+            <div class="security-tips">
+                <button class="security-tips-toggle" onclick="toggleSecurityTips()">
+                    🛡️ Un avertissement de sécurité s'affiche à l'ouverture ?
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="security-tips-content" id="security-content" style="display: none;">
+                    <div class="tip-item">
+                        <strong>macOS (Développeur non identifié) :</strong>
+                        <p>Faites un clic droit (ou Ctrl+clic) sur l'application <code>OCR Receipt</code>, puis cliquez sur <strong>Ouvrir</strong> dans le menu contextuel. Validez ensuite l'ouverture.</p>
+                    </div>
+                    <div class="tip-item">
+                        <strong>Windows (SmartScreen) :</strong>
+                        <p>Cliquez sur <strong>Informations complémentaires</strong> puis sur le bouton <strong>Exécuter quand même</strong>.</p>
+                    </div>
+                    <div class="tip-item">
+                        <strong>Linux (Droits d'exécution) :</strong>
+                        <p>Exécutez <code>chmod +x</code> sur le binaire extrait pour autoriser l'exécution locale de l'application.</p>
+                    </div>
+                </div>
+            </div>
 
             <p class="text-sm">
                 Des questions ? Contactez-nous à <a href="mailto:support@ocrreceipt.com" style="color:#60a5fa; text-decoration:none;">support@ocrreceipt.com</a><br>
@@ -268,6 +382,45 @@
                 }, 2000);
             });
         }
+
+        function toggleSecurityTips() {
+            const content = document.getElementById('security-content');
+            const toggle = document.querySelector('.security-tips-toggle');
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                toggle.classList.add('active');
+            } else {
+                content.style.display = 'none';
+                toggle.classList.remove('active');
+            }
+        }
+
+        // Automatic OS detection
+        document.addEventListener('DOMContentLoaded', () => {
+            const ua = navigator.userAgent.toLowerCase();
+            let detectedId = null;
+            if (ua.indexOf('mac') !== -1) {
+                detectedId = 'card-mac';
+            } else if (ua.indexOf('win') !== -1) {
+                detectedId = 'card-win';
+            } else if (ua.indexOf('linux') !== -1 || ua.indexOf('x11') !== -1) {
+                detectedId = 'card-linux';
+            }
+
+            if (detectedId) {
+                const card = document.getElementById(detectedId);
+                if (card) {
+                    card.classList.add('recommended');
+                    const container = card.querySelector('.platform-details');
+                    if (container) {
+                        const badge = document.createElement('span');
+                        badge.className = 'platform-tag-recommended';
+                        badge.innerText = 'Recommandé';
+                        container.appendChild(badge);
+                    }
+                }
+            }
+        });
     </script>
 </body>
 </html>
