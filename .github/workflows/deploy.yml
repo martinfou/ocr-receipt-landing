@@ -89,6 +89,11 @@ jobs:
             [ -f ./composer.phar ] && COMPOSER_CMD="./composer.phar"
             /usr/local/php84/bin/php -d memory_limit=-1 $COMPOSER_CMD install --no-dev --no-interaction --prefer-dist 2>&1
 
+            # Generate app key if it's missing (happens on fresh deploys)
+            if grep -q "^APP_KEY=$" .env || ! grep -q "^APP_KEY=" .env; then
+              /usr/local/php84/bin/php artisan key:generate --force
+            fi
+
             # Migrate Database
             # We are using sqlite, so ensure the database file exists
             mkdir -p database
