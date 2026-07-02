@@ -25,8 +25,11 @@
                     <div class="text-[11px] font-mono text-brand-dark mb-4 tracking-wider uppercase" v-html="$t('hero.subtitle')">
                     </div>
 
-                    <h1 class="text-4xl sm:text-5xl lg:text-5xl font-serif font-medium leading-[1.15] mb-6 tracking-[-0.02em] text-wrap-balance text-text" v-html="$t('hero.title')">
+                    <h1 class="text-4xl sm:text-5xl lg:text-5xl font-serif font-medium leading-[1.15] mb-4 tracking-[-0.02em] text-wrap-balance text-text" v-html="$t('hero.title')">
                     </h1>
+
+                    <p class="text-sm text-text-muted mb-8 leading-relaxed max-w-sm" v-html="$t('hero.description')">
+                    </p>
 
                     <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-8">
                         <a href="#download" class="btn-brand text-sm px-7 py-3.5 w-full sm:w-auto shadow-lg hover:shadow-xl transition-all duration-300 text-center cursor-pointer">

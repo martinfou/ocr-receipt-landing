@@ -10,14 +10,15 @@ export const locales = {
         },
         hero: {
             subtitle: "IA Locale · Zéro Cloud · <span class='text-[#333]'>Zéro Abonnement</span>",
-            title: "Automatisez vos reçus. <span class='text-[#22c55e]'>100% localement.</span>",
+            title: "Fini les piles de factures qui traînent.",
+            description: "Fini les piles de factures désorganisées et les documents qui traînent un peu partout. Notre logiciel analyse vos documents, les renomme et les classe automatiquement.",
             cta1: "⬇️ Télécharger l'application",
             designedFor: "Pour freelances et PME soucieux de leur confidentialité.",
             bullets: [
-                "Extraction de données par IA",
-                "Renommage automatique des fichiers",
-                "Base de données locale de recherche",
-                "Génération de rapports comptables"
+                "Analyse et extraction de données par IA",
+                "Renommage et classement automatiques",
+                "Recherche instantanée dans la base locale",
+                "Rapports de dépenses prêts pour la comptabilité"
             ],
             badges: "IA locale & cloud · Zéro abonnement · Licence perpétuelle",
             carouselTabs: ['Import', 'IA Locale', 'Recherche', 'Rapports'],
@@ -373,14 +374,15 @@ export const locales = {
         },
         hero: {
             subtitle: "Local AI · Zero Cloud · <span class='text-[#333]'>No Subscription</span>",
-            title: "Automate your receipts. <span class='text-[#22c55e]'>100% offline.</span>",
+            title: "No more piles of messy invoices.",
+            description: "Stop wasting time on scattered folders and disorganized documents. Our software automatically analyzes, renames, and files your receipts offline.",
             cta1: "⬇️ Download the App",
             designedFor: "Built for privacy-conscious freelancers and SMBs.",
             bullets: [
-                "Extract data with local AI",
-                "Auto-rename files smartly",
-                "Build a searchable database",
-                "Generate accountant reports"
+                "Local AI data extraction & cleanup",
+                "Automatic file renaming & organization",
+                "Instant search in your local database",
+                "Accountant-ready expense reports"
             ],
             badges: "Local & Cloud AI · No Subscriptions · Perpetual License",
             carouselTabs: ['Import', 'Local AI', 'Search', 'Reports'],
