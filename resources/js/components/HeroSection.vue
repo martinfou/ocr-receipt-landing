@@ -12,7 +12,7 @@
             <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 
                 <!-- Left Column: Copy & CTAs (1/3 Width) -->
-                <div class="lg:col-span-4 text-left flex flex-col items-start bg-white/90 border border-border p-8 lg:p-10 rounded-2xl backdrop-blur-md shadow-2xl relative z-10 transition-all duration-300">
+                <div class="lg:col-span-4 text-left flex flex-col items-start bg-white border border-border p-8 lg:p-10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] relative z-10 transition-all duration-300">
                     <div class="w-12 h-12 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center mb-6 select-none">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-brand-dark fill-none" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1z"></path>
@@ -28,17 +28,28 @@
                     <h1 class="text-4xl sm:text-5xl lg:text-5xl font-serif font-medium leading-[1.15] mb-6 tracking-[-0.02em] text-wrap-balance text-text" v-html="$t('hero.title')">
                     </h1>
 
-                    <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-10">
+                    <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-8">
                         <a href="#download" class="btn-brand text-sm px-7 py-3.5 w-full sm:w-auto shadow-lg hover:shadow-xl transition-all duration-300 text-center cursor-pointer">
                             {{ $t('hero.cta1') }}
                         </a>
                     </div>
 
-                    <div class="border-t border-border/60 pt-6 w-full max-w-lg">
+                    <ul class="space-y-3 mb-8 w-full">
+                        <li v-for="(bullet, index) in $tm('hero.bullets')" :key="index" class="flex items-start gap-2.5 text-sm text-text-muted">
+                            <span class="flex-shrink-0 w-5 h-5 rounded-full bg-brand/10 flex items-center justify-center mt-0.5">
+                                <svg class="w-3 h-3 text-brand-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </span>
+                            <span class="leading-relaxed">{{ bullet }}</span>
+                        </li>
+                    </ul>
+
+                    <div class="border-t border-border pt-6 w-full max-w-lg">
                         <p class="text-xs text-text-muted leading-relaxed mb-4">
                             {{ $t('hero.designedFor') }}
                         </p>
-                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border/80 text-[10px] text-text-muted bg-surface/80 font-mono select-none">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border text-[10px] text-text-muted bg-surface/80 font-mono select-none">
                             <span class="w-1.5 h-1.5 rounded-full bg-brand-dark inline-block animate-pulse"></span>
                             {{ $t('hero.badges') }}
                         </div>
@@ -50,28 +61,28 @@
                     <div class="w-full max-w-3xl border border-border bg-white/95 backdrop-blur-md rounded-xl overflow-hidden shadow-2xl relative font-sans text-xs">
                         
                         <!-- Carousel Top Header bar (OS Window style + Tab bar) -->
-                        <div class="bg-surface/60 border-b border-border/60">
+                        <div class="border-b border-border">
                             <!-- Window dots & title -->
-                            <div class="flex items-center justify-between px-4 py-3.5 border-b border-border/40">
+                            <div class="flex items-center justify-between px-4 py-3 border-b border-border bg-white z-10">
                                 <div class="flex items-center gap-1.5">
                                     <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></span>
                                     <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></span>
                                     <span class="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></span>
-                                    <span class="font-mono text-[9px] text-text-muted uppercase tracking-wider ml-1.5">// DESKTOP SIMULATOR</span>
+                                    <span class="font-mono text-[10px] text-text-muted uppercase tracking-wider ml-1.5 font-medium">Desktop Simulator</span>
                                 </div>
-                                <div class="text-[8px] text-brand font-mono font-bold animate-pulse uppercase">
-                                    ● LOCAL_INFRASTRUCTURE
+                                <div class="text-[9px] text-brand-dark font-mono font-bold uppercase tracking-wider bg-brand/10 px-2 py-0.5 rounded border border-brand/20">
+                                    Offline Mode
                                 </div>
                             </div>
                             
                             <!-- Carousel Navigation Tabs -->
-                            <div class="flex overflow-x-auto scrollbar-none font-mono text-[8px] uppercase tracking-wider text-text-muted select-none">
+                            <div class="flex overflow-x-auto scrollbar-none font-mono text-[10px] uppercase tracking-wider text-text-muted select-none bg-surface border-b border-border">
                                 <button v-for="(tabName, idx) in tabNames" :key="idx"
                                         @click="selectTab(idx)"
-                                        class="flex-1 min-w-[75px] py-3 px-1 text-center border-r border-border/30 hover:text-[#e5e5e5] transition-all relative font-bold"
-                                        :class="idx === activeTab ? 'bg-[#0a0a0a]/50 text-brand font-bold' : ''">
+                                        class="flex-1 min-w-[75px] py-4 px-2 text-center border-r border-border hover:bg-white hover:text-brand-dark transition-all relative font-medium"
+                                        :class="idx === activeTab ? 'bg-white text-brand-dark font-bold' : ''">
                                     <span>{{ tabName }}</span>
-                                    <span v-if="idx === activeTab" class="absolute bottom-0 left-0 right-0 h-[2px] bg-brand shadow-[0_0_8px_#60A5FA]"></span>
+                                    <span v-if="idx === activeTab" class="absolute bottom-0 left-0 right-0 h-[2px] bg-brand-dark"></span>
                                 </button>
                             </div>
                         </div>
@@ -84,7 +95,7 @@
                             <div v-if="activeTab === 0" class="grid sm:grid-cols-12 gap-4 animate-fadeIn">
                                 <!-- Left column: Mock Receipt representation -->
                                 <div class="sm:col-span-5 space-y-2 flex flex-col items-center">
-                                    <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider border-b border-border/60 pb-1 w-full text-center">// Scanned Receipt</div>
+                                    <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider border-b border-border pb-1 w-full text-center">// Scanned Receipt</div>
                                     <div class="relative bg-[#fdfbf7] text-[#111111] p-3 shadow-md w-[180px] min-h-[260px] flex flex-col font-mono text-[7px] border-l border-r border-[#e5e5e5] drop-shadow-xl" style="clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4px), 95% 100%, 90% calc(100% - 4px), 85% 100%, 80% calc(100% - 4px), 75% 100%, 70% calc(100% - 4px), 65% 100%, 60% calc(100% - 4px), 55% 100%, 50% calc(100% - 4px), 45% 100%, 40% calc(100% - 4px), 35% 100%, 30% calc(100% - 4px), 25% 100%, 20% calc(100% - 4px), 15% 100%, 10% calc(100% - 4px), 5% 100%, 0 calc(100% - 4px));">
                                         <!-- Laser scanning line -->
                                         <div v-show="parserStep === 1" class="absolute left-0 right-0 h-[2px] bg-brand animate-scan-laser shadow-[0_0_8px_#4ade80] z-20 opacity-75"></div>
@@ -114,7 +125,7 @@
                                                 <span>Tax (5%)</span>
                                                 <span>$0.39</span>
                                             </div>
-                                            <div class="flex justify-between font-bold text-[9px] mt-1 border-t border-[#111] pt-1">
+                                            <div class="flex justify-between font-bold text-[9px] mt-1 border-t border-border pt-1">
                                                 <span>TOTAL</span>
                                                 <span>$8.14</span>
                                             </div>
@@ -128,7 +139,7 @@
                                     
                                     <!-- Document Fields -->
                                     <div class="space-y-2.5">
-                                        <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider border-b border-border/60 pb-1.5 mb-1.5 flex items-center justify-between">
+                                        <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider border-b border-border pb-1.5 mb-1.5 flex items-center justify-between">
                                             <span>{{ $t('hero.simulator.fields') }}</span>
                                             <span class="text-brand-deep font-mono text-[8px]" v-if="parserStep >= 2">{{ $t('hero.simulator.matchConfirmed') }}</span>
                                         </div>
@@ -205,16 +216,16 @@
                             <div v-if="activeTab === 1" class="space-y-4 animate-fadeIn">
                                 <div class="grid sm:grid-cols-2 gap-4">
                                     <!-- Left half: Model config -->
-                                    <div class="space-y-3 p-3.5 bg-[#0a0a0a]/60 border border-border/60 rounded-xl">
-                                        <div class="text-[8px] font-mono text-brand uppercase tracking-wider border-b border-border/30 pb-1 mb-1">// LLM MODEL CONFIGURATION</div>
+                                    <div class="space-y-3 p-3.5 bg-surface border border-border rounded-xl">
+                                        <div class="text-[8px] font-mono text-brand uppercase tracking-wider border-b border-border pb-1 mb-1">// LLM MODEL CONFIGURATION</div>
                                         <div class="space-y-2">
                                             <div class="space-y-1">
                                                 <label class="text-[8px] font-mono text-text-muted uppercase">Preferred Model</label>
-                                                <div class="px-2.5 py-1.5 bg-[#0a0a0a] border border-border/80 rounded text-[10px] text-[#e5e5e5] font-mono">Local GGUF Model (Offline)</div>
+                                                <div class="px-2.5 py-1.5 bg-surface-light border border-border rounded text-[10px] text-text font-mono">Local GGUF Model (Offline)</div>
                                             </div>
                                             <div class="space-y-1">
                                                 <label class="text-[8px] font-mono text-text-muted uppercase">Model Size</label>
-                                                <select v-model="selectedModelSize" class="w-full bg-[#0a0a0a] border border-border/80 rounded px-2 py-1 text-[10px] text-[#e5e5e5] outline-none focus:border-brand">
+                                                <select v-model="selectedModelSize" class="w-full bg-surface-light border border-border rounded px-2 py-1 text-[10px] text-text outline-none focus:border-brand">
                                                     <option>Tiny (0.5B - ~140 MB)</option>
                                                     <option>Smol (1.5B - ~450 MB)</option>
                                                     <option>Base (7B - ~2.2 GB)</option>
@@ -222,7 +233,7 @@
                                             </div>
                                             <div class="space-y-1">
                                                 <label class="text-[8px] font-mono text-text-muted uppercase">Model Directory</label>
-                                                <div class="px-2 py-1 bg-[#0a0a0a] border border-border/80 rounded text-[9px] text-text-muted font-mono truncate select-none">/Volumes/T7/ai-models/</div>
+                                                <div class="px-2 py-1 bg-surface-light border border-border rounded text-[9px] text-text-muted font-mono truncate select-none">/Volumes/T7/ai-models/</div>
                                             </div>
                                         </div>
                                         <div class="pt-1.5 flex justify-between items-center text-[8px] font-mono">
@@ -231,16 +242,16 @@
                                     </div>
 
                                     <!-- Right half: DB & OCR config -->
-                                    <div class="space-y-3 p-3.5 bg-[#0a0a0a]/60 border border-border/60 rounded-xl">
-                                        <div class="text-[8px] font-mono text-brand uppercase tracking-wider border-b border-border/30 pb-1 mb-1">// DATA STORAGE CONFIG</div>
+                                    <div class="space-y-3 p-3.5 bg-surface border border-border rounded-xl">
+                                        <div class="text-[8px] font-mono text-brand uppercase tracking-wider border-b border-border pb-1 mb-1">// DATA STORAGE CONFIG</div>
                                         <div class="space-y-2">
                                             <div class="space-y-1">
                                                 <label class="text-[8px] font-mono text-text-muted uppercase">Database Path</label>
-                                                <div class="px-2 py-1 bg-[#0a0a0a] border border-border/80 rounded text-[9px] text-[#e5e5e5] font-mono truncate">data/databases/ocr_receipts.db</div>
+                                                <div class="px-2 py-1 bg-surface-light border border-border rounded text-[9px] text-text font-mono truncate">data/databases/ocr_receipts.db</div>
                                             </div>
                                             <div class="space-y-1">
                                                 <label class="text-[8px] font-mono text-text-muted uppercase">OCR Confidence Threshold</label>
-                                                <div class="px-2 py-1 bg-[#0a0a0a] border border-border/80 rounded text-[10px] text-[#e5e5e5] font-mono">80%</div>
+                                                <div class="px-2 py-1 bg-surface-light border border-border rounded text-[10px] text-text font-mono">80%</div>
                                             </div>
                                         </div>
                                         <div class="pt-2 flex gap-1">
@@ -259,9 +270,9 @@
                             <div v-if="activeTab === 2" class="grid sm:grid-cols-12 gap-4 animate-fadeIn">
                                 <!-- Left column: raw ocr text -->
                                 <div class="sm:col-span-5 space-y-2">
-                                    <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider border-b border-border/30 pb-1">// Raw OCR Stream (Typos)</div>
-                                    <div class="bg-[#0e0e0d] border border-border/40 rounded-lg p-3 h-[250px] overflow-y-auto font-mono text-[9px] text-text-muted space-y-2 select-none leading-relaxed">
-                                        <div><span class="text-[#e5e5e5] font-bold">ACME COPIER 5ERVICE5 INC.</span> <span class="text-red-400 text-[8px] font-bold">[typo: 5/S]</span></div>
+                                    <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider border-b border-border pb-1">// Raw OCR Stream (Typos)</div>
+                                    <div class="bg-surface border border-border/40 rounded-lg p-3 h-[250px] overflow-y-auto font-mono text-[9px] text-text-muted space-y-2 select-none leading-relaxed">
+                                        <div><span class="text-text font-bold">ACME COPIER 5ERVICE5 INC.</span> <span class="text-red-400 text-[8px] font-bold">[typo: 5/S]</span></div>
                                         <div>St-Jean-sur-Richelieu, Qc</div>
                                         <div class="border-t border-border/10 pt-1">
                                             <div>FACT: <span class="text-red-400 bg-red-500/5 px-1 rounded">17O0</span> <span class="text-red-400">[typo: O/0]</span></div>
@@ -280,9 +291,9 @@
 
                                 <!-- Right column: parsed output -->
                                 <div class="sm:col-span-7 space-y-3 flex flex-col justify-between min-h-[250px]">
-                                    <div class="text-[8px] font-mono text-brand uppercase tracking-wider border-b border-border/30 pb-1 flex justify-between items-center">
+                                    <div class="text-[8px] font-mono text-brand uppercase tracking-wider border-b border-border pb-1 flex justify-between items-center">
                                         <span>// AI Structured Output</span>
-                                        <span v-if="aiStep === 'done'" class="text-[#27c93f] font-mono text-[8px]">✓ Done</span>
+                                        <span v-if="aiStep === 'done'" class="text-green-600 font-mono text-[8px]">✓ Done</span>
                                     </div>
                                     
                                     <div v-if="aiStep === 'processing'" class="p-4 bg-brand/5 border border-brand/20 rounded-xl flex items-center justify-center gap-2 animate-pulse h-40">
@@ -292,9 +303,9 @@
 
                                     <div v-if="aiStep === 'done'" class="space-y-2.5 animate-fadeIn">
                                         <!-- Vendor match -->
-                                        <div class="p-2 bg-[#0a0a0a]/50 border border-border/80 rounded-lg flex justify-between items-center font-mono">
+                                        <div class="p-2 bg-surface border border-border rounded-lg flex justify-between items-center font-mono">
                                             <span class="text-text-muted">Vendor Matched:</span>
-                                            <span class="text-[#e5e5e5] font-serif font-bold">ACME Copier Services Inc.</span>
+                                            <span class="text-text font-serif font-bold">ACME Copier Services Inc.</span>
                                         </div>
                                         <!-- Line items table representation -->
                                         <div class="space-y-1 font-mono text-[9px]">
@@ -302,11 +313,11 @@
                                                 <span>EXTRACTED ITEMS</span>
                                                 <span>AMOUNT</span>
                                             </div>
-                                            <div class="flex justify-between text-[#e5e5e5]">
+                                            <div class="flex justify-between text-text">
                                                 <span class="truncate max-w-[160px]">Maintenance Copieur</span>
                                                 <span class="text-brand">$120.00</span>
                                             </div>
-                                            <div class="flex justify-between text-[#e5e5e5]">
+                                            <div class="flex justify-between text-text">
                                                 <span class="truncate max-w-[160px]">Papier Lettre</span>
                                                 <span class="text-brand">$10.00</span>
                                             </div>
@@ -315,9 +326,9 @@
                                         <div class="pt-2 border-t border-border/40 space-y-1 font-mono text-[9px]">
                                             <div class="flex justify-between text-text-muted">
                                                 <span>TPS/TVQ Tax (14.975%)</span>
-                                                <span class="text-[#27c93f]">$19.50</span>
+                                                <span class="text-green-600">$19.50</span>
                                             </div>
-                                            <div class="flex justify-between text-[#e5e5e5] font-bold text-xs">
+                                            <div class="flex justify-between text-text font-bold text-xs">
                                                 <span>Cleaned Total CAD</span>
                                                 <span>$149.50</span>
                                             </div>
@@ -329,7 +340,7 @@
                                     </div>
 
                                     <div class="flex gap-2 pt-2">
-                                        <button @click="runAiCorrection" :disabled="aiStep === 'processing'" class="flex-1 py-2 bg-[#27c93f] text-[#0a0a0a] hover:bg-[#22a835] font-serif font-bold text-xs rounded transition-colors">
+                                        <button @click="runAiCorrection" :disabled="aiStep === 'processing'" class="flex-1 py-2 bg-[#27c93f] text-white hover:bg-[#22a835] font-serif font-bold text-xs rounded transition-colors">
                                             {{ aiStep === 'processing' ? 'Processing...' : 'Run AI Correction' }}
                                         </button>
                                     </div>
@@ -338,15 +349,15 @@
 
                             <!-- Tab 3: Parallel Batch Scan -->
                             <div v-if="activeTab === 3" class="space-y-4 animate-fadeIn">
-                                <div class="text-[8px] font-mono text-brand uppercase tracking-wider border-b border-border/30 pb-1 flex justify-between items-center">
+                                <div class="text-[8px] font-mono text-brand uppercase tracking-wider border-b border-border pb-1 flex justify-between items-center">
                                     <span>// Parallel Batch Processor</span>
                                     <span v-if="batchStep === 'done'" class="text-green-400 font-mono text-[8px]">✓ Done</span>
                                 </div>
 
-                                <div class="bg-[#0e0e0d]/50 border border-border/60 rounded-xl overflow-hidden shadow-inner h-[230px] overflow-y-auto">
+                                <div class="bg-surface/50 border border-border rounded-xl overflow-hidden shadow-inner h-[230px] overflow-y-auto">
                                     <table class="w-full border-collapse text-[10px] font-mono">
                                         <thead>
-                                            <tr class="bg-surface/50 text-[8px] text-text-muted uppercase text-left border-b border-border/30">
+                                            <tr class="bg-surface/50 text-[8px] text-text-muted uppercase text-left border-b border-border">
                                                 <th class="p-2 border-none">Filename</th>
                                                 <th class="p-2 border-none text-right">Size</th>
                                                 <th class="p-2 border-none text-center">Status</th>
@@ -355,7 +366,7 @@
                                         </thead>
                                         <tbody>
                                             <tr v-for="file in batchFiles" :key="file.name" class="border-b border-border/20 text-[9px] hover:bg-white/[0.01]">
-                                                <td class="p-2 border-none text-[#e5e5e5] truncate max-w-[120px]">{{ file.name }}</td>
+                                                <td class="p-2 border-none text-text truncate max-w-[120px]">{{ file.name }}</td>
                                                 <td class="p-2 border-none text-right text-text-muted">{{ file.size }}</td>
                                                 <td class="p-2 border-none text-center">
                                                     <span class="px-1.5 py-0.5 rounded text-[8px] font-bold"
@@ -368,7 +379,7 @@
                                                     </span>
                                                 </td>
                                                 <td class="p-2 border-none">
-                                                    <div class="w-full bg-[#0a0a0a] rounded-full h-1 overflow-hidden border border-border/30">
+                                                    <div class="w-full bg-surface-light rounded-full h-1 overflow-hidden border border-border">
                                                         <div class="h-full transition-all duration-100 ease-out"
                                                              :class="file.status === 'done' ? 'bg-green-400' : 'bg-brand'"
                                                              :style="{ width: file.progress + '%' }"></div>
@@ -380,7 +391,7 @@
                                 </div>
 
                                 <div class="flex items-center gap-3">
-                                    <button @click="runBatchScan" :disabled="batchStep === 'active'" class="flex-1 py-2 bg-[#27c93f] text-[#0a0a0a] hover:bg-[#22a835] font-serif font-bold text-xs rounded transition-colors">
+                                    <button @click="runBatchScan" :disabled="batchStep === 'active'" class="flex-1 py-2 bg-[#27c93f] text-white hover:bg-[#22a835] font-serif font-bold text-xs rounded transition-colors">
                                         {{ batchStep === 'active' ? 'Processing Batch...' : 'Start Batch Scan' }}
                                     </button>
                                 </div>
@@ -390,8 +401,8 @@
                             <div v-if="activeTab === 4" class="grid sm:grid-cols-12 gap-4 animate-fadeIn">
                                 <!-- Mock invoice page (Left column) -->
                                 <div class="sm:col-span-5 space-y-2">
-                                    <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider border-b border-border/30 pb-1">// PDF Viewer (Input)</div>
-                                    <div class="relative bg-white text-[#111111] p-3 rounded-lg border border-border/60 shadow-lg h-[240px] flex flex-col justify-between">
+                                    <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider border-b border-border pb-1">// PDF Viewer (Input)</div>
+                                    <div class="relative bg-white text-[#111111] p-3 rounded-lg border border-border shadow-lg h-[240px] flex flex-col justify-between">
                                         <!-- Scanning laser -->
                                         <div v-show="matchStep === 'scanning'" class="absolute left-0 right-0 h-[2px] bg-brand animate-scan-laser shadow-[0_0_12px_#3B82F6] z-20"></div>
                                         
@@ -423,15 +434,15 @@
 
                                 <!-- Match details (Right column) -->
                                 <div class="sm:col-span-7 flex flex-col justify-between min-h-[250px]">
-                                    <div class="text-[8px] font-mono text-brand uppercase tracking-wider border-b border-border/30 pb-1 flex justify-between items-center">
+                                    <div class="text-[8px] font-mono text-brand uppercase tracking-wider border-b border-border pb-1 flex justify-between items-center">
                                         <span>// Fuzzy Matcher & Form</span>
-                                        <span v-if="matchStep === 'done'" class="text-[#27c93f] font-mono text-[8px]">✓ Matched</span>
+                                        <span v-if="matchStep === 'done'" class="text-green-600 font-mono text-[8px]">✓ Matched</span>
                                     </div>
 
                                     <div class="space-y-2.5">
                                         <div class="flex items-center gap-2">
                                             <span class="w-16 text-text-muted text-[10px]">Project:</span>
-                                            <div class="flex-1 bg-[#0a0a0a]/50 border border-border/60 rounded px-2.5 py-1 text-[10px] text-[#e5e5e5] font-mono flex justify-between items-center">
+                                            <div class="flex-1 bg-surface border border-border rounded px-2.5 py-1 text-[10px] text-text font-mono flex justify-between items-center">
                                                 <span>office</span>
                                                 <span class="text-[8px]">▼</span>
                                             </div>
@@ -439,12 +450,12 @@
                                         
                                         <div class="flex items-center gap-2">
                                             <span class="w-16 text-text-muted text-[10px]">Destination:</span>
-                                            <div class="flex-1 bg-[#0a0a0a]/50 border border-border/60 rounded px-2.5 py-1 text-[9px] text-[#e5e5e5] font-mono truncate select-none">
+                                            <div class="flex-1 bg-surface border border-border rounded px-2.5 py-1 text-[9px] text-text font-mono truncate select-none">
                                                 📁 /Dropbox/Factures/Office/
                                             </div>
                                         </div>
 
-                                        <div class="p-2.5 bg-surface/40 border border-border/60 rounded-xl space-y-1">
+                                        <div class="p-2.5 bg-surface/40 border border-border rounded-xl space-y-1">
                                             <div class="text-[8px] font-mono text-text-muted uppercase">File Naming Template Preview</div>
                                             <div class="font-mono text-[10px] text-brand break-all min-h-5 flex items-center">
                                                 <span class="transition-opacity duration-300" :class="matchStep === 'done' ? 'opacity-100' : 'opacity-0'">
@@ -455,7 +466,7 @@
                                     </div>
 
                                     <div class="flex gap-2 pt-2">
-                                        <button @click="runFuzzyMatchingScan" :disabled="matchStep === 'scanning'" class="flex-1 py-2 bg-[#27c93f] text-[#0a0a0a] hover:bg-[#22a835] font-serif font-bold text-xs rounded transition-colors">
+                                        <button @click="runFuzzyMatchingScan" :disabled="matchStep === 'scanning'" class="flex-1 py-2 bg-[#27c93f] text-white hover:bg-[#22a835] font-serif font-bold text-xs rounded transition-colors">
                                             {{ matchStep === 'scanning' ? 'Scanning...' : 'Verify Match' }}
                                         </button>
                                     </div>
@@ -466,11 +477,11 @@
                             <div v-if="activeTab === 5" class="grid sm:grid-cols-12 gap-4 animate-fadeIn">
                                 <!-- Build logs (Left column) -->
                                 <div class="sm:col-span-5 space-y-2">
-                                    <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider border-b border-border/30 pb-1">// Build logs</div>
-                                    <div class="bg-[#0e0e0d] border border-border/60 rounded-lg p-3 h-[250px] overflow-y-auto font-mono text-[9px] text-text-muted space-y-2 select-none shadow-inner">
+                                    <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider border-b border-border pb-1">// Build logs</div>
+                                    <div class="bg-surface border border-border rounded-lg p-3 h-[250px] overflow-y-auto font-mono text-[9px] text-text-muted space-y-2 select-none shadow-inner">
                                         <div v-for="(log, idx) in logs" :key="idx" class="leading-relaxed animate-fadeIn">
                                             <span class="text-brand mr-1">[builder]</span>
-                                            <span class="text-[#e5e5e5]">{{ log }}</span>
+                                            <span class="text-text">{{ log }}</span>
                                         </div>
                                         <div v-if="reportStep === 'generating'" class="flex items-center gap-1.5 text-brand animate-pulse mt-1">
                                             <span class="animate-spin inline-block w-2 h-2 border border-brand border-t-transparent rounded-full"></span>
@@ -481,15 +492,15 @@
 
                                 <!-- Compiled expense log index (Right column) -->
                                 <div class="sm:col-span-7 flex flex-col justify-between min-h-[250px]">
-                                    <div class="text-[8px] font-mono text-brand uppercase tracking-wider border-b border-border/30 pb-1 flex justify-between items-center">
+                                    <div class="text-[8px] font-mono text-brand uppercase tracking-wider border-b border-border pb-1 flex justify-between items-center">
                                         <span>// Compiled Reconciliation Sheet</span>
-                                        <span v-if="reportStep === 'done'" class="text-[#27c93f] font-mono text-[8px]">✓ Index Built</span>
+                                        <span v-if="reportStep === 'done'" class="text-green-600 font-mono text-[8px]">✓ Index Built</span>
                                     </div>
 
-                                    <div v-if="reportStep === 'done'" class="bg-[#0a0a0a]/50 border border-border/80 rounded-xl overflow-hidden select-none font-mono text-[8px] space-y-1 h-[210px] overflow-y-auto">
+                                    <div v-if="reportStep === 'done'" class="bg-surface border border-border rounded-xl overflow-hidden select-none font-mono text-[8px] space-y-1 h-[210px] overflow-y-auto">
                                         <table class="w-full text-left">
                                             <thead>
-                                                <tr class="bg-surface/50 border-b border-border/30 font-bold text-text-muted">
+                                                <tr class="bg-surface/50 border-b border-border font-bold text-text-muted">
                                                     <th class="p-1.5">Date</th>
                                                     <th class="p-1.5">Supplier</th>
                                                     <th class="p-1.5 text-right">Taxes</th>
@@ -499,9 +510,9 @@
                                             </thead>
                                             <tbody>
                                                 <tr v-for="receipt in receipts" :key="receipt.file" class="border-b border-border/10 text-[9px] hover:bg-white/[0.01]">
-                                                    <td class="p-1.5 text-[#e5e5e5]">{{ receipt.date }}</td>
+                                                    <td class="p-1.5 text-text">{{ receipt.date }}</td>
                                                     <td class="p-1.5 text-text-muted truncate max-w-[80px]">{{ receipt.vendor }}</td>
-                                                    <td class="p-1.5 text-right text-[#e5e5e5]">{{ receipt.tax }}</td>
+                                                    <td class="p-1.5 text-right text-text">{{ receipt.tax }}</td>
                                                     <td class="p-1.5 text-right text-brand font-bold">{{ receipt.amount }}</td>
                                                     <td class="p-1.5 text-center text-blue-400 underline cursor-pointer hover:text-blue-300">📄 view</td>
                                                 </tr>
@@ -514,7 +525,7 @@
                                     </div>
 
                                     <div class="flex gap-2 pt-2">
-                                        <button @click="startGeneration" :disabled="reportStep === 'generating'" class="flex-1 py-2 bg-[#27c93f] text-[#0a0a0a] hover:bg-[#22a835] font-serif font-bold text-xs rounded transition-colors">
+                                        <button @click="startGeneration" :disabled="reportStep === 'generating'" class="flex-1 py-2 bg-[#27c93f] text-white hover:bg-[#22a835] font-serif font-bold text-xs rounded transition-colors">
                                             {{ reportStep === 'generating' ? 'Compiling Report...' : 'Build HTML Report' }}
                                         </button>
                                     </div>
@@ -565,7 +576,7 @@ export default {
                 { key: 'ocr', statusKey: 'ocr', statusColor: 'text-[#60A5FA]' },
                 { key: 'extract', statusKey: 'extract', statusColor: 'text-[#60A5FA]' },
                 { key: 'rename', statusKey: 'rename', statusColor: 'text-[#60A5FA]' },
-                { key: 'saveStep', statusKey: 'save', statusColor: 'text-[#27c93f]' }
+                { key: 'saveStep', statusKey: 'save', statusColor: 'text-green-600' }
             ],
             parserIntervalId: null,
 

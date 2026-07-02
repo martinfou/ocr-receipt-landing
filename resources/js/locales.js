@@ -9,10 +9,16 @@ export const locales = {
             cta: "Télécharger"
         },
         hero: {
-            subtitle: "IA Locale · Zéro Cloud · <span class='text-[#e5e5e5]'>Zéro Abonnement</span>",
-            title: "Vos factures et reçus classés. <span class='text-[#60A5FA]'>100% localement.</span>",
+            subtitle: "IA Locale · Zéro Cloud · <span class='text-[#333]'>Zéro Abonnement</span>",
+            title: "Automatisez vos reçus. <span class='text-[#22c55e]'>100% localement.</span>",
             cta1: "⬇️ Télécharger l'application",
             designedFor: "Pour freelances et PME soucieux de leur confidentialité.",
+            bullets: [
+                "Extraction de données par IA",
+                "Renommage automatique des fichiers",
+                "Base de données locale de recherche",
+                "Génération de rapports comptables"
+            ],
             badges: "IA locale & cloud · Zéro abonnement · Licence perpétuelle",
             carouselTabs: ['Parser', 'Paramètres', 'Correcteur IA', 'Par Lots', 'Fuzzy Match', 'Rapports'],
             simulator: {
@@ -362,10 +368,16 @@ export const locales = {
             cta: "Download"
         },
         hero: {
-            subtitle: "Local AI · Zero Cloud · <span class='text-[#e5e5e5]'>No Subscription</span>",
-            title: "Your receipts parsed. <span class='text-[#60A5FA]'>100% offline.</span>",
+            subtitle: "Local AI · Zero Cloud · <span class='text-[#333]'>No Subscription</span>",
+            title: "Automate your receipts. <span class='text-[#22c55e]'>100% offline.</span>",
             cta1: "⬇️ Download the App",
             designedFor: "Built for privacy-conscious freelancers and SMBs.",
+            bullets: [
+                "Extract data with local AI",
+                "Auto-rename files smartly",
+                "Build a searchable database",
+                "Generate accountant reports"
+            ],
             badges: "Local & Cloud AI · No Subscriptions · Perpetual License",
             carouselTabs: ['Parser', 'Settings', 'AI Clean', 'Batch Scan', 'Fuzzy Match', 'Reports'],
             simulator: {
