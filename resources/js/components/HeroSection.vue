@@ -35,6 +35,9 @@
                         <a href="#download" class="btn-brand text-sm px-7 py-3.5 w-full sm:w-auto shadow-lg hover:shadow-xl transition-all duration-300 text-center cursor-pointer">
                             {{ $t('hero.cta1') }}
                         </a>
+                        <a href="#problem" class="text-xs font-mono text-text-muted hover:text-brand transition-colors duration-200 flex items-center gap-1.5 py-2.5 cursor-pointer">
+                            {{ $lang.lang === 'fr' ? 'Découvrir comment ça marche ⬇️' : 'Discover how it works ⬇️' }}
+                        </a>
                     </div>
 
                     <ul class="space-y-3 mb-8 w-full">
@@ -426,6 +429,13 @@
                                         </table>
                                     </div>
 
+                                    <!-- Final Conversion Nudge Banner -->
+                                    <div v-if="reportStep === 'done'" class="mt-2 bg-brand/10 border border-brand/20 p-2.5 rounded-lg text-center animate-pulse">
+                                         <a href="#problem" class="text-[9.5px] font-mono text-brand-dark hover:underline flex items-center justify-center gap-1.5 cursor-pointer">
+                                             📊 {{ $lang.lang === 'fr' ? 'Prêt pour les impôts ? Calculez votre temps perdu ⬇️' : 'Ready for taxes? Calculate your lost time ⬇️' }}
+                                         </a>
+                                    </div>
+
                                     <div v-if="reportStep === 'idle'" class="p-8 text-center text-text-muted font-mono text-[10px] border border-dashed border-border rounded-lg flex-1 flex items-center justify-center">
                                         Click build to compile files into PDF reports.
                                     </div>
@@ -454,18 +464,18 @@
                         </div>
 
                     </div>
-
-                    <!-- Scroll Down Indicator -->
-                    <a href="#problem" class="flex flex-col items-center gap-1.5 cursor-pointer z-20 group select-none text-text-muted hover:text-text mt-2">
-                        <span class="text-[9px] font-mono uppercase tracking-widest transition-colors duration-200">
-                            {{ $lang.lang === 'fr' ? 'Découvrir' : 'Scroll Down' }}
-                        </span>
-                        <div class="w-6 h-9 rounded-full border border-border flex items-start justify-center p-1 bg-surface-light/80 backdrop-blur-sm group-hover:border-brand-dark transition-colors duration-300">
-                            <div class="w-1 h-2 rounded-full bg-brand-dark animate-bounce mt-1"></div>
-                        </div>
-                    </a>
                 </div>
             </div>
+        </div>
+
+        <!-- Perforated Receipt Tape Separator (Continuous Line) -->
+        <div class="absolute right-8 top-0 bottom-0 w-px border-r border-dashed border-border pointer-events-none hidden xl:flex flex-col justify-between py-12 select-none text-[8px] font-mono text-text-muted/40 z-20">
+            <span>[FLOW_01]</span>
+            <div class="flex flex-col items-center gap-1.5 animate-pulse text-brand-dark">
+                <span class="uppercase tracking-widest text-[7px]" style="writing-mode: vertical-rl; transform: rotate(180deg);">SCROLL</span>
+                <span>↓</span>
+            </div>
+            <span>[DEB_02]</span>
         </div>
     </section>
 </template>

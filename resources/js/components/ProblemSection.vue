@@ -1,5 +1,5 @@
 <template>
-    <section id="problem" class="py-24 lg:py-32 bg-surface border-t border-border relative">
+    <section id="problem" class="py-24 lg:py-32 bg-surface border-t border-border relative z-20 -mt-12 lg:-mt-16 rounded-t-[32px] shadow-[0_-30px_60px_rgba(0,0,0,0.03)]">
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                 
