@@ -9,7 +9,7 @@
         <div class="absolute inset-0 bg-surface-light/30 backdrop-blur-sm z-0"></div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
-            <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                 
                 <!-- Left Column: Copy & CTAs (1/3 Width) -->
                 <div class="lg:col-span-4 text-left flex flex-col items-start bg-surface-light border border-border p-8 lg:p-10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] relative z-10 transition-all duration-300">
