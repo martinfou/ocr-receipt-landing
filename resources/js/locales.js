@@ -11,7 +11,7 @@ export const locales = {
         hero: {
             subtitle: "IA Locale · Zéro Cloud · <span class='text-[#333]'>Zéro Abonnement</span>",
             title: "Fini le désordre des factures et documents.",
-            description: "Notre logiciel analyse, renomme et classe automatiquement toutes vos pièces justificatives, reçus et documents administratifs. 100% localement.",
+            description: "Notre logiciel analyse, renomme et classe automatiquement toutes vos pièces justificatives, reçus et documents administratifs 100% localement. De quoi réjouir votre comptable et aborder vos audits d'impôt en toute sérénité.",
             cta1: "⬇️ Télécharger l'application",
             designedFor: "Pour freelances et PME soucieux de leur confidentialité.",
             bullets: [
@@ -375,7 +375,7 @@ export const locales = {
         hero: {
             subtitle: "Local AI · Zero Cloud · <span class='text-[#333]'>No Subscription</span>",
             title: "No more messy invoices and documents.",
-            description: "Our software automatically analyzes, renames, and files all your receipts, invoices, and business documents. 100% offline on your machine.",
+            description: "Our software automatically analyzes, renames, and files all your receipts, invoices, and business documents 100% offline. Keeping your accountant happy and tax audits stress-free.",
             cta1: "⬇️ Download the App",
             designedFor: "Built for privacy-conscious freelancers and SMBs.",
             bullets: [
