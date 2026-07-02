@@ -61,7 +61,7 @@
                 </div>
 
                 <!-- Right Column: Interactive Receipt Demo (2/3 Width) -->
-                <div class="lg:col-span-8 w-full mx-auto lg:mx-0 relative z-10 flex justify-center">
+                <div class="lg:col-span-8 w-full mx-auto lg:mx-0 relative z-10 flex flex-col items-center justify-center gap-4">
                     <div class="w-full max-w-3xl border border-border bg-surface-light/95 backdrop-blur-md rounded-xl overflow-hidden shadow-2xl relative font-sans text-xs">
                         
                         <!-- Carousel Top Header bar (OS Window style + Tab bar) -->
@@ -454,19 +454,19 @@
                         </div>
 
                     </div>
+
+                    <!-- Scroll Down Indicator -->
+                    <a href="#problem" class="flex flex-col items-center gap-1.5 cursor-pointer z-20 group select-none text-text-muted hover:text-text mt-2">
+                        <span class="text-[9px] font-mono uppercase tracking-widest transition-colors duration-200">
+                            {{ $lang.lang === 'fr' ? 'Découvrir' : 'Scroll Down' }}
+                        </span>
+                        <div class="w-6 h-9 rounded-full border border-border flex items-start justify-center p-1 bg-surface-light/80 backdrop-blur-sm group-hover:border-brand-dark transition-colors duration-300">
+                            <div class="w-1 h-2 rounded-full bg-brand-dark animate-bounce mt-1"></div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
-
-        <!-- Scroll Down Indicator -->
-        <a href="#problem" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 cursor-pointer z-20 group select-none text-text-muted hover:text-text">
-            <span class="text-[9px] font-mono uppercase tracking-widest transition-colors duration-200">
-                {{ $lang.lang === 'fr' ? 'Découvrir' : 'Scroll Down' }}
-            </span>
-            <div class="w-6 h-9 rounded-full border border-border flex items-start justify-center p-1 bg-surface-light/80 backdrop-blur-sm group-hover:border-brand-dark transition-colors duration-300">
-                <div class="w-1 h-2 rounded-full bg-brand-dark animate-bounce mt-1"></div>
-            </div>
-        </a>
     </section>
 </template>
 
