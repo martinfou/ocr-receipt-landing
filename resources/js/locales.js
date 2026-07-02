@@ -287,9 +287,9 @@ export const locales = {
         },
         beta: {
             title: "Rejoindre l'accès anticipé",
-            subtitle: "Inscrivez-vous pour le lancement privé :",
+            subtitle: "Inscrivez-vous à la pré-phase de lancement. Les utilisateurs reçoivent le logiciel complet gratuitement en échange d'un court questionnaire de rétroaction :",
             bullet1: "Accès prioritaire à la bêta fermée",
-            bullet2: "Licence à vie offerte pour les bêta-testeurs",
+            bullet2: "Licence 100% gratuite pour les participants au questionnaire",
             bullet3: "Notifications de mise à jour en temps réel",
             bullet4: "Tarif de lancement de 149$ au lieu de 199$",
             firstname: "Prénom",
@@ -650,9 +650,9 @@ export const locales = {
         },
         beta: {
             title: "Join the Early Access",
-            subtitle: "Sign up for the private release program:",
+            subtitle: "Sign up for the private pre-launch. Pre-launch users get the full software for free in exchange for filling out a short feedback survey:",
             bullet1: "Priority access to the closed beta release",
-            bullet2: "Lifetime free license for active beta-testers",
+            bullet2: "100% Free license for pre-launch survey participants",
             bullet3: "Real-time updates and launch announcements",
             bullet4: "Early-adopter price: $149 instead of $199",
             firstname: "First Name",

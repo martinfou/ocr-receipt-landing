@@ -1,5 +1,5 @@
 <template>
-    <section class="relative overflow-hidden py-24 lg:py-32 min-h-screen flex items-center justify-center">
+    <section class="relative overflow-hidden py-16 lg:py-20 min-h-screen flex items-center justify-center">
         <!-- Background Image -->
         <img 
             class="absolute inset-0 w-full h-full object-cover z-0" 
@@ -454,6 +454,16 @@
                 </div>
             </div>
         </div>
+
+        <!-- Scroll Down Indicator -->
+        <a href="#problem" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 cursor-pointer z-20 group select-none text-text-muted hover:text-text">
+            <span class="text-[9px] font-mono uppercase tracking-widest transition-colors duration-200">
+                {{ $lang.lang === 'fr' ? 'Découvrir' : 'Scroll Down' }}
+            </span>
+            <div class="w-6 h-9 rounded-full border border-border flex items-start justify-center p-1 bg-surface-light/80 backdrop-blur-sm group-hover:border-brand-dark transition-colors duration-300">
+                <div class="w-1 h-2 rounded-full bg-brand-dark animate-bounce mt-1"></div>
+            </div>
+        </a>
     </section>
 </template>
 
