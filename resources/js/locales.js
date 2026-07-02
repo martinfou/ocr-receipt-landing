@@ -44,7 +44,14 @@ export const locales = {
                     extract: "Analyse de l'IA locale...",
                     rename: "Formatage du nom de fichier...",
                     save: "Prêt à renommer et enregistrer."
-                }
+                },
+                features: [
+                    "Extraction et nettoyage de données par IA",
+                    "Renommage et classement 100% automatiques",
+                    "Recherche ultra-rapide dans votre base locale",
+                    "Rapports financiers prêts pour votre comptable"
+                ],
+                tagline: "Conçu exclusivement pour les freelances et PME soucieux de leur confidentialité."
             }
         },
         problem: {
@@ -408,7 +415,14 @@ export const locales = {
                     extract: "DeepSeek-LLM analyzing fields...",
                     rename: "Formatting file template name...",
                     save: "Ready to Rename & Save locally."
-                }
+                },
+                features: [
+                    "Local AI data extraction & cleanup",
+                    "Automatic file renaming & organization",
+                    "Instant search in your secure local database",
+                    "Accountant-ready expense reports"
+                ],
+                tagline: "Built exclusively for privacy-conscious freelancers and SMBs."
             }
         },
         problem: {

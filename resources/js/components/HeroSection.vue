@@ -40,26 +40,9 @@
                         </a>
                     </div>
 
-                    <ul class="space-y-3 mb-8 w-full">
-                        <li v-for="(bullet, index) in $t('hero.bullets')" :key="index" class="flex items-start gap-2.5 text-sm text-text-muted">
-                            <span class="flex-shrink-0 w-5 h-5 rounded-full bg-brand/10 flex items-center justify-center mt-0.5">
-                                <svg class="w-3 h-3 text-brand-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                                </svg>
-                            </span>
-                            <span class="leading-relaxed">{{ bullet }}</span>
-                        </li>
-                    </ul>
-
-
-                    <div class="border-t border-border pt-6 w-full max-w-lg">
-                        <p class="text-xs text-text-muted leading-relaxed mb-4">
-                            {{ $t('hero.designedFor') }}
-                        </p>
-                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border text-[10px] text-text-muted bg-surface/80 font-mono select-none">
-                            <span class="w-1.5 h-1.5 rounded-full bg-brand-dark inline-block animate-pulse"></span>
-                            {{ $t('hero.badges') }}
-                        </div>
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border text-[10px] text-text-muted bg-surface/85 backdrop-blur-sm font-mono select-none">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-dark inline-block animate-pulse"></span>
+                        {{ $t('hero.badges') }}
                     </div>
                 </div>
 
@@ -463,6 +446,39 @@
                             </div>
                         </div>
 
+                    </div>
+
+                    <!-- Simulator Feature Overview List -->
+                    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 border-t border-border pt-8">
+                        <div v-for="(feature, idx) in $t('hero.simulator.features')" :key="idx" class="flex items-center gap-3 text-sm font-sans font-medium text-text select-none">
+                            <!-- Feature 1: AI (Brain/Intelligence) -->
+                            <svg v-if="idx === 0" class="w-5 h-5 text-brand flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 113.536 0V21h-2v-4z" />
+                            </svg>
+                            <!-- Feature 2: Rename (Folder) -->
+                            <svg v-if="idx === 1" class="w-5 h-5 text-brand flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+                            </svg>
+                            <!-- Feature 3: Search (Search glass) -->
+                            <svg v-if="idx === 2" class="w-5 h-5 text-brand flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            <!-- Feature 4: Reports (Sheet chart) -->
+                            <svg v-if="idx === 3" class="w-5 h-5 text-brand flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            <span>{{ feature }}</span>
+                        </div>
+                    </div>
+                    <div class="mt-8 flex justify-center select-none">
+                        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand/10 border border-brand/20 text-xs font-mono font-medium text-brand-dark shadow-[0_4px_20px_-4px_rgba(34,197,94,0.12)]">
+                            <!-- Padlock SVG -->
+                            <svg class="w-3.5 h-3.5 text-brand-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <rect x="5" y="11" width="14" height="11" rx="2" ry="2" />
+                                <path d="M12 2A5 5 0 007 7v4h10V7a5 5 0 00-5-5z" />
+                            </svg>
+                            {{ $t('hero.simulator.tagline') }}
+                        </span>
                     </div>
                 </div>
             </div>
