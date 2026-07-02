@@ -1,26 +1,20 @@
 <template>
     <section class="relative overflow-hidden py-24 lg:py-32 min-h-screen flex items-center justify-center">
-        <!-- Background Video -->
-        <video 
-            class="absolute inset-0 w-full h-full object-cover z-0 opacity-40" 
-            autoplay 
-            muted 
-            playsinline 
-            :src="'/bg-video.mp4'">
-        </video>
+        <!-- Background Image -->
+        <img 
+            class="absolute inset-0 w-full h-full object-cover z-0" 
+            :src="'/images/desk_bg.png'" alt="Clean desk with greenery">
         
-        <!-- Overlays -->
-        <div class="absolute inset-0 bg-surface/75 z-0"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(96,165,250,0.1),transparent_50%)] z-0"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(96,165,250,0.05),transparent_50%)] z-0"></div>
+        <!-- Subtle Overlay -->
+        <div class="absolute inset-0 bg-white/30 backdrop-blur-sm z-0"></div>
 
-        <div class="relative z-10 max-w-6xl mx-auto px-6 w-full">
-            <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+            <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 
-                <!-- Left Column: Copy & CTAs -->
-                <div class="lg:col-span-6 text-left flex flex-col items-start bg-[#161615]/80 border border-border/60 p-8 lg:p-10 rounded-2xl backdrop-blur-md shadow-2xl relative z-10 transition-all duration-300 hover:border-border/80">
-                    <div class="w-12 h-12 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center mb-6 select-none shadow-[0_0_15px_rgba(96,165,250,0.1)]">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-brand fill-none" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Left Column: Copy & CTAs (1/3 Width) -->
+                <div class="lg:col-span-4 text-left flex flex-col items-start bg-white/90 border border-border p-8 lg:p-10 rounded-2xl backdrop-blur-md shadow-2xl relative z-10 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center mb-6 select-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-brand-dark fill-none" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1z"></path>
                             <path d="M16 8H8"></path>
                             <path d="M16 12H8"></path>
@@ -28,32 +22,32 @@
                         </svg>
                     </div>
                     
-                    <div class="text-[11px] font-mono text-brand mb-4 tracking-wider uppercase" v-html="$t('hero.subtitle')">
+                    <div class="text-[11px] font-mono text-brand-dark mb-4 tracking-wider uppercase" v-html="$t('hero.subtitle')">
                     </div>
 
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-semibold leading-[1.15] mb-6 tracking-[-0.02em] text-wrap-balance text-[#e5e5e5]" v-html="$t('hero.title')">
+                    <h1 class="text-4xl sm:text-5xl lg:text-5xl font-serif font-medium leading-[1.15] mb-6 tracking-[-0.02em] text-wrap-balance text-text" v-html="$t('hero.title')">
                     </h1>
 
                     <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-10">
-                        <a href="#download" class="btn-brand text-sm px-7 py-3.5 w-full sm:w-auto shadow-lg shadow-brand-dark/20 hover:shadow-brand/35 transition-all duration-300 text-center cursor-pointer">
+                        <a href="#download" class="btn-brand text-sm px-7 py-3.5 w-full sm:w-auto shadow-lg hover:shadow-xl transition-all duration-300 text-center cursor-pointer">
                             {{ $t('hero.cta1') }}
                         </a>
                     </div>
 
-                    <div class="border-t border-border/30 pt-6 w-full max-w-lg">
+                    <div class="border-t border-border/60 pt-6 w-full max-w-lg">
                         <p class="text-xs text-text-muted leading-relaxed mb-4">
                             {{ $t('hero.designedFor') }}
                         </p>
-                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border/80 text-[10px] text-text-muted bg-surface-light/50 font-mono select-none">
-                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500 inline-block shadow-[0_0_8px_rgba(59,130,246,0.6)] animate-pulse"></span>
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border/80 text-[10px] text-text-muted bg-surface/80 font-mono select-none">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brand-dark inline-block animate-pulse"></span>
                             {{ $t('hero.badges') }}
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Column: Recapture OCR App Carousel Simulator -->
-                <div class="lg:col-span-6 w-full max-w-2xl mx-auto lg:mx-0 relative z-10">
-                    <div class="border border-border bg-[#161615]/95 backdrop-blur-md rounded-xl overflow-hidden shadow-2xl relative font-sans text-xs">
+                <!-- Right Column: Interactive Receipt Demo (2/3 Width) -->
+                <div class="lg:col-span-8 w-full mx-auto lg:mx-0 relative z-10 flex justify-center">
+                    <div class="w-full max-w-3xl border border-border bg-white/95 backdrop-blur-md rounded-xl overflow-hidden shadow-2xl relative font-sans text-xs">
                         
                         <!-- Carousel Top Header bar (OS Window style + Tab bar) -->
                         <div class="bg-surface/60 border-b border-border/60">
@@ -83,44 +77,48 @@
                         </div>
 
                         <!-- Active Simulation Panes -->
-                        <div class="p-5 bg-[#0a0a0a]/20 min-h-[350px] flex flex-col justify-between">
+                        <!-- Active Simulation Panes -->
+                        <div class="p-5 bg-surface/40 min-h-[350px] flex flex-col justify-between">
                             
                             <!-- Tab 0: Parser (Original interactive OCR receipt simulator) -->
                             <div v-if="activeTab === 0" class="grid sm:grid-cols-12 gap-4 animate-fadeIn">
-                                <!-- Left column: Mock PDF viewer representation -->
-                                <div class="sm:col-span-5 space-y-2">
-                                    <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider border-b border-border/30 pb-1">// PDF Viewer</div>
-                                    <div class="relative bg-white text-[#111111] p-3 rounded-lg border border-border/60 shadow-lg h-[240px] flex flex-col justify-between overflow-hidden">
+                                <!-- Left column: Mock Receipt representation -->
+                                <div class="sm:col-span-5 space-y-2 flex flex-col items-center">
+                                    <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider border-b border-border/60 pb-1 w-full text-center">// Scanned Receipt</div>
+                                    <div class="relative bg-[#fdfbf7] text-[#111111] p-3 shadow-md w-[180px] min-h-[260px] flex flex-col font-mono text-[7px] border-l border-r border-[#e5e5e5] drop-shadow-xl" style="clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4px), 95% 100%, 90% calc(100% - 4px), 85% 100%, 80% calc(100% - 4px), 75% 100%, 70% calc(100% - 4px), 65% 100%, 60% calc(100% - 4px), 55% 100%, 50% calc(100% - 4px), 45% 100%, 40% calc(100% - 4px), 35% 100%, 30% calc(100% - 4px), 25% 100%, 20% calc(100% - 4px), 15% 100%, 10% calc(100% - 4px), 5% 100%, 0 calc(100% - 4px));">
                                         <!-- Laser scanning line -->
-                                        <div v-show="parserStep === 1" class="absolute left-0 right-0 h-[2px] bg-brand animate-scan-laser shadow-[0_0_12px_#3B82F6] z-20"></div>
+                                        <div v-show="parserStep === 1" class="absolute left-0 right-0 h-[2px] bg-brand animate-scan-laser shadow-[0_0_8px_#4ade80] z-20 opacity-75"></div>
                                         
                                         <!-- Document representation -->
-                                        <div class="space-y-1.5 relative z-10 text-[7px] font-sans">
-                                            <div class="flex items-center justify-between border-b border-[#cccccc] pb-1.5 mb-2">
-                                                <div class="w-7 h-7 rounded-full bg-brand/10 border border-brand/20 flex items-center justify-center font-bold text-brand text-[8px]">ACME</div>
-                                                <div class="text-right">
-                                                    <div class="font-bold text-[8px] uppercase tracking-wider">ACME COPIER SERVICES</div>
-                                                    <div class="text-[6px] text-[#555555]">St-Jean-sur-Richelieu</div>
-                                                </div>
+                                        <div class="space-y-1.5 relative z-10 flex-1 opacity-80 mix-blend-multiply">
+                                            <div class="text-center pb-2 border-b border-dashed border-[#cccccc] mb-2">
+                                                <div class="font-bold text-[9px] uppercase tracking-wider">MOM & POP CAFE</div>
+                                                <div class="text-[6px]">123 Main Street</div>
+                                                <div class="text-[6px]">City, Province</div>
                                             </div>
-                                            <div class="font-bold border-b border-[#dddddd] pb-1">FACTURE N° 1700</div>
-                                            <div class="flex justify-between font-bold text-[7px] border-b border-[#dddddd] pb-1">
-                                                <span>Maintenance Copieur</span>
-                                                <span>$120.00</span>
+                                            <div class="text-center font-bold pb-1">RECEIPT #4209</div>
+                                            <div class="text-[6px] text-center mb-2">2026-06-19 08:45 AM</div>
+                                            <div class="flex justify-between font-bold text-[7px] border-b border-dashed border-[#cccccc] pb-1">
+                                                <span>Espresso</span>
+                                                <span>$3.50</span>
                                             </div>
-                                            <div class="flex justify-between font-bold text-[7px] border-b border-[#dddddd] pb-1">
-                                                <span>Papier Lettre</span>
-                                                <span>$10.00</span>
+                                            <div class="flex justify-between font-bold text-[7px] border-b border-dashed border-[#cccccc] pb-1">
+                                                <span>Almond Croissant</span>
+                                                <span>$4.25</span>
+                                            </div>
+                                            <div class="flex justify-between font-bold text-[7px] mt-2">
+                                                <span>Subtotal</span>
+                                                <span>$7.75</span>
                                             </div>
                                             <div class="flex justify-between font-bold text-[7px]">
-                                                <span>Taxes (TPS/TVQ)</span>
-                                                <span>$19.50</span>
+                                                <span>Tax (5%)</span>
+                                                <span>$0.39</span>
                                             </div>
-                                        </div>
-
-                                        <div class="flex items-center justify-between border-t border-[#cccccc] pt-2 text-[8px] font-mono text-text-muted relative z-10 bg-white">
-                                            <span>ACME_COPIER.PDF</span>
-                                            <span>PAGE 1 OF 1</span>
+                                            <div class="flex justify-between font-bold text-[9px] mt-1 border-t border-[#111] pt-1">
+                                                <span>TOTAL</span>
+                                                <span>$8.14</span>
+                                            </div>
+                                            <div class="text-center mt-3 text-[5px]">Thank you for your visit!</div>
                                         </div>
                                     </div>
                                 </div>
@@ -130,20 +128,20 @@
                                     
                                     <!-- Document Fields -->
                                     <div class="space-y-2.5">
-                                        <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider border-b border-border/30 pb-1.5 mb-1.5 flex items-center justify-between">
+                                        <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider border-b border-border/60 pb-1.5 mb-1.5 flex items-center justify-between">
                                             <span>{{ $t('hero.simulator.fields') }}</span>
-                                            <span class="text-[#27c93f] font-mono text-[8px]" v-if="parserStep >= 2">{{ $t('hero.simulator.matchConfirmed') }}</span>
+                                            <span class="text-brand-deep font-mono text-[8px]" v-if="parserStep >= 2">{{ $t('hero.simulator.matchConfirmed') }}</span>
                                         </div>
                                         
                                         <!-- Vendor Field -->
                                         <div class="flex items-center gap-2">
                                             <span class="w-16 text-text-muted text-[10px]">Vendor:</span>
-                                            <div class="flex-1 bg-[#0a0a0a]/50 border border-border/60 rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden">
-                                                <span class="font-mono text-[10px] text-[#e5e5e5] transition-opacity duration-300" :class="parserStep >= 2 ? 'opacity-100' : 'opacity-0'">
-                                                    acme-copier
+                                            <div class="flex-1 bg-white border border-border rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden shadow-sm">
+                                                <span class="font-mono text-[10px] text-text transition-opacity duration-300" :class="parserStep >= 2 ? 'opacity-100' : 'opacity-0'">
+                                                    mom-pop-cafe
                                                 </span>
-                                                <span v-if="parserStep >= 2" class="text-[8px] bg-green-500/10 text-[#27c93f] border border-green-500/20 px-1 rounded font-mono font-medium scale-90">
-                                                    95% Match
+                                                <span v-if="parserStep >= 2" class="text-[8px] bg-brand/20 text-brand-deep border border-brand/40 px-1 rounded font-mono font-medium scale-90">
+                                                    98% Match
                                                 </span>
                                             </div>
                                         </div>
@@ -151,12 +149,12 @@
                                         <!-- Date Field -->
                                         <div class="flex items-center gap-2">
                                             <span class="w-16 text-text-muted text-[10px]">Date:</span>
-                                            <div class="flex-1 bg-[#0a0a0a]/50 border border-border/60 rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden">
-                                                <span class="font-mono text-[10px] text-[#e5e5e5] transition-opacity duration-300" :class="parserStep >= 2 ? 'opacity-100' : 'opacity-0'">
+                                            <div class="flex-1 bg-white border border-border rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden shadow-sm">
+                                                <span class="font-mono text-[10px] text-text transition-opacity duration-300" :class="parserStep >= 2 ? 'opacity-100' : 'opacity-0'">
                                                     2026-06-19
                                                 </span>
-                                                <span v-if="parserStep >= 2" class="text-[8px] bg-green-500/10 text-[#27c93f] border border-green-500/20 px-1 rounded font-mono font-medium scale-90">
-                                                    95% Match
+                                                <span v-if="parserStep >= 2" class="text-[8px] bg-brand/20 text-brand-deep border border-brand/40 px-1 rounded font-mono font-medium scale-90">
+                                                    100% Match
                                                 </span>
                                             </div>
                                         </div>
@@ -164,12 +162,12 @@
                                         <!-- Taxes Field -->
                                         <div class="flex items-center gap-2">
                                             <span class="w-16 text-text-muted text-[10px]">Taxes ($):</span>
-                                            <div class="flex-1 bg-[#0a0a0a]/50 border border-border/60 rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden">
-                                                <span class="font-mono text-[10px] text-[#e5e5e5] transition-opacity duration-300" :class="parserStep >= 2 ? 'opacity-100' : 'opacity-0'">
-                                                    19.50
+                                            <div class="flex-1 bg-white border border-border rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden shadow-sm">
+                                                <span class="font-mono text-[10px] text-text transition-opacity duration-300" :class="parserStep >= 2 ? 'opacity-100' : 'opacity-0'">
+                                                    0.39
                                                 </span>
-                                                <span v-if="parserStep >= 2" class="text-[8px] bg-green-500/10 text-[#27c93f] border border-green-500/20 px-1 rounded font-mono font-medium scale-90">
-                                                    95% Match
+                                                <span v-if="parserStep >= 2" class="text-[8px] bg-brand/20 text-brand-deep border border-brand/40 px-1 rounded font-mono font-medium scale-90">
+                                                    99% Match
                                                 </span>
                                             </div>
                                         </div>
@@ -177,26 +175,26 @@
                                         <!-- Total Field -->
                                         <div class="flex items-center gap-2">
                                             <span class="w-16 text-text-muted text-[10px]">Total ($):</span>
-                                            <div class="flex-1 bg-[#0a0a0a]/50 border border-border/60 rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden">
-                                                <span class="font-mono text-[10px] text-[#e5e5e5] transition-opacity duration-300" :class="parserStep >= 2 ? 'opacity-100' : 'opacity-0'">
-                                                    149.50
+                                            <div class="flex-1 bg-white border border-border rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden shadow-sm">
+                                                <span class="font-mono text-[10px] text-text transition-opacity duration-300" :class="parserStep >= 2 ? 'opacity-100' : 'opacity-0'">
+                                                    8.14
                                                 </span>
-                                                <span v-if="parserStep >= 2" class="text-[8px] bg-green-500/10 text-[#27c93f] border border-green-500/20 px-1 rounded font-mono font-medium scale-90">
-                                                    95% Match
+                                                <span v-if="parserStep >= 2" class="text-[8px] bg-brand/20 text-brand-deep border border-brand/40 px-1 rounded font-mono font-medium scale-90">
+                                                    100% Match
                                                 </span>
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- File Naming Preview -->
-                                    <div class="bg-surface/60 border border-border/50 rounded-lg p-3 space-y-1">
+                                    <div class="bg-surface border border-border rounded-lg p-3 space-y-1 shadow-sm">
                                         <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider">{{ $t('hero.simulator.preview') }}</div>
-                                        <div class="font-mono text-[9px] text-[#60A5FA] break-all h-6 overflow-hidden flex items-center">
+                                        <div class="font-mono text-[9px] text-brand-dark break-all h-6 overflow-hidden flex items-center">
                                             <span class="transition-opacity duration-300" :class="parserStep >= 3 ? 'opacity-100' : 'opacity-0'">
-                                                acme-copier_facture_2026-06-19_149.50.pdf
+                                                mom-pop-cafe_2026-06-19_8.14.pdf
                                             </span>
                                         </div>
-                                        <div class="text-[8px] text-[#27c93f] font-mono transition-opacity duration-300" :class="parserStep >= 3 ? 'opacity-100' : 'opacity-0'">
+                                        <div class="text-[8px] text-brand-deep font-mono transition-opacity duration-300" :class="parserStep >= 3 ? 'opacity-100' : 'opacity-0'">
                                             {{ $t('hero.simulator.validFilename') }}
                                         </div>
                                     </div>
