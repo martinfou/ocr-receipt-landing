@@ -62,7 +62,7 @@
         </nav>
 
         <main class="pt-16">
-            <HeroSection :active-tab="activeTab" @tab-changed="activeTab = $event" />
+            <HeroSection :active-tab="activeTab" @tab-changed="handleTabClick" />
             <ProblemSection />
             <HowItWorksSection />
             <FeaturesSection @select-feature-tab="handleSelectFeatureTab" />
@@ -114,7 +114,8 @@ export default {
         return {
             showScrollTop: false,
             activeTab: 0,
-            theme: 'light'
+            theme: 'light',
+            tabInterval: null
         };
     },
     mounted() {
@@ -122,9 +123,11 @@ export default {
         const savedTheme = localStorage.getItem('theme') || 'light';
         this.theme = savedTheme;
         this.applyTheme();
+        this.startTabAutoPlay();
     },
     beforeUnmount() {
         window.removeEventListener('scroll', this.handleScroll);
+        this.stopTabAutoPlay();
     },
     methods: {
         scrollToPricing() {
@@ -136,9 +139,26 @@ export default {
         handleScroll() {
             this.showScrollTop = window.scrollY > 400;
         },
+        handleTabClick(index) {
+            this.activeTab = index;
+            this.stopTabAutoPlay();
+        },
         handleSelectFeatureTab(index) {
             this.activeTab = index;
+            this.stopTabAutoPlay();
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        },
+        startTabAutoPlay() {
+            this.stopTabAutoPlay();
+            this.tabInterval = setInterval(() => {
+                this.activeTab = (this.activeTab + 1) % 4;
+            }, 4000);
+        },
+        stopTabAutoPlay() {
+            if (this.tabInterval) {
+                clearInterval(this.tabInterval);
+                this.tabInterval = null;
+            }
         },
         toggleTheme() {
             this.theme = this.theme === 'light' ? 'dark' : 'light';
