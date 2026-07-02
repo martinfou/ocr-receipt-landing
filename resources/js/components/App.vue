@@ -66,6 +66,7 @@
             <ProblemSection />
             <HowItWorksSection />
             <FeaturesSection @select-feature-tab="handleSelectFeatureTab" />
+            <GallerySection />
             <PricingSection />
             <BetaSection />
             <DownloadsSection />
@@ -91,6 +92,7 @@ import HeroSection from './HeroSection.vue';
 import ProblemSection from './ProblemSection.vue';
 import HowItWorksSection from './HowItWorksSection.vue';
 import FeaturesSection from './FeaturesSection.vue';
+import GallerySection from './GallerySection.vue';
 import PricingSection from './PricingSection.vue';
 import DownloadsSection from './DownloadsSection.vue';
 import BetaSection from './BetaSection.vue';
@@ -104,6 +106,7 @@ export default {
         ProblemSection,
         HowItWorksSection,
         FeaturesSection,
+        GallerySection,
         PricingSection,
         DownloadsSection,
         BetaSection,
