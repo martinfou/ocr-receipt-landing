@@ -37,9 +37,9 @@
             color: #e5e5e5;
         }
         .badge{
-            background: rgba(96, 165, 250, 0.1);
-            color: #60a5fa;
-            border: 1px solid rgba(96, 165, 250, 0.2);
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.2);
             font-size: 10px;
             font-family: ui-monospace, monospace;
             font-weight: 600;
@@ -74,12 +74,12 @@
             transition: all 0.2s;
         }
         .files li:hover{
-            border-color: #60a5fa;
+            border-color: #22c55e;
         }
         .files li.recommended {
-            border-color: #60a5fa;
-            background: rgba(96, 165, 250, 0.02);
-            box-shadow: 0 0 15px rgba(96, 165, 250, 0.08);
+            border-color: #22c55e;
+            background: rgba(34, 197, 94, 0.02);
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.08);
         }
         .files .name{
             font-weight: 500;
@@ -99,9 +99,9 @@
             text-transform: uppercase;
         }
         .files li.recommended .platform-tag {
-            color: #60a5fa;
-            background: rgba(96, 165, 250, 0.05);
-            border: 1px solid rgba(96, 165, 250, 0.15);
+            color: #22c55e;
+            background: rgba(34, 197, 94, 0.05);
+            border: 1px solid rgba(34, 197, 94, 0.15);
         }
         .platform-tag-recommended {
             display: inline-block;
@@ -120,7 +120,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: #3B82F6;
+            background: #16a34a;
             color: #fff;
             font-family: ui-monospace, monospace;
             font-weight: 600;
@@ -132,13 +132,13 @@
             white-space: nowrap;
             cursor: pointer;
             border: none;
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.15);
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
         .btn:hover{
-            background: #60a5fa;
-            box-shadow: 0 4px 12px rgba(96, 165, 250, 0.25);
+            background: #22c55e;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
         }
         .license-key{
             background: #0a0a0a;
@@ -166,7 +166,7 @@
         .license-key code{
             font-family: ui-monospace, monospace;
             font-size: 0.875rem;
-            color: #60a5fa;
+            color: #22c55e;
             word-break: break-all;
             user-select: all;
         }
@@ -184,7 +184,7 @@
         }
         .copy-btn:hover {
             color: #e5e5e5;
-            border-color: #60a5fa;
+            border-color: #22c55e;
         }
         .security-tips {
             background: rgba(10, 10, 10, 0.4);
@@ -238,7 +238,7 @@
             background: #0a0a0a;
             padding: 0.1rem 0.3rem;
             border-radius: 4px;
-            color: #60a5fa;
+            color: #22c55e;
         }
         .text-sm{
             font-size: 0.75rem;
@@ -267,7 +267,7 @@
 <body>
     <div class="container">
         <a href="/" class="header">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#60a5fa] fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:4px;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#22c55e] fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:4px;">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>
                 <polyline points="9 15 11 17 15 13"></polyline>
@@ -361,7 +361,7 @@
             </div>
 
             <p class="text-sm">
-                Des questions ? Contactez-nous à <a href="mailto:support@ocrreceipt.com" style="color:#60a5fa; text-decoration:none;">support@ocrreceipt.com</a><br>
+                Des questions ? Contactez-nous à <a href="mailto:support@ocrreceipt.com" style="color:#22c55e; text-decoration:none;">support@ocrreceipt.com</a><br>
                 <span style="color:#a1a09a; font-family:ui-monospace, monospace; font-size:10px; display:inline-block; margin-top:4px;">100% Hors-ligne · Licence perpétuelle</span>
             </p>
         </div>
@@ -373,8 +373,8 @@
             navigator.clipboard.writeText(keyText).then(() => {
                 const btn = document.querySelector('.copy-btn');
                 btn.textContent = 'Copié !';
-                btn.style.color = '#60a5fa';
-                btn.style.borderColor = '#60a5fa';
+                btn.style.color = '#22c55e';
+                btn.style.borderColor = '#22c55e';
                 setTimeout(() => {
                     btn.textContent = 'Copier';
                     btn.style.color = '#a1a09a';

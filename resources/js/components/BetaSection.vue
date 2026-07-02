@@ -77,7 +77,7 @@
                                         id="firstname" 
                                         v-model="form.firstname" 
                                         required
-                                        class="w-full bg-surface border border-border focus:border-brand focus:ring-1 focus:ring-brand focus:shadow-[0_0_15px_rgba(96,165,250,0.12)] rounded-lg px-4 py-3 text-sm text-text placeholder-text-muted/40 transition-all outline-none"
+                                        class="w-full bg-surface border border-border focus:border-brand focus:ring-1 focus:ring-brand focus:shadow-[0_0_15px_rgba(34,197,94,0.12)] rounded-lg px-4 py-3 text-sm text-text placeholder-text-muted/40 transition-all outline-none"
                                     />
                                 </div>
                                 <div>
@@ -89,7 +89,7 @@
                                         id="email" 
                                         v-model="form.email" 
                                         required
-                                        class="w-full bg-surface border border-border focus:border-brand focus:ring-1 focus:ring-brand focus:shadow-[0_0_15px_rgba(96,165,250,0.12)] rounded-lg px-4 py-3 text-sm text-text placeholder-text-muted/40 transition-all outline-none"
+                                        class="w-full bg-surface border border-border focus:border-brand focus:ring-1 focus:ring-brand focus:shadow-[0_0_15px_rgba(34,197,94,0.12)] rounded-lg px-4 py-3 text-sm text-text placeholder-text-muted/40 transition-all outline-none"
                                     />
                                 </div>
                             </div>
@@ -102,7 +102,7 @@
                                     type="text" 
                                     id="profession" 
                                     v-model="form.profession"
-                                    class="w-full bg-surface border border-border focus:border-brand focus:ring-1 focus:ring-brand focus:shadow-[0_0_15px_rgba(96,165,250,0.12)] rounded-lg px-4 py-3 text-sm text-text placeholder-text-muted/40 transition-all outline-none"
+                                    class="w-full bg-surface border border-border focus:border-brand focus:ring-1 focus:ring-brand focus:shadow-[0_0_15px_rgba(34,197,94,0.12)] rounded-lg px-4 py-3 text-sm text-text placeholder-text-muted/40 transition-all outline-none"
                                 />
                             </div>
 

@@ -21,12 +21,14 @@
                 <div 
                     id="download-mac" 
                     :class="['card p-8 bg-surface-light border rounded-xl flex flex-col justify-between items-center text-center transition-all duration-300', 
-                             detectedOS === 'mac' ? 'border-brand bg-brand/[0.01] shadow-[0_0_30px_rgba(96,165,250,0.06)] scale-[1.02]' : 'border-border hover:border-border']"
+                             detectedOS === 'mac' ? 'border-brand bg-brand/[0.01] shadow-[0_0_30px_rgba(34,197,94,0.06)] scale-[1.02]' : 'border-border hover:border-border']"
                 >
                     <div class="flex flex-col items-center">
                         <div class="w-14 h-14 rounded-full bg-brand/10 border border-brand/20 flex items-center justify-center mb-6">
+                            <!-- Laptop Icon -->
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-none stroke-brand" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.49-.62.71-1.16 1.85-1.01 2.96 1.12.09 2.27-.58 2.94-1.39z"/>
+                                <rect x="3" y="4" width="18" height="12" rx="2" />
+                                <path d="M2 20h20M12 16v4" />
                             </svg>
                         </div>
                         <h3 class="font-serif font-semibold text-lg text-text mb-2">{{ $t('downloads.mac.platform') }}</h3>
@@ -46,12 +48,14 @@
                 <div 
                     id="download-win" 
                     :class="['card p-8 bg-surface-light border rounded-xl flex flex-col justify-between items-center text-center transition-all duration-300', 
-                             detectedOS === 'win' ? 'border-brand bg-brand/[0.01] shadow-[0_0_30px_rgba(96,165,250,0.06)] scale-[1.02]' : 'border-border hover:border-border']"
+                             detectedOS === 'win' ? 'border-brand bg-brand/[0.01] shadow-[0_0_30px_rgba(34,197,94,0.06)] scale-[1.02]' : 'border-border hover:border-border']"
                 >
                     <div class="flex flex-col items-center">
                         <div class="w-14 h-14 rounded-full bg-brand/10 border border-brand/20 flex items-center justify-center mb-6">
+                            <!-- Window Pane / Grid Icon -->
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-none stroke-brand" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M0 3.449L9.75 2.1v9.451H0V3.449zM0 12.45h9.75v9.451L0 20.551V12.45zM10.95 1.936L24 0v11.55H10.95V1.936zM10.95 12.45H24v11.55l-13.05-1.936V12.45z"/>
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <path d="M3 12h18M12 3v18" />
                             </svg>
                         </div>
                         <h3 class="font-serif font-semibold text-lg text-text mb-2">{{ $t('downloads.windows.platform') }}</h3>
@@ -71,7 +75,7 @@
                 <div 
                     id="download-linux" 
                     :class="['card p-8 bg-surface-light border rounded-xl flex flex-col justify-between items-center text-center transition-all duration-300', 
-                             detectedOS === 'linux' ? 'border-brand bg-brand/[0.01] shadow-[0_0_30px_rgba(96,165,250,0.06)] scale-[1.02]' : 'border-border hover:border-border']"
+                             detectedOS === 'linux' ? 'border-brand bg-brand/[0.01] shadow-[0_0_30px_rgba(34,197,94,0.06)] scale-[1.02]' : 'border-border hover:border-border']"
                 >
                     <div class="flex flex-col items-center">
                         <div class="w-14 h-14 rounded-full bg-brand/10 border border-brand/20 flex items-center justify-center mb-6">

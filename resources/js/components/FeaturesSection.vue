@@ -13,7 +13,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 <!-- Card 1: Confidentialité Totale (2 cols) -->
-                <div @click="$emit('select-feature-tab', 1)" class="card md:col-span-2 border-brand/20 bg-brand/5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_0_30px_rgba(59,130,246,0.03)] flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:border-brand/45 cursor-pointer group relative">
+                <div @click="$emit('select-feature-tab', 1)" class="card md:col-span-2 border-brand/20 bg-brand/5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_0_30px_rgba(34,197,94,0.03)] flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:border-brand/45 cursor-pointer group relative">
                     <div class="absolute top-4 right-4 text-[8px] font-mono text-brand uppercase tracking-wider border border-brand/30 px-2 py-0.5 rounded-full bg-brand/5 group-hover:bg-brand/10 transition-colors">
                         {{ $t('features.privacyBadge') }}
                     </div>

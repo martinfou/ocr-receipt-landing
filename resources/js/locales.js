@@ -12,7 +12,7 @@ export const locales = {
             subtitle: "IA Locale · Zéro Cloud · <span class='text-[#333]'>Zéro Abonnement</span>",
             title: "Fini le désordre des factures et documents.",
             description: "Notre logiciel analyse, renomme et classe automatiquement toutes vos pièces justificatives, reçus et documents administratifs 100% localement. De quoi réjouir votre comptable et aborder vos audits d'impôt en toute sérénité.",
-            cta1: "⬇️ Télécharger l'application",
+            cta1: "Télécharger l'application",
             designedFor: "Pour freelances et PME soucieux de leur confidentialité.",
             bullets: [
                 "Analyse et extraction de données par IA",
@@ -196,7 +196,7 @@ export const locales = {
             }
         },
         pricing: {
-            title: "Des tarifs simples. <span class='text-[#60A5FA]'>Pas d'abonnement.</span>",
+            title: "Des tarifs simples. <span class='text-brand-dark dark:text-brand'>Pas d'abonnement.</span>",
             subtitle: "Commencez gratuitement. Ne payez que pour ce dont vous avez besoin.",
             period: "achat unique",
             watermark: "avec filigrane",
@@ -213,7 +213,7 @@ export const locales = {
             freeLite: {
                 name: "GRATUIT (Free Lite)",
                 desc: "Usage personnel ou léger",
-                btn: "⬇️ Télécharger gratuit",
+                btn: "Télécharger gratuit",
                 features: [
                     "Reçus illimités",
                     "OCR simple (10 IA/mois)",
@@ -383,7 +383,7 @@ export const locales = {
             subtitle: "Local AI · Zero Cloud · <span class='text-[#333]'>No Subscription</span>",
             title: "No more messy invoices and documents.",
             description: "Our software automatically analyzes, renames, and files all your receipts, invoices, and business documents 100% offline. Keeping your accountant happy and tax audits stress-free.",
-            cta1: "⬇️ Download the App",
+            cta1: "Download the App",
             designedFor: "Built for privacy-conscious freelancers and SMBs.",
             bullets: [
                 "Local AI data extraction & cleanup",
@@ -567,7 +567,7 @@ export const locales = {
             }
         },
         pricing: {
-            title: "Simple pricing. <span class='text-[#60A5FA]'>No subscription.</span>",
+            title: "Simple pricing. <span class='text-brand-dark dark:text-brand'>No subscription.</span>",
             subtitle: "Start free. Pay only if you need more.",
             period: "one-time purchase",
             watermark: "with watermark",
@@ -584,7 +584,7 @@ export const locales = {
             freeLite: {
                 name: "FREE LITE",
                 desc: "For personal or light use",
-                btn: "⬇️ Download Free",
+                btn: "Download Free",
                 features: [
                     "Unlimited receipts",
                     "Simple OCR (10 AI/mo)",

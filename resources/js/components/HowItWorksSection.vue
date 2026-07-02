@@ -23,7 +23,7 @@
                         <div>
                             <!-- Numbered Bubble & Line connector match -->
                             <div class="flex justify-between items-center mb-5">
-                                <div class="w-8 h-8 rounded-full border border-border bg-surface flex items-center justify-center text-xs font-mono font-bold text-brand shadow-[0_0_12px_rgba(96,165,250,0.1)] group-hover:border-brand transition-colors">
+                                <div class="w-8 h-8 rounded-full border border-border bg-surface flex items-center justify-center text-xs font-mono font-bold text-brand shadow-[0_0_12px_rgba(34,197,94,0.1)] group-hover:border-brand transition-colors">
                                     01
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                     <div class="card flex flex-col justify-between p-6 bg-surface-light border border-border hover:border-brand/40 transition-all duration-300 group rounded-xl">
                         <div>
                             <div class="flex justify-between items-center mb-5">
-                                <div class="w-8 h-8 rounded-full border border-border bg-surface flex items-center justify-center text-xs font-mono font-bold text-brand shadow-[0_0_12px_rgba(96,165,250,0.1)] group-hover:border-brand transition-colors">
+                                <div class="w-8 h-8 rounded-full border border-border bg-surface flex items-center justify-center text-xs font-mono font-bold text-brand shadow-[0_0_12px_rgba(34,197,94,0.1)] group-hover:border-brand transition-colors">
                                     02
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                                     <div class="h-1 bg-brand/40 rounded w-3/4"></div>
                                     
                                     <!-- Laser scanner line -->
-                                    <div class="absolute left-0 right-0 h-[1.5px] bg-brand shadow-[0_0_8px_rgba(96,165,250,0.8)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-scanner"></div>
+                                    <div class="absolute left-0 right-0 h-[1.5px] bg-brand shadow-[0_0_8px_rgba(34,197,94,0.8)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-scanner"></div>
                                 </div>
                             </div>
 
@@ -91,7 +91,7 @@
                     <div class="card flex flex-col justify-between p-6 bg-surface-light border border-border hover:border-brand/40 transition-all duration-300 group rounded-xl">
                         <div>
                             <div class="flex justify-between items-center mb-5">
-                                <div class="w-8 h-8 rounded-full border border-border bg-surface flex items-center justify-center text-xs font-mono font-bold text-brand shadow-[0_0_12px_rgba(96,165,250,0.1)] group-hover:border-brand transition-colors">
+                                <div class="w-8 h-8 rounded-full border border-border bg-surface flex items-center justify-center text-xs font-mono font-bold text-brand shadow-[0_0_12px_rgba(34,197,94,0.1)] group-hover:border-brand transition-colors">
                                     03
                                 </div>
                             </div>
@@ -124,7 +124,7 @@
                     <div class="card flex flex-col justify-between p-6 bg-surface-light border border-border hover:border-brand/40 transition-all duration-300 group rounded-xl">
                         <div>
                             <div class="flex justify-between items-center mb-5">
-                                <div class="w-8 h-8 rounded-full border border-border bg-surface flex items-center justify-center text-xs font-mono font-bold text-brand shadow-[0_0_12px_rgba(96,165,250,0.1)] group-hover:border-brand transition-colors">
+                                <div class="w-8 h-8 rounded-full border border-border bg-surface flex items-center justify-center text-xs font-mono font-bold text-brand shadow-[0_0_12px_rgba(34,197,94,0.1)] group-hover:border-brand transition-colors">
                                     04
                                 </div>
                             </div>

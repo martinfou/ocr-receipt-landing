@@ -28,7 +28,7 @@
                         </p>
                         
                         <!-- Financial ROI highlight -->
-                        <div class="inline-flex items-center gap-3 px-4 py-2.5 rounded-lg border border-brand/20 bg-brand/[0.02] text-xs font-mono text-[#60A5FA]">
+                        <div class="inline-flex items-center gap-3 px-4 py-2.5 rounded-lg border border-brand/20 bg-brand/[0.02] text-xs font-mono text-brand-dark">
                             <span class="text-lg">🛡️</span>
                             <div>
                                 <span class="font-bold">{{ $lang.lang === 'fr' ? 'Données 100% Souveraines' : '100% Sovereign Data' }}</span>
@@ -67,9 +67,9 @@
                         </div>
 
                         <!-- Column 2: Owning (OCR Receipt) -->
-                        <div class="p-4 rounded-xl border border-brand bg-[#60A5FA]/[0.01] shadow-[0_0_20px_rgba(96,165,250,0.03)]">
-                            <div class="text-[9px] font-mono text-[#60A5FA] uppercase tracking-widest mb-3 flex items-center gap-1.5">
-                                <span class="w-1.5 h-1.5 rounded-full bg-[#60A5FA] shadow-[0_0_8px_rgba(96,165,250,0.4)]"></span>
+                        <div class="p-4 rounded-xl border border-brand bg-brand/[0.01] shadow-[0_0_20px_rgba(34,197,94,0.03)]">
+                            <div class="text-[9px] font-mono text-brand-dark uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand shadow-[0_0_8px_rgba(34,197,94,0.4)]"></span>
                                 {{ $lang.lang === 'fr' ? 'OCR Receipt (Posséder)' : 'OCR Receipt (Own)' }}
                             </div>
                             <ul class="space-y-3 text-[11px] text-text">
@@ -151,7 +151,7 @@
                 </div>
 
                 <!-- Pro Tier (Recommended / Border Glow) -->
-                <div class="card flex flex-col justify-between p-6 border-brand bg-brand/[0.01] shadow-[0_0_40px_rgba(96,165,250,0.06)] relative transition-all duration-300 hover:shadow-[0_0_40px_rgba(96,165,250,0.12)] hover:border-brand/80 rounded-xl">
+                <div class="card flex flex-col justify-between p-6 border-brand bg-brand/[0.01] shadow-[0_0_40px_rgba(34,197,94,0.06)] relative transition-all duration-300 hover:shadow-[0_0_40px_rgba(34,197,94,0.12)] hover:border-brand/80 rounded-xl">
                     <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3.5 py-1 bg-brand-dark text-white text-[9px] font-mono font-semibold tracking-wider rounded-full uppercase select-none shadow-[0_0_12px_rgba(34,197,94,0.3)]">
                         {{ $lang.lang === 'fr' ? 'Recommandé' : 'Recommended' }}
                     </div>
@@ -226,7 +226,7 @@
                             v-model="email" 
                             required 
                             placeholder="you@example.com"
-                            class="w-full bg-surface border border-border focus:border-brand focus:ring-1 focus:ring-brand focus:shadow-[0_0_15px_rgba(96,165,250,0.12)] rounded-lg px-4 py-3 text-sm text-text outline-none transition-all"
+                            class="w-full bg-surface border border-border focus:border-brand focus:ring-1 focus:ring-brand focus:shadow-[0_0_15px_rgba(34,197,94,0.12)] rounded-lg px-4 py-3 text-sm text-text outline-none transition-all"
                         />
                     </div>
 

@@ -10,15 +10,15 @@
         body{font-family:Inter,ui-sans-serif,system-ui,sans-serif;background:#f9fafb;color:#111827;min-height:100vh;display:flex;align-items:center;justify-content:center}
         .card{max-width:640px;width:100%;margin:2rem;background:#fff;border-radius:1.5rem;box-shadow:0 4px 24px rgba(0,0,0,.08);padding:2.5rem}
         h1{font-size:1.75rem;margin-bottom:.5rem}
-        .badge{background:#dbeafe;color:#1d4ed8;font-size:.75rem;font-weight:700;padding:.25rem .75rem;border-radius:999px;display:inline-block;margin-bottom:1rem}
+        .badge{background:#dcfce7;color:#15803d;font-size:.75rem;font-weight:700;padding:.25rem .75rem;border-radius:999px;display:inline-block;margin-bottom:1rem}
         .license-box{background:#f3f4f6;border-radius:.75rem;padding:1.25rem;margin:1.5rem 0;text-align:center}
-        .license-box code{font-size:1.25rem;font-weight:700;color:#1d4ed8;word-break:break-all;display:block;margin-top:.5rem;font-family:ui-monospace,monospace}
+        .license-box code{font-size:1.25rem;font-weight:700;color:#15803d;word-break:break-all;display:block;margin-top:.5rem;font-family:ui-monospace,monospace}
         .steps{list-style:none;margin:1.5rem 0;padding:0}
         .steps li{padding:.75rem 0;border-bottom:1px solid #e5e7eb;display:flex;gap:.75rem;font-size:.875rem;color:#4b5563}
         .steps li:last-child{border-bottom:none}
-        .steps .num{background:#dbeafe;color:#1d4ed8;width:24px;height:24px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0}
-        .btn{display:inline-block;background:#2563eb;color:#fff;font-weight:700;padding:.875rem 2rem;border-radius:.75rem;text-decoration:none;text-align:center;transition:background .2s}
-        .btn:hover{background:#1d4ed8}
+        .steps .num{background:#dcfce7;color:#15803d;width:24px;height:24px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0}
+        .btn{display:inline-block;background:#16a34a;color:#fff;font-weight:700;padding:.875rem 2rem;border-radius:.75rem;text-decoration:none;text-align:center;transition:background .2s}
+        .btn:hover{background:#15803d}
         .btn-secondary{background:#e5e7eb;color:#374151;margin-left:.5rem}
         .btn-secondary:hover{background:#d1d5db}
         .btn-group{margin-top:1.5rem;display:flex;gap:.5rem;flex-wrap:wrap}
@@ -62,12 +62,12 @@
 
         <div class="btn-group">
             <a href="{{ route('license.download', ['email' => $email, 'licenseKey' => $license_key]) }}" class="btn">
-                ⬇️ Télécharger OCR Receipt
+                Télécharger OCR Receipt
             </a>
         </div>
 
         <p class="text-sm">
-            Une question ? Écrivez à <a href="mailto:support@ocrreceipt.com" style="color:#2563eb">support@ocrreceipt.com</a><br>
+            Une question ? Écrivez à <a href="mailto:support@ocrreceipt.com" style="color:#16a34a">support@ocrreceipt.com</a><br>
             <span style="color:#9ca3af">Licence perpétuelle · Mises à jour incluses · Québec, Canada 🇨🇦</span>
         </p>
     </div>

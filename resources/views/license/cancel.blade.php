@@ -12,8 +12,8 @@
         .icon{font-size:3rem;margin-bottom:1rem}
         h1{font-size:1.5rem;margin-bottom:.5rem}
         p{color:#6b7280;margin-bottom:1.5rem;line-height:1.6}
-        .btn{display:inline-block;background:#2563eb;color:#fff;font-weight:700;padding:.75rem 1.5rem;border-radius:.75rem;text-decoration:none;transition:background .2s}
-        .btn:hover{background:#1d4ed8}
+        .btn{display:inline-block;background:#16a34a;color:#fff;font-weight:700;padding:.75rem 1.5rem;border-radius:.75rem;text-decoration:none;transition:background .2s}
+        .btn:hover{background:#15803d}
         .btn-secondary{background:#e5e7eb;color:#374151}
         .btn-secondary:hover{background:#d1d5db}
     </style>

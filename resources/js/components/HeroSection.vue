@@ -32,11 +32,18 @@
                     </p>
 
                     <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-8">
-                        <a href="#download" class="btn-brand text-sm px-7 py-3.5 w-full sm:w-auto shadow-lg hover:shadow-xl transition-all duration-300 text-center cursor-pointer">
-                            {{ $t('hero.cta1') }}
+                        <a href="#download" class="btn-brand text-sm px-7 py-3.5 w-full sm:w-auto shadow-lg hover:shadow-xl transition-all duration-300 text-center cursor-pointer flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                            </svg>
+                            <span>{{ $t('hero.cta1') }}</span>
                         </a>
                         <a href="#problem" class="text-xs font-mono text-text-muted hover:text-brand transition-colors duration-200 flex items-center gap-1.5 py-2.5 cursor-pointer">
-                            {{ $lang.lang === 'fr' ? 'Découvrir comment ça marche ⬇️' : 'Discover how it works ⬇️' }}
+                            <span>{{ $lang.lang === 'fr' ? 'Découvrir comment ça marche' : 'Discover how it works' }}</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 stroke-current fill-none animate-bounce" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <polyline points="19 12 12 19 5 12"></polyline>
+                            </svg>
                         </a>
                     </div>
 
@@ -48,7 +55,7 @@
 
                 <!-- Right Column: Interactive Receipt Demo (2/3 Width) -->
                 <div class="lg:col-span-8 w-full mx-auto lg:mx-0 relative z-10 flex flex-col items-center justify-center gap-4">
-                    <div class="w-full max-w-3xl border border-border bg-surface-light/95 backdrop-blur-md rounded-xl overflow-hidden shadow-2xl relative font-sans text-xs">
+                    <div class="w-full max-w-3xl border border-border bg-surface-light/95 backdrop-blur-md rounded-xl overflow-hidden shadow-2xl relative font-sans text-xs flex flex-col lg:h-[465px] h-auto">
                         
                         <!-- Carousel Top Header bar (OS Window style + Tab bar) -->
                         <div class="border-b border-border">
@@ -79,7 +86,7 @@
 
                         <!-- Active Simulation Panes -->
                         <!-- Active Simulation Panes -->
-                        <div class="p-5 bg-surface/40 min-h-[350px] flex flex-col justify-between">
+                        <div class="p-5 bg-surface/40 flex-1 flex flex-col justify-between overflow-hidden">
                             
                             <!-- Tab 0: Parser (Original interactive OCR receipt simulator) -->
                             <div v-if="activeTab === 0" class="grid sm:grid-cols-12 gap-4 animate-fadeIn">
@@ -406,7 +413,7 @@
                                                     <td class="p-1.5 text-text-muted truncate max-w-[80px]">{{ receipt.vendor }}</td>
                                                     <td class="p-1.5 text-right text-text">{{ receipt.tax }}</td>
                                                     <td class="p-1.5 text-right text-brand font-bold">{{ receipt.amount }}</td>
-                                                    <td class="p-1.5 text-center text-blue-400 underline cursor-pointer hover:text-blue-300">📄 view</td>
+                                                    <td class="p-1.5 text-center text-brand-dark hover:text-brand-deep underline cursor-pointer">📄 view</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -514,9 +521,9 @@ export default {
             parserStep: 0,
             parserSteps: [
                 { key: 'load', statusKey: 'ready', statusColor: 'text-text-muted' },
-                { key: 'ocr', statusKey: 'ocr', statusColor: 'text-[#60A5FA]' },
-                { key: 'extract', statusKey: 'extract', statusColor: 'text-[#60A5FA]' },
-                { key: 'rename', statusKey: 'rename', statusColor: 'text-[#60A5FA]' },
+                { key: 'ocr', statusKey: 'ocr', statusColor: 'text-brand-dark' },
+                { key: 'extract', statusKey: 'extract', statusColor: 'text-brand-dark' },
+                { key: 'rename', statusKey: 'rename', statusColor: 'text-brand-dark' },
                 { key: 'saveStep', statusKey: 'save', statusColor: 'text-green-600' }
             ],
             parserIntervalId: null,
