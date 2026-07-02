@@ -152,7 +152,7 @@ export default {
             this.stopTabAutoPlay();
             this.tabInterval = setInterval(() => {
                 this.activeTab = (this.activeTab + 1) % 4;
-            }, 4000);
+            }, 5000);
         },
         stopTabAutoPlay() {
             if (this.tabInterval) {
