@@ -468,7 +468,7 @@
             </div>
 
             <!-- Perforated Receipt Tape Separator (Continuous Line) -->
-            <div class="absolute right-8 top-0 bottom-0 w-px border-r border-dashed border-border pointer-events-none hidden lg:flex flex-col justify-between py-12 select-none text-[8px] font-mono text-text-muted/40 z-20">
+            <div class="absolute right-8 top-0 bottom-0 w-px border-r border-dashed border-brand/50 pointer-events-none hidden lg:flex flex-col justify-between py-12 select-none text-[8px] font-mono text-text-muted z-20">
                 <span>[FLOW_01]</span>
                 <div class="flex flex-col items-center gap-1.5 animate-pulse text-brand-dark">
                     <span class="uppercase tracking-widest text-[7px]" style="writing-mode: vertical-rl; transform: rotate(180deg);">SCROLL</span>
