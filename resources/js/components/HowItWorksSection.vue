@@ -15,9 +15,9 @@
             <!-- Steps Grid with timeline connectors -->
             <div class="relative">
                 <!-- Desktop timeline connector line -->
-                <div class="absolute top-[88px] left-[15%] right-[15%] h-[1px] bg-border/40 hidden md:block z-0"></div>
+                <div class="absolute top-[88px] left-[10%] right-[10%] h-[1px] bg-border/40 hidden md:block z-0"></div>
 
-                <div class="grid md:grid-cols-3 gap-8 md:gap-6 lg:gap-8 relative z-10">
+                <div class="grid md:grid-cols-4 gap-8 md:gap-6 lg:gap-8 relative z-10">
                     <!-- Step 1 -->
                     <div class="card flex flex-col justify-between p-6 bg-surface-light border border-border/60 hover:border-brand/40 transition-all duration-300 group rounded-xl">
                         <div>
@@ -87,7 +87,7 @@
                         </div>
                     </div>
 
-                    <!-- Step 3 -->
+                    <!-- Step 3: Advanced Search (New) -->
                     <div class="card flex flex-col justify-between p-6 bg-surface-light border border-border/60 hover:border-brand/40 transition-all duration-300 group rounded-xl">
                         <div>
                             <div class="flex justify-between items-center mb-5">
@@ -97,6 +97,39 @@
                             </div>
 
                             <!-- Animated Visual for Step 3 -->
+                            <div class="h-28 w-full bg-[#0a0a0a]/50 border border-border/40 rounded-lg flex flex-col items-center justify-center p-3 mb-5 relative overflow-hidden group-hover:border-brand/20 transition-all">
+                                <div class="w-full max-w-[130px] bg-surface-light border border-border/60 rounded px-2 py-1 shadow-sm flex items-center gap-1.5 mb-2.5 group-hover:border-brand/30 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 stroke-brand fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    </svg>
+                                    <span class="font-mono text-[8px] text-brand-dark animate-pulse">ACME</span>
+                                </div>
+                                <div class="w-full max-w-[130px] bg-[#27c93f]/10 border border-[#27c93f]/30 rounded p-1.5 flex justify-between items-center font-mono text-[7px] text-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                    <span>ACME Copier</span>
+                                    <span>$120.00</span>
+                                </div>
+                            </div>
+
+                            <h3 class="font-serif font-semibold text-lg mb-3 text-[#e5e5e5]">
+                                {{ $t('howItWorks.step3.title') }}
+                            </h3>
+                            <p class="text-sm text-text-muted leading-relaxed group-hover:text-[#e5e5e5] transition-colors duration-200">
+                                {{ $t('howItWorks.step3.desc') }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Reports (Formerly Step 3) -->
+                    <div class="card flex flex-col justify-between p-6 bg-surface-light border border-border/60 hover:border-brand/40 transition-all duration-300 group rounded-xl">
+                        <div>
+                            <div class="flex justify-between items-center mb-5">
+                                <div class="w-8 h-8 rounded-full border border-border bg-[#0a0a0a] flex items-center justify-center text-xs font-mono font-bold text-brand shadow-[0_0_12px_rgba(96,165,250,0.1)] group-hover:border-brand transition-colors">
+                                    04
+                                </div>
+                            </div>
+
+                            <!-- Animated Visual for Step 4 -->
                             <div class="h-28 w-full bg-[#0a0a0a]/50 border border-border/40 rounded-lg flex items-center justify-center mb-5 relative overflow-hidden group-hover:border-brand/20 transition-all">
                                 <div class="flex items-center gap-2">
                                     <!-- Spreadsheet representation -->
@@ -126,10 +159,10 @@
                             </div>
 
                             <h3 class="font-serif font-semibold text-lg mb-3 text-[#e5e5e5]">
-                                {{ $t('howItWorks.step3.title') }}
+                                {{ $t('howItWorks.step4.title') }}
                             </h3>
                             <p class="text-sm text-text-muted leading-relaxed group-hover:text-[#e5e5e5] transition-colors duration-200">
-                                {{ $t('howItWorks.step3.desc') }}
+                                {{ $t('howItWorks.step4.desc') }}
                             </p>
                         </div>
                     </div>

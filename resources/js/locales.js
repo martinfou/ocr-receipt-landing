@@ -20,7 +20,7 @@ export const locales = {
                 "Génération de rapports comptables"
             ],
             badges: "IA locale & cloud · Zéro abonnement · Licence perpétuelle",
-            carouselTabs: ['Parser', 'Paramètres', 'Correcteur IA', 'Par Lots', 'Fuzzy Match', 'Rapports'],
+            carouselTabs: ['Import', 'IA Locale', 'Recherche', 'Rapports'],
             simulator: {
                 title: "PDF Unique",
                 subtitle: "Traiter un reçu individuel pour l'extraction de données et le renommage",
@@ -62,20 +62,24 @@ export const locales = {
             yearLabel: "Temps perdu / An",
             financialLossLabel: "Perte financière / An"
         },
-        howItWorks: {
+                howItWorks: {
             subtitle: "Comment ça marche",
-            title: "Automatisé en 5 secondes.",
+            title: "Automatisé en 4 étapes.",
             step1: {
                 title: "Glissez vos PDF",
                 desc: "Importez vos documents ou images de reçus instantanément."
             },
             step2: {
-                title: "IA 100% Locale",
-                desc: "Analyse sémantique et extraction de données hors ligne par LLM, sans aucune connexion serveur."
+                title: "IA 100% Locale & Renommer",
+                desc: "Analyse sémantique, extraction de données et renommage intelligent hors ligne par LLM."
             },
             step3: {
-                title: "Rapports CSV & PDF",
-                desc: "Téléchargez vos dépenses structurées en CSV, ou générez un rapport PDF d'audit complet listant vos dépenses et incluant une copie de chaque reçu à la fin."
+                title: "Recherche Avancée",
+                desc: "Indexation automatique dans une base de données locale sécurisée et recherche instantanée par mots-clés."
+            },
+            step4: {
+                title: "Rapports Comptables",
+                desc: "Générez des registres complets avec copies de factures consolidées prêtes pour votre comptable."
             }
         },
         features: {
@@ -379,7 +383,7 @@ export const locales = {
                 "Generate accountant reports"
             ],
             badges: "Local & Cloud AI · No Subscriptions · Perpetual License",
-            carouselTabs: ['Parser', 'Settings', 'AI Clean', 'Batch Scan', 'Fuzzy Match', 'Reports'],
+            carouselTabs: ['Import', 'Local AI', 'Search', 'Reports'],
             simulator: {
                 title: "PDF Unique",
                 subtitle: "Process an individual receipt for data extraction and renaming",
@@ -421,20 +425,24 @@ export const locales = {
             yearLabel: "Time Lost / Year",
             financialLossLabel: "Yearly monetary value lost"
         },
-        howItWorks: {
+                        howItWorks: {
             subtitle: "How It Works",
-            title: "Automated in 5 seconds.",
+            title: "Automated in 4 steps.",
             step1: {
                 title: "Drag & Drop",
                 desc: "Import your receipt PDFs or images instantly."
             },
             step2: {
-                title: "100% Local AI",
-                desc: "Secure offline semantic parsing via local LLM without external server connections."
+                title: "100% Local AI & Rename",
+                desc: "Secure offline semantic parsing and smart auto-renaming via local LLM."
             },
             step3: {
-                title: "CSV & PDF Reports",
-                desc: "Download structured CSV expense data, or compile complete PDF audit reports with original receipt copies appended."
+                title: "Advanced Search",
+                desc: "Instant text query across all parsed files indexed in your secure local SQLite database."
+            },
+            step4: {
+                title: "Accountant Reports",
+                desc: "Compile structured CSV sheets or complete audit reports with all matching receipt copies appended."
             }
         },
         features: {
