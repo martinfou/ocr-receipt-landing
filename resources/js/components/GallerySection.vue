@@ -62,7 +62,8 @@
             <!-- Screenshots Mode -->
             <div v-else class="grid lg:grid-cols-12 gap-8 items-start animate-fadeIn">
                 <!-- Left Sidebar: Tab selection list -->
-                <div class="lg:col-span-4 space-y-2 lg:sticky lg:top-24">
+                <!-- Desktop Sidebar (Hidden on mobile/tablet) -->
+                <div class="hidden lg:block lg:col-span-4 space-y-2 lg:sticky lg:top-24">
                     <button 
                         v-for="(tab, idx) in tabs" 
                         :key="idx"
@@ -73,6 +74,18 @@
                             <span class="text-sm font-serif">{{ tab.title }}</span>
                         </div>
                         <span class="text-xs text-text-muted font-normal leading-relaxed leading-normal">{{ tab.desc }}</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Switcher (Visible only on mobile/tablet) -->
+                <div class="lg:hidden w-full flex overflow-x-auto gap-2 pb-4 mb-6 scrollbar-none snap-x snap-mandatory">
+                    <button 
+                        v-for="(tab, idx) in tabs" 
+                        :key="idx"
+                        @click="activeTabIdx = idx"
+                        :class="[idx === activeTabIdx ? 'bg-brand text-white border-brand' : 'bg-surface-light border-border text-text-muted']"
+                        class="snap-center shrink-0 px-4 py-2.5 rounded-full border text-xs font-medium cursor-pointer transition-all duration-200">
+                        {{ tab.title }}
                     </button>
                 </div>
 

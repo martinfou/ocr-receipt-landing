@@ -4,7 +4,7 @@
             <div class="text-center mb-20">
                 <div class="text-[10px] font-mono text-brand uppercase tracking-widest mb-3 flex items-center justify-center gap-2">
                     <span class="w-1.5 h-1.5 rounded-full bg-brand"></span>
-                    Perpetual Licensing
+                    {{ $lang.lang === 'fr' ? 'Licence Perpétuelle' : 'Perpetual Licensing' }}
                 </div>
                 <h2 class="text-3xl lg:text-4xl font-serif font-semibold mb-4 tracking-[-0.01em] text-wrap-balance text-text" v-html="$t('pricing.title')">
                 </h2>
