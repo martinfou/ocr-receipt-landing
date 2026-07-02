@@ -1,6 +1,6 @@
 <template>
-    <div id="app" class="min-h-screen bg-surface text-[#e5e5e5]">
-        <nav class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-md border-b border-border/40">
+    <div id="app" class="min-h-screen bg-surface text-text">
+        <nav class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-md border-b border-border">
             <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
                 <div class="flex items-center gap-2 cursor-pointer select-none" @click="scrollToTop">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-brand fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -8,31 +8,53 @@
                         <polyline points="14 2 14 8 20 8"></polyline>
                         <polyline points="9 15 11 17 15 13"></polyline>
                     </svg>
-                    <span class="font-serif font-bold text-base text-[#e5e5e5] tracking-tight">OCR Receipt</span>
+                    <span class="font-serif font-bold text-base text-text tracking-tight">OCR Receipt</span>
                 </div>
                 <div class="flex items-center gap-6">
-                    <a href="#problem" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-[#e5e5e5] transition-colors">{{ $t('nav.problem') }}</a>
-                    <a href="#how-it-works" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-[#e5e5e5] transition-colors">{{ $t('nav.workflow') }}</a>
-                    <a href="#features" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-[#e5e5e5] transition-colors">{{ $t('nav.features') }}</a>
-                    <a href="#pricing" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-[#e5e5e5] transition-colors">{{ $t('nav.pricing') }}</a>
-                    <a href="#beta" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-[#e5e5e5] transition-colors">{{ $t('nav.contact') }}</a>
+                    <a href="#problem" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.problem') }}</a>
+                    <a href="#how-it-works" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.workflow') }}</a>
+                    <a href="#features" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.features') }}</a>
+                    <a href="#pricing" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.pricing') }}</a>
+                    <a href="#beta" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.contact') }}</a>
                     
                     <!-- Language Switcher -->
-                    <div class="flex items-center gap-1.5 px-2.5 py-1 rounded border border-border/60 bg-[#0a0a0a]/60 text-[10px] font-mono select-none">
+                    <div class="flex items-center gap-1.5 px-2.5 py-1 rounded border border-border bg-surface-light text-[10px] font-mono select-none">
                         <button 
                             @click="$setLang('fr')" 
-                            :class="[$lang.lang === 'fr' ? 'text-brand font-semibold' : 'text-text-muted hover:text-[#e5e5e5]']"
+                            :class="[$lang.lang === 'fr' ? 'text-brand-dark font-semibold' : 'text-text-muted hover:text-text']"
                             class="transition-colors cursor-pointer"
                         >FR</button>
-                        <span class="text-border/40">|</span>
+                        <span class="text-border">|</span>
                         <button 
                             @click="$setLang('en')" 
-                            :class="[$lang.lang === 'en' ? 'text-brand font-semibold' : 'text-text-muted hover:text-[#e5e5e5]']"
+                            :class="[$lang.lang === 'en' ? 'text-brand-dark font-semibold' : 'text-text-muted hover:text-text']"
                             class="transition-colors cursor-pointer"
                         >EN</button>
                     </div>
 
-                    <a href="#download" class="btn-brand text-[10px] font-mono uppercase tracking-wider px-4 py-2 shadow-md shadow-brand-dark/10 hover:shadow-brand/20 transition-all cursor-pointer">
+                    <!-- Theme Switcher -->
+                    <button 
+                        @click="toggleTheme" 
+                        class="w-7 h-7 rounded border border-border bg-surface-light hover:bg-surface flex items-center justify-center text-text-muted hover:text-text cursor-pointer transition-colors"
+                        :aria-label="theme === 'dark' ? 'Switch to Light Theme' : 'Switch to Dark Theme'"
+                    >
+                        <svg v-if="theme === 'dark'" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg v-else xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+
+                    <a href="#download" class="btn-brand text-[10px] font-mono uppercase tracking-wider px-4 py-2 shadow-sm transition-all cursor-pointer">
                         {{ $t('nav.cta') }}
                     </a>
                 </div>
@@ -91,11 +113,15 @@ export default {
     data() {
         return {
             showScrollTop: false,
-            activeTab: 0
+            activeTab: 0,
+            theme: 'light'
         };
     },
     mounted() {
         window.addEventListener('scroll', this.handleScroll);
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        this.theme = savedTheme;
+        this.applyTheme();
     },
     beforeUnmount() {
         window.removeEventListener('scroll', this.handleScroll);
@@ -113,6 +139,18 @@ export default {
         handleSelectFeatureTab(index) {
             this.activeTab = index;
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        },
+        toggleTheme() {
+            this.theme = this.theme === 'light' ? 'dark' : 'light';
+            localStorage.setItem('theme', this.theme);
+            this.applyTheme();
+        },
+        applyTheme() {
+            if (this.theme === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
         }
     }
 };

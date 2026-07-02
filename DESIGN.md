@@ -1,30 +1,40 @@
 ---
 name: OCR Receipt Design System
-description: Light, Zen-inspired design system focusing on clarity, minimalist desktop setups, and high-fidelity paper textures.
+description: Light, Zen-inspired design system focusing on clarity, minimalist desktop setups, and high-fidelity paper textures, with a quiet Dark Zen Forest theme.
 colors:
-  brand: "#4ade80"
-  brand-dark: "#22c55e"
-  brand-deep: "#16a34a"
-  surface: "#fafaf9"
-  surface-light: "#ffffff"
-  text: "#1c1917"
-  text-muted: "#78716c"
-  border: "#e7e5e4"
+  light:
+    brand: "#22c55e"
+    brand-dark: "#16a34a"
+    brand-deep: "#15803d"
+    surface: "#fafaf9"
+    surface-light: "#ffffff"
+    text: "#1c1917"
+    text-muted: "#78716c"
+    border: "#e7e5e4"
+  dark:
+    brand: "#4ade80"
+    brand-dark: "#22c55e"
+    brand-deep: "#16a34a"
+    surface: "#0f110e"
+    surface-light: "#161915"
+    text: "#f5f5f4"
+    text-muted: "#8e8d88"
+    border: "#2d312c"
 typography:
   display:
-    fontFamily: "Playfair Display, Georgia, serif"
+    fontFamily: "EB Garamond, Georgia, serif"
     fontSize: "clamp(2.5rem, 6vw, 5rem)"
     fontWeight: 400
     lineHeight: 1.1
     letterSpacing: "-0.02em"
   headline:
-    fontFamily: "Playfair Display, Georgia, serif"
+    fontFamily: "EB Garamond, Georgia, serif"
     fontSize: "clamp(1.75rem, 4vw, 2.5rem)"
     fontWeight: 500
     lineHeight: 1.2
     letterSpacing: "-0.01em"
   body:
-    fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1rem"
     fontWeight: 400
     lineHeight: 1.6
@@ -38,12 +48,12 @@ rounded:
   md: "12px"
 components:
   button-primary:
-    backgroundColor: "{colors.brand-dark}"
+    backgroundColor: "{colors.light.brand-dark}"
     textColor: "#ffffff"
     rounded: "{rounded.sm}"
     padding: "12px 24px"
   card:
-    backgroundColor: "{colors.surface-light}"
+    backgroundColor: "{colors.light.surface-light}"
     rounded: "{rounded.md}"
     padding: "24px"
     shadow: "0 10px 40px -10px rgba(0,0,0,0.05)"

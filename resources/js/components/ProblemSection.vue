@@ -1,5 +1,5 @@
 <template>
-    <section id="problem" class="py-24 lg:py-32 bg-[#0a0a0a] border-t border-border/40 relative">
+    <section id="problem" class="py-24 lg:py-32 bg-surface border-t border-border relative">
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                 
@@ -10,15 +10,15 @@
                             <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
                             The Inefficient Workflow
                         </div>
-                        <h2 class="text-3xl lg:text-4xl font-serif font-semibold tracking-[-0.01em] text-[#e5e5e5]">
+                        <h2 class="text-3xl lg:text-4xl font-serif font-semibold tracking-[-0.01em] text-text">
                             {{ $t('problem.title') }}
                         </h2>
                     </div>
                     
                     <!-- Vertical Timeline Line -->
-                    <div class="relative pl-8 border-l border-border/60 ml-4 space-y-6 mt-8">
-                        <div class="relative group p-5 rounded-xl border border-border/50 bg-surface-light/40 backdrop-blur-sm transition-all duration-300 hover:border-red-500/30 hover:bg-red-500/[0.01]">
-                            <div class="absolute -left-[43px] top-6 w-5.5 h-5.5 rounded-full bg-[#0a0a0a] border border-red-500/50 flex items-center justify-center shadow-[0_0_8px_rgba(239,68,68,0.2)] text-red-400 select-none transition-transform duration-300 group-hover:scale-110">
+                    <div class="relative pl-8 border-l border-border ml-4 space-y-6 mt-8">
+                        <div class="relative group p-5 rounded-xl border border-border bg-surface-light/40 backdrop-blur-sm transition-all duration-300 hover:border-red-500/30 hover:bg-red-500/[0.01]">
+                            <div class="absolute -left-[43px] top-6 w-5.5 h-5.5 rounded-full bg-surface border border-red-500/50 flex items-center justify-center shadow-[0_0_8px_rgba(239,68,68,0.2)] text-red-400 select-none transition-transform duration-300 group-hover:scale-110">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5 stroke-red-500 fill-none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                     <line x1="18" y1="6" x2="6" y2="18"></line>
                                     <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -29,8 +29,8 @@
                             </p>
                         </div>
 
-                        <div class="relative group p-5 rounded-xl border border-border/50 bg-surface-light/40 backdrop-blur-sm transition-all duration-300 hover:border-red-500/30 hover:bg-red-500/[0.01]">
-                            <div class="absolute -left-[43px] top-6 w-5.5 h-5.5 rounded-full bg-[#0a0a0a] border border-red-500/50 flex items-center justify-center shadow-[0_0_8px_rgba(239,68,68,0.2)] text-red-400 select-none transition-transform duration-300 group-hover:scale-110">
+                        <div class="relative group p-5 rounded-xl border border-border bg-surface-light/40 backdrop-blur-sm transition-all duration-300 hover:border-red-500/30 hover:bg-red-500/[0.01]">
+                            <div class="absolute -left-[43px] top-6 w-5.5 h-5.5 rounded-full bg-surface border border-red-500/50 flex items-center justify-center shadow-[0_0_8px_rgba(239,68,68,0.2)] text-red-400 select-none transition-transform duration-300 group-hover:scale-110">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5 stroke-red-500 fill-none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                     <line x1="18" y1="6" x2="6" y2="18"></line>
                                     <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -41,8 +41,8 @@
                             </p>
                         </div>
 
-                        <div class="relative group p-5 rounded-xl border border-border/50 bg-surface-light/40 backdrop-blur-sm transition-all duration-300 hover:border-red-500/30 hover:bg-red-500/[0.01]">
-                            <div class="absolute -left-[43px] top-6 w-5.5 h-5.5 rounded-full bg-[#0a0a0a] border border-red-500/50 flex items-center justify-center shadow-[0_0_8px_rgba(239,68,68,0.2)] text-red-400 select-none transition-transform duration-300 group-hover:scale-110">
+                        <div class="relative group p-5 rounded-xl border border-border bg-surface-light/40 backdrop-blur-sm transition-all duration-300 hover:border-red-500/30 hover:bg-red-500/[0.01]">
+                            <div class="absolute -left-[43px] top-6 w-5.5 h-5.5 rounded-full bg-surface border border-red-500/50 flex items-center justify-center shadow-[0_0_8px_rgba(239,68,68,0.2)] text-red-400 select-none transition-transform duration-300 group-hover:scale-110">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5 stroke-red-500 fill-none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                     <line x1="18" y1="6" x2="6" y2="18"></line>
                                     <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -53,8 +53,8 @@
                             </p>
                         </div>
 
-                        <div class="relative group p-5 rounded-xl border border-border/50 bg-surface-light/40 backdrop-blur-sm transition-all duration-300 hover:border-red-500/30 hover:bg-red-500/[0.01]">
-                            <div class="absolute -left-[43px] top-6 w-5.5 h-5.5 rounded-full bg-[#0a0a0a] border border-red-500/50 flex items-center justify-center shadow-[0_0_8px_rgba(239,68,68,0.2)] text-red-400 select-none transition-transform duration-300 group-hover:scale-110">
+                        <div class="relative group p-5 rounded-xl border border-border bg-surface-light/40 backdrop-blur-sm transition-all duration-300 hover:border-red-500/30 hover:bg-red-500/[0.01]">
+                            <div class="absolute -left-[43px] top-6 w-5.5 h-5.5 rounded-full bg-surface border border-red-500/50 flex items-center justify-center shadow-[0_0_8px_rgba(239,68,68,0.2)] text-red-400 select-none transition-transform duration-300 group-hover:scale-110">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5 stroke-red-500 fill-none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                     <line x1="18" y1="6" x2="6" y2="18"></line>
                                     <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -69,18 +69,18 @@
 
                 <!-- Right Column: The Cost Sheet & Sliders Calculator -->
                 <div class="lg:col-span-6">
-                    <div class="border border-border bg-[#161615] p-8 rounded-2xl shadow-2xl relative overflow-hidden flex flex-col justify-between min-h-[460px] transition-all duration-300 hover:border-border-hover">
+                    <div class="border border-border bg-surface-light p-8 rounded-2xl shadow-2xl relative overflow-hidden flex flex-col justify-between min-h-[460px] transition-all duration-300 hover:border-border-hover">
                         <!-- Warning glow backdrop -->
                         <div class="absolute -top-24 -right-24 w-48 h-48 bg-red-500/[0.02] rounded-full blur-3xl pointer-events-none"></div>
                         
                         <div class="space-y-6">
-                            <div class="text-[9px] font-mono text-red-400 uppercase tracking-wider border-b border-border/40 pb-2 flex justify-between items-center">
+                            <div class="text-[9px] font-mono text-red-400 uppercase tracking-wider border-b border-border pb-2 flex justify-between items-center">
                                 <span>{{ $t('problem.sheetTitle') }}</span>
                                 <span>{{ $t('problem.sheetSubtitle') }}</span>
                             </div>
                             
                             <!-- Dynamic Sliders -->
-                            <div class="space-y-4 bg-[#0a0a0a]/40 border border-border/50 rounded-xl p-4 font-mono">
+                            <div class="space-y-4 bg-surface/40 border border-border rounded-xl p-4 font-mono">
                                 <!-- Slider 1: Monthly Receipts Count -->
                                 <div class="space-y-1.5">
                                     <div class="flex justify-between text-[10px] text-text-muted">
@@ -134,11 +134,11 @@
                             <div class="space-y-4 font-mono">
                                 <div class="flex items-center justify-between border-b border-border/30 pb-3">
                                     <span class="text-xs text-text-muted">{{ $t('problem.rateLabel') }}</span>
-                                    <span class="text-xs text-[#e5e5e5] font-semibold">≈ {{ timePerReceipt }} min</span>
+                                    <span class="text-xs text-text font-semibold">≈ {{ timePerReceipt }} min</span>
                                 </div>
                                 <div class="flex items-center justify-between border-b border-border/30 pb-3">
                                     <span class="text-xs text-text-muted">{{ $t('problem.wastedHoursMonthLabel') }}</span>
-                                    <span class="text-xs text-[#e5e5e5] font-semibold">≈ {{ formatNumber(monthlyHours) }} {{ $lang.lang === 'fr' ? 'Heures' : 'Hours' }}</span>
+                                    <span class="text-xs text-text font-semibold">≈ {{ formatNumber(monthlyHours) }} {{ $lang.lang === 'fr' ? 'Heures' : 'Hours' }}</span>
                                 </div>
                                 <div class="flex items-center justify-between border-b border-border/30 pb-3">
                                     <span class="text-xs text-text-muted">{{ $t('problem.yearLabel') }}</span>
@@ -151,8 +151,8 @@
                             </div>
                         </div>
 
-                        <div class="border-t border-border/40 pt-6 mt-6">
-                            <p class="text-sm text-[#e5e5e5] font-serif italic leading-relaxed text-center text-wrap-balance">
+                        <div class="border-t border-border pt-6 mt-6">
+                            <p class="text-sm text-text font-serif italic leading-relaxed text-center text-wrap-balance">
                                 <span v-if="$lang.lang === 'fr'">
                                     "{{ formatNumber(yearlyHours) }} heures et ${{ formatNumber(yearlyFinancialLoss) }} de perte annuelle gâchés à jamais."
                                 </span>

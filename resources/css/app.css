@@ -6,21 +6,45 @@
 @source '../**/*.vue';
 @source '../**/*.js';
 
+:root {
+    --color-brand: #22c55e;
+    --color-brand-dark: #16a34a;
+    --color-brand-deep: #15803d;
+    --color-scan: #22c55e;
+    --color-surface: #fafaf9;
+    --color-surface-light: #ffffff;
+    --color-text: #1c1917;
+    --color-text-muted: #78716c;
+    --color-border: #e7e5e4;
+}
+
+.dark {
+    --color-brand: #4ade80;
+    --color-brand-dark: #22c55e;
+    --color-brand-deep: #16a34a;
+    --color-scan: #22c55e;
+    --color-surface: #0f110e;
+    --color-surface-light: #161915;
+    --color-text: #f5f5f4;
+    --color-text-muted: #8e8d88;
+    --color-border: #2d312c;
+}
+
 @theme {
-    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
-    --font-serif: 'Playfair Display', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    --font-serif: 'EB Garamond', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
     --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
-    --color-brand: #60A5FA;
-    --color-brand-dark: #3B82F6;
-    --color-brand-deep: #2563EB;
-    --color-scan: #3B82F6;
-    --color-surface: #0a0a0a;
-    --color-surface-light: #161615;
-    --color-text: #e5e5e5;
-    --color-text-muted: #a1a09a;
-    --color-border: #3e3e3a;
+    --color-brand: var(--color-brand);
+    --color-brand-dark: var(--color-brand-dark);
+    --color-brand-deep: var(--color-brand-deep);
+    --color-scan: var(--color-scan);
+    --color-surface: var(--color-surface);
+    --color-surface-light: var(--color-surface-light);
+    --color-text: var(--color-text);
+    --color-text-muted: var(--color-text-muted);
+    --color-border: var(--color-border);
 }
 
 @layer base {

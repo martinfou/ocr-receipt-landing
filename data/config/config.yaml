@@ -1,0 +1,81 @@
+app:
+  mode: development
+  ocr_language: eng
+  ui_language: en
+database:
+  path: /Volumes/T7/src/ocr-receipt-landing/data/databases/ocr_receiptsTest.db
+  timeout: 30
+deepseek:
+  api_key: ''
+  enabled: true
+  max_companies: 100
+  max_retries: 2
+  model: deepseek-chat
+  timeout: 30
+file_naming:
+  active_template: default
+  date_format: '%Y-%m-%d'
+  include_invoice_number: true
+  templates:
+    credit_card_template:
+      active: false
+      description: Template for Credit Card documents
+      name: Credit Card Template
+      template: '{project}_{documentType}_{date}_{company}_${total}'
+    default:
+      active: true
+      description: Standard template with project, date, company, and total
+      name: Default Template
+      template: '{project}_{documentType}_{date}_{company}_{total}'
+    invoice_template:
+      active: false
+      description: Template for Invoice documents
+      name: Invoice Template
+      template: '{project}_{documentType}_{date}_{company}_${total}'
+    other_template:
+      active: false
+      description: Template for Other documents
+      name: Other Template
+      template: '{project}_{documentType}_{date}_{company}_${total}'
+    receipt_template:
+      active: false
+      description: Template for Receipt documents
+      name: Receipt Template
+      template: '{project}_{documentType}_{date}_{company}_${total}'
+gui:
+  auto_save: true
+  show_preview: true
+  window_size:
+  - 1200
+  - 800
+local_model:
+  download: true
+  enabled: false
+  hf_filename: NuExtract-1.5-tiny.Q4_K_M.gguf
+  hf_repo_id: QuantFactory/NuExtract-1.5-tiny-GGUF
+  max_tokens: 500
+  model_dir: /Users/martinfou/.ocr-receipt/models
+  model_path: ''
+  model_size: tiny
+  n_ctx: 8192
+logging:
+  file: app.log
+  level: INFO
+ocr:
+  confidence_threshold: 0.6
+  max_retries: 3
+report_builder:
+  sections:
+    branding_expanded: false
+    receipt_register_expanded: true
+    scope_filters_expanded: true
+    summary_output_expanded: true
+ui:
+  advanced_mode: false
+updates:
+  appcast_url: https://ocrreceipt.com/appcast.xml
+  channel: stable
+  check_at_startup: true
+  download_dir: data/updates/
+  enabled: true
+  verify_signature: true

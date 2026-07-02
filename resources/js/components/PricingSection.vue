@@ -1,12 +1,12 @@
 <template>
-    <section id="pricing" class="py-24 lg:py-32 bg-[#0a0a0a] border-y border-border/40 relative">
+    <section id="pricing" class="py-24 lg:py-32 bg-surface border-y border-border relative">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-20">
                 <div class="text-[10px] font-mono text-brand uppercase tracking-widest mb-3 flex items-center justify-center gap-2">
                     <span class="w-1.5 h-1.5 rounded-full bg-brand"></span>
                     Perpetual Licensing
                 </div>
-                <h2 class="text-3xl lg:text-4xl font-serif font-semibold mb-4 tracking-[-0.01em] text-wrap-balance text-[#e5e5e5]" v-html="$t('pricing.title')">
+                <h2 class="text-3xl lg:text-4xl font-serif font-semibold mb-4 tracking-[-0.01em] text-wrap-balance text-text" v-html="$t('pricing.title')">
                 </h2>
                 <p class="text-text-muted max-w-xl mx-auto text-sm">
                     {{ $t('pricing.subtitle') }}
@@ -14,13 +14,13 @@
             </div>
 
             <!-- Subscription Fatigue & Data Ownership Comparison -->
-            <div class="mb-20 border border-border/40 bg-surface-light/50 backdrop-blur-md rounded-2xl p-8 lg:p-10 shadow-xl max-w-4xl mx-auto">
+            <div class="mb-20 border border-border bg-surface-light/50 backdrop-blur-md rounded-2xl p-8 lg:p-10 shadow-xl max-w-4xl mx-auto">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     
                     <!-- Left: Anti-SaaS Hook -->
                     <div class="lg:col-span-5">
                         <div class="text-[9px] font-mono text-brand uppercase tracking-wider mb-2">// OWNERSHIP REVOLUTION</div>
-                        <h3 class="font-serif font-semibold text-2xl text-[#e5e5e5] mb-4">
+                        <h3 class="font-serif font-semibold text-2xl text-text mb-4">
                             {{ $lang.lang === 'fr' ? 'Fatigué des abonnements ?' : 'Tired of subscriptions?' }}
                         </h3>
                         <p class="text-xs text-text-muted leading-relaxed mb-6">
@@ -72,7 +72,7 @@
                                 <span class="w-1.5 h-1.5 rounded-full bg-[#60A5FA] shadow-[0_0_8px_rgba(96,165,250,0.4)]"></span>
                                 {{ $lang.lang === 'fr' ? 'OCR Receipt (Posséder)' : 'OCR Receipt (Own)' }}
                             </div>
-                            <ul class="space-y-3 text-[11px] text-[#e5e5e5]">
+                            <ul class="space-y-3 text-[11px] text-text">
                                 <li class="flex items-start gap-2">
                                     <span class="text-[#27c93f] font-semibold select-none">✓</span>
                                     <span>{{ $lang.lang === 'fr' ? 'Achat unique à vie, aucun frais récurrent' : 'One-time purchase, zero monthly billing cycles' }}</span>
@@ -100,13 +100,13 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
                 
                 <!-- Free Lite Tier -->
-                <div class="card flex flex-col justify-between p-6 bg-surface-light border border-border/60 hover:border-border/100 transition-all duration-300 rounded-xl">
+                <div class="card flex flex-col justify-between p-6 bg-surface-light border border-border hover:border-border/200 transition-all duration-300 rounded-xl">
                     <div class="mb-6">
                         <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider mb-2">// LITE</div>
-                        <h3 class="font-serif font-semibold text-lg text-[#e5e5e5]">{{ $t('pricing.freeLite.name') }}</h3>
+                        <h3 class="font-serif font-semibold text-lg text-text">{{ $t('pricing.freeLite.name') }}</h3>
                         <p class="text-[10px] text-text-muted mt-1 min-h-[24px]">{{ $t('pricing.freeLite.desc') }}</p>
-                        <div class="text-3xl font-semibold mt-4 text-[#e5e5e5]">{{ $lang.lang === 'fr' ? '0 $' : '$0' }}</div>
-                        <div class="border-b border-border/40 my-5"></div>
+                        <div class="text-3xl font-semibold mt-4 text-text">{{ $lang.lang === 'fr' ? '0 $' : '$0' }}</div>
+                        <div class="border-b border-border my-5"></div>
                         <ul class="space-y-3.5 text-xs">
                             <li v-for="item in $t('pricing.freeLite.features')" :key="item" class="flex items-start gap-2.5">
                                 <span class="text-[#27c93f] text-[10px] font-semibold select-none mt-0.5">✓</span>
@@ -124,16 +124,16 @@
                 </div>
 
                 <!-- Solo Tier -->
-                <div class="card flex flex-col justify-between p-6 bg-surface-light border border-border/60 hover:border-border/100 transition-all duration-300 rounded-xl">
+                <div class="card flex flex-col justify-between p-6 bg-surface-light border border-border hover:border-border/200 transition-all duration-300 rounded-xl">
                     <div class="mb-6">
                         <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider mb-2">// INDIVIDUAL</div>
-                        <h3 class="font-serif font-semibold text-lg text-[#e5e5e5]">{{ $t('pricing.solo.name') }}</h3>
+                        <h3 class="font-serif font-semibold text-lg text-text">{{ $t('pricing.solo.name') }}</h3>
                         <p class="text-[10px] text-text-muted mt-1 min-h-[24px]">{{ $t('pricing.solo.desc') }}</p>
                         <div class="mt-4">
-                            <span class="text-3xl font-semibold text-[#e5e5e5]">{{ $lang.lang === 'fr' ? '149 $' : '$149' }}</span>
+                            <span class="text-3xl font-semibold text-text">{{ $lang.lang === 'fr' ? '149 $' : '$149' }}</span>
                             <span class="text-[9px] font-mono text-text-muted block mt-1">({{ $t('pricing.period') }})</span>
                         </div>
-                        <div class="border-b border-border/40 my-5"></div>
+                        <div class="border-b border-border my-5"></div>
                         <ul class="space-y-3.5 text-xs">
                             <li v-for="item in $t('pricing.solo.features')" :key="item" class="flex items-start gap-2.5">
                                 <span class="text-[#27c93f] text-[10px] font-semibold select-none mt-0.5">✓</span>
@@ -152,15 +152,15 @@
 
                 <!-- Pro Tier (Recommended / Border Glow) -->
                 <div class="card flex flex-col justify-between p-6 border-brand bg-brand/[0.01] shadow-[0_0_40px_rgba(96,165,250,0.06)] relative transition-all duration-300 hover:shadow-[0_0_40px_rgba(96,165,250,0.12)] hover:border-brand/80 rounded-xl">
-                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3.5 py-1 bg-brand-dark text-white text-[9px] font-mono font-semibold tracking-wider rounded-full uppercase select-none shadow-[0_0_12px_rgba(59,130,246,0.3)]">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3.5 py-1 bg-brand-dark text-white text-[9px] font-mono font-semibold tracking-wider rounded-full uppercase select-none shadow-[0_0_12px_rgba(34,197,94,0.3)]">
                         {{ $lang.lang === 'fr' ? 'Recommandé' : 'Recommended' }}
                     </div>
                     <div class="mb-6">
                         <div class="text-[9px] font-mono text-brand uppercase tracking-wider mb-2 mt-2">// POWER USER</div>
-                        <h3 class="font-serif font-semibold text-lg text-[#e5e5e5]">{{ $t('pricing.pro.name') }}</h3>
+                        <h3 class="font-serif font-semibold text-lg text-text">{{ $t('pricing.pro.name') }}</h3>
                         <p class="text-[10px] text-text-muted mt-1 min-h-[24px]">{{ $t('pricing.pro.desc') }}</p>
                         <div class="mt-4">
-                            <span class="text-3xl font-semibold text-[#e5e5e5]">{{ $lang.lang === 'fr' ? '199 $' : '$199' }}</span>
+                            <span class="text-3xl font-semibold text-text">{{ $lang.lang === 'fr' ? '199 $' : '$199' }}</span>
                             <span class="text-[9px] font-mono text-brand block mt-1">({{ $t('pricing.period') }})</span>
                         </div>
                         <div class="border-b border-brand/20 my-5"></div>
@@ -177,16 +177,16 @@
                 </div>
 
                 <!-- Comptable Tier -->
-                <div class="card flex flex-col justify-between p-6 bg-surface-light border border-border/60 hover:border-border/100 transition-all duration-300 rounded-xl">
+                <div class="card flex flex-col justify-between p-6 bg-surface-light border border-border hover:border-border/200 transition-all duration-300 rounded-xl">
                     <div class="mb-6">
                         <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider mb-2">// CABINET & ENTERPRISE</div>
-                        <h3 class="font-serif font-semibold text-lg text-[#e5e5e5]">{{ $t('pricing.comptable.name') }}</h3>
+                        <h3 class="font-serif font-semibold text-lg text-text">{{ $t('pricing.comptable.name') }}</h3>
                         <p class="text-[10px] text-text-muted mt-1 min-h-[24px]">{{ $t('pricing.comptable.desc') }}</p>
                         <div class="mt-4">
-                            <span class="text-3xl font-semibold text-[#e5e5e5]">{{ $lang.lang === 'fr' ? '399 $' : '$399' }}</span>
+                            <span class="text-3xl font-semibold text-text">{{ $lang.lang === 'fr' ? '399 $' : '$399' }}</span>
                             <span class="text-[9px] font-mono text-text-muted block mt-1">({{ $t('pricing.period') }})</span>
                         </div>
-                        <div class="border-b border-border/40 my-5"></div>
+                        <div class="border-b border-border my-5"></div>
                         <ul class="space-y-3.5 text-xs">
                             <li v-for="item in $t('pricing.comptable.features')" :key="item" class="flex items-start gap-2.5">
                                 <span class="text-[#27c93f] text-[10px] font-semibold select-none mt-0.5">✓</span>
@@ -205,10 +205,10 @@
 
         <!-- Checkout Email Modal Dialog -->
         <div v-if="showModal" class="fixed inset-0 z-50 flex items-center justify-center p-6 bg-surface/80 backdrop-blur-md transition-all duration-300">
-            <div class="border border-border bg-[#161615] rounded-2xl p-8 max-w-md w-full relative shadow-2xl transition-all hover:border-border/100">
-                <button @click="closeModal" class="absolute top-4 right-4 text-text-muted hover:text-[#e5e5e5] font-light text-xl select-none cursor-pointer">&times;</button>
+            <div class="border border-border bg-surface-light rounded-2xl p-8 max-w-md w-full relative shadow-2xl transition-all hover:border-border/200">
+                <button @click="closeModal" class="absolute top-4 right-4 text-text-muted hover:text-text font-light text-xl select-none cursor-pointer">&times;</button>
                 
-                <h3 class="font-serif font-semibold text-xl mb-2 text-[#e5e5e5]">
+                <h3 class="font-serif font-semibold text-xl mb-2 text-text">
                     {{ $lang.lang === 'fr' ? 'Informations de facturation' : 'Billing Information' }}
                 </h3>
                 <p class="text-xs text-text-muted mb-6">
@@ -226,7 +226,7 @@
                             v-model="email" 
                             required 
                             placeholder="you@example.com"
-                            class="w-full bg-[#0a0a0a] border border-border focus:border-brand focus:ring-1 focus:ring-brand focus:shadow-[0_0_15px_rgba(96,165,250,0.12)] rounded-lg px-4 py-3 text-sm text-[#e5e5e5] outline-none transition-all"
+                            class="w-full bg-surface border border-border focus:border-brand focus:ring-1 focus:ring-brand focus:shadow-[0_0_15px_rgba(96,165,250,0.12)] rounded-lg px-4 py-3 text-sm text-text outline-none transition-all"
                         />
                     </div>
 

@@ -6,13 +6,13 @@
             :src="'/images/desk_bg.png'" alt="Clean desk with greenery">
         
         <!-- Subtle Overlay -->
-        <div class="absolute inset-0 bg-white/30 backdrop-blur-sm z-0"></div>
+        <div class="absolute inset-0 bg-surface-light/30 backdrop-blur-sm z-0"></div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
             <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 
                 <!-- Left Column: Copy & CTAs (1/3 Width) -->
-                <div class="lg:col-span-4 text-left flex flex-col items-start bg-white border border-border p-8 lg:p-10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] relative z-10 transition-all duration-300">
+                <div class="lg:col-span-4 text-left flex flex-col items-start bg-surface-light border border-border p-8 lg:p-10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] relative z-10 transition-all duration-300">
                     <div class="w-12 h-12 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center mb-6 select-none">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-brand-dark fill-none" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1z"></path>
@@ -59,16 +59,16 @@
 
                 <!-- Right Column: Interactive Receipt Demo (2/3 Width) -->
                 <div class="lg:col-span-8 w-full mx-auto lg:mx-0 relative z-10 flex justify-center">
-                    <div class="w-full max-w-3xl border border-border bg-white/95 backdrop-blur-md rounded-xl overflow-hidden shadow-2xl relative font-sans text-xs">
+                    <div class="w-full max-w-3xl border border-border bg-surface-light/95 backdrop-blur-md rounded-xl overflow-hidden shadow-2xl relative font-sans text-xs">
                         
                         <!-- Carousel Top Header bar (OS Window style + Tab bar) -->
                         <div class="border-b border-border">
                             <!-- Window dots & title -->
-                            <div class="flex items-center justify-between px-4 py-3 border-b border-border bg-white z-10">
+                            <div class="flex items-center justify-between px-4 py-3 border-b border-border bg-surface-light z-10">
                                 <div class="flex items-center gap-1.5">
                                     <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></span>
                                     <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></span>
-                                    <span class="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-brand-dark"></span>
                                     <span class="font-mono text-[10px] text-text-muted uppercase tracking-wider ml-1.5 font-medium">Desktop Simulator</span>
                                 </div>
                                 <div class="text-[9px] text-brand-dark font-mono font-bold uppercase tracking-wider bg-brand/10 px-2 py-0.5 rounded border border-brand/20">
@@ -80,8 +80,8 @@
                             <div class="flex overflow-x-auto scrollbar-none font-mono text-[10px] uppercase tracking-wider text-text-muted select-none bg-surface border-b border-border">
                                 <button v-for="(tabName, idx) in tabNames" :key="idx"
                                         @click="selectTab(idx)"
-                                        class="flex-1 min-w-[75px] py-4 px-2 text-center border-r border-border hover:bg-white hover:text-brand-dark transition-all relative font-medium"
-                                        :class="idx === activeTab ? 'bg-white text-brand-dark font-bold' : ''">
+                                        class="flex-1 min-w-[75px] py-4 px-2 text-center border-r border-border hover:bg-surface-light hover:text-brand-dark transition-all relative font-medium"
+                                        :class="idx === activeTab ? 'bg-surface-light text-brand-dark font-bold' : ''">
                                     <span>{{ tabName }}</span>
                                     <span v-if="idx === activeTab" class="absolute bottom-0 left-0 right-0 h-[2px] bg-brand-dark"></span>
                                 </button>
@@ -148,7 +148,7 @@
                                         <!-- Vendor Field -->
                                         <div class="flex items-center gap-2">
                                             <span class="w-16 text-text-muted text-[10px]">Vendor:</span>
-                                            <div class="flex-1 bg-white border border-border rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden shadow-sm">
+                                            <div class="flex-1 bg-surface-light border border-border rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden shadow-sm">
                                                 <span class="font-mono text-[10px] text-text transition-opacity duration-300" :class="parserStep >= 2 ? 'opacity-100' : 'opacity-0'">
                                                     mom-pop-cafe
                                                 </span>
@@ -161,7 +161,7 @@
                                         <!-- Date Field -->
                                         <div class="flex items-center gap-2">
                                             <span class="w-16 text-text-muted text-[10px]">Date:</span>
-                                            <div class="flex-1 bg-white border border-border rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden shadow-sm">
+                                            <div class="flex-1 bg-surface-light border border-border rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden shadow-sm">
                                                 <span class="font-mono text-[10px] text-text transition-opacity duration-300" :class="parserStep >= 2 ? 'opacity-100' : 'opacity-0'">
                                                     2026-06-19
                                                 </span>
@@ -174,7 +174,7 @@
                                         <!-- Taxes Field -->
                                         <div class="flex items-center gap-2">
                                             <span class="w-16 text-text-muted text-[10px]">Taxes ($):</span>
-                                            <div class="flex-1 bg-white border border-border rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden shadow-sm">
+                                            <div class="flex-1 bg-surface-light border border-border rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden shadow-sm">
                                                 <span class="font-mono text-[10px] text-text transition-opacity duration-300" :class="parserStep >= 2 ? 'opacity-100' : 'opacity-0'">
                                                     0.39
                                                 </span>
@@ -187,7 +187,7 @@
                                         <!-- Total Field -->
                                         <div class="flex items-center gap-2">
                                             <span class="w-16 text-text-muted text-[10px]">Total ($):</span>
-                                            <div class="flex-1 bg-white border border-border rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden shadow-sm">
+                                            <div class="flex-1 bg-surface-light border border-border rounded px-2.5 py-1.5 h-6 flex items-center justify-between overflow-hidden shadow-sm">
                                                 <span class="font-mono text-[10px] text-text transition-opacity duration-300" :class="parserStep >= 2 ? 'opacity-100' : 'opacity-0'">
                                                     8.14
                                                 </span>
@@ -219,18 +219,18 @@
                                 <!-- Left column: raw ocr text -->
                                 <div class="sm:col-span-5 space-y-2">
                                     <div class="text-[8px] font-mono text-text-muted uppercase tracking-wider border-b border-border pb-1">// Raw OCR Stream (with Typos)</div>
-                                    <div class="bg-surface border border-border/40 rounded-lg p-3 h-[250px] overflow-y-auto font-mono text-[9px] text-text-muted space-y-2 select-none leading-relaxed">
+                                    <div class="bg-surface border border-border rounded-lg p-3 h-[250px] overflow-y-auto font-mono text-[9px] text-text-muted space-y-2 select-none leading-relaxed">
                                         <div><span class="text-text font-bold">ACME COPIER 5ERVICE5 INC.</span> <span class="text-red-400 text-[8px] font-bold">[typo: 5/S]</span></div>
                                         <div>St-Jean-sur-Richelieu, Qc</div>
-                                        <div class="border-t border-border/10 pt-1">
+                                        <div class="border-t border-border/20 pt-1">
                                             <div>FACT: <span class="text-red-400 bg-red-500/5 px-1 rounded">17O0</span> <span class="text-red-400">[typo: O/0]</span></div>
                                             <div>DATE: 19/O6/2O26 <span class="text-red-400">[typo: O/0]</span></div>
                                         </div>
-                                        <div class="border-t border-border/10 pt-1 space-y-1">
+                                        <div class="border-t border-border/20 pt-1 space-y-1">
                                             <div>- Maintenance... <span class="text-red-400 font-bold">$12O.O0</span></div>
                                             <div>- Papier Lettre... $10.00</div>
                                         </div>
-                                        <div class="border-t border-border/10 pt-1">
+                                        <div class="border-t border-border/20 pt-1">
                                             <div>TAX: <span class="text-red-400 font-bold">19.5O</span></div>
                                             <div class="font-bold">TOTAL: <span class="text-red-400 font-bold">149.5O</span></div>
                                         </div>
@@ -271,7 +271,7 @@
                                             </div>
                                         </div>
                                         <!-- Tax & Total details -->
-                                        <div class="pt-2 border-t border-border/40 space-y-1 font-mono text-[9px]">
+                                        <div class="pt-2 border-t border-border space-y-1 font-mono text-[9px]">
                                             <div class="flex justify-between text-text-muted">
                                                 <span>TPS/TVQ Tax (14.975%)</span>
                                                 <span class="text-green-600">$19.50</span>
@@ -290,12 +290,12 @@
                                         </div>
                                     </div>
 
-                                    <div v-if="aiStep === 'idle'" class="p-8 text-center text-text-muted font-mono text-[10px] border border-dashed border-border/40 rounded-lg flex-1 flex items-center justify-center">
+                                    <div v-if="aiStep === 'idle'" class="p-8 text-center text-text-muted font-mono text-[10px] border border-dashed border-border rounded-lg flex-1 flex items-center justify-center">
                                         Ready. Click run to simulate offline parsing & renaming.
                                     </div>
 
                                     <div class="flex gap-2 pt-2">
-                                        <button @click="runAiCorrection" :disabled="aiStep === 'processing'" class="flex-1 py-2 bg-[#27c93f] text-white hover:bg-[#22a835] font-serif font-bold text-xs rounded transition-colors">
+                                        <button @click="runAiCorrection" :disabled="aiStep === 'processing'" class="flex-1 py-2 bg-brand-dark text-white hover:bg-brand-deep font-serif font-bold text-xs rounded transition-colors">
                                             {{ aiStep === 'processing' ? 'Processing...' : 'Run AI Extraction & Rename' }}
                                         </button>
                                     </div>
@@ -311,7 +311,7 @@
                                     <div class="bg-surface border border-border rounded-lg p-3.5 space-y-3 shadow-sm">
                                         <div class="space-y-1">
                                             <label class="text-[8px] font-mono text-text-muted uppercase">Search Query</label>
-                                            <div class="relative bg-white border border-border rounded px-2.5 py-1.5 h-7 flex items-center gap-1.5 shadow-inner">
+                                            <div class="relative bg-surface-light border border-border rounded px-2.5 py-1.5 h-7 flex items-center gap-1.5 shadow-inner">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 stroke-text-muted fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                     <circle cx="11" cy="11" r="8"></circle>
                                                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -322,7 +322,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="pt-2 border-t border-border/40 space-y-2 text-[8px] font-mono text-text-muted">
+                                        <div class="pt-2 border-t border-border space-y-2 text-[8px] font-mono text-text-muted">
                                             <div class="flex justify-between">
                                                 <span>Local Index:</span>
                                                 <span class="text-text font-bold">152 receipts</span>
@@ -361,7 +361,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr v-for="receipt in filteredReceipts" :key="receipt.file" class="border-b border-border/10 text-[9px] hover:bg-white/[0.01]">
+                                                <tr v-for="receipt in filteredReceipts" :key="receipt.file" class="border-b border-border/20 text-[9px] hover:bg-surface-light/[0.01]">
                                                     <td class="p-1.5 text-text-muted">{{ receipt.date }}</td>
                                                     <td class="p-1.5 text-text font-bold">{{ receipt.vendor }}</td>
                                                     <td class="p-1.5 text-right text-brand font-bold">{{ receipt.amount }}</td>
@@ -412,7 +412,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr v-for="receipt in receipts" :key="receipt.file" class="border-b border-border/10 text-[9px] hover:bg-white/[0.01]">
+                                                <tr v-for="receipt in receipts" :key="receipt.file" class="border-b border-border/20 text-[9px] hover:bg-surface-light/[0.01]">
                                                     <td class="p-1.5 text-text">{{ receipt.date }}</td>
                                                     <td class="p-1.5 text-text-muted truncate max-w-[80px]">{{ receipt.vendor }}</td>
                                                     <td class="p-1.5 text-right text-text">{{ receipt.tax }}</td>
@@ -423,12 +423,12 @@
                                         </table>
                                     </div>
 
-                                    <div v-if="reportStep === 'idle'" class="p-8 text-center text-text-muted font-mono text-[10px] border border-dashed border-border/40 rounded-lg flex-1 flex items-center justify-center">
+                                    <div v-if="reportStep === 'idle'" class="p-8 text-center text-text-muted font-mono text-[10px] border border-dashed border-border rounded-lg flex-1 flex items-center justify-center">
                                         Click build to compile files into PDF reports.
                                     </div>
 
                                     <div class="flex gap-2 pt-2">
-                                        <button @click="startGeneration" :disabled="reportStep === 'generating'" class="flex-1 py-2 bg-[#27c93f] text-white hover:bg-[#22a835] font-serif font-bold text-xs rounded transition-colors">
+                                        <button @click="startGeneration" :disabled="reportStep === 'generating'" class="flex-1 py-2 bg-brand-dark text-white hover:bg-brand-deep font-serif font-bold text-xs rounded transition-colors">
                                             {{ reportStep === 'generating' ? 'Compiling Report...' : 'Build HTML Report' }}
                                         </button>
                                     </div>
@@ -437,13 +437,13 @@
                         </div>
 
                         <!-- Footer Control & Status bar (Only shown for Parser Tab 0) -->
-                        <div v-if="activeTab === 0" class="bg-surface/40 px-4 py-3 border-t border-border/40 flex items-center justify-between gap-4">
+                        <div v-if="activeTab === 0" class="bg-surface/40 px-4 py-3 border-t border-border flex items-center justify-between gap-4">
                             <div class="text-[10px] font-mono text-text-muted">
                                 Status: <span :class="parserSteps[parserStep].statusColor" class="font-semibold">{{ $t('hero.simulator.status.' + parserSteps[parserStep].statusKey) }}</span>
                             </div>
                             <div class="flex items-center gap-2">
                                 <button class="btn-outline text-[9px] font-mono px-3.5 py-1.5 h-7">{{ $t('hero.simulator.discard') }}</button>
-                                <button class="btn-brand text-[9px] font-mono px-3.5 py-1.5 h-7 flex items-center gap-1 bg-[#27c93f] hover:bg-[#22a835]"
+                                <button class="btn-brand text-[9px] font-mono px-3.5 py-1.5 h-7 flex items-center gap-1 bg-brand-dark hover:bg-brand-deep"
                                         :class="{'opacity-50 cursor-not-allowed': parserStep < 4}">
                                     {{ $t('hero.simulator.save') }}
                                 </button>

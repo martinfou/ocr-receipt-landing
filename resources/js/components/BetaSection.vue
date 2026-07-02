@@ -1,5 +1,5 @@
 <template>
-    <section id="beta" class="py-24 lg:py-32 bg-[#0a0a0a] border-t border-border/40 relative overflow-hidden">
+    <section id="beta" class="py-24 lg:py-32 bg-surface border-t border-border relative overflow-hidden">
         <!-- Background decorative details to convey security/offline -->
         <div class="absolute -top-40 -left-40 w-96 h-96 bg-brand/5 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-brand/5 rounded-full blur-3xl pointer-events-none"></div>
@@ -8,21 +8,21 @@
             <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
                 
                 <!-- Left Column: Early Access Form -->
-                <div class="lg:col-span-7 bg-surface-light border border-border/80 p-8 lg:p-10 rounded-2xl shadow-2xl flex flex-col justify-between transition-all duration-300 hover:border-border/100">
+                <div class="lg:col-span-7 bg-surface-light border border-border/80 p-8 lg:p-10 rounded-2xl shadow-2xl flex flex-col justify-between transition-all duration-300 hover:border-border/200">
                     <div>
                         <div class="text-[10px] font-mono text-brand uppercase tracking-widest mb-3 flex items-center gap-2">
                             <span class="w-1.5 h-1.5 rounded-full bg-brand animate-pulse"></span>
                             Private Release Program
                         </div>
-                        <h2 class="text-3xl font-serif font-semibold mb-3 tracking-[-0.01em] text-[#e5e5e5]">
+                        <h2 class="text-3xl font-serif font-semibold mb-3 tracking-[-0.01em] text-text">
                             {{ $t('beta.title') }}
                         </h2>
                         <p class="text-sm text-text-muted mb-8 max-w-xl">{{ $t('beta.subtitle') }}</p>
 
                         <!-- Benefit grid - clean alignment, glowing hover border -->
                         <div class="grid sm:grid-cols-2 gap-4 mb-8">
-                            <div class="flex items-center gap-3.5 p-4 rounded-xl bg-[#0a0a0a] border border-border/40 hover:border-brand/40 transition-colors duration-300">
-                                <div class="w-8 h-8 rounded-lg bg-surface-light border border-border/60 flex items-center justify-center shrink-0 text-brand select-none">
+                            <div class="flex items-center gap-3.5 p-4 rounded-xl bg-surface border border-border hover:border-brand/40 transition-colors duration-300">
+                                <div class="w-8 h-8 rounded-lg bg-surface-light border border-border flex items-center justify-center shrink-0 text-brand select-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 stroke-brand fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <circle cx="12" cy="12" r="10"></circle>
                                         <circle cx="12" cy="12" r="6"></circle>
@@ -31,16 +31,16 @@
                                 </div>
                                 <span class="text-xs text-text-muted leading-relaxed">{{ $t('beta.bullet1') }}</span>
                             </div>
-                            <div class="flex items-center gap-3.5 p-4 rounded-xl bg-[#0a0a0a] border border-border/40 hover:border-brand/40 transition-colors duration-300">
-                                <div class="w-8 h-8 rounded-lg bg-surface-light border border-border/60 flex items-center justify-center shrink-0 text-brand select-none">
+                            <div class="flex items-center gap-3.5 p-4 rounded-xl bg-surface border border-border hover:border-brand/40 transition-colors duration-300">
+                                <div class="w-8 h-8 rounded-lg bg-surface-light border border-border flex items-center justify-center shrink-0 text-brand select-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 stroke-brand fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                                     </svg>
                                 </div>
                                 <span class="text-xs text-text-muted leading-relaxed">{{ $t('beta.bullet2') }}</span>
                             </div>
-                            <div class="flex items-center gap-3.5 p-4 rounded-xl bg-[#0a0a0a] border border-border/40 hover:border-brand/40 transition-colors duration-300">
-                                <div class="w-8 h-8 rounded-lg bg-surface-light border border-border/60 flex items-center justify-center shrink-0 text-brand select-none">
+                            <div class="flex items-center gap-3.5 p-4 rounded-xl bg-surface border border-border hover:border-brand/40 transition-colors duration-300">
+                                <div class="w-8 h-8 rounded-lg bg-surface-light border border-border flex items-center justify-center shrink-0 text-brand select-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 stroke-brand fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
                                         <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
@@ -48,8 +48,8 @@
                                 </div>
                                 <span class="text-xs text-text-muted leading-relaxed">{{ $t('beta.bullet3') }}</span>
                             </div>
-                            <div class="flex items-center gap-3.5 p-4 rounded-xl bg-[#0a0a0a] border border-border/40 hover:border-brand/40 transition-colors duration-300">
-                                <div class="w-8 h-8 rounded-lg bg-surface-light border border-border/60 flex items-center justify-center shrink-0 text-brand select-none">
+                            <div class="flex items-center gap-3.5 p-4 rounded-xl bg-surface border border-border hover:border-brand/40 transition-colors duration-300">
+                                <div class="w-8 h-8 rounded-lg bg-surface-light border border-border flex items-center justify-center shrink-0 text-brand select-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 stroke-brand fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
                                         <line x1="7" y1="7" x2="7.01" y2="7"></line>
@@ -77,7 +77,7 @@
                                         id="firstname" 
                                         v-model="form.firstname" 
                                         required
-                                        class="w-full bg-[#0a0a0a] border border-border focus:border-brand focus:ring-1 focus:ring-brand focus:shadow-[0_0_15px_rgba(96,165,250,0.12)] rounded-lg px-4 py-3 text-sm text-[#e5e5e5] placeholder-text-muted/40 transition-all outline-none"
+                                        class="w-full bg-surface border border-border focus:border-brand focus:ring-1 focus:ring-brand focus:shadow-[0_0_15px_rgba(96,165,250,0.12)] rounded-lg px-4 py-3 text-sm text-text placeholder-text-muted/40 transition-all outline-none"
                                     />
                                 </div>
                                 <div>
@@ -89,7 +89,7 @@
                                         id="email" 
                                         v-model="form.email" 
                                         required
-                                        class="w-full bg-[#0a0a0a] border border-border focus:border-brand focus:ring-1 focus:ring-brand focus:shadow-[0_0_15px_rgba(96,165,250,0.12)] rounded-lg px-4 py-3 text-sm text-[#e5e5e5] placeholder-text-muted/40 transition-all outline-none"
+                                        class="w-full bg-surface border border-border focus:border-brand focus:ring-1 focus:ring-brand focus:shadow-[0_0_15px_rgba(96,165,250,0.12)] rounded-lg px-4 py-3 text-sm text-text placeholder-text-muted/40 transition-all outline-none"
                                     />
                                 </div>
                             </div>
@@ -102,7 +102,7 @@
                                     type="text" 
                                     id="profession" 
                                     v-model="form.profession"
-                                    class="w-full bg-[#0a0a0a] border border-border focus:border-brand focus:ring-1 focus:ring-brand focus:shadow-[0_0_15px_rgba(96,165,250,0.12)] rounded-lg px-4 py-3 text-sm text-[#e5e5e5] placeholder-text-muted/40 transition-all outline-none"
+                                    class="w-full bg-surface border border-border focus:border-brand focus:ring-1 focus:ring-brand focus:shadow-[0_0_15px_rgba(96,165,250,0.12)] rounded-lg px-4 py-3 text-sm text-text placeholder-text-muted/40 transition-all outline-none"
                                 />
                             </div>
 
@@ -130,7 +130,7 @@
                 </div>
 
                 <!-- Right Column: About the Maker -->
-                <div class="lg:col-span-5 bg-surface-light border border-border/80 p-8 lg:p-10 rounded-2xl shadow-2xl flex flex-col justify-between transition-all duration-300 hover:border-border/100">
+                <div class="lg:col-span-5 bg-surface-light border border-border/80 p-8 lg:p-10 rounded-2xl shadow-2xl flex flex-col justify-between transition-all duration-300 hover:border-border/200">
                     <div>
                         <div class="text-[10px] font-mono text-brand uppercase tracking-widest mb-6">
                             // THE AUTHOR
@@ -142,7 +142,7 @@
                                 MF
                             </div>
                             <div>
-                                <h3 class="font-serif font-semibold text-lg text-[#e5e5e5]">{{ $t('about.title') }}</h3>
+                                <h3 class="font-serif font-semibold text-lg text-text">{{ $t('about.title') }}</h3>
                                 <span class="text-xs text-brand font-mono">{{ $t('about.location') }}</span>
                             </div>
                         </div>
@@ -152,7 +152,7 @@
                         </p>
                     </div>
 
-                    <div class="flex flex-col gap-3 text-xs font-mono border-t border-border/40 pt-6 mt-6">
+                    <div class="flex flex-col gap-3 text-xs font-mono border-t border-border pt-6 mt-6">
                         <a href="https://martinfournier.com" target="_blank" rel="noopener" class="flex items-center justify-between text-text-muted hover:text-brand transition-colors group">
                             <span>martinfournier.com</span>
                             <span class="transition-transform group-hover:translate-x-1">→</span>

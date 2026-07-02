@@ -1,7 +1,7 @@
 <template>
     <section id="faq" class="py-24 lg:py-32">
         <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-3xl lg:text-4xl font-serif font-semibold text-center mb-16 tracking-[-0.01em] text-[#e5e5e5]">
+            <h2 class="text-3xl lg:text-4xl font-serif font-semibold text-center mb-16 tracking-[-0.01em] text-text">
                 {{ $t('faq.title') }}
             </h2>
 
@@ -13,7 +13,7 @@
                     
                     <!-- Question Header -->
                     <div class="flex items-center justify-between gap-4">
-                        <h3 class="font-medium text-base text-[#e5e5e5]">{{ item.q }}</h3>
+                        <h3 class="font-medium text-base text-text">{{ item.q }}</h3>
                         <span class="text-brand text-xl font-light shrink-0 transition-transform duration-300" 
                               :class="openIndex === i ? 'rotate-45 text-brand' : 'text-text-muted'">
                             +
