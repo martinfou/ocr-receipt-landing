@@ -17,7 +17,7 @@
                         <a href="#problem" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.problem') }}</a>
                         <a href="#how-it-works" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.workflow') }}</a>
                         <a href="#features" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.features') }}</a>
-                        <a href="#blog" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.blog') }}</a>
+                        <a href="/blog" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.blog') }}</a>
                         <a href="#pricing" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.pricing') }}</a>
                         <a href="#beta" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.contact') }}</a>
                     </div>
@@ -86,7 +86,7 @@
                         <a href="#problem" @click="closeMobileMenu" class="text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40">{{ $t('nav.problem') }}</a>
                         <a href="#how-it-works" @click="closeMobileMenu" class="text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40">{{ $t('nav.workflow') }}</a>
                         <a href="#features" @click="closeMobileMenu" class="text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40">{{ $t('nav.features') }}</a>
-                        <a href="#blog" @click="closeMobileMenu" class="text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40">{{ $t('nav.blog') }}</a>
+                        <a href="/blog" class="text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40">{{ $t('nav.blog') }}</a>
                         <a href="#pricing" @click="closeMobileMenu" class="text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40">{{ $t('nav.pricing') }}</a>
                         <a href="#beta" @click="closeMobileMenu" class="text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40">{{ $t('nav.contact') }}</a>
                     </div>
@@ -144,7 +144,6 @@
             <GallerySection />
             <PricingSection />
             <BetaSection />
-            <BlogSection />
             <DownloadsSection />
             <FaqSection />
             <FooterSection />
@@ -170,7 +169,7 @@ import HowItWorksSection from './HowItWorksSection.vue';
 import FeaturesSection from './FeaturesSection.vue';
 import GallerySection from './GallerySection.vue';
 import PricingSection from './PricingSection.vue';
-import BlogSection from './BlogSection.vue';
+// BlogSection removed
 import DownloadsSection from './DownloadsSection.vue';
 import BetaSection from './BetaSection.vue';
 import FaqSection from './FaqSection.vue';
@@ -185,7 +184,7 @@ export default {
         FeaturesSection,
         GallerySection,
         PricingSection,
-        BlogSection,
+
         DownloadsSection,
         BetaSection,
         FaqSection,
