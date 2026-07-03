@@ -1,6 +1,6 @@
 <template>
-    <div id="app" class="min-h-screen bg-surface text-text">
-        <nav class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-md border-b border-border">
+    <div id="app" class="min-h-screen bg-surface text-text overflow-x-hidden">
+        <nav class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-md border-b border-border">
             <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
                 <div class="flex items-center gap-2 cursor-pointer select-none" @click="scrollToTop">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-brand fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
