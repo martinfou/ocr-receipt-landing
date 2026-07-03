@@ -36,4 +36,7 @@ app.config.globalProperties.$setLang = (newLang) => {
     localStorage.setItem('lang', newLang);
 };
 
-app.mount('#app');
+const appEl = document.getElementById('app');
+if (appEl && appEl.innerHTML.trim() === '') {
+    app.mount('#app');
+}

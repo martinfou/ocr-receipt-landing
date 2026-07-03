@@ -48,7 +48,7 @@
     </style>
 </head>
 <body>
-    <div id="app">
+    <div id="static-app">
         <nav style="display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;border-bottom:1px solid var(--color-border);">
             <a href="/" style="font-family:'EB Garamond',serif;font-weight:600;font-size:1.1rem;color:var(--color-text);text-decoration:none;">OCR Receipt</a>
             <div><a href="/" style="color:var(--color-text-muted);text-decoration:none;font-size:0.875rem;">Home</a></div>
