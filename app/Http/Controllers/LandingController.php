@@ -10,6 +10,11 @@ class LandingController extends Controller
         return view('landing');
     }
 
+    public function hubdoc()
+    {
+        return view('hubdoc');
+    }
+
     public function subscribe(Request $request)
     {
         $request->validate([

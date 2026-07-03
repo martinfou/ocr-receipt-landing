@@ -5,6 +5,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LicenseController;
 
 Route::get('/', [LandingController::class, 'index'])->name('landing');
+Route::get('/alternative-hubdoc', [LandingController::class, 'hubdoc'])->name('hubdoc');
 Route::post('/subscribe', [LandingController::class, 'subscribe'])->name('subscribe');
 
 // Stripe checkout
