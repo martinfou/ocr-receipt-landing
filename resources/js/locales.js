@@ -5,6 +5,7 @@ export const locales = {
             workflow: "Comment ça marche",
             features: "Fonctionnalités",
             pricing: "Tarifs",
+            blog: "Blog",
             contact: "Contact",
             cta: "Télécharger"
         },
@@ -79,7 +80,7 @@ export const locales = {
             },
             step2: {
                 title: "IA 100% Locale & Renommer",
-                desc: "Analyse sémantique, extraction de données et renommage intelligent hors ligne par LLM."
+                desc: "Analyse sémantique, extraction locale de données (avec métadonnées PDF enrichies) et renommage intelligent hors ligne par LLM. Vos données restent 100% locales, sans aucun format propriétaire."
             },
             step3: {
                 title: "Recherche Avancée",
@@ -111,7 +112,7 @@ export const locales = {
             },
             export: {
                 title: "Rapports PDF & Exports CSV",
-                desc: "Générez des rapports PDF d'audit complets avec une copie de chaque reçu intégrée, ou exportez en un clic vers un fichier CSV compatible Excel et QuickBooks."
+                desc: "Générez des rapports PDF d'audit complets avec copies intégrées ou exportez en CSV. Les métadonnées du PDF sont enrichies avec les données extraites pour faciliter la lecture informatique, sans aucun format propriétaire."
             },
             desktop: {
                 title: "Application Native",
@@ -324,7 +325,7 @@ export const locales = {
                 },
                 {
                     q: "Quels formats de fichiers sont supportés ?",
-                    a: "PDF et images (PNG, JPG). Uniquement les factures et reçus."
+                    a: "PDF et images (PNG, JPG). Uniquement les factures et reçus. OCR Receipt n'utilise aucun format propriétaire : vos données et fichiers restent entièrement les vôtres. De plus, le renommage automatique vous permet de retrouver vos fichiers directement depuis la recherche de votre système d'exploitation (Spotlight ou Windows Search) sans ouvrir l'application. Les PDF traités voient également leurs métadonnées enrichies pour être lues facilement par d'autres programmes."
                 },
                 {
                     q: "Est-ce que ça marche avec mes fournisseurs ?",
@@ -368,6 +369,34 @@ export const locales = {
                 btn: "Télécharger (.TAR.GZ)"
             },
             licenseNote: "Clé d'activation requise. Obtenez une clé d'accès anticipé gratuite dans la section tarifs ci-dessus."
+        },
+        blog: {
+            title: "Actualités & Insights",
+            subtitle: "Découvrez nos guides sur la productivité, la sécurité locale et la gestion de vos dépenses.",
+            readMore: "Lire l'article",
+            posts: [
+                {
+                    title: "Pourquoi nous avons créé un outil OCR 100 % hors ligne",
+                    excerpt: "Vos données financières n'ont rien à faire sur des serveurs tiers. Retour sur la genèse d'OCR Receipt et notre combat pour la souveraineté des données.",
+                    date: "24 Juin 2026",
+                    readTime: "5 min de lecture",
+                    tag: "Confidentialité"
+                },
+                {
+                    title: "Le coût caché de l'accumulation d'abonnements SaaS",
+                    excerpt: "Freelances et PME paient des centaines de dollars par an en micro-abonnements. Voici comment les licences perpétuelles et les applications locales vous sauvent la mise.",
+                    date: "15 Juin 2026",
+                    readTime: "4 min de lecture",
+                    tag: "Finance"
+                },
+                {
+                    title: "Enrichissement de métadonnées PDF : la clé de l'automatisation",
+                    excerpt: "Comment intégrer des métadonnées structurées directement dans les PDF factures permet aux ordinateurs de les lire sans erreur de saisie manuelle.",
+                    date: "08 Juin 2026",
+                    readTime: "6 min de lecture",
+                    tag: "Technique"
+                }
+            ]
         }
     },
     en: {
@@ -376,6 +405,7 @@ export const locales = {
             workflow: "How It Works",
             features: "Features",
             pricing: "Pricing",
+            blog: "Blog",
             contact: "Contact",
             cta: "Download"
         },
@@ -450,7 +480,7 @@ export const locales = {
             },
             step2: {
                 title: "100% Local AI & Rename",
-                desc: "Secure offline semantic parsing and smart auto-renaming via local LLM."
+                desc: "Secure offline semantic parsing, local data extraction (with enriched PDF metadata), and smart auto-renaming. Your data is 100% yours, with no proprietary formats."
             },
             step3: {
                 title: "Advanced Search",
@@ -482,7 +512,7 @@ export const locales = {
             },
             export: {
                 title: "PDF Reports & CSV Exports",
-                desc: "Generate complete PDF audit reports with a copy of each receipt embedded, or export to CSV compatible with Excel, Google Sheets, and QuickBooks."
+                desc: "Generate complete PDF audit reports with embedded copies or export to CSV. PDF metadata is enriched with the extracted data for easy machine parsing—all with zero proprietary format lock-in."
             },
             desktop: {
                 title: "Native Desktop App",
@@ -695,7 +725,7 @@ export const locales = {
                 },
                 {
                     q: "What file formats are supported?",
-                    a: "PDF and images (PNG, JPG). Receipts and invoices only."
+                    a: "PDF and images (PNG, JPG). Receipts and invoices only. We do not use any proprietary file formats: your data and files remain entirely yours to use as you wish. Furthermore, auto-renaming allows you to find any file directly via your host OS search (Spotlight or Windows Search) without opening our software. Processed PDFs also feature enriched metadata for seamless machine parsing."
                 },
                 {
                     q: "Does it work with my vendors?",
@@ -739,6 +769,34 @@ export const locales = {
                 btn: "Download (.TAR.GZ)"
             },
             licenseNote: "Activation key required. Obtain a free early access license key in the pricing section above."
+        },
+        blog: {
+            title: "Latest Insights & Updates",
+            subtitle: "Explore our guides on offline productivity, data security, and expense management.",
+            readMore: "Read Article",
+            posts: [
+                {
+                    title: "Why We Built a 100% Offline OCR Tool (and Why You Should Care)",
+                    excerpt: "Your financial records do not belong on third-party cloud servers. Here is the genesis of OCR Receipt and our commitment to offline-first utilities.",
+                    date: "June 24, 2026",
+                    readTime: "5 min read",
+                    tag: "Privacy"
+                },
+                {
+                    title: "The True Cost of SaaS Subscription Bloat for Freelancers",
+                    excerpt: "Freelancers and SMBs spend hundreds of dollars monthly on micro-SaaS fees. Learn why local applications and perpetual licensing are back.",
+                    date: "June 15, 2026",
+                    readTime: "4 min read",
+                    tag: "Finance"
+                },
+                {
+                    title: "Enriching PDF Metadata: The Key to Automated Local Accounting",
+                    excerpt: "Understand how embedding structured JSON details inside standard PDFs allows downstream computers to parse invoices with zero errors.",
+                    date: "June 8, 2026",
+                    readTime: "6 min read",
+                    tag: "Technical"
+                }
+            ]
         }
     }
 };

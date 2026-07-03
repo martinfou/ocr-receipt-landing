@@ -10,11 +10,14 @@
                     </svg>
                     <span class="font-serif font-bold text-base text-text tracking-tight">OCR Receipt</span>
                 </div>
-                <div class="flex items-center gap-4 sm:gap-6">
-                    <div class="hidden lg:flex items-center gap-6">
+                
+                <!-- Desktop Navigation Menu -->
+                <div class="hidden lg:flex items-center gap-6">
+                    <div class="flex items-center gap-6">
                         <a href="#problem" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.problem') }}</a>
                         <a href="#how-it-works" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.workflow') }}</a>
                         <a href="#features" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.features') }}</a>
+                        <a href="#blog" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.blog') }}</a>
                         <a href="#pricing" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.pricing') }}</a>
                         <a href="#beta" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.contact') }}</a>
                     </div>
@@ -60,7 +63,77 @@
                         {{ $t('nav.cta') }}
                     </a>
                 </div>
+
+                <!-- Mobile Hamburger Button -->
+                <button 
+                    @click="toggleMobileMenu" 
+                    class="lg:hidden w-10 h-10 border border-border bg-surface-light rounded-lg flex items-center justify-center text-text-muted hover:text-text hover:border-brand/40 transition-all cursor-pointer"
+                    :aria-label="mobileMenuOpen ? 'Close Menu' : 'Open Menu'"
+                >
+                    <svg v-if="mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                    <svg v-else xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
             </div>
+
+            <!-- Mobile Navigation Drawer -->
+            <transition name="slide-down">
+                <div v-if="mobileMenuOpen" class="lg:hidden absolute top-16 left-0 w-full bg-surface/98 backdrop-blur-lg border-b border-border shadow-lg z-40 overflow-hidden flex flex-col p-6 gap-6">
+                    <div class="flex flex-col gap-4">
+                        <a href="#problem" @click="closeMobileMenu" class="text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40">{{ $t('nav.problem') }}</a>
+                        <a href="#how-it-works" @click="closeMobileMenu" class="text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40">{{ $t('nav.workflow') }}</a>
+                        <a href="#features" @click="closeMobileMenu" class="text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40">{{ $t('nav.features') }}</a>
+                        <a href="#blog" @click="closeMobileMenu" class="text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40">{{ $t('nav.blog') }}</a>
+                        <a href="#pricing" @click="closeMobileMenu" class="text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40">{{ $t('nav.pricing') }}</a>
+                        <a href="#beta" @click="closeMobileMenu" class="text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40">{{ $t('nav.contact') }}</a>
+                    </div>
+                    
+                    <div class="flex items-center justify-between py-2">
+                        <!-- Language Selector inside Drawer -->
+                        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded border border-border bg-surface-light text-xs font-mono select-none">
+                            <button 
+                                @click="$setLang('fr')" 
+                                :class="[$lang.lang === 'fr' ? 'text-brand-dark font-semibold' : 'text-text-muted']"
+                                class="transition-colors cursor-pointer"
+                            >FR</button>
+                            <span class="text-border">|</span>
+                            <button 
+                                @click="$setLang('en')" 
+                                :class="[$lang.lang === 'en' ? 'text-brand-dark font-semibold' : 'text-text-muted']"
+                                class="transition-colors cursor-pointer"
+                            >EN</button>
+                        </div>
+
+                        <!-- Theme Toggle inside Drawer -->
+                        <button 
+                            @click="toggleTheme" 
+                            class="w-9 h-9 rounded border border-border bg-surface-light hover:bg-surface flex items-center justify-center text-text-muted hover:text-text cursor-pointer transition-colors"
+                        >
+                            <svg v-if="theme === 'dark'" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            <svg v-else xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <a href="#download" @click="closeMobileMenu" class="btn-brand text-xs font-mono uppercase tracking-wider py-3 text-center shadow-md transition-all cursor-pointer">
+                        {{ $t('nav.cta') }}
+                    </a>
+                </div>
+            </transition>
         </nav>
 
         <main class="pt-16">
@@ -71,6 +144,7 @@
             <GallerySection />
             <PricingSection />
             <BetaSection />
+            <BlogSection />
             <DownloadsSection />
             <FaqSection />
             <FooterSection />
@@ -96,6 +170,7 @@ import HowItWorksSection from './HowItWorksSection.vue';
 import FeaturesSection from './FeaturesSection.vue';
 import GallerySection from './GallerySection.vue';
 import PricingSection from './PricingSection.vue';
+import BlogSection from './BlogSection.vue';
 import DownloadsSection from './DownloadsSection.vue';
 import BetaSection from './BetaSection.vue';
 import FaqSection from './FaqSection.vue';
@@ -110,6 +185,7 @@ export default {
         FeaturesSection,
         GallerySection,
         PricingSection,
+        BlogSection,
         DownloadsSection,
         BetaSection,
         FaqSection,
@@ -120,7 +196,8 @@ export default {
             showScrollTop: false,
             activeTab: 0,
             theme: 'light',
-            tabInterval: null
+            tabInterval: null,
+            mobileMenuOpen: false
         };
     },
     mounted() {
@@ -176,7 +253,28 @@ export default {
             } else {
                 document.documentElement.classList.remove('dark');
             }
+        },
+        toggleMobileMenu() {
+            this.mobileMenuOpen = !this.mobileMenuOpen;
+        },
+        closeMobileMenu() {
+            this.mobileMenuOpen = false;
         }
     }
 };
 </script>
+
+<style scoped>
+/* Mobile Menu Drawer slide-down transition */
+.slide-down-enter-active,
+.slide-down-leave-active {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    max-height: 480px;
+}
+.slide-down-enter,
+.slide-down-leave-to {
+    max-height: 0;
+    opacity: 0;
+}
+</style>
+
