@@ -33,6 +33,17 @@ class LandingController extends Controller
             abort(404);
         }
 
+        $files = [
+            'windows' => 'installers/OCR-Receipt-Setup.exe',
+            'macos' => 'installers/OCR-Receipt.dmg',
+            'linux' => 'installers/OCR-Receipt.AppImage',
+        ];
+
+        $path = storage_path('app/' . $files[$platform]);
+        if (!file_exists($path)) {
+            return redirect('/')->with('error', 'Installer not yet available for ' . $platform);
+        }
+
         // Log download
         $log = storage_path('app/downloads.json');
         $logs = [];
@@ -46,14 +57,12 @@ class LandingController extends Controller
             'user_agent' => request()->header('user-agent'),
             'timestamp' => now()->toIso8601String(),
         ];
-        // Keep last 10K entries
         if (count($logs) > 10000) {
             $logs = array_slice($logs, -10000);
         }
         file_put_contents($log, json_encode($logs, JSON_PRETTY_PRINT));
 
-        // Redirect to actual download (placeholder)
-        return redirect("https://github.com/martinfou/ocr-receipt/releases");
+        return response()->download($path);
     }
 
     public function stats()
@@ -90,6 +99,11 @@ class LandingController extends Controller
             'by_platform' => $byPlatform,
             'last_7_days' => array_slice($byDay, 0, 7, true),
         ]);
+    }
+
+    public function vsDext()
+    {
+        return view('vs-dext');
     }
 
     public function subscribe(Request $request)

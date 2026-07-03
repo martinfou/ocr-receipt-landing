@@ -10,6 +10,7 @@ Route::get('/sitemap.xml', [LandingController::class, 'sitemap'])->name('sitemap
 Route::get('/fr', [LandingController::class, 'french'])->name('french');
 Route::get('/dl/{platform}', [LandingController::class, 'download'])->name('download');
 Route::get('/api/stats', [LandingController::class, 'stats'])->name('stats');
+Route::get('/vs/dext', [LandingController::class, 'vsDext'])->name('vs.dext');
 Route::post('/subscribe', [LandingController::class, 'subscribe'])->name('subscribe');
 
 // Stripe checkout
