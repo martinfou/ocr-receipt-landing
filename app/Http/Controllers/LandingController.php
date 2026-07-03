@@ -15,6 +15,12 @@ class LandingController extends Controller
         return view('hubdoc');
     }
 
+    public function sitemap()
+    {
+        return response()->view('sitemap', [], 200)
+            ->header('Content-Type', 'text/xml');
+    }
+
     public function subscribe(Request $request)
     {
         $request->validate([

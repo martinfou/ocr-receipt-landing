@@ -13,6 +13,14 @@
     <meta property="og:description" content="The offline-first Hubdoc replacement. No subscription. Your data stays on your machine.">
     <meta property="og:url" content="https://ocrreceipt.com/alternative-hubdoc">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://ocrreceipt.com/og-image.png">
+
+    <link rel="canonical" href="https://ocrreceipt.com/alternative-hubdoc">
+
+    <meta property="og:title" content="Hubdoc Alternative — OCR Receipt">
+    <meta property="og:description" content="The offline-first Hubdoc replacement. No subscription. Your data stays on your machine.">
+    <meta property="og:url" content="https://ocrreceipt.com/alternative-hubdoc">
+    <meta property="og:type" content="website">
 
     <link rel="canonical" href="https://ocrreceipt.com/alternative-hubdoc">
 

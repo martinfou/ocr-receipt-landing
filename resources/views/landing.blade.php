@@ -18,6 +18,14 @@
 
     <title>OCR Receipt — Extract receipt data without the cloud</title>
     <meta name="description" content="Offline-first receipt OCR app with local AI. Extract vendor, amount, date, and category from PDF receipts. No subscription. Windows, Mac & Linux.">
+
+    <meta property="og:title" content="OCR Receipt — Extract Receipt Data Without the Cloud">
+    <meta property="og:description" content="Offline-first receipt OCR app with local AI. No subscription. Your data stays on your machine.">
+    <meta property="og:url" content="https://ocrreceipt.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://ocrreceipt.com/og-image.png">
+
+    <link rel="canonical" href="https://ocrreceipt.com/">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="alternate" type="text/plain" title="LLM representation" href="/llms.txt">
 
