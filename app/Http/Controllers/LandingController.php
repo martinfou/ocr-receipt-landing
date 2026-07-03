@@ -21,6 +21,11 @@ class LandingController extends Controller
             ->header('Content-Type', 'text/xml');
     }
 
+    public function french()
+    {
+        return view('fr');
+    }
+
     public function subscribe(Request $request)
     {
         $request->validate([
