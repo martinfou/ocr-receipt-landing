@@ -26,6 +26,72 @@ class LandingController extends Controller
         return view('fr');
     }
 
+    public function download($platform)
+    {
+        $valid = ['windows', 'macos', 'linux'];
+        if (!in_array($platform, $valid)) {
+            abort(404);
+        }
+
+        // Log download
+        $log = storage_path('app/downloads.json');
+        $logs = [];
+        if (file_exists($log)) {
+            $logs = json_decode(file_get_contents($log), true) ?? [];
+        }
+        $logs[] = [
+            'platform' => $platform,
+            'ip' => request()->ip(),
+            'referer' => request()->header('referer'),
+            'user_agent' => request()->header('user-agent'),
+            'timestamp' => now()->toIso8601String(),
+        ];
+        // Keep last 10K entries
+        if (count($logs) > 10000) {
+            $logs = array_slice($logs, -10000);
+        }
+        file_put_contents($log, json_encode($logs, JSON_PRETTY_PRINT));
+
+        // Redirect to actual download (placeholder)
+        return redirect("https://github.com/martinfou/ocr-receipt/releases");
+    }
+
+    public function stats()
+    {
+        $log = storage_path('app/downloads.json');
+        if (!file_exists($log)) {
+            return response()->json([
+                'total_downloads' => 0,
+                'by_platform' => ['windows' => 0, 'macos' => 0, 'linux' => 0],
+                'by_day' => [],
+            ]);
+        }
+
+        $logs = json_decode(file_get_contents($log), true) ?? [];
+
+        $total = count($logs);
+        $byPlatform = ['windows' => 0, 'macos' => 0, 'linux' => 0];
+        $byDay = [];
+
+        foreach ($logs as $entry) {
+            $p = $entry['platform'] ?? 'unknown';
+            $byPlatform[$p] = ($byPlatform[$p] ?? 0) + 1;
+
+            $day = substr($entry['timestamp'] ?? '', 0, 10);
+            if ($day) {
+                $byDay[$day] = ($byDay[$day] ?? 0) + 1;
+            }
+        }
+
+        krsort($byDay);
+
+        return response()->json([
+            'total_downloads' => $total,
+            'by_platform' => $byPlatform,
+            'last_7_days' => array_slice($byDay, 0, 7, true),
+        ]);
+    }
+
     public function subscribe(Request $request)
     {
         $request->validate([

@@ -8,6 +8,8 @@ Route::get('/', [LandingController::class, 'index'])->name('landing');
 Route::get('/alternative-hubdoc', [LandingController::class, 'hubdoc'])->name('hubdoc');
 Route::get('/sitemap.xml', [LandingController::class, 'sitemap'])->name('sitemap');
 Route::get('/fr', [LandingController::class, 'french'])->name('french');
+Route::get('/dl/{platform}', [LandingController::class, 'download'])->name('download');
+Route::get('/api/stats', [LandingController::class, 'stats'])->name('stats');
 Route::post('/subscribe', [LandingController::class, 'subscribe'])->name('subscribe');
 
 // Stripe checkout
