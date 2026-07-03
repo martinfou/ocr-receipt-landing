@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LicenseController;
+use App\Http\Controllers\BlogController;
 
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 Route::get('/alternative-hubdoc', [LandingController::class, 'hubdoc'])->name('hubdoc');
@@ -11,6 +12,8 @@ Route::get('/fr', [LandingController::class, 'french'])->name('french');
 Route::get('/dl/{platform}', [LandingController::class, 'download'])->name('download');
 Route::get('/api/stats', [LandingController::class, 'stats'])->name('stats');
 Route::get('/vs/dext', [LandingController::class, 'vsDext'])->name('vs.dext');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.article');
 Route::post('/subscribe', [LandingController::class, 'subscribe'])->name('subscribe');
 
 // Stripe checkout
