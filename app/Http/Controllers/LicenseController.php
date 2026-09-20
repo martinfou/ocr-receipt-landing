@@ -190,17 +190,29 @@ class LicenseController extends Controller
     }
 
     /**
-     * Serve a download file (authenticated by license key in query params).
+     * Serve a download file.
+     *
+     * The artifact must already exist on disk. We deliberately do NOT synthesise a
+     * placeholder: a ~100-byte text file named "*.dmg" / "*.exe" is indistinguishable
+     * from a real installer to both the visitor and the Sparkle auto-updater, so a
+     * missing artifact silently turned into a corrupt download (while appcast.xml
+     * still advertised length="243864053"). An explicit 404 is honest and visible;
+     * a fabricated file is not.
      */
     public function serveFile(Request $request, string $filename)
     {
-        $filePath = storage_path('app/downloads/' . basename($filename));
-        if (!file_exists($filePath)) {
-            $dir = dirname($filePath);
-            if (!is_dir($dir)) {
-                mkdir($dir, 0755, true);
-            }
-            file_put_contents($filePath, "OCR Receipt desktop application package placeholder (Early Access build) for " . basename($filename));
+        $safeName = basename($filename);
+        $filePath = storage_path('app/downloads/' . $safeName);
+
+        if (!is_file($filePath)) {
+            Log::warning('Download requested for a missing artifact', [
+                'filename' => $safeName,
+                'ip' => $request->ip(),
+            ]);
+
+            return response()->view('license.unavailable', [
+                'filename' => $safeName,
+            ], 404);
         }
 
         return response()->download($filePath);
