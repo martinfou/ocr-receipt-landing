@@ -108,6 +108,12 @@ jobs:
             /usr/local/php84/bin/php artisan optimize:clear --no-ansi
             /usr/local/php84/bin/php artisan optimize --no-ansi
 
+            # --- DIAGNOSTIC TEMPORAIRE SITEMAP (a retirer) ---
+            echo "===== DIAGNOSTIC SITEMAP DEBUT ====="
+            /usr/local/php84/bin/php diag-sitemap.php || true
+            echo "===== DIAGNOSTIC SITEMAP FIN ====="
+            # --- FIN DIAGNOSTIC TEMPORAIRE ---
+
             # Ensure storage links and permissions
             /usr/local/php84/bin/php artisan storage:link || true
             chmod -R 775 storage bootstrap/cache
