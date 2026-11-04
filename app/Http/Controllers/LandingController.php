@@ -17,8 +17,16 @@ class LandingController extends Controller
 
     public function sitemap()
     {
-        return response()->view('sitemap', [], 200)
-            ->header('Content-Type', 'text/xml');
+        // La declaration XML est emise ici, pas dans le blade.
+        // Un "<?xml" litteral dans un template Blade est vu par PHP comme une
+        // balise ouvrante courte selon short_open_tag, et le serveur de
+        // production n'arrivait pas a compiler la vue : le fichier compile
+        // gardait le "<?xml" brut et /sitemap.xml renvoyait un 500 a tous les
+        // crawlers. La declaration vit donc dans un fichier .php, ou elle est
+        // une chaine comme une autre, independamment de Blade et de php.ini.
+        $xml = '<?xml version="1.0" encoding="UTF-8"?>'.PHP_EOL.view('sitemap')->render();
+
+        return response($xml, 200)->header('Content-Type', 'text/xml');
     }
 
     public function french()
