@@ -11,7 +11,8 @@ return new class extends Migration
         Schema::create('license_purchases', function (Blueprint $table) {
             $table->id();
             $table->string('email')->index();
-            $table->string('license_key', 128)->unique();
+            $table->string('license_key', 512)->unique();
+            $table->string('edition', 32)->default('pro');
             $table->string('stripe_session_id', 255)->unique();
             $table->string('stripe_payment_intent', 255)->nullable();
             $table->string('status', 20)->default('pending'); // pending, completed, refunded

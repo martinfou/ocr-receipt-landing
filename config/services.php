@@ -30,8 +30,9 @@ return [
     ],
 
     'license' => [
-        'hmac_secret' => env('LICENSE_HMAC_SECRET', 'ocr-receipt-hmac-secret-v1-2026'),
-        'product_id' => env('STRIPE_PRODUCT_ID', 'ocr-receipt-pro-license'),
+        'hmac_secret' => env('OCR_RECEIPT_LICENSE_SECRET', env('LICENSE_HMAC_SECRET', 'ocr-receipt-license-secret-v1-2026')),
+        'legacy_hmac_secret' => env('LEGACY_LICENSE_HMAC_SECRET', 'ocr-receipt-hmac-secret-v1-2026'),
+        'product_id' => env('STRIPE_PRODUCT_ID', 'ocr-receipt-v1'),
         'price_cents' => env('LICENSE_PRICE_CENTS', 19900),
     ],
 

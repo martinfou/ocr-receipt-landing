@@ -9,6 +9,7 @@ class LicensePurchase extends Model
     protected $fillable = [
         'email',
         'license_key',
+        'edition',
         'stripe_session_id',
         'stripe_payment_intent',
         'status',

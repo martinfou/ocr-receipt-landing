@@ -47,8 +47,8 @@
         <h3 style="margin-bottom:.75rem">📋 Comment installer votre licence</h3>
         <ol class="steps">
             <li><span class="num">1</span> <span><strong>Téléchargez OCR Receipt</strong> — Utilisez le bouton ci-dessous pour télécharger la dernière version.</span></li>
-            <li><span class="num">2</span> <span><strong>Lancez l'application</strong> — Allez dans Paramètres → Licence.</span></li>
-            <li><span class="num">3</span> <span><strong>Entrez votre email et la clé</strong> — Collez l'email et la clé ci-dessus. La licence est instantanément activée.</span></li>
+            <li><span class="num">2</span> <span><strong>Lancez l'application</strong> — Allez dans Paramètres → Licence → Activer une licence.</span></li>
+            <li><span class="num">3</span> <span><strong>Collez votre clé de licence</strong> — Collez la clé ci-dessus. Votre licence perpétuelle est instantanément activée hors-ligne.</span></li>
             <li><span class="num">4</span> <span><strong>Profitez</strong> — 
                 @if($tierName === 'Solo')
                     Pages illimitées, IA locale (tiny), export CSV & Excel, tout est prêt.

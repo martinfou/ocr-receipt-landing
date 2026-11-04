@@ -12,12 +12,21 @@ Route::get('/fr', [LandingController::class, 'french'])->name('french');
 Route::get('/dl/{platform}', [LandingController::class, 'download'])->name('download');
 Route::get('/api/stats', [LandingController::class, 'stats'])->name('stats');
 Route::get('/vs/dext', [LandingController::class, 'vsDext'])->name('vs.dext');
-Route::get('/blog', [BlogController::class, 'index'])->name('blog');
-Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.article');
+// English Blog routes
+Route::get('/blog', [BlogController::class, 'index'])->defaults('locale', 'en')->name('blog.en');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->defaults('locale', 'en')->name('blog.article.en');
+
+// French Blog routes
+Route::get('/fr/blog', [BlogController::class, 'index'])->defaults('locale', 'fr')->name('blog.fr');
+Route::get('/fr/blog/{slug}', [BlogController::class, 'show'])->defaults('locale', 'fr')->name('blog.article.fr');
 Route::post('/subscribe', [LandingController::class, 'subscribe'])->name('subscribe');
 
-// Stripe checkout
+// Stripe checkout & email verification (Epic S1)
 Route::post('/checkout', [LicenseController::class, 'checkout'])->name('license.checkout');
+Route::get('/checkout/verify', [LicenseController::class, 'showVerify'])->name('license.verify');
+Route::post('/api/verify/send', [LicenseController::class, 'sendVerification'])->name('license.verify.send');
+Route::post('/api/verify/confirm', [LicenseController::class, 'confirmVerification'])->name('license.verify.confirm');
+Route::post('/api/stripe/webhook', [LicenseController::class, 'webhook'])->name('license.webhook');
 Route::get('/checkout/success', [LicenseController::class, 'success'])->name('license.success');
 Route::get('/checkout/cancel', [LicenseController::class, 'cancel'])->name('license.cancel');
 
