@@ -2,7 +2,8 @@
 
 return [
     [
-        'slug' => 'hubdoc-est-mort-alternatives-locales-2026',
+        'slug' => 'hubdoc-is-dead-local-alternatives-2026',
+        'translation_slug' => 'hubdoc-est-mort-alternatives-locales-2026',
         'title' => 'Hubdoc Is Dead: 3 Local Alternatives in 2026',
         'date' => 'Jul 3, 2026',
         'read_time' => '5 min read',
@@ -50,7 +51,8 @@ return [
 ',
     ],
     [
-        'slug' => 'pourquoi-vos-donnees-comptables-ne-devraient-pas-etre-dans-le-cloud',
+        'slug' => 'why-your-accounting-data-shouldnt-be-in-the-cloud',
+        'translation_slug' => 'pourquoi-vos-donnees-comptables-ne-devraient-pas-etre-dans-le-cloud',
         'title' => 'Why Your Accounting Data Shouldn\'t Be in the Cloud',
         'date' => 'Jul 3, 2026',
         'read_time' => '4 min read',

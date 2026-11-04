@@ -1,57 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>OCR Receipt Blog — Receipt OCR, Privacy, and Productivity</title>
-    <meta name="description" content="Articles about receipt OCR, data privacy, local AI, and accounting productivity. Tips for freelancers, CPAs, and small businesses.">
-    <meta property="og:title" content="OCR Receipt Blog">
-    <meta property="og:description" content="Articles about receipt OCR, data privacy, and productivity.">
-    <meta property="og:url" content="https://ocrreceipt.com/blog">
+@extends('layouts.blog')
+
+@section('title')
+    @if(($locale ?? 'en') === 'fr')
+        Blogue OCR Receipt — OCR, Confidentialité et Productivité
+    @else
+        OCR Receipt Blog — Receipt OCR, Privacy, and Productivity
+    @endif
+@endsection
+
+@section('meta_description')
+    @if(($locale ?? 'en') === 'fr')
+        Articles sur l'OCR de reçus, la confidentialité des données, l'IA locale et la productivité comptable.
+    @else
+        Articles about receipt OCR, data privacy, local AI, and accounting productivity. Tips for freelancers, CPAs, and small businesses.
+    @endif
+@endsection
+
+@section('og_meta')
+    <meta property="og:title" content="{{ ($locale ?? 'en') === 'fr' ? 'Blogue OCR Receipt' : 'OCR Receipt Blog' }}">
+    <meta property="og:description" content="{{ ($locale ?? 'en') === 'fr' ? 'Articles sur l\'OCR de reçus, la confidentialité et la productivité.' : 'Articles about receipt OCR, data privacy, and productivity.' }}">
+    <meta property="og:url" content="{{ ($locale ?? 'en') === 'fr' ? 'https://ocrreceipt.com/fr/blog' : 'https://ocrreceipt.com/blog' }}">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://ocrreceipt.com/og-image.png">
-    <link rel="canonical" href="https://ocrreceipt.com/blog">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=EB+Garamond:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <style>
-        body { background: var(--color-surface); color: var(--color-text); font-family: 'Plus Jakarta Sans', sans-serif; }
-        h1, h2, h3 { font-family: 'EB Garamond', serif; font-weight: 600; }
-        .container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
-        .article { background: var(--color-surface-light); border: 1px solid var(--color-border); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; display: block; color: inherit; text-decoration: none; transition: border-color 0.15s; }
-        .article:hover { border-color: var(--color-brand); }
-        .article .date { font-size: 0.8rem; color: var(--color-brand); margin-bottom: 0.5rem; }
-        .article h2 { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--color-text); }
-        .article p { color: var(--color-text-muted); font-size: 0.9rem; }
-    </style>
-</head>
-<body>
-    <div id="static-app">
-        <nav style="display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;border-bottom:1px solid var(--color-border);">
-            <a href="/" style="font-family:'EB Garamond',serif;font-weight:600;font-size:1.1rem;color:var(--color-text);text-decoration:none;">OCR Receipt</a>
-            <div><a href="/" style="color:var(--color-text-muted);text-decoration:none;font-size:0.875rem;">Home</a></div>
-        </nav>
+    <link rel="canonical" href="{{ ($locale ?? 'en') === 'fr' ? 'https://ocrreceipt.com/fr/blog' : 'https://ocrreceipt.com/blog' }}">
+@endsection
 
-        <div style="text-align:center;padding:4rem 1.5rem 2rem;">
-            <h1 style="font-size:2.2rem;margin-bottom:0.5rem;">OCR Receipt Blog</h1>
-            <p style="color:var(--color-text-muted);">Tips, comparisons, and insights for receipt OCR and expense management.</p>
-        </div>
+@section('content')
+    <!-- Blog Hero Header -->
+    <div class="text-center py-16 px-6 max-w-3xl mx-auto">
+        <h1 class="font-serif font-extrabold text-4xl md:text-5xl lg:text-6xl text-text tracking-tight mb-4 text-wrap-balance">
+            {{ ($locale ?? 'en') === 'fr' ? 'Blogue OCR Receipt' : 'OCR Receipt Blog' }}
+        </h1>
+        <p class="text-text-muted text-lg md:text-xl font-sans max-w-2xl mx-auto leading-relaxed">
+            {{ ($locale ?? 'en') === 'fr' ? 'Conseils, comparatifs et analyses techniques sur la lecture locale de reçus, la comptabilité et les logiciels hors ligne.' : 'Tips, comparisons, and technical insights for local receipt parsing, expense management, and offline-first software.' }}
+        </p>
+    </div>
 
-        <div class="container">
+    <!-- Blog Posts Container -->
+    <div class="max-w-3xl mx-auto px-6 pb-20">
+        <div class="flex flex-col gap-8">
             @foreach($articles as $a)
-            <a href="/blog/{{ $a['slug'] }}" class="article">
-                <div class="date">{{ $a['date'] }}</div>
-                <h2>{{ $a['title'] }}</h2>
-                <p>{{ $a['excerpt'] }}</p>
+            <a href="{{ ($locale ?? 'en') === 'fr' ? '/fr/blog/' . $a['slug'] : '/blog/' . $a['slug'] }}" class="group block card hover:border-brand/40 shadow-sm hover:shadow-md transition-all duration-200 no-underline">
+                <div class="flex flex-col gap-2">
+                    <div class="flex items-center gap-2 text-xs font-mono text-brand font-medium uppercase tracking-wider">
+                        <span>{{ $a['date'] }}</span>
+                        <span class="text-border">•</span>
+                        <span>{{ $a['read_time'] }}</span>
+                    </div>
+                    <h2 class="font-serif font-bold text-2xl text-text group-hover:text-brand-dark transition-colors duration-150 leading-tight">
+                        {{ $a['title'] }}
+                    </h2>
+                    <p class="text-text-muted text-sm md:text-base leading-relaxed mt-1">
+                        {{ $a['excerpt'] }}
+                    </p>
+                    <div class="flex items-center gap-1.5 text-xs font-semibold text-brand-dark group-hover:text-brand transition-colors mt-2 font-mono uppercase tracking-wider">
+                        <span>{{ ($locale ?? 'en') === 'fr' ? 'Lire l\'article' : 'Read Article' }}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 stroke-current fill-none transform group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                </div>
             </a>
             @endforeach
         </div>
-
-        <footer style="border-top:1px solid var(--color-border);padding:2rem;text-align:center;color:var(--color-text-muted);font-size:0.8rem;">
-            <p>OCR Receipt — Québec, Canada 🇨🇦</p>
-        </footer>
     </div>
-</body>
-</html>
+@endsection

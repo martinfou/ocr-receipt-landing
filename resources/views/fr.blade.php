@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        })();
+    </script>
+
     <title>Logiciel OCR Reçus Québec — OCR Receipt | Extraction locale sans abonnement</title>
     <meta name="description" content="Logiciel OCR pour extraire les données de vos factures et reçus PDF. 100% hors ligne, IA locale, aucune donnée dans le cloud. Licence perpétuelle — pas d'abonnement. Windows, Mac et Linux.">
     <meta name="keywords" content="logiciel OCR reçus Québec, OCR facture, extraire données facture PDF, reconnaissance texte facture, alternative Hubdoc Québec">
@@ -16,138 +27,355 @@
     <meta property="og:image" content="https://ocrreceipt.com/og-image.png">
 
     <link rel="canonical" href="https://ocrreceipt.com/fr">
-
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0a0a0a;
-            color: #e5e5e5;
-            line-height: 1.6;
-        }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 600; }
-        .container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
-
-        nav {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 1rem 1.5rem; border-bottom: 1px solid #3e3e3a;
-        }
-        nav .logo { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.1rem; color: #e5e5e5; text-decoration: none; }
-
-        .hero {
-            text-align: center; padding: 5rem 1.5rem 3rem;
-            background: radial-gradient(ellipse at top, rgba(59,130,246,0.08), transparent 60%);
-        }
-        .hero h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; }
-        .hero h1 span { background: linear-gradient(135deg, #60A5FA, #3B82F6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { color: #a1a09a; font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem; }
-        .hero .btn {
-            display: inline-block; padding: 0.85rem 2rem; border-radius: 0.5rem;
-            background: #3B82F6; color: #fff; font-weight: 600;
-            text-decoration: none; transition: background 0.15s;
-        }
-        .hero .btn:hover { background: #60A5FA; }
-
-        section { padding: 4rem 1.5rem; }
-        section h2 { font-size: 1.8rem; text-align: center; margin-bottom: 2.5rem; }
-
-        .card { background: #161615; border: 1px solid #3e3e3a; border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1rem; }
-        .card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: #60A5FA; }
-
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
-
-        footer { border-top: 1px solid #3e3e3a; padding: 2rem 1.5rem; text-align: center; color: #a1a09a; font-size: 0.8rem; }
-        footer a { color: #a1a09a; text-decoration: none; }
-        footer a:hover { color: #60A5FA; }
-
-        @media (max-width: 640px) {
-            .hero h1 { font-size: 1.8rem; }
-        }
-    </style>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
-
-<nav>
-    <a href="/" class="logo">OCR Receipt</a>
-    <div>
-        <a href="/" style="color:#a1a09a;text-decoration:none;font-size:0.875rem;">EN</a>
+<body class="min-h-screen bg-surface text-text font-sans antialiased overflow-x-hidden pt-16 relative">
+    
+    <!-- Background Image -->
+    <div class="fixed inset-0 w-full h-full z-0 pointer-events-none">
+        <img class="w-full h-full object-cover" src="/images/desk_bg.png" alt="Clean desk with greenery">
+        <div class="absolute inset-0 bg-surface/90 backdrop-blur-sm transition-colors duration-200"></div>
     </div>
-</nav>
 
-<div class="hero">
-    <h1>Logiciel OCR pour reçus <span>conçu au Québec</span></h1>
-    <p>
-        Extrayez automatiquement le montant, la date et le fournisseur de vos factures PDF.
-        100% hors ligne, IA locale, aucune donnée dans le cloud. Licence perpétuelle — pas d'abonnement.
-    </p>
-    <a href="/#pricing" class="btn">Télécharger gratuitement →</a>
-</div>
+    <div id="static-app" class="relative z-10 flex flex-col min-h-screen">
+        
+        <!-- Navigation Header -->
+        <nav class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-md border-b border-border transition-colors duration-200">
+            <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+                <a href="/fr" class="flex items-center gap-2 cursor-pointer select-none no-underline text-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-brand fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <polyline points="9 15 11 17 15 13"></polyline>
+                    </svg>
+                    <span class="font-serif font-bold text-base tracking-tight">OCR Receipt</span>
+                </a>
+                
+                <!-- Desktop Navigation Menu -->
+                <div class="hidden lg:flex items-center gap-6">
+                    <div class="flex items-center gap-6">
+                        <a href="#why" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Pourquoi</a>
+                        <a href="/#how-it-works" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Comment ça marche</a>
+                        <a href="/#features" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Fonctionnalités</a>
+                        <a href="/fr/blog" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Blog</a>
+                        <a href="#pricing" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Tarifs</a>
+                        <a href="/#beta" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Contact</a>
+                    </div>
+                    
+                    <!-- Language Switcher -->
+                    <div class="flex items-center gap-1.5 px-2.5 py-1 rounded border border-border bg-surface-light text-[10px] font-mono select-none">
+                        <a href="/" class="text-text-muted hover:text-text transition-colors no-underline">EN</a>
+                        <span class="text-border">|</span>
+                        <span class="text-brand-dark font-semibold">FR</span>
+                    </div>
 
-<div class="container">
-    <h2>Pourquoi les CPA et PME du Québec choisissent OCR Receipt</h2>
+                    <!-- Theme Switcher -->
+                    <button 
+                        id="theme-toggle" 
+                        class="w-7 h-7 rounded border border-border bg-surface-light hover:bg-surface flex items-center justify-center text-text-muted hover:text-text cursor-pointer transition-colors"
+                        aria-label="Toggle Theme"
+                    >
+                        <svg id="theme-toggle-dark-icon" class="hidden w-4 h-4 stroke-current fill-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-4 h-4 stroke-current fill-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
 
-    <div class="features-grid">
-        <div class="card">
-            <h3>🔒 100% Confidentiel</h3>
-            <p style="color:#a1a09a;font-size:0.9rem;">Aucune donnée financière ne quitte votre ordinateur. Idéal pour les cabinets CPA sous NDA.</p>
-        </div>
-        <div class="card">
-            <h3>💸 Pas d'abonnement</h3>
-            <p style="color:#a1a09a;font-size:0.9rem;">Licence perpétuelle. Vous payez une fois, vous possédez à vie. Économisez 84-100% vs Dext/Expensify.</p>
-        </div>
-        <div class="card">
-            <h3>🖥️ Windows, Mac & Linux</h3>
-            <p style="color:#a1a09a;font-size:0.9rem;">Application native pour les trois plateformes. Fonctionne hors ligne, sans connexion Internet.</p>
-        </div>
-        <div class="card">
-            <h3>🤖 IA Locale</h3>
-            <p style="color:#a1a09a;font-size:0.9rem;">DeepSeek et NuExtract tournent sur votre processeur. Extraction intelligente sans envoyer vos données à OpenAI.</p>
-        </div>
-        <div class="card">
-            <h3>📊 Export QuickBooks / Xero</h3>
-            <p style="color:#a1a09a;font-size:0.9rem;">CSV pré-configuré importable dans QuickBooks Online en 3 clics. Aussi compatible Excel et Sage.</p>
-        </div>
-        <div class="card">
-            <h3>🇨🇦 Développé au Québec</h3>
-            <p style="color:#a1a09a;font-size:0.9rem;">Support en français. Conçu pour les besoins des CPA et PME québécois.</p>
-        </div>
+                    <a href="/#download" class="btn-brand text-[10px] font-mono uppercase tracking-wider px-4 py-2 shadow-sm transition-all no-underline">
+                        Télécharger
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <button 
+                    id="mobile-menu-btn" 
+                    class="lg:hidden w-10 h-10 border border-border bg-surface-light rounded-lg flex items-center justify-center text-text-muted hover:text-text hover:border-brand/40 transition-all cursor-pointer"
+                    aria-label="Open Menu"
+                >
+                    <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                    <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation Drawer -->
+            <div 
+                id="mobile-menu" 
+                class="hidden lg:hidden absolute top-16 left-0 w-full bg-surface/98 backdrop-blur-lg border-b border-border shadow-lg z-40 overflow-hidden flex flex-col p-6 gap-6"
+            >
+                <div class="flex flex-col gap-4">
+                    <a href="#why" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Pourquoi</a>
+                    <a href="/#how-it-works" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Comment ça marche</a>
+                    <a href="/#features" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Fonctionnalités</a>
+                    <a href="/fr/blog" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Blog</a>
+                    <a href="#pricing" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Tarifs</a>
+                    <a href="/#beta" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Contact</a>
+                </div>
+                
+                <div class="flex items-center justify-between py-2">
+                    <div class="flex items-center gap-1.5 px-3 py-1.5 rounded border border-border bg-surface-light text-xs font-mono select-none">
+                        <a href="/" class="text-text-muted hover:text-text transition-colors no-underline">EN</a>
+                        <span class="text-border">|</span>
+                        <span class="text-brand-dark font-semibold">FR</span>
+                    </div>
+
+                    <button 
+                        id="theme-toggle-mobile" 
+                        class="w-9 h-9 rounded border border-border bg-surface-light hover:bg-surface flex items-center justify-center text-text-muted hover:text-text cursor-pointer transition-colors"
+                        aria-label="Toggle Theme"
+                    >
+                        <svg id="theme-toggle-dark-icon-mobile" class="hidden w-4.5 h-4.5 stroke-current fill-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg id="theme-toggle-light-icon-mobile" class="hidden w-4.5 h-4.5 stroke-current fill-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <a href="/#download" class="mobile-nav-link btn-brand text-xs font-mono uppercase tracking-wider py-3 text-center shadow-md transition-all no-underline">
+                    Télécharger
+                </a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="py-20 px-6 max-w-4xl mx-auto text-center flex-1 flex flex-col justify-center">
+            <div class="text-xs font-mono text-brand-dark uppercase tracking-wider mb-4 font-semibold">
+                IA Locale · Zéro Cloud · Sans Abonnement
+            </div>
+            <h1 class="font-serif font-extrabold text-4xl md:text-5xl lg:text-6xl text-text leading-tight mb-6 text-wrap-balance">
+                Logiciel OCR pour reçus <span class="text-brand">conçu au Québec</span>
+            </h1>
+            <p class="text-text-muted text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-8">
+                Extrayez automatiquement le montant, la date et le fournisseur de vos factures et reçus PDF. 100% hors ligne, IA locale, aucune donnée dans le cloud. Licence perpétuelle — pas d'abonnement.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="/#download" class="btn-brand px-8 py-3.5 shadow-md no-underline">
+                    Télécharger gratuitement →
+                </a>
+            </div>
+        </header>
+
+        <!-- Why Section -->
+        <section id="why" class="py-16 px-6 max-w-5xl mx-auto w-full">
+            <h2 class="font-serif font-bold text-3xl md:text-4xl text-text text-center mb-12">
+                Pourquoi les CPA et PME du Québec choisissent OCR Receipt
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="card shadow-sm hover:shadow-md transition-all duration-200">
+                    <h3 class="font-serif font-bold text-lg text-brand mb-2">🔒 100% Confidentiel</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">Aucune donnée financière ne quitte votre ordinateur. Idéal pour les cabinets CPA sous ententes de confidentialité strictes.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="card shadow-sm hover:shadow-md transition-all duration-200">
+                    <h3 class="font-serif font-bold text-lg text-brand mb-2">💸 Pas d'abonnement</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">Licence perpétuelle. Vous payez une fois, vous l'utilisez à vie. Économisez de 84% à 100% comparé à Dext ou Expensify.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="card shadow-sm hover:shadow-md transition-all duration-200">
+                    <h3 class="font-serif font-bold text-lg text-brand mb-2">🖥️ Multiplateforme</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">Application native pour Windows, Mac et Linux. Fonctionne parfaitement hors ligne, sans connexion Internet requise.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="card shadow-sm hover:shadow-md transition-all duration-200">
+                    <h3 class="font-serif font-bold text-lg text-brand mb-2">🤖 IA Locale</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">DeepSeek et NuExtract tournent localement sur votre processeur. Extraction intelligente sans envoyer vos données à des tiers.</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="card shadow-sm hover:shadow-md transition-all duration-200">
+                    <h3 class="font-serif font-bold text-lg text-brand mb-2">📊 Export QuickBooks / Xero</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">Format CSV pré-configuré importable dans QuickBooks Online en 3 clics. Également compatible avec Microsoft Excel et Sage.</p>
+                </div>
+                <!-- Card 6 -->
+                <div class="card shadow-sm hover:shadow-md transition-all duration-200">
+                    <h3 class="font-serif font-bold text-lg text-brand mb-2">🇨🇦 Développé au Québec</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">Support direct en français. Conçu spécifiquement pour répondre aux besoins des CPA et PME du Québec.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table Section -->
+        <section class="py-16 px-6 max-w-4xl mx-auto w-full">
+            <h2 class="font-serif font-bold text-3xl text-text text-center mb-8">
+                OCR Receipt vs les solutions cloud
+            </h2>
+            
+            <div class="overflow-x-auto border border-border rounded-lg bg-surface-light shadow-sm">
+                <table class="w-full border-collapse font-sans text-sm">
+                    <thead>
+                        <tr class="bg-surface border-b border-border">
+                            <th class="p-4 text-left font-mono text-xs font-semibold text-text-muted uppercase tracking-wider">Critère</th>
+                            <th class="p-4 text-center font-mono text-xs font-semibold text-text-muted uppercase tracking-wider">Dext</th>
+                            <th class="p-4 text-center font-mono text-xs font-semibold text-text-muted uppercase tracking-wider">Expensify</th>
+                            <th class="p-4 text-center font-mono text-xs font-semibold text-brand uppercase tracking-wider">OCR Receipt</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-border">
+                        <tr>
+                            <td class="p-4 font-medium text-text">Prix / an</td>
+                            <td class="p-4 text-center text-[#c2410c] font-medium">~276 $</td>
+                            <td class="p-4 text-center text-[#c2410c] font-medium">~60-216 $</td>
+                            <td class="p-4 text-center text-brand-dark font-bold font-mono">149 $ unique</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-medium text-text">Hors ligne</td>
+                            <td class="p-4 text-center text-text-muted">❌ Non</td>
+                            <td class="p-4 text-center text-text-muted">❌ Non</td>
+                            <td class="p-4 text-center text-brand-dark font-semibold">✅ 100% local</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-medium text-text">Souveraineté des données</td>
+                            <td class="p-4 text-center text-text-muted">❌ Serveurs US</td>
+                            <td class="p-4 text-center text-text-muted">❌ Serveurs US</td>
+                            <td class="p-4 text-center text-brand-dark font-semibold">✅ Sur votre disque</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-medium text-text">Système Linux</td>
+                            <td class="p-4 text-center text-text-muted">❌ Non</td>
+                            <td class="p-4 text-center text-text-muted">❌ Non</td>
+                            <td class="p-4 text-center text-brand-dark font-semibold">✅ Supporté</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-medium text-text">Support en français</td>
+                            <td class="p-4 text-center text-text-muted">❌ Limité</td>
+                            <td class="p-4 text-center text-text-muted">❌ Non</td>
+                            <td class="p-4 text-center text-brand-dark font-semibold">✅ Localisé</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section id="pricing" class="py-16 px-6 text-center max-w-2xl mx-auto w-full">
+            <h2 class="font-serif font-bold text-3xl text-text mb-3">Prêt à essayer ?</h2>
+            <p class="text-text-muted text-base mb-8">
+                Version Lite gratuite. Essai gratuit de 14 jours de la version Pro avec clé d'accès anticipé, sans carte de crédit.
+            </p>
+            <a href="/#pricing" class="btn-brand px-8 py-3.5 shadow-md no-underline">
+                Obtenir ma licence d'essai →
+            </a>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="border-t border-border py-12 bg-surface transition-colors duration-200 mt-auto">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div class="text-sm text-text-muted">
+                        © 2026 OCR Receipt. Tous droits réservés.
+                    </div>
+                    <div class="flex items-center gap-6 text-sm text-text-muted">
+                        <span class="text-xs">Développé au Québec 🇨🇦</span>
+                        <span class="text-border">|</span>
+                        <a href="/#features" class="hover:text-brand transition-colors no-underline text-text-muted">Fonctionnalités</a>
+                        <a href="https://github.com/martinfou" target="_blank" rel="noopener" class="hover:text-brand transition-colors no-underline text-text-muted">GitHub</a>
+                        <a href="mailto:support@ocrreceipt.com" class="hover:text-brand transition-colors no-underline text-text-muted">Support</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
-</div>
 
-<div class="container">
-    <h2>Comparaison : OCR Receipt vs les solutions cloud</h2>
-    <table style="width:100%;border-collapse:collapse;margin:2rem 0;font-size:0.9rem;">
-        <tr style="color:#a1a09a;font-size:0.8rem;text-transform:uppercase;">
-            <th style="padding:0.75rem;text-align:left;border-bottom:1px solid #3e3e3a;">Critère</th>
-            <th style="padding:0.75rem;text-align:center;border-bottom:1px solid #3e3e3a;">Dext</th>
-            <th style="padding:0.75rem;text-align:center;border-bottom:1px solid #3e3e3a;">Expensify</th>
-            <th style="padding:0.75rem;text-align:center;border-bottom:1px solid #3e3e3a;">OCR Receipt</th>
-        </tr>
-        <tr><td style="padding:0.75rem;border-bottom:1px solid #3e3e3a;">Prix / an</td><td style="padding:0.75rem;text-align:center;border-bottom:1px solid #3e3e3a;color:#991b1b;">~276 $</td><td style="padding:0.75rem;text-align:center;border-bottom:1px solid #3e3e3a;color:#991b1b;">~60-216 $</td><td style="padding:0.75rem;text-align:center;border-bottom:1px solid #3e3e3a;color:#3B82F6;"><strong>149 $ unique</strong></td></tr>
-        <tr><td style="padding:0.75rem;border-bottom:1px solid #3e3e3a;">Hors ligne</td><td style="padding:0.75rem;text-align:center;border-bottom:1px solid #3e3e3a;">❌</td><td style="padding:0.75rem;text-align:center;border-bottom:1px solid #3e3e3a;">❌</td><td style="padding:0.75rem;text-align:center;border-bottom:1px solid #3e3e3a;color:#3B82F6;">✅ 100%</td></tr>
-        <tr><td style="padding:0.75rem;border-bottom:1px solid #3e3e3a;">Données confidentielles</td><td style="padding:0.75rem;text-align:center;border-bottom:1px solid #3e3e3a;">❌ Cloud</td><td style="padding:0.75rem;text-align:center;border-bottom:1px solid #3e3e3a;">❌ Cloud</td><td style="padding:0.75rem;text-align:center;border-bottom:1px solid #3e3e3a;color:#3B82F6;">✅ Locales</td></tr>
-        <tr><td style="padding:0.75rem;border-bottom:1px solid #3e3e3a;">Linux</td><td style="padding:0.75rem;text-align:center;border-bottom:1px solid #3e3e3a;">❌</td><td style="padding:0.75rem;text-align:center;border-bottom:1px solid #3e3e3a;">❌</td><td style="padding:0.75rem;text-align:center;border-bottom:1px solid #3e3e3a;color:#3B82F6;">✅</td></tr>
-        <tr><td style="padding:0.75rem;">Support français</td><td style="padding:0.75rem;text-align:center;">❌</td><td style="padding:0.75rem;text-align:center;">❌</td><td style="padding:0.75rem;text-align:center;color:#3B82F6;">✅</td></tr>
-    </table>
-</div>
+    <!-- Toggles and theme scripts -->
+    <script>
+        (function() {
+            // Theme toggles
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeToggleBtnMobile = document.getElementById('theme-toggle-mobile');
+            const darkIcon = document.getElementById('theme-toggle-dark-icon');
+            const lightIcon = document.getElementById('theme-toggle-light-icon');
+            const darkIconMobile = document.getElementById('theme-toggle-dark-icon-mobile');
+            const lightIconMobile = document.getElementById('theme-toggle-light-icon-mobile');
 
-<div class="container" style="text-align:center;padding:4rem 1.5rem;">
-    <h2>Prêt à essayer ?</h2>
-    <p style="color:#a1a09a;margin-bottom:2rem;">Version Lite gratuite. 14 jours d'essai Pro sans carte de crédit.</p>
-    <a href="/#pricing" class="btn">Télécharger gratuitement →</a>
-</div>
+            function updateIcons(isDark) {
+                if (isDark) {
+                    darkIcon?.classList.remove('hidden');
+                    lightIcon?.classList.add('hidden');
+                    darkIconMobile?.classList.remove('hidden');
+                    lightIconMobile?.classList.add('hidden');
+                } else {
+                    darkIcon?.classList.add('hidden');
+                    lightIcon?.classList.remove('hidden');
+                    darkIconMobile?.classList.add('hidden');
+                    lightIconMobile?.classList.remove('hidden');
+                }
+            }
 
-<footer>
-    <div style="margin-bottom:0.75rem;">
-        <a href="/">Home</a> &middot;
-        <a href="mailto:support@ocrreceipt.com">Support</a>
-    </div>
-    <p>OCR Receipt — Développé au Québec, Canada 🇨🇦</p>
-</footer>
+            const initialIsDark = document.documentElement.classList.contains('dark');
+            updateIcons(initialIsDark);
 
+            function toggleTheme() {
+                const currentTheme = localStorage.getItem('theme') || 'light';
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                localStorage.setItem('theme', newTheme);
+                if (newTheme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                    updateIcons(true);
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    updateIcons(false);
+                }
+            }
+
+            themeToggleBtn?.addEventListener('click', toggleTheme);
+            themeToggleBtnMobile?.addEventListener('click', toggleTheme);
+
+            // Mobile menu
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            menuBtn?.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    hamburgerIcon?.classList.add('hidden');
+                    closeIcon?.classList.remove('hidden');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    hamburgerIcon?.classList.remove('hidden');
+                    closeIcon?.classList.add('hidden');
+                }
+            });
+
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    hamburgerIcon?.classList.remove('hidden');
+                    closeIcon?.classList.add('hidden');
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
