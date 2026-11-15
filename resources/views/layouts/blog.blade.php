@@ -52,19 +52,19 @@
                 <div class="hidden lg:flex items-center gap-6">
                     <div class="flex items-center gap-6">
                         @if(($locale ?? 'en') === 'fr')
-                            <a href="/fr#why" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Pourquoi</a>
-                            <a href="/#how-it-works" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Comment ça marche</a>
-                            <a href="/#features" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Fonctionnalités</a>
+                            <a href="/fr#math" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Pourquoi</a>
+                            <a href="/fr#how" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Comment ça marche</a>
+                            <a href="/fr#how" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Fonctionnalités</a>
                             <a href="/fr/blog" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Blog</a>
                             <a href="/fr#pricing" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Tarifs</a>
-                            <a href="/#beta" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Contact</a>
+                            <a href="/fr#faq" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Contact</a>
                         @else
-                            <a href="/#problem" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Why</a>
-                            <a href="/#how-it-works" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">How It Works</a>
-                            <a href="/#features" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Features</a>
+                            <a href="/#math" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Why</a>
+                            <a href="/#how" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">How It Works</a>
+                            <a href="/#how" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Features</a>
                             <a href="/blog" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Blog</a>
                             <a href="/#pricing" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Pricing</a>
-                            <a href="/#beta" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Contact</a>
+                            <a href="/#faq" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors no-underline">Contact</a>
                         @endif
                     </div>
                     
@@ -126,19 +126,19 @@
             >
                 <div class="flex flex-col gap-4">
                     @if(($locale ?? 'en') === 'fr')
-                        <a href="/fr#why" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Pourquoi</a>
-                        <a href="/#how-it-works" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Comment ça marche</a>
-                        <a href="/#features" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Fonctionnalités</a>
+                        <a href="/fr#math" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Pourquoi</a>
+                        <a href="/fr#how" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Comment ça marche</a>
+                        <a href="/fr#how" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Fonctionnalités</a>
                         <a href="/fr/blog" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Blog</a>
                         <a href="/fr#pricing" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Tarifs</a>
-                        <a href="/#beta" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Contact</a>
+                        <a href="/fr#faq" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Contact</a>
                     @else
-                        <a href="/#problem" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Why</a>
-                        <a href="/#how-it-works" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">How It Works</a>
-                        <a href="/#features" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Features</a>
+                        <a href="/#math" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Why</a>
+                        <a href="/#how" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">How It Works</a>
+                        <a href="/#how" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Features</a>
                         <a href="/blog" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Blog</a>
                         <a href="/#pricing" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Pricing</a>
-                        <a href="/#beta" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Contact</a>
+                        <a href="/#faq" class="mobile-nav-link text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40 no-underline">Contact</a>
                     @endif
                 </div>
                 
@@ -197,13 +197,13 @@
                         <span class="text-xs">{{ ($locale ?? 'en') === 'fr' ? 'Développé localement 💻' : 'Developed locally 💻' }}</span>
                         <span class="text-border">|</span>
                         @if(($locale ?? 'en') === 'fr')
-                            <a href="/fr#why" class="hover:text-brand transition-colors no-underline text-text-muted">Fonctionnalités</a>
+                            <a href="/fr#how" class="hover:text-brand transition-colors no-underline text-text-muted">Fonctionnalités</a>
                             <a href="https://github.com/martinfou" target="_blank" rel="noopener" class="hover:text-brand transition-colors no-underline text-text-muted">GitHub</a>
                             <a href="mailto:support@ocrreceipt.com" class="hover:text-brand transition-colors no-underline text-text-muted">Support</a>
                         @else
-                            <a href="/#features" class="hover:text-brand transition-colors no-underline text-text-muted">Features</a>
+                            <a href="/#how" class="hover:text-brand transition-colors no-underline text-text-muted">Features</a>
                             <a href="https://github.com/martinfou" target="_blank" rel="noopener" class="hover:text-brand transition-colors no-underline text-text-muted">GitHub</a>
-                            <a href="/#beta" class="hover:text-brand transition-colors no-underline text-text-muted">Contact</a>
+                            <a href="/#faq" class="hover:text-brand transition-colors no-underline text-text-muted">Contact</a>
                         @endif
                     </div>
                 </div>

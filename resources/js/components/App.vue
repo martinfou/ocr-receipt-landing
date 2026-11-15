@@ -1,279 +1,176 @@
 <template>
-    <div id="app" class="min-h-screen bg-surface text-text overflow-x-hidden">
-        <nav class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-md border-b border-border">
-            <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-                <div class="flex items-center gap-2 cursor-pointer select-none" @click="scrollToTop">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-brand fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <polyline points="9 15 11 17 15 13"></polyline>
-                    </svg>
-                    <span class="font-serif font-bold text-base text-text tracking-tight">OCR Receipt</span>
-                </div>
-                
-                <!-- Desktop Navigation Menu -->
-                <div class="hidden lg:flex items-center gap-6">
-                    <div class="flex items-center gap-6">
-                        <a href="#problem" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.problem') }}</a>
-                        <a href="#how-it-works" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.workflow') }}</a>
-                        <a href="#features" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.features') }}</a>
-                        <a href="/blog" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.blog') }}</a>
-                        <a href="#pricing" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.pricing') }}</a>
-                        <a href="#beta" class="text-[10px] font-mono uppercase tracking-wider text-text-muted hover:text-text transition-colors">{{ $t('nav.contact') }}</a>
-                    </div>
-                    
-                    <!-- Language Switcher -->
-                    <div class="flex items-center gap-1.5 px-2.5 py-1 rounded border border-border bg-surface-light text-[10px] font-mono select-none">
-                        <button 
-                            @click="$setLang('fr')" 
-                            :class="[$lang.lang === 'fr' ? 'text-brand-dark font-semibold' : 'text-text-muted hover:text-text']"
-                            class="transition-colors cursor-pointer"
-                        >FR</button>
-                        <span class="text-border">|</span>
-                        <button 
-                            @click="$setLang('en')" 
-                            :class="[$lang.lang === 'en' ? 'text-brand-dark font-semibold' : 'text-text-muted hover:text-text']"
-                            class="transition-colors cursor-pointer"
-                        >EN</button>
-                    </div>
+    <div class="lp min-h-screen overflow-x-clip">
+        <a href="#main" class="lp-skip">{{ $t('skip') }}</a>
 
-                    <!-- Theme Switcher -->
-                    <button 
-                        @click="toggleTheme" 
-                        class="w-7 h-7 rounded border border-border bg-surface-light hover:bg-surface flex items-center justify-center text-text-muted hover:text-text cursor-pointer transition-colors"
-                        :aria-label="theme === 'dark' ? 'Switch to Light Theme' : 'Switch to Dark Theme'"
+        <header>
+            <!-- Founder bar, desktop instance (the phone instance sits after the hero). -->
+            <FounderBar class="hidden desk:block" />
+
+            <div class="bg-lp-surface border-b border-lp-border">
+                <nav
+                    :aria-label="$t('nav.label')"
+                    class="lp-wrap py-4 grid grid-cols-[auto_auto_minmax(0,1fr)] items-center gap-3 desk:flex desk:flex-wrap desk:justify-between desk:gap-4"
+                    @keydown.esc="closeMenu(true)"
+                >
+                    <a :href="$t('nav.homeHref')" class="col-start-1 row-start-1 inline-flex items-center gap-2.5 min-h-[44px] no-underline text-ink font-extrabold text-[18px] tracking-[-0.01em]">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" class="shrink-0">
+                            <path d="M6 3h16v22l-2.7-1.8L16.7 25 14 23.2 11.3 25l-2.6-1.8L6 25V3Z" stroke="var(--lp-brand-strong)" stroke-width="2" stroke-linejoin="round" fill="var(--lp-brand-track)" />
+                            <path d="M10 9h8M10 13h8M10 17h5" stroke="var(--lp-brand-strong)" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                        <span class="max-[420px]:sr-only">ocr-receipt</span>
+                    </a>
+
+                    <button
+                        ref="menuButton"
+                        type="button"
+                        class="desk:hidden col-start-2 row-start-1 inline-flex items-center gap-2 min-h-[44px] px-3.5 rounded-[10px] border border-border-strong bg-transparent text-ink-body lp-label font-semibold cursor-pointer"
+                        :aria-expanded="menuOpen ? 'true' : 'false'"
+                        aria-controls="nav-menu"
+                        @click="menuOpen = !menuOpen"
                     >
-                        <svg v-if="theme === 'dark'" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                        <svg v-else xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+                        {{ $t('nav.menu') }}
                     </button>
 
-                    <a href="#download" class="btn-brand text-[10px] font-mono uppercase tracking-wider px-4 py-2 shadow-sm transition-all cursor-pointer">
-                        {{ $t('nav.cta') }}
-                    </a>
-                </div>
-
-                <!-- Mobile Hamburger Button -->
-                <button 
-                    @click="toggleMobileMenu" 
-                    class="lg:hidden w-10 h-10 border border-border bg-surface-light rounded-lg flex items-center justify-center text-text-muted hover:text-text hover:border-brand/40 transition-all cursor-pointer"
-                    :aria-label="mobileMenuOpen ? 'Close Menu' : 'Open Menu'"
-                >
-                    <svg v-if="mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                    </svg>
-                    <svg v-else xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Mobile Navigation Drawer -->
-            <transition name="slide-down">
-                <div v-if="mobileMenuOpen" class="lg:hidden absolute top-16 left-0 w-full bg-surface/98 backdrop-blur-lg border-b border-border shadow-lg z-40 overflow-hidden flex flex-col p-6 gap-6">
-                    <div class="flex flex-col gap-4">
-                        <a href="#problem" @click="closeMobileMenu" class="text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40">{{ $t('nav.problem') }}</a>
-                        <a href="#how-it-works" @click="closeMobileMenu" class="text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40">{{ $t('nav.workflow') }}</a>
-                        <a href="#features" @click="closeMobileMenu" class="text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40">{{ $t('nav.features') }}</a>
-                        <a href="/blog" class="text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40">{{ $t('nav.blog') }}</a>
-                        <a href="#pricing" @click="closeMobileMenu" class="text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40">{{ $t('nav.pricing') }}</a>
-                        <a href="#beta" @click="closeMobileMenu" class="text-sm font-serif font-medium text-text hover:text-brand transition-colors py-2 border-b border-border/40">{{ $t('nav.contact') }}</a>
-                    </div>
-                    
-                    <div class="flex items-center justify-between py-2">
-                        <!-- Language Selector inside Drawer -->
-                        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded border border-border bg-surface-light text-xs font-mono select-none">
-                            <button 
-                                @click="$setLang('fr')" 
-                                :class="[$lang.lang === 'fr' ? 'text-brand-dark font-semibold' : 'text-text-muted']"
-                                class="transition-colors cursor-pointer"
-                            >FR</button>
-                            <span class="text-border">|</span>
-                            <button 
-                                @click="$setLang('en')" 
-                                :class="[$lang.lang === 'en' ? 'text-brand-dark font-semibold' : 'text-text-muted']"
-                                class="transition-colors cursor-pointer"
-                            >EN</button>
+                    <div
+                        id="nav-menu"
+                        class="col-span-3 row-start-2 flex-col gap-1 pt-2 border-t border-lp-border desk:flex desk:flex-row desk:flex-wrap desk:items-center desk:gap-6 desk:pt-0 desk:border-0 desk:ml-auto"
+                        :class="menuOpen ? 'flex' : 'hidden'"
+                    >
+                        <ul class="m-0 p-0 list-none flex flex-col desk:flex-row desk:items-center desk:gap-6">
+                            <li v-for="link in links" :key="link.href">
+                                <a :href="link.href" class="inline-flex items-center min-h-[44px] lp-label text-ink-body no-underline" @click="closeMenu(false)">{{ $t(link.label) }}</a>
+                            </li>
+                        </ul>
+                        <div class="flex items-center gap-4 desk:gap-6">
+                            <button
+                                type="button"
+                                class="inline-flex items-center gap-2 min-h-[44px] min-w-[44px] justify-center rounded-[10px] bg-transparent border-0 text-ink-body lp-label cursor-pointer px-1"
+                                :aria-pressed="isDark ? 'true' : 'false'"
+                                @click="toggleTheme"
+                            >
+                                <svg v-if="isDark" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="2" /><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+                                <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" /></svg>
+                                <span class="desk:sr-only">{{ $t('nav.darkTheme') }}</span>
+                            </button>
+                            <a
+                                :href="$t('nav.lang.href')"
+                                :lang="$t('nav.lang.code')"
+                                :hreflang="$t('nav.lang.code')"
+                                class="inline-flex items-center min-h-[44px] lp-label text-ink-body"
+                                @click="switchLanguage"
+                            >{{ $t('nav.lang.label') }}</a>
                         </div>
-
-                        <!-- Theme Toggle inside Drawer -->
-                        <button 
-                            @click="toggleTheme" 
-                            class="w-9 h-9 rounded border border-border bg-surface-light hover:bg-surface flex items-center justify-center text-text-muted hover:text-text cursor-pointer transition-colors"
-                        >
-                            <svg v-if="theme === 'dark'" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="5"></circle>
-                                <line x1="12" y1="1" x2="12" y2="3"></line>
-                                <line x1="12" y1="21" x2="12" y2="23"></line>
-                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                                <line x1="1" y1="12" x2="3" y2="12"></line>
-                                <line x1="21" y1="12" x2="23" y2="12"></line>
-                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                            </svg>
-                            <svg v-else xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                            </svg>
-                        </button>
                     </div>
 
-                    <a href="#download" @click="closeMobileMenu" class="btn-brand text-xs font-mono uppercase tracking-wider py-3 text-center shadow-md transition-all cursor-pointer">
-                        {{ $t('nav.cta') }}
-                    </a>
-                </div>
-            </transition>
-        </nav>
+                    <DownloadLink variant="nav" class="col-start-3 row-start-1 justify-self-end text-center leading-tight" />
+                </nav>
+            </div>
+        </header>
 
-        <main class="pt-16">
-            <HeroSection :active-tab="activeTab" @tab-changed="handleTabClick" />
-            <ProblemSection />
-            <HowItWorksSection />
-            <FeaturesSection @select-feature-tab="handleSelectFeatureTab" />
-            <GallerySection />
+        <main id="main" tabindex="-1">
+            <HeroSection />
+            <FounderBar class="desk:hidden" />
+            <TourSection />
+            <BleedCalculator />
+            <FounderNote />
             <PricingSection />
-            <BetaSection />
-            <DownloadsSection />
             <FaqSection />
-            <FooterSection />
+            <ClosingBand />
         </main>
 
-        <!-- Floating Scroll to Top Button -->
-        <button 
-            @click="scrollToTop" 
-            :class="[showScrollTop ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none']"
-            class="fixed bottom-6 right-6 z-50 w-10 h-10 rounded-full border border-border bg-surface-light/80 text-text-muted hover:text-brand hover:border-brand/40 backdrop-blur-md flex items-center justify-center transition-all duration-300 shadow-lg cursor-pointer"
-            aria-label="Back to top">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-            </svg>
-        </button>
+        <FooterSection />
     </div>
 </template>
 
 <script>
+import FounderBar from './FounderBar.vue';
+import DownloadLink from './DownloadLink.vue';
 import HeroSection from './HeroSection.vue';
-import ProblemSection from './ProblemSection.vue';
-import HowItWorksSection from './HowItWorksSection.vue';
-import FeaturesSection from './FeaturesSection.vue';
-import GallerySection from './GallerySection.vue';
+import TourSection from './TourSection.vue';
+import BleedCalculator from './BleedCalculator.vue';
+import FounderNote from './FounderNote.vue';
 import PricingSection from './PricingSection.vue';
-// BlogSection removed
-import DownloadsSection from './DownloadsSection.vue';
-import BetaSection from './BetaSection.vue';
 import FaqSection from './FaqSection.vue';
+import ClosingBand from './ClosingBand.vue';
 import FooterSection from './FooterSection.vue';
+
+function storedTheme() {
+    try {
+        const t = localStorage.getItem('theme');
+        return t === 'dark' || t === 'light' ? t : null;
+    } catch (e) {
+        return null;
+    }
+}
 
 export default {
     name: 'App',
     components: {
+        FounderBar,
+        DownloadLink,
         HeroSection,
-        ProblemSection,
-        HowItWorksSection,
-        FeaturesSection,
-        GallerySection,
+        TourSection,
+        BleedCalculator,
+        FounderNote,
         PricingSection,
-
-        DownloadsSection,
-        BetaSection,
         FaqSection,
-        FooterSection,
+        ClosingBand,
+        FooterSection
     },
     data() {
         return {
-            showScrollTop: false,
-            activeTab: 0,
-            theme: 'light',
-            tabInterval: null,
-            mobileMenuOpen: false
+            menuOpen: false,
+            isDark: document.documentElement.classList.contains('dark'),
+            links: [
+                { href: '#how', label: 'nav.how' },
+                { href: '#math', label: 'nav.math' },
+                { href: '#pricing', label: 'nav.pricing' },
+                { href: '#faq', label: 'nav.faq' }
+            ]
         };
     },
     mounted() {
-        window.addEventListener('scroll', this.handleScroll);
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        this.theme = savedTheme;
-        this.applyTheme();
-        this.startTabAutoPlay();
+        // With no stored choice, follow prefers-color-scheme live.
+        if (window.matchMedia) {
+            this.schemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            this.onSchemeChange = (e) => {
+                if (!storedTheme()) this.applyTheme(e.matches);
+            };
+            if (this.schemeQuery.addEventListener) this.schemeQuery.addEventListener('change', this.onSchemeChange);
+        }
+        this.applyTheme(storedTheme() ? storedTheme() === 'dark' : this.isDark);
     },
     beforeUnmount() {
-        window.removeEventListener('scroll', this.handleScroll);
-        this.stopTabAutoPlay();
+        if (this.schemeQuery && this.schemeQuery.removeEventListener) {
+            this.schemeQuery.removeEventListener('change', this.onSchemeChange);
+        }
     },
     methods: {
-        scrollToPricing() {
-            document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
-        },
-        scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        },
-        handleScroll() {
-            this.showScrollTop = window.scrollY > 400;
-        },
-        handleTabClick(index) {
-            this.activeTab = index;
-            this.stopTabAutoPlay();
-        },
-        handleSelectFeatureTab(index) {
-            this.activeTab = index;
-            this.stopTabAutoPlay();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        },
-        startTabAutoPlay() {
-            this.stopTabAutoPlay();
-            this.tabInterval = setInterval(() => {
-                this.activeTab = (this.activeTab + 1) % 4;
-            }, 5000);
-        },
-        stopTabAutoPlay() {
-            if (this.tabInterval) {
-                clearInterval(this.tabInterval);
-                this.tabInterval = null;
-            }
+        applyTheme(dark) {
+            this.isDark = dark;
+            document.documentElement.classList.toggle('dark', dark);
         },
         toggleTheme() {
-            this.theme = this.theme === 'light' ? 'dark' : 'light';
-            localStorage.setItem('theme', this.theme);
-            this.applyTheme();
+            const dark = !this.isDark;
+            try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) { /* storage blocked */ }
+            this.applyTheme(dark);
         },
-        applyTheme() {
-            if (this.theme === 'dark') {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
+        closeMenu(returnFocus) {
+            if (!this.menuOpen) return;
+            this.menuOpen = false;
+            if (returnFocus && this.$refs.menuButton) this.$refs.menuButton.focus();
+        },
+        // Go to the equivalent URL in the other language, keeping the anchor,
+        // and remember the choice in a cookie.
+        switchLanguage(e) {
+            const code = this.$t('nav.lang.code');
+            document.cookie = 'lang=' + code + '; path=/; max-age=31536000; SameSite=Lax';
+            try { localStorage.setItem('lang', code); } catch (err) { /* storage blocked */ }
+            if (window.location.hash) {
+                e.currentTarget.setAttribute('href', this.$t('nav.lang.href') + window.location.hash);
             }
-        },
-        toggleMobileMenu() {
-            this.mobileMenuOpen = !this.mobileMenuOpen;
-        },
-        closeMobileMenu() {
-            this.mobileMenuOpen = false;
         }
     }
 };
 </script>
-
-<style scoped>
-/* Mobile Menu Drawer slide-down transition */
-.slide-down-enter-active,
-.slide-down-leave-active {
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    max-height: 480px;
-}
-.slide-down-enter,
-.slide-down-leave-to {
-    max-height: 0;
-    opacity: 0;
-}
-</style>
-
