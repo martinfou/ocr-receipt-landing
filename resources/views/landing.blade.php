@@ -39,7 +39,7 @@
       "applicationCategory": "BusinessApplication",
       "offers": {
         "@@type": "AggregateOffer",
-        "priceCurrency": "USD",
+        "priceCurrency": "CAD",
         "lowPrice": "0",
         "highPrice": "399"
       },

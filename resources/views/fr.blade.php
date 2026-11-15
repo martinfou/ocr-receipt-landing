@@ -234,6 +234,7 @@
                     <thead>
                         <tr class="bg-surface border-b border-border">
                             <th class="p-4 text-left font-mono text-xs font-semibold text-text-muted uppercase tracking-wider">Critère</th>
+                            <th class="p-4 text-center font-mono text-xs font-semibold text-text-muted uppercase tracking-wider">NeatReceipts</th>
                             <th class="p-4 text-center font-mono text-xs font-semibold text-text-muted uppercase tracking-wider">Dext</th>
                             <th class="p-4 text-center font-mono text-xs font-semibold text-text-muted uppercase tracking-wider">Expensify</th>
                             <th class="p-4 text-center font-mono text-xs font-semibold text-brand uppercase tracking-wider">OCR Receipt</th>
@@ -241,19 +242,29 @@
                     </thead>
                     <tbody class="divide-y divide-border">
                         <tr>
-                            <td class="p-4 font-medium text-text">Prix / an</td>
-                            <td class="p-4 text-center text-[#c2410c] font-medium">~276 $</td>
-                            <td class="p-4 text-center text-[#c2410c] font-medium">~60-216 $</td>
-                            <td class="p-4 text-center text-brand-dark font-bold font-mono">149 $ unique</td>
+                            <td class="p-4 font-medium text-text">Prix / an (CAD)</td>
+                            <td class="p-4 text-center text-[#c2410c] font-medium">~275–480 $ CAD / an</td>
+                            <td class="p-4 text-center text-[#c2410c] font-medium">~415 $ CAD / an</td>
+                            <td class="p-4 text-center text-[#c2410c] font-medium">~85–290 $ CAD / an</td>
+                            <td class="p-4 text-center text-brand-dark font-bold font-mono">0 $ (Lite) / 199 $ CAD unique (Pro)</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-medium text-text">Coût sur 5 ans</td>
+                            <td class="p-4 text-center text-[#c2410c] font-medium">1 375 $ – 2 400 $ CAD</td>
+                            <td class="p-4 text-center text-[#c2410c] font-medium">~2 075 $ CAD</td>
+                            <td class="p-4 text-center text-[#c2410c] font-medium">425 $ – 1 450 $ CAD</td>
+                            <td class="p-4 text-center text-brand-dark font-bold font-mono">199 $ CAD (à vie)</td>
                         </tr>
                         <tr>
                             <td class="p-4 font-medium text-text">Hors ligne</td>
+                            <td class="p-4 text-center text-text-muted">❌ App locale retirée</td>
                             <td class="p-4 text-center text-text-muted">❌ Non</td>
                             <td class="p-4 text-center text-text-muted">❌ Non</td>
                             <td class="p-4 text-center text-brand-dark font-semibold">✅ 100% local</td>
                         </tr>
                         <tr>
                             <td class="p-4 font-medium text-text">Souveraineté des données</td>
+                            <td class="p-4 text-center text-text-muted">❌ Cloud US forcé</td>
                             <td class="p-4 text-center text-text-muted">❌ Serveurs US</td>
                             <td class="p-4 text-center text-text-muted">❌ Serveurs US</td>
                             <td class="p-4 text-center text-brand-dark font-semibold">✅ Sur votre disque</td>
@@ -262,13 +273,15 @@
                             <td class="p-4 font-medium text-text">Système Linux</td>
                             <td class="p-4 text-center text-text-muted">❌ Non</td>
                             <td class="p-4 text-center text-text-muted">❌ Non</td>
+                            <td class="p-4 text-center text-text-muted">❌ Non</td>
                             <td class="p-4 text-center text-brand-dark font-semibold">✅ Supporté</td>
                         </tr>
                         <tr>
                             <td class="p-4 font-medium text-text">Support en français</td>
+                            <td class="p-4 text-center text-text-muted">❌ Anglais seulement</td>
                             <td class="p-4 text-center text-text-muted">❌ Limité</td>
                             <td class="p-4 text-center text-text-muted">❌ Non</td>
-                            <td class="p-4 text-center text-brand-dark font-semibold">✅ Localisé</td>
+                            <td class="p-4 text-center text-brand-dark font-semibold">✅ Localisé (Québec)</td>
                         </tr>
                     </tbody>
                 </table>
@@ -279,10 +292,10 @@
         <section id="pricing" class="py-16 px-6 text-center max-w-2xl mx-auto w-full">
             <h2 class="font-serif font-bold text-3xl text-text mb-3">Prêt à essayer ?</h2>
             <p class="text-text-muted text-base mb-8">
-                Version Lite gratuite. Essai gratuit de 14 jours de la version Pro avec clé d'accès anticipé, sans carte de crédit.
+                Version Free Lite gratuite à vie (15 reçus/mois, sans carte de crédit), ou licence Pro perpétuelle à 199 $ CAD (2 postes inclus).
             </p>
             <a href="/#pricing" class="btn-brand px-8 py-3.5 shadow-md no-underline">
-                Obtenir ma licence d'essai →
+                Voir les tarifs & télécharger →
             </a>
         </section>
 

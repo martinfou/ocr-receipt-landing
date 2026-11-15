@@ -418,14 +418,72 @@ class LicenseController extends Controller
 
     /**
      * Serve the Sparkle-compatible appcast.xml for the auto-updater.
+     *
+     * Only advertises platform enclosures whose binary actually exists in
+     * storage/app/downloads/, ordered with the requesting client's OS first
+     * so legacy clients that pick the first <enclosure> also receive the
+     * matching installer.
      */
-    public function appcast()
+    public function appcast(Request $request)
     {
-        $downloadUrl = route('license.serve', [
-            'filename' => 'OCR-Receipt-1.0.0-linux.tar.gz',
-        ], true) . '?email={email}&license_key={licenseKey}';
+        $configuredUrl = rtrim((string) config('app.url', 'https://ocrreceipt.com'), '/');
+        if ($configuredUrl === '' || str_contains($configuredUrl, 'localhost') || str_contains($configuredUrl, '127.0.0.1')) {
+            $appUrl = 'https://ocrreceipt.com';
+        } else {
+            $appUrl = $configuredUrl;
+        }
 
-        $appUrl = config('app.url', 'https://ocrreceipt.com');
+        $version = '1.0.0';
+        $platformFiles = [
+            'macos' => "OCR-Receipt-{$version}.dmg",
+            'windows' => "OCR-Receipt-{$version}-Setup.exe",
+            'linux' => "OCR-Receipt-{$version}-linux.tar.gz",
+        ];
+
+        $requestedOs = strtolower((string) $request->query('os', ''));
+        if (!in_array($requestedOs, ['macos', 'windows', 'linux'], true)) {
+            $ua = strtolower((string) $request->header('User-Agent', ''));
+            if (str_contains($ua, 'darwin') || str_contains($ua, 'mac')) {
+                $requestedOs = 'macos';
+            } elseif (str_contains($ua, 'win')) {
+                $requestedOs = 'windows';
+            } elseif (str_contains($ua, 'linux') || str_contains($ua, 'x11')) {
+                $requestedOs = 'linux';
+            }
+        }
+
+        $orderedPlatforms = ['macos', 'windows', 'linux'];
+        if ($requestedOs !== '' && in_array($requestedOs, $orderedPlatforms, true)) {
+            $orderedPlatforms = array_values(array_unique(array_merge([$requestedOs], $orderedPlatforms)));
+        }
+
+        $enclosuresXml = '';
+        foreach ($orderedPlatforms as $os) {
+            $filename = $platformFiles[$os];
+            $filePath = storage_path('app/downloads/' . $filename);
+            if (!is_file($filePath)) {
+                continue;
+            }
+            $fileSize = (int) filesize($filePath);
+            $downloadUrl = $appUrl . '/download-file/' . rawurlencode($filename);
+            $enclosuresXml .= "\n      " . '<enclosure'
+                . ' url="' . e($downloadUrl) . '"'
+                . ' sparkle:os="' . e($os) . '"'
+                . ' sparkle:edSignature=""'
+                . ' length="' . $fileSize . '"'
+                . ' type="application/octet-stream"/>';
+        }
+
+        $itemXml = '';
+        if ($enclosuresXml !== '') {
+            $itemXml = '    <item>
+      <title>Version ' . e($version) . '</title>
+      <description>Version commerciale 1.0 — Extraction IA locale &amp; Vision, gabarits de nommage et exports comptables.</description>
+      <pubDate>' . now()->format('D, d M Y H:i:s O') . '</pubDate>
+      <sparkle:version>' . e($version) . '</sparkle:version>
+      <sparkle:releaseNotesLink>' . e($appUrl . '/#features') . '</sparkle:releaseNotesLink>' . $enclosuresXml . '
+    </item>';
+        }
 
         $xml = '<?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0"
@@ -433,25 +491,15 @@ class LicenseController extends Controller
      xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>OCR Receipt Appcast</title>
-    <link>' . $appUrl . '/appcast.xml</link>
+    <link>' . e($appUrl . '/appcast.xml') . '</link>
     <language>fr</language>
-    <item>
-      <title>Version 1.0.0</title>
-      <description>Version commerciale 1.0 — Extraction IA locale &amp; Vision, gabarits de nommage et exports comptables.</description>
-      <pubDate>' . now()->format('D, d M Y H:i:s O') . '</pubDate>
-      <sparkle:version>1.0.0</sparkle:version>
-      <sparkle:releaseNotesLink>' . $appUrl . '/#features</sparkle:releaseNotesLink>
-      <enclosure
-        url="' . e($downloadUrl) . '"
-        sparkle:edSignature=""
-        length="243864053"
-        type="application/octet-stream"/>
-    </item>
+' . $itemXml . '
   </channel>
 </rss>';
 
         return response($xml, 200, [
             'Content-Type' => 'application/xml; charset=utf-8',
+            'Vary' => 'User-Agent',
         ]);
     }
 

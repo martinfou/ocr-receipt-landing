@@ -9,6 +9,9 @@
                     <span class="text-xs">{{ $t('footer.developedBy') }}</span>
                     <span class="text-border">|</span>
                     <a href="#features" class="hover:text-brand transition-colors">{{ $t('footer.links.product') }}</a>
+                    <a href="/vs/neat" class="hover:text-brand transition-colors">vs NeatReceipts</a>
+                    <a href="/vs/dext" class="hover:text-brand transition-colors">vs Dext</a>
+                    <a href="/alternative-hubdoc" class="hover:text-brand transition-colors">vs Hubdoc</a>
                     <a href="https://github.com/martinfou" target="_blank" rel="noopener" class="hover:text-brand transition-colors">{{ $t('footer.links.github') }}</a>
                     <a href="#beta" class="hover:text-brand transition-colors">{{ $t('footer.links.contact') }}</a>
                 </div>

@@ -23,4 +23,10 @@
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
+    <url>
+        <loc>https://ocrreceipt.com/vs/neat</loc>
+        <lastmod>{{ date('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
 </urlset>

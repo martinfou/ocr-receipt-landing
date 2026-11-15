@@ -56,45 +56,45 @@
     <h2>At a Glance</h2>
     <table>
         <tr><th>Feature</th><th>Dext Prepare</th><th>OCR Receipt</th></tr>
-        <tr><td>Price per year</td><td>~$276/yr</td><td class="winner">$149 one-time (Solo)</td></tr>
-        <tr><td>5-year cost</td><td>~$1,380</td><td class="winner">$149</td></tr>
+        <tr><td>Price per year</td><td>~$415 CAD/yr (~$302 USD)</td><td class="winner">$199 CAD one-time (Pro · 2 Devices)</td></tr>
+        <tr><td>5-year cost</td><td>~$2,075 CAD</td><td class="winner">$199 CAD</td></tr>
         <tr><td>Processing</td><td>Cloud only</td><td class="winner">100% local</td></tr>
         <tr><td>Offline mode</td><td>❌</td><td class="winner">✅ Full</td></tr>
         <tr><td>AI extraction</td><td>✅ Cloud AI</td><td class="winner">✅ Local AI (no data sent)</td></tr>
         <tr><td>Data privacy</td><td>On Dext servers</td><td class="winner">On your machine</td></tr>
         <tr><td>Linux support</td><td>❌ (web only)</td><td class="winner">✅ Native</td></tr>
         <tr><td>QBO / Xero export</td><td>✅ Native</td><td>✅ CSV (3-click import)</td></tr>
-        <tr><td>Free tier</td><td>❌ (14-day trial)</td><td class="winner">✅ Lite (permanent)</td></tr>
+        <tr><td>Free tier</td><td>❌ (14-day trial)</td><td class="winner">✅ Free Lite (forever, 15/mo)</td></tr>
         <tr><td>Mobile app</td><td>✅</td><td>❌ (desktop only)</td></tr>
     </table>
 </div>
 
 <div class="container">
-    <h2>The Price Difference Over Time</h2>
+    <h2>The Price Difference Over Time (CAD)</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;text-align:center;">
         <div class="card">
             <div style="font-size:0.8rem;color:#a1a09a;">Year 1</div>
-            <div style="font-size:1.5rem;font-weight:700;color:#991b1b;">$276</div>
+            <div style="font-size:1.5rem;font-weight:700;color:#991b1b;">$415 CAD</div>
             <div style="font-size:0.8rem;color:#a1a09a;">Dext</div>
-            <div style="font-size:1.5rem;font-weight:700;color:#3B82F6;">$149</div>
-            <div style="font-size:0.8rem;color:#3B82F6;">OCR Receipt</div>
+            <div style="font-size:1.5rem;font-weight:700;color:#3B82F6;">$199 CAD</div>
+            <div style="font-size:0.8rem;color:#3B82F6;">OCR Receipt Pro</div>
         </div>
         <div class="card">
             <div style="font-size:0.8rem;color:#a1a09a;">Year 3</div>
-            <div style="font-size:1.5rem;font-weight:700;color:#991b1b;">$828</div>
+            <div style="font-size:1.5rem;font-weight:700;color:#991b1b;">$1,245 CAD</div>
             <div style="font-size:0.8rem;color:#a1a09a;">Dext</div>
-            <div style="font-size:1.5rem;font-weight:700;color:#3B82F6;">$149</div>
-            <div style="font-size:0.8rem;color:#3B82F6;">OCR Receipt</div>
+            <div style="font-size:1.5rem;font-weight:700;color:#3B82F6;">$199 CAD</div>
+            <div style="font-size:0.8rem;color:#3B82F6;">OCR Receipt Pro</div>
         </div>
         <div class="card">
             <div style="font-size:0.8rem;color:#a1a09a;">Year 5</div>
-            <div style="font-size:1.5rem;font-weight:700;color:#991b1b;">$1,380</div>
+            <div style="font-size:1.5rem;font-weight:700;color:#991b1b;">$2,075 CAD</div>
             <div style="font-size:0.8rem;color:#a1a09a;">Dext</div>
-            <div style="font-size:1.5rem;font-weight:700;color:#3B82F6;">$149</div>
-            <div style="font-size:0.8rem;color:#3B82F6;">OCR Receipt</div>
+            <div style="font-size:1.5rem;font-weight:700;color:#3B82F6;">$199 CAD</div>
+            <div style="font-size:0.8rem;color:#3B82F6;">OCR Receipt Pro</div>
         </div>
     </div>
-    <p style="text-align:center;color:#a1a09a;margin-top:1rem;">Over 5 years, OCR Receipt saves you <strong style="color:#3B82F6;">$1,231 (89%)</strong> compared to Dext.</p>
+    <p style="text-align:center;color:#a1a09a;margin-top:1rem;">Over 5 years, OCR Receipt Pro saves you <strong style="color:#3B82F6;">$1,876 CAD (90%)</strong> compared to Dext Prepare.</p>
 </div>
 
 <div class="container">

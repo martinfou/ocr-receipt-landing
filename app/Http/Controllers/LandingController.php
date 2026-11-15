@@ -114,6 +114,11 @@ class LandingController extends Controller
         return view('vs-dext');
     }
 
+    public function vsNeat()
+    {
+        return view('vs-neat');
+    }
+
     public function subscribe(Request $request)
     {
         $request->validate([

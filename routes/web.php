@@ -12,6 +12,7 @@ Route::get('/fr', [LandingController::class, 'french'])->name('french');
 Route::get('/dl/{platform}', [LandingController::class, 'download'])->name('download');
 Route::get('/api/stats', [LandingController::class, 'stats'])->name('stats');
 Route::get('/vs/dext', [LandingController::class, 'vsDext'])->name('vs.dext');
+Route::get('/vs/neat', [LandingController::class, 'vsNeat'])->name('vs.neat');
 // English Blog routes
 Route::get('/blog', [BlogController::class, 'index'])->defaults('locale', 'en')->name('blog.en');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->defaults('locale', 'en')->name('blog.article.en');

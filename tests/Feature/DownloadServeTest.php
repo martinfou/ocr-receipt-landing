@@ -75,4 +75,39 @@ class DownloadServeTest extends TestCase
             $this->forget($name);
         }
     }
+
+    public function test_appcast_only_advertises_existing_os_binaries_without_placeholders_or_localhost(): void
+    {
+        $dmgName = 'OCR-Receipt-1.0.0.dmg';
+        $linuxName = 'OCR-Receipt-1.0.0-linux.tar.gz';
+        $winName = 'OCR-Receipt-1.0.0-Setup.exe';
+
+        $dmgExisted = is_file($this->path($dmgName));
+        if (!$dmgExisted) {
+            file_put_contents($this->path($dmgName), 'MAC-DMG-BYTES');
+        }
+        $this->forget($linuxName);
+        $this->forget($winName);
+
+        try {
+            $response = $this->withHeaders([
+                'User-Agent' => 'OCR Receipt/0.1.0 (Darwin)',
+            ])->get('/appcast.xml');
+
+            $response->assertOk();
+            $xml = $response->getContent();
+
+            $this->assertStringContainsString('OCR-Receipt-1.0.0.dmg', $xml);
+            $this->assertStringContainsString('sparkle:os="macos"', $xml);
+            $this->assertStringNotContainsString('OCR-Receipt-1.0.0-linux.tar.gz', $xml);
+            $this->assertStringNotContainsString('OCR-Receipt-1.0.0-Setup.exe', $xml);
+            $this->assertStringNotContainsString('{email}', $xml);
+            $this->assertStringNotContainsString('{licenseKey}', $xml);
+            $this->assertStringNotContainsString('http://localhost', $xml);
+        } finally {
+            if (!$dmgExisted) {
+                $this->forget($dmgName);
+            }
+        }
+    }
 }

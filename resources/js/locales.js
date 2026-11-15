@@ -52,7 +52,7 @@ export const locales = {
                     "Recherche ultra-rapide dans votre base locale",
                     "Rapports financiers prêts pour votre comptable"
                 ],
-                tagline: "Conçu exclusivement pour les freelances et PME soucieux de leur confidentialité."
+                tagline: "Conçu par un travailleur autonome, pour les travailleurs autonomes, consultants et PME soucieux de leur confidentialité."
             }
         },
         problem: {
@@ -197,131 +197,100 @@ export const locales = {
             }
         },
         pricing: {
-            title: "Des tarifs simples. <span class='text-brand-dark dark:text-brand'>Pas d'abonnement.</span>",
-            subtitle: "Commencez gratuitement. Ne payez que pour ce dont vous avez besoin.",
-            period: "achat unique",
+            title: "Des tarifs simples en CAD. <span class='text-brand-dark dark:text-brand'>Zéro abonnement.</span>",
+            subtitle: "Commencez gratuitement à vie avec Free Lite, ou passez à Pro (199 $ CAD achat unique) pour débloquer le traitement par lots et l'IA locale illimitée.",
+            period: "achat unique à vie",
             watermark: "avec filigrane",
             noWatermark: "sans filigrane",
             seats: {
                 one: "1 poste",
-                two: "2 postes (PC + Laptop)",
+                two: "2 postes (Bureau + Portable)",
                 five: "Pack de 5 licences (volume + sur demande)"
             },
-            limitedBatch: "Batch import (limité à 1)",
-            unlimitedBatch: "Traitement par lots illimité",
-            localTiny: "Inférence IA local (tiny)",
-            localAdvanced: "Modèles avancés (smol/base)",
+            limitedBatch: "PDF Unique (sans traitement par lots)",
+            unlimitedBatch: "Traitement par lots illimité (Batch Hub)",
+            localTiny: "Inférence IA locale (tiny)",
+            localAdvanced: "IA locale avancée (NuExtract GGUF)",
             freeLite: {
                 name: "GRATUIT (Free Lite)",
-                desc: "Usage personnel ou léger",
-                btn: "Télécharger gratuit",
+                desc: "Pour tester ou usage léger à vie",
+                btn: "Télécharger Gratuit (0 $)",
                 features: [
-                    "Reçus illimités",
-                    "OCR simple (10 IA/mois)",
-                    "Export CSV",
-                    "Rapport PDF (avec filigrane)",
-                    "10 renommages auto/mois",
-                    "Multi-projets",
-                    "Centres de coût (Cost-centers)",
-                    "Multi-workspaces (Bases DB)",
-                    "1 poste"
+                    "15 extractions & renommages auto / mois",
+                    "Recherche locale SQLite illimitée",
+                    "Export CSV standard",
+                    "Rapport PDF d'audit (avec filigrane)",
+                    "Multi-projets & centres de coût",
+                    "Multi-workspaces (bases locales)",
+                    "1 poste (Windows, macOS ou Linux)"
                 ],
                 disabled: [
-                    "Inférence IA locale (GGUF)",
-                    "Option IA Cloud (BYOK)",
-                    "Batch import / traitement"
-                ]
-            },
-            solo: {
-                name: "SOLO",
-                desc: "Pour les freelances",
-                btn: "💳 Acheter Solo",
-                features: [
-                    "Reçus illimités",
-                    "OCR + IA local (NuExtract)",
-                    "Export CSV & Excel",
-                    "PDF Pro (sans filigrane)",
-                    "Renommage auto illimité",
-                    "Inférence IA local (tiny)",
-                    "Option IA Cloud (BYOK)",
-                    "Multi-projets",
-                    "Centres de coût",
-                    "Multi-workspaces",
-                    "1 poste"
-                ],
-                disabled: [
-                    "Batch import (limité à 1)"
+                    "Traitement par lots illimité (Batch Hub)",
+                    "IA locale avancée (NuExtract GGUF) & Cloud BYOK",
+                    "Rapports PDF & Excel Pro sans filigrane"
                 ]
             },
             pro: {
                 name: "PRO",
-                desc: "Professionnels exigeants",
-                btn: "💳 Acheter Pro",
+                desc: "Pour travailleurs autonomes, freelances & PME",
+                btn: "💳 Acheter Pro — 199 $ CAD",
                 features: [
-                    "Reçus illimités",
-                    "OCR + IA local (NuExtract)",
-                    "Export CSV & Excel",
-                    "PDF Premium (sans filigrane)",
-                    "Renommage auto illimité",
-                    "Modèles avancés (smol/base)",
-                    "Option IA Cloud (BYOK)",
-                    "Traitement par lots illimité",
-                    "Multi-projets",
-                    "Centres de coût",
-                    "Multi-workspaces",
-                    "2 postes (PC + Laptop)"
+                    "Reçus & renommages automatiques illimités",
+                    "Traitement par lots illimité (50+ PDF d'un coup)",
+                    "IA 100% locale (NuExtract GGUF) + Option Cloud (BYOK)",
+                    "Extraction des taxes canadiennes (TPS/TVQ/TVH)",
+                    "Rapports d'audit PDF (sans filigrane) & Export Excel/CSV",
+                    "Entreprises, projets & centres de coût illimités",
+                    "Mises à jour v1.x à vie & support prioritaire",
+                    "2 postes inclus (Bureau + Portable)"
                 ],
                 disabled: []
             },
             comptable: {
-                name: "COMPTABLE",
-                desc: "Cabinets et PME",
-                btn: "💳 Acheter Comptable",
+                name: "CABINET & ÉQUIPE",
+                desc: "Pour cabinets comptables, teneurs de livres & équipes",
+                btn: "💳 Acheter Pack 5 Postes — 399 $ CAD",
                 features: [
-                    "Reçus illimités",
-                    "OCR + IA local (NuExtract)",
-                    "Export CSV & Excel",
-                    "PDF Premium (sans filigrane)",
-                    "Renommage auto illimité",
-                    "Modèles avancés (smol/base)",
-                    "Option IA Cloud (BYOK)",
-                    "Traitement par lots illimité",
-                    "Multi-projets",
-                    "Centres de coût",
-                    "Multi-workspaces",
-                    "Pack de 5 licences (volume + sur demande)"
+                    "Tout ce qui est inclus dans la licence Pro",
+                    "Pack de 5 licences perpétuelles (79,80 $ CAD / poste)",
+                    "Dossiers clients multi-workspaces illimités",
+                    "Compilation de dossiers d'audit PDF & archives .zip",
+                    "Gabarits de nommage standardisés pour tout le cabinet",
+                    "Support prioritaire & accompagnement d'équipe"
                 ],
                 disabled: []
             }
         },
         beta: {
-            title: "Rejoindre l'accès anticipé",
-            subtitle: "Inscrivez-vous à la pré-phase de lancement. Les utilisateurs reçoivent le logiciel complet gratuitement en échange d'un court questionnaire de rétroaction :",
-            bullet1: "Accès prioritaire à la bêta fermée",
-            bullet2: "Licence 100% gratuite pour les participants au questionnaire",
-            bullet3: "Notifications de mise à jour en temps réel",
-            bullet4: "Tarif de lancement de 149$ au lieu de 199$",
+            title: "Communauté & Mises à jour Produit",
+            subtitle: "Rejoignez les travailleurs autonomes, PME et professionnels qui automatisent leur tenue de livres hors ligne :",
+            bullet1: "Téléchargement immédiat de la version Free Lite (0 $)",
+            bullet2: "Gabarits de nommage fiscaux (ARC / Revenu Québec)",
+            bullet3: "Notifications des nouvelles versions et modèles d'IA",
+            bullet4: "Licence Pro perpétuelle à 199 $ CAD (aucun abonnement)",
             firstname: "Nom complet",
             email: "Adresse email",
-            profession: "Profession (Freelance, PME, CPA...)",
-            btn: "Je veux l'accès anticipé",
-            success: "Merci ! Vous êtes inscrit à l'accès anticipé 🎉"
+            profession: "Profession (Travailleur autonome, PME, CPA...)",
+            btn: "Rejoindre la communauté",
+            success: "Merci ! Vous êtes inscrit aux mises à jour d'OCR Receipt 🎉"
         },
         about: {
             title: "Martin Fournier",
-            location: "Québec, Canada",
-            bio: "Développeur et entrepreneur. J'ai créé OCR Receipt pour automatiser la gestion des dépenses professionnelles tout en conservant une confidentialité absolue."
+            role: "Travailleur autonome & Développeur indépendant",
+            location: "Québec, Canada 🇨🇦",
+            bio: "En tant que travailleur autonome, j'en avais assez de perdre mes fins de semaine à renommer des factures PDF pour mes déclarations de TPS/TVQ et mon comptable — et je refusais de payer 35 $/mois à vie ou d'envoyer mes documents d'affaires sur des serveurs cloud américains. J'ai créé OCR Receipt pour régler mon propre problème : un outil 100% local, rapide, que l'on achète une seule fois.",
+            pledge: "De travailleur autonome à travailleur autonome : aucun abonnement caché, aucune télémétrie, vos fichiers restent sur votre disque dur."
         },
         faq: {
             title: "Questions Fréquentes",
             items: [
                 {
                     q: "Mes données sont-elles envoyées sur un serveur ?",
-                    a: "Non. L'OCR et l'IA locale s'exécutent entièrement sur votre machine. Pour les versions payantes (Solo+), une option d'extraction via IA Cloud (BYOK) est activable si vous souhaitez maximiser la précision, en utilisant votre propre clé API (OpenAI/Anthropic/etc.)."
+                    a: "Non. L'OCR et l'IA locale s'exécutent entièrement sur votre machine. Pour les licences Pro et Cabinet, une option d'extraction via IA Cloud (BYOK) est également activable si vous souhaitez utiliser votre propre clé API (OpenAI/Anthropic/etc.)."
                 },
                 {
-                    q: "Puis-je essayer avant d'acheter ?",
-                    a: "Oui. La version gratuite (Free Lite) vous donne des reçus illimités avec OCR simple, 10 extractions IA/mois, 10 auto-renommages/mois et exports CSV/PDF standard. Pas de carte de crédit requise."
+                    q: "Puis-je essayer gratuitement avant d'acheter ?",
+                    a: "Oui ! La version gratuite à vie (Free Lite) vous offre 15 extractions et renommages automatiques par mois, la recherche SQLite illimitée et l'export CSV/PDF (avec filigrane) sans limite de durée et sans carte de crédit. Lorsque la période des impôts arrive, passez à Pro (199 $ CAD une seule fois) pour débloquer le traitement par lots illimité."
                 },
                 {
                     q: "Quels formats de fichiers sont supportés ?",
@@ -368,7 +337,7 @@ export const locales = {
                 desc: "Toutes distributions (tar.gz)",
                 btn: "Télécharger (.TAR.GZ)"
             },
-            licenseNote: "Clé d'activation requise. Obtenez une clé d'accès anticipé gratuite dans la section tarifs ci-dessus."
+            licenseNote: "La version Free Lite (0 $) fonctionne immédiatement sans clé. Entrez votre clé d'activation pour débloquer Pro (199 $ CAD) ou Cabinet (399 $ CAD)."
         },
         blog: {
             title: "Actualités & Insights",
@@ -452,7 +421,7 @@ export const locales = {
                     "Instant search in your secure local database",
                     "Accountant-ready expense reports"
                 ],
-                tagline: "Built exclusively for privacy-conscious freelancers and SMBs."
+                tagline: "Built by an independent contractor, for independent contractors, freelancers, and privacy-first SMBs."
             }
         },
         problem: {
@@ -597,131 +566,100 @@ export const locales = {
             }
         },
         pricing: {
-            title: "Simple pricing. <span class='text-brand-dark dark:text-brand'>No subscription.</span>",
-            subtitle: "Start free. Pay only if you need more.",
-            period: "one-time purchase",
+            title: "Simple pricing in CAD. <span class='text-brand-dark dark:text-brand'>No subscription.</span>",
+            subtitle: "Start free forever with Free Lite, or upgrade once to Pro ($199 CAD) to unlock unlimited batch processing and local GGUF AI.",
+            period: "one-time lifetime purchase",
             watermark: "with watermark",
             noWatermark: "no watermark",
             seats: {
                 one: "1 seat",
-                two: "2 seats (PC + Laptop)",
+                two: "2 seats (Desktop + Laptop)",
                 five: "5-license pack (custom volume on request)"
             },
-            limitedBatch: "Batch import (limited to 1)",
-            unlimitedBatch: "Unlimited batch processing",
+            limitedBatch: "Single PDF mode (no batch processing)",
+            unlimitedBatch: "Unlimited batch processing (Batch Hub)",
             localTiny: "Local AI inference (tiny)",
-            localAdvanced: "Advanced models (smol/base)",
+            localAdvanced: "Advanced local AI (NuExtract GGUF)",
             freeLite: {
                 name: "FREE LITE",
-                desc: "For personal or light use",
-                btn: "Download Free",
+                desc: "Forever free for personal or light monthly use",
+                btn: "Download Free ($0)",
                 features: [
-                    "Unlimited receipts",
-                    "Simple OCR (10 AI/mo)",
-                    "CSV Export",
-                    "PDF Report (with watermark)",
-                    "10 auto-renames/mo",
-                    "Multi-projects",
-                    "Cost-centers",
-                    "Multi-workspaces",
-                    "1 seat"
+                    "15 AI extractions & auto-renames / month",
+                    "Unlimited local SQLite archive search",
+                    "Standard CSV export",
+                    "Audit PDF report (with watermark)",
+                    "Multi-projects & cost-centers",
+                    "Multi-workspaces (local DBs)",
+                    "1 device (Windows, macOS, or Linux)"
                 ],
                 disabled: [
-                    "Local AI inference (GGUF)",
-                    "Cloud AI Option (BYOK)",
-                    "Batch import / processing"
-                ]
-            },
-            solo: {
-                name: "SOLO",
-                desc: "For freelancers",
-                btn: "💳 Buy Solo",
-                features: [
-                    "Unlimited receipts",
-                    "OCR + Local AI (NuExtract)",
-                    "CSV & Excel Export",
-                    "Pro PDF (no watermark)",
-                    "Unlimited auto-rename",
-                    "Local AI inference (tiny)",
-                    "Cloud AI Option (BYOK)",
-                    "Multi-projects",
-                    "Cost-centers",
-                    "Multi-workspaces",
-                    "1 seat"
-                ],
-                disabled: [
-                    "Batch import (limited to 1)"
+                    "Unlimited batch processing (Batch Hub)",
+                    "Advanced Local AI (NuExtract GGUF) & Cloud BYOK",
+                    "Watermark-free Audit PDF & Excel exports"
                 ]
             },
             pro: {
                 name: "PRO",
-                desc: "For demanding professionals",
-                btn: "💳 Buy Pro",
+                desc: "For self-employed freelancers, consultants & micro-SMBs",
+                btn: "💳 Buy Pro — $199 CAD",
                 features: [
-                    "Unlimited receipts",
-                    "OCR + Local AI (NuExtract)",
-                    "CSV & Excel Export",
-                    "Premium PDF (no watermark)",
-                    "Unlimited auto-rename",
-                    "Advanced models (smol/base)",
-                    "Cloud AI Option (BYOK)",
-                    "Unlimited batch processing",
-                    "Multi-projects",
-                    "Cost-centers",
-                    "Multi-workspaces",
-                    "2 seats (PC + Laptop)"
+                    "Unlimited receipts & automatic file renaming",
+                    "Unlimited Batch Processing (drop 50+ PDFs at once)",
+                    "100% Local AI (NuExtract GGUF) + Cloud AI Option (BYOK)",
+                    "Full Canadian & international tax extraction (GST/HST/QST)",
+                    "Clean Audit PDF Reports (no watermark) & Excel/CSV export",
+                    "Unlimited business entities, projects & cost-centers",
+                    "Lifetime v1.x updates & priority email support",
+                    "2 devices included (Desktop + Laptop)"
                 ],
                 disabled: []
             },
             comptable: {
-                name: "FIRM (CPA)",
-                desc: "For firms and SMBs",
-                btn: "💳 Buy Firm Pack",
+                name: "FIRM & TEAM",
+                desc: "For bookkeepers, accounting firms & multi-partner teams",
+                btn: "💳 Buy 5-Seat Pack — $399 CAD",
                 features: [
-                    "Unlimited receipts",
-                    "OCR + Local AI (NuExtract)",
-                    "CSV & Excel Export",
-                    "Premium PDF (no watermark)",
-                    "Unlimited auto-rename",
-                    "Advanced models (smol/base)",
-                    "Cloud AI Option (BYOK)",
-                    "Unlimited batch processing",
-                    "Multi-projects",
-                    "Cost-centers",
-                    "Multi-workspaces",
-                    "5-license pack (custom volume on request)"
+                    "Everything included in the Pro license",
+                    "5 perpetual device licenses ($79.80 CAD / seat)",
+                    "Unlimited client workspaces & local databases",
+                    "1-click Audit PDF dossiers & client .zip packaging",
+                    "Standardized naming templates across your firm",
+                    "Priority onboarding & dedicated support"
                 ],
                 disabled: []
             }
         },
         beta: {
-            title: "Join the Early Access",
-            subtitle: "Sign up for the private pre-launch. Pre-launch users get the full software for free in exchange for filling out a short feedback survey:",
-            bullet1: "Priority access to the closed beta release",
-            bullet2: "100% Free license for pre-launch survey participants",
-            bullet3: "Real-time updates and launch announcements",
-            bullet4: "Early-adopter price: $149 instead of $199",
+            title: "Community & Product Updates",
+            subtitle: "Join freelancers, small business owners, and bookkeepers automating their expense workflow 100% offline:",
+            bullet1: "Instant access to the Forever-Free Lite version ($0)",
+            bullet2: "CRA & Revenu Québec tax-ready naming templates",
+            bullet3: "Release notifications for new local AI models",
+            bullet4: "Perpetual Pro license at $199 CAD (zero subscription)",
             firstname: "Full Name",
             email: "Email Address",
-            profession: "Profession (Freelancer, SMB, CPA...)",
-            btn: "Get Early Access",
-            success: "Thank you! You have successfully joined the early access list 🎉"
+            profession: "Profession (Freelancer, SMB, Bookkeeper, CPA...)",
+            btn: "Join the Community",
+            success: "Thank you! You are subscribed to OCR Receipt updates 🎉"
         },
         about: {
             title: "Martin Fournier",
-            location: "Québec, Canada",
-            bio: "Developer & entrepreneur. I built OCR Receipt to automate the invoicing chore while keeping client data 100% offline."
+            role: "Independent Contractor & Software Developer",
+            location: "Québec, Canada 🇨🇦",
+            bio: "As an independent contractor myself, I got tired of losing unbilled weekends renaming PDF invoices, tracking GST/QST taxes, and prepping folders for my accountant—and I refused to pay $35/month forever or upload confidential business receipts to third-party cloud servers. I built OCR Receipt for my own desk first: a fast, 100% offline tool you buy once and own forever.",
+            pledge: "From one independent contractor to another: zero subscriptions, zero telemetry, and your files never leave your hard drive."
         },
         faq: {
             title: "Frequently Asked Questions",
             items: [
                 {
                     q: "Is my data sent to a server?",
-                    a: "No. OCR and local AI run entirely on your computer. For paid tiers (Solo+), a Cloud AI (BYOK) option can be enabled to maximize accuracy, using your own API key (OpenAI/Anthropic/etc.)."
+                    a: "No. OCR and local AI run entirely on your computer. For Pro and Firm licenses, an optional Cloud AI (BYOK) mode can also be enabled using your own API key (OpenAI/Anthropic/etc.)."
                 },
                 {
                     q: "Can I try before buying?",
-                    a: "Yes. The free tier (Free Lite) gives you unlimited receipts with simple OCR, 10 AI extractions/month, 10 auto-renamings/month, and standard CSV/PDF exports. No credit card required."
+                    a: "Yes! The Forever-Free Lite version gives you 15 extractions and auto-renames per month, unlimited local SQLite search, and standard CSV/PDF exports with no time limit and no credit card required. When tax season hits and you want to process a folder of 100 PDFs at once, upgrade to Pro ($199 CAD one-time)."
                 },
                 {
                     q: "What file formats are supported?",
@@ -768,7 +706,7 @@ export const locales = {
                 desc: "All distributions (tar.gz)",
                 btn: "Download (.TAR.GZ)"
             },
-            licenseNote: "Activation key required. Obtain a free early access license key in the pricing section above."
+            licenseNote: "Free Lite ($0) works out of the box with no key required. Enter your activation key to unlock Pro ($199 CAD) or Firm ($399 CAD)."
         },
         blog: {
             title: "Latest Insights & Updates",

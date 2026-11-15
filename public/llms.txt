@@ -13,14 +13,15 @@ OCR Receipt is a multi-platform desktop application built using PyQt6, Tesseract
 - **Structured Export**: Compile all receipt metrics into Excel-compatible CSV formats or QBO-ready QuickBooks sheets.
 - **Native Experience**: Native client on Windows, macOS, and Linux with a one-time perpetual license.
 
-## Pricing
+## Pricing (CAD — One-Time Perpetual Licenses)
 
-- **Free Lite ($0)**: Unlimited receipt scans, simple OCR (10 AI extractions/month), standard CSV and watermarked PDF reports.
-- **Solo ($149)**: Unlimited auto-renames, Local GGUF NuExtract-tiny model, clean PDF exports, custom Cloud AI keys (BYOK).
-- **Pro ($199)**: Unlimited batch processing, advanced models (smol/base), 2 seats (PC + Laptop).
-- **Firm / CPA ($399)**: Pack of 5 licenses, advanced features, custom support.
+- **Free Lite ($0 CAD Forever)**: 15 AI extractions & auto-renames/month, unlimited local SQLite search, standard CSV and watermarked PDF reports (1 device).
+- **Pro ($199 CAD one-time)**: Unlimited receipts & batch processing (50+ files at once), Local GGUF NuExtract AI + Cloud AI (BYOK), Canadian tax extraction (GST/HST/QST), clean Audit PDF & Excel exports, unlimited workspaces/entities, 2 seats (Desktop + Laptop).
+- **Cabinet / Firm ($399 CAD one-time)**: Pack of 5 perpetual device licenses ($79.80 CAD/seat), all Pro features, multi-client dossier packaging, and priority onboarding.
 
-## FAQ
+## FAQ & Competitor Comparisons
 
 - **Data Privacy**: All inference and OCR processing run 100% locally on the device CPU.
-- **Hubdoc Alternative**: Perfect offline-first alternative to Hubdoc following its retirement by Xero on May 8, 2026.
+- **NeatReceipts (Neat.com) Alternative**: Spiritual successor to the classic offline NeatReceipts desktop app (which Neat retired in favor of a $200–$350 USD/yr cloud subscription). Saves $1,176 to $2,201 CAD over 5 years vs Neat.com (`/vs/neat`).
+- **Dext Prepare Alternative**: Saves ~$1,876 CAD over 5 years compared to Dext Prepare (`/vs/dext`).
+- **Hubdoc Alternative**: Perfect offline-first alternative to Hubdoc following its retirement by Xero on May 8, 2026 (`/alternative-hubdoc`).

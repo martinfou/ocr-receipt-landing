@@ -120,36 +120,42 @@
                             </button>
                         </form>
 
-                        <!-- Pro Early Access Note -->
+                        <!-- Forever-Free Lite & Pro Note -->
                         <div class="mt-6 p-4 rounded-xl border border-brand/20 bg-brand/[0.02] text-xs leading-relaxed text-text-muted">
-                            <span class="text-brand font-semibold font-mono">{{ $lang.lang === 'fr' ? '💡 ACCÈS PRO :' : '💡 PRO ACCESS:' }}</span>
-                            {{ $lang.lang === 'fr' ? " L'accès anticipé est gratuit pour la version Pro. Pour recevoir votre clé d'activation gratuite, veuillez nous envoyer un e-mail à " : " Early access is free for the Pro tier. To receive your free activation key, please email us at " }}
+                            <span class="text-brand font-semibold font-mono">{{ $lang.lang === 'fr' ? '💡 ESSAI GRATUIT À VIE :' : '💡 FOREVER-FREE LITE:' }}</span>
+                            {{ $lang.lang === 'fr' ? " Vous pouvez télécharger et utiliser la version Free Lite gratuitement dès aujourd'hui (15 reçus/mois, sans carte de crédit), ou débloquer la licence Pro perpétuelle à 199 $ CAD. Questions ? Écrivez-nous à " : " You can download and use Free Lite for $0 forever today (15 receipts/mo, no credit card required), or unlock the perpetual Pro license for $199 CAD. Questions? Email us at " }}
                             <a href="mailto:contact@ocrreceipt.com" class="text-brand hover:underline font-mono">contact@ocrreceipt.com</a>.
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Column: About the Maker -->
+                <!-- Right Column: About the Maker (Independent Contractor Story) -->
                 <div class="lg:col-span-5 bg-surface-light border border-border/80 p-8 lg:p-10 rounded-2xl shadow-2xl flex flex-col justify-between transition-all duration-300 hover:border-border/200">
                     <div>
-                        <div class="text-[10px] font-mono text-brand uppercase tracking-widest mb-6">
-                            // THE AUTHOR
+                        <div class="text-[10px] font-mono text-brand uppercase tracking-widest mb-6 flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brand"></span>
+                            {{ $lang.lang === 'fr' ? '// PAR UN TRAVAILLEUR AUTONOME, POUR LES AUTONOMES' : '// BUILT BY AN INDEPENDENT CONTRACTOR' }}
                         </div>
                         
                         <div class="flex items-center gap-4 mb-6">
                             <!-- Avatar representation -->
-                            <div class="w-12 h-12 rounded-full border border-brand/30 bg-brand/10 flex items-center justify-center text-brand text-lg font-serif font-bold select-none">
+                            <div class="w-12 h-12 rounded-full border border-brand/30 bg-brand/10 flex items-center justify-center text-brand text-lg font-serif font-bold select-none shrink-0">
                                 MF
                             </div>
                             <div>
                                 <h3 class="font-serif font-semibold text-lg text-text">{{ $t('about.title') }}</h3>
-                                <span class="text-xs text-brand font-mono">{{ $t('about.location') }}</span>
+                                <div class="text-xs text-text-muted font-medium">{{ $t('about.role') }}</div>
+                                <span class="text-[11px] text-brand font-mono">{{ $t('about.location') }}</span>
                             </div>
                         </div>
 
-                        <p class="text-sm text-text-muted leading-relaxed mb-6 font-serif italic">
+                        <p class="text-sm text-text-muted leading-relaxed mb-5 font-serif italic">
                             "{{ $t('about.bio') }}"
                         </p>
+
+                        <div class="p-3.5 rounded-xl border border-brand/20 bg-brand/[0.03] text-xs text-text leading-relaxed">
+                            <span class="text-brand font-semibold">🤝</span> {{ $t('about.pledge') }}
+                        </div>
                     </div>
 
                     <div class="flex flex-col gap-3 text-xs font-mono border-t border-border pt-6 mt-6">

@@ -63,8 +63,8 @@
                 <a href="/" class="btn-outline">Learn More →</a>
             </div>
             <div class="stats">
-                <div><div class="num">$0</div><div class="label">Free to try</div></div>
-                <div><div class="num">$199</div><div class="label">One-time, own forever</div></div>
+                <div><div class="num">$0 CAD</div><div class="label">Forever-Free Lite (15/mo)</div></div>
+                <div><div class="num">$199 CAD</div><div class="label">Pro One-Time (2 Devices)</div></div>
                 <div><div class="num">100%</div><div class="label">Offline & Private</div></div>
             </div>
         </div>

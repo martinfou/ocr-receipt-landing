@@ -23,28 +23,32 @@ return [
 </ul>
 
 <h2>Option 1: OCR Receipt (Recommandé)</h2>
-<p><strong>Prix :</strong> Gratuit (Lite) / 149 $-399 $ (achat unique)<br>
+<p><strong>Prix :</strong> Gratuit à vie (Lite) / 199 $ CAD Pro (2 postes) / 399 $ CAD Cabinet (5 postes, achat unique)<br>
 <strong>Plateformes :</strong> Windows, macOS, Linux</p>
 <p>OCR Receipt traite vos reçus <strong>localement</strong> — aucune donnée ne quitte votre ordinateur. L\'IA locale (DeepSeek/NuExtract) s\'exécute directement sur votre processeur. Achat unique, pas d\'abonnement.</p>
 
 <h2>Option 2: Dext Prepare</h2>
-<p><strong>Prix :</strong> ~23 $/mois (276 $/an)<br>
+<p><strong>Prix :</strong> ~35 $ CAD/mois (~415 $ CAD/an)<br>
 <strong>Plateforme :</strong> Web, mobile</p>
 <p>Excellente précision OCR avec intégration native QBO/Xero. Cependant, c\'est une solution 100% cloud avec des frais annuels récurrents.</p>
 
-<h2>Option 3: ABBYY FineReader PDF</h2>
-<p><strong>Prix :</strong> ~199 $ achat unique<br>
+<h2>Option 3: NeatReceipts (Neat.com)</h2>
+<p><strong>Prix :</strong> 200 $ USD/an (~275 $ CAD/an) de base, ou 350 $ USD/an (~480 $ CAD/an) avec Automated Insights<br>
+<strong>Plateformes :</strong> Web, mobile (application de bureau hors ligne retirée)</p>
+<p>NeatReceipts était autrefois la référence des logiciels de bureau pour reçus avant de retirer son application locale et d'imposer un abonnement cloud annuel.</p>
+
+<h2>Option 4: ABBYY FineReader PDF</h2>
+<p><strong>Prix :</strong> ~199 $ USD (~275 $ CAD) achat unique<br>
 <strong>Plateformes :</strong> Windows, macOS</p>
-<p>Excellent OCR à usage général. Cependant, il n\'y a pas d\'extraction structurée pour les reçus, pas d\'exportation comptable et pas de support pour Linux.</p>
 
 <h2>Comparatif</h2>
 <table>
-<tr><th>Fonctionnalité</th><th>Hubdoc</th><th>OCR Receipt</th><th>Dext Prepare</th><th>ABBYY</th></tr>
-<tr><td>Prix / an</td><td>144 $</td><td><strong>149 $ unique</strong></td><td>276 $</td><td><strong>199 $ unique</strong></td></tr>
-<tr><td>Hors ligne</td><td>❌</td><td><strong>✅ 100%</strong></td><td>❌</td><td>✅</td></tr>
-<tr><td>Extraction par IA</td><td>✅ Cloud</td><td><strong>✅ Locale</strong></td><td>✅ Cloud</td><td>❌</td></tr>
-<tr><td>Exportation QBO</td><td>✅</td><td>✅ CSV</td><td>✅ Native</td><td>❌</td></tr>
-<tr><td>Linux</td><td>❌</td><td><strong>✅</strong></td><td>❌</td><td>❌</td></tr>
+<tr><th>Fonctionnalité</th><th>Hubdoc</th><th>OCR Receipt</th><th>NeatReceipts</th><th>Dext Prepare</th><th>ABBYY</th></tr>
+<tr><td>Prix / an</td><td>195 $ CAD</td><td><strong>0 $ Lite / 199 $ CAD unique</strong></td><td>~275–480 $ CAD/an</td><td>~415 $ CAD/an</td><td><strong>~275 $ CAD unique</strong></td></tr>
+<tr><td>Hors ligne</td><td>❌</td><td><strong>✅ 100%</strong></td><td>❌ (App locale retirée)</td><td>❌</td><td>✅</td></tr>
+<tr><td>Extraction par IA</td><td>✅ Cloud</td><td><strong>✅ Locale</strong></td><td>✅ Cloud</td><td>✅ Cloud</td><td>❌</td></tr>
+<tr><td>Exportation QBO</td><td>✅</td><td>✅ CSV</td><td>✅</td><td>✅ Native</td><td>❌</td></tr>
+<tr><td>Linux</td><td>❌</td><td><strong>✅</strong></td><td>❌</td><td>❌</td><td>❌</td></tr>
 </table>
 
 <p><strong>Notre recommandation :</strong> Si vous souhaitez remplacer Hubdoc sans remplacer votre abonnement actuel par un autre abonnement, OCR Receipt est la meilleure option.</p>

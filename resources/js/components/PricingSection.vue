@@ -24,7 +24,7 @@
                             {{ $lang.lang === 'fr' ? 'Fatigué des abonnements ?' : 'Tired of subscriptions?' }}
                         </h3>
                         <p class="text-xs text-text-muted leading-relaxed mb-6">
-                            {{ $lang.lang === 'fr' ? 'Pourquoi devoir payer tous les mois pour un outil qui tourne sur votre propre ordinateur ? Pire encore : la plupart des services cloud exigent d\'envoyer vos reçus sémantiques sur des serveurs distants, vous exposant à des fuites de données et à l\'exploitation de vos informations financières par des tiers. OCR Receipt fonctionne localement à vie sur votre disque dur : aucun abonnement, aucune donnée partagée.' : 'Why pay a recurring fee every month just to use software on your own computer? Worse, most cloud services force you to upload your sensitive financial receipts to remote servers, exposing you to data breaches, trackers, and corporate surveillance. OCR Receipt runs strictly on your machine: pay once, run offline, and keep your data private.' }}
+                            {{ $lang.lang === 'fr' ? 'En tant que travailleur autonome, j\'ai créé OCR Receipt parce que j\'en avais assez de payer des abonnements mensuels pour un outil qui devrait simplement tourner sur mon ordinateur. Pire encore : la plupart des services cloud exigent d\'envoyer vos factures sur des serveurs distants. OCR Receipt fonctionne 100% localement à vie sur votre disque dur : aucun abonnement, aucune donnée partagée.' : 'As an independent contractor myself, I built OCR Receipt because I was tired of paying recurring monthly rent just to organize my own business receipts. Worse, cloud services force you to upload sensitive client and tax invoices to remote servers. OCR Receipt runs strictly on your machine: pay once, run 100% offline, and own your archive forever.' }}
                         </p>
                         
                         <!-- Financial ROI highlight -->
@@ -94,18 +94,52 @@
 
                     </div>
                 </div>
+
+                <!-- 5-Year Competitor TCO Comparison Bar (NeatReceipts, Dext, Hubdoc, Shoeboxed vs OCR Receipt) -->
+                <div class="mt-8 pt-6 border-t border-border/40">
+                    <div class="text-[10px] font-mono text-text-muted uppercase tracking-widest mb-4 flex items-center justify-between">
+                        <span>{{ $lang.lang === 'fr' ? '// COMPARATIF DU COÛT SUR 5 ANS (CAD)' : '// 5-YEAR TOTAL COST OF OWNERSHIP (CAD)' }}</span>
+                        <a href="/vs/neat" class="text-brand hover:underline">{{ $lang.lang === 'fr' ? 'Voir le comparatif NeatReceipts & Dext →' : 'Compare vs NeatReceipts & Dext →' }}</a>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+                        <div class="p-3 rounded-xl border border-brand/40 bg-brand/[0.04]">
+                            <div class="text-[10px] font-mono text-brand font-semibold">OCR Receipt Pro</div>
+                            <div class="text-lg font-bold text-text mt-0.5">{{ $lang.lang === 'fr' ? '199 $ CAD' : '$199 CAD' }}</div>
+                            <div class="text-[10px] text-text-muted">{{ $lang.lang === 'fr' ? 'Achat unique · 100% Local' : 'One-time · 100% Offline' }}</div>
+                        </div>
+                        <div class="p-3 rounded-xl border border-border bg-surface/60">
+                            <div class="text-[10px] font-mono text-red-400">NeatReceipts (Neat.com)</div>
+                            <div class="text-lg font-bold text-text-muted line-through decoration-red-500/60 mt-0.5">{{ $lang.lang === 'fr' ? '1 375 $ – 2 400 $' : '$1,375 – $2,400' }}</div>
+                            <div class="text-[10px] text-text-muted">{{ $lang.lang === 'fr' ? '~275–480 $/an · Cloud forcé' : '~$275–$480/yr · Forced Cloud' }}</div>
+                        </div>
+                        <div class="p-3 rounded-xl border border-border bg-surface/60">
+                            <div class="text-[10px] font-mono text-red-400">Dext Prepare</div>
+                            <div class="text-lg font-bold text-text-muted line-through decoration-red-500/60 mt-0.5">{{ $lang.lang === 'fr' ? '~2 075 $ CAD' : '~$2,075 CAD' }}</div>
+                            <div class="text-[10px] text-text-muted">{{ $lang.lang === 'fr' ? '~415 $/an · Abonnement' : '~$415/yr · Cloud SaaS' }}</div>
+                        </div>
+                        <div class="p-3 rounded-xl border border-border bg-surface/60">
+                            <div class="text-[10px] font-mono text-red-400">Shoeboxed Pro</div>
+                            <div class="text-lg font-bold text-text-muted line-through decoration-red-500/60 mt-0.5">{{ $lang.lang === 'fr' ? '~2 050 $ CAD' : '~$2,050 CAD' }}</div>
+                            <div class="text-[10px] text-text-muted">{{ $lang.lang === 'fr' ? '~410 $/an · Serveurs US' : '~$410/yr · US Cloud' }}</div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Pricing Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+            <!-- Pricing Grid (3-Tier Sovereign Architecture: Free Lite $0 / Pro $199 CAD / Cabinet $399 CAD) -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch max-w-5xl mx-auto">
                 
-                <!-- Free Lite Tier -->
-                <div class="card flex flex-col justify-between p-6 bg-surface-light border border-border hover:border-border/200 transition-all duration-300 rounded-xl">
+                <!-- Free Lite Tier ($0 Forever) -->
+                <div class="card flex flex-col justify-between p-7 bg-surface-light border border-border hover:border-border/200 transition-all duration-300 rounded-2xl">
                     <div class="mb-6">
-                        <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider mb-2">// LITE</div>
-                        <h3 class="font-serif font-semibold text-lg text-text">{{ $t('pricing.freeLite.name') }}</h3>
-                        <p class="text-[10px] text-text-muted mt-1 min-h-[24px]">{{ $t('pricing.freeLite.desc') }}</p>
-                        <div class="text-3xl font-semibold mt-4 text-text">{{ $lang.lang === 'fr' ? '0 $' : '$0' }}</div>
+                        <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider mb-2">// FOREVER FREE</div>
+                        <h3 class="font-serif font-semibold text-xl text-text">{{ $t('pricing.freeLite.name') }}</h3>
+                        <p class="text-xs text-text-muted mt-1 min-h-[24px]">{{ $t('pricing.freeLite.desc') }}</p>
+                        <div class="mt-4">
+                            <span class="text-4xl font-semibold text-text">{{ $lang.lang === 'fr' ? '0 $' : '$0' }}</span>
+                            <span class="text-xs font-mono text-text-muted ml-1">CAD</span>
+                            <span class="text-[10px] font-mono text-text-muted block mt-1">({{ $lang.lang === 'fr' ? 'gratuit à vie · sans carte de crédit' : 'free forever · no credit card' }})</span>
+                        </div>
                         <div class="border-b border-border my-5"></div>
                         <ul class="space-y-3.5 text-xs">
                             <li v-for="item in $t('pricing.freeLite.features')" :key="item" class="flex items-start gap-2.5">
@@ -118,73 +152,57 @@
                             </li>
                         </ul>
                     </div>
-                    <a href="#beta" class="btn-outline w-full text-center py-2.5 text-xs font-mono uppercase tracking-wider mt-auto cursor-pointer">
+                    <a href="#download" class="btn-outline w-full text-center py-3 text-xs font-mono uppercase tracking-wider mt-auto cursor-pointer">
                         {{ $t('pricing.freeLite.btn') }}
                     </a>
                 </div>
 
-                <!-- Solo Tier -->
-                <div class="card flex flex-col justify-between p-6 bg-surface-light border border-border hover:border-border/200 transition-all duration-300 rounded-xl">
+                <!-- Pro Tier ($199 CAD — Recommended / Flagship) -->
+                <div class="card flex flex-col justify-between p-7 border-2 border-brand bg-brand/[0.02] shadow-[0_0_45px_rgba(34,197,94,0.08)] relative transition-all duration-300 hover:shadow-[0_0_50px_rgba(34,197,94,0.16)] hover:border-brand/90 rounded-2xl lg:-translate-y-2">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-brand-dark text-white text-[9px] font-mono font-semibold tracking-wider rounded-full uppercase select-none shadow-[0_0_12px_rgba(34,197,94,0.3)] whitespace-nowrap">
+                        {{ $lang.lang === 'fr' ? '★ Le Choix des Indépendants & PME' : '★ Most Popular · Freelancers & SMBs' }}
+                    </div>
                     <div class="mb-6">
-                        <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider mb-2">// INDIVIDUAL</div>
-                        <h3 class="font-serif font-semibold text-lg text-text">{{ $t('pricing.solo.name') }}</h3>
-                        <p class="text-[10px] text-text-muted mt-1 min-h-[24px]">{{ $t('pricing.solo.desc') }}</p>
+                        <div class="text-[9px] font-mono text-brand uppercase tracking-wider mb-2 mt-2">// PRO · 2 DEVICES</div>
+                        <h3 class="font-serif font-semibold text-xl text-text">{{ $t('pricing.pro.name') }}</h3>
+                        <p class="text-xs text-text-muted mt-1 min-h-[24px]">{{ $t('pricing.pro.desc') }}</p>
                         <div class="mt-4">
-                            <span class="text-3xl font-semibold text-text">{{ $lang.lang === 'fr' ? '149 $' : '$149' }}</span>
-                            <span class="text-[9px] font-mono text-text-muted block mt-1">({{ $t('pricing.period') }})</span>
+                            <span class="text-4xl font-semibold text-text">{{ $lang.lang === 'fr' ? '199 $' : '$199' }}</span>
+                            <span class="text-xs font-mono text-brand font-semibold ml-1">CAD</span>
+                            <span class="text-[10px] font-mono text-brand block mt-1">({{ $t('pricing.period') }} · ~145 $ USD)</span>
                         </div>
-                        <div class="border-b border-border my-5"></div>
-                        <ul class="space-y-3.5 text-xs">
-                            <li v-for="item in $t('pricing.solo.features')" :key="item" class="flex items-start gap-2.5">
-                                <span class="text-[#27c93f] text-[10px] font-semibold select-none mt-0.5">✓</span>
-                                <span class="text-text-muted">{{ item }}</span>
-                            </li>
-                            <li v-for="item in $t('pricing.solo.disabled')" :key="item" class="flex items-start gap-2.5 opacity-35">
-                                <span class="text-red-500 text-xs font-bold select-none">&times;</span>
-                                <span class="text-text-muted/60 line-through">{{ item }}</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <button @click="openCheckoutModal('solo')" class="btn-brand w-full py-2.5 text-xs font-mono uppercase tracking-wider mt-auto cursor-pointer">
-                        {{ $t('pricing.solo.btn') }}
-                    </button>
-                </div>
-
-                <!-- Pro Tier (Recommended / Border Glow) -->
-                <div class="card flex flex-col justify-between p-6 border-brand bg-brand/[0.01] shadow-[0_0_40px_rgba(34,197,94,0.06)] relative transition-all duration-300 hover:shadow-[0_0_40px_rgba(34,197,94,0.12)] hover:border-brand/80 rounded-xl">
-                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3.5 py-1 bg-brand-dark text-white text-[9px] font-mono font-semibold tracking-wider rounded-full uppercase select-none shadow-[0_0_12px_rgba(34,197,94,0.3)]">
-                        {{ $lang.lang === 'fr' ? 'Recommandé' : 'Recommended' }}
-                    </div>
-                    <div class="mb-6">
-                        <div class="text-[9px] font-mono text-brand uppercase tracking-wider mb-2 mt-2">// POWER USER</div>
-                        <h3 class="font-serif font-semibold text-lg text-text">{{ $t('pricing.pro.name') }}</h3>
-                        <p class="text-[10px] text-text-muted mt-1 min-h-[24px]">{{ $t('pricing.pro.desc') }}</p>
-                        <div class="mt-4">
-                            <span class="text-3xl font-semibold text-text">{{ $lang.lang === 'fr' ? '199 $' : '$199' }}</span>
-                            <span class="text-[9px] font-mono text-brand block mt-1">({{ $t('pricing.period') }})</span>
+                        <div class="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-brand/10 border border-brand/20 text-[10px] font-mono text-brand-dark">
+                            <span>💰</span>
+                            <span>{{ $lang.lang === 'fr' ? 'Économisez 1 800 $+ sur 5 ans vs SaaS' : 'Save $1,800+ CAD over 5 yrs vs SaaS' }}</span>
                         </div>
                         <div class="border-b border-brand/20 my-5"></div>
                         <ul class="space-y-3.5 text-xs">
                             <li v-for="item in $t('pricing.pro.features')" :key="item" class="flex items-start gap-2.5">
                                 <span class="text-[#27c93f] text-[10px] font-semibold select-none mt-0.5">✓</span>
-                                <span class="text-text">{{ item }}</span>
+                                <span class="text-text font-medium">{{ item }}</span>
                             </li>
                         </ul>
                     </div>
-                    <button @click="openCheckoutModal('pro')" class="btn-brand w-full py-2.5 text-xs font-mono uppercase tracking-wider mt-auto shadow-lg shadow-brand-dark/10 cursor-pointer">
-                        {{ $t('pricing.pro.btn') }}
-                    </button>
+                    <div>
+                        <button @click="openCheckoutModal('pro')" class="btn-brand w-full py-3 text-xs font-mono uppercase tracking-wider mt-auto shadow-lg shadow-brand-dark/15 cursor-pointer">
+                            {{ $t('pricing.pro.btn') }}
+                        </button>
+                        <div class="text-center text-[10px] font-mono text-text-muted mt-2.5">
+                            {{ $lang.lang === 'fr' ? '✓ Garantie 30 jours · 100% déductible d\'impôt' : '✓ 30-day money-back guarantee · 100% tax-deductible' }}
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Comptable Tier -->
-                <div class="card flex flex-col justify-between p-6 bg-surface-light border border-border hover:border-border/200 transition-all duration-300 rounded-xl">
+                <!-- Comptable / Firm Tier ($399 CAD — 5 Seats) -->
+                <div class="card flex flex-col justify-between p-7 bg-surface-light border border-border hover:border-border/200 transition-all duration-300 rounded-2xl">
                     <div class="mb-6">
-                        <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider mb-2">// CABINET & ENTERPRISE</div>
-                        <h3 class="font-serif font-semibold text-lg text-text">{{ $t('pricing.comptable.name') }}</h3>
-                        <p class="text-[10px] text-text-muted mt-1 min-h-[24px]">{{ $t('pricing.comptable.desc') }}</p>
+                        <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider mb-2">// CABINET & ÉQUIPE (5 POSTES)</div>
+                        <h3 class="font-serif font-semibold text-xl text-text">{{ $t('pricing.comptable.name') }}</h3>
+                        <p class="text-xs text-text-muted mt-1 min-h-[24px]">{{ $t('pricing.comptable.desc') }}</p>
                         <div class="mt-4">
-                            <span class="text-3xl font-semibold text-text">{{ $lang.lang === 'fr' ? '399 $' : '$399' }}</span>
-                            <span class="text-[9px] font-mono text-text-muted block mt-1">({{ $t('pricing.period') }})</span>
+                            <span class="text-4xl font-semibold text-text">{{ $lang.lang === 'fr' ? '399 $' : '$399' }}</span>
+                            <span class="text-xs font-mono text-text-muted ml-1">CAD</span>
+                            <span class="text-[10px] font-mono text-text-muted block mt-1">({{ $t('pricing.period') }} · {{ $lang.lang === 'fr' ? '79,80 $ / poste' : '$79.80 CAD / seat' }})</span>
                         </div>
                         <div class="border-b border-border my-5"></div>
                         <ul class="space-y-3.5 text-xs">
@@ -194,9 +212,14 @@
                             </li>
                         </ul>
                     </div>
-                    <button @click="openCheckoutModal('comptable')" class="btn-brand w-full py-2.5 text-xs font-mono uppercase tracking-wider mt-auto cursor-pointer">
-                        {{ $t('pricing.comptable.btn') }}
-                    </button>
+                    <div>
+                        <button @click="openCheckoutModal('comptable')" class="btn-brand w-full py-3 text-xs font-mono uppercase tracking-wider mt-auto cursor-pointer">
+                            {{ $t('pricing.comptable.btn') }}
+                        </button>
+                        <div class="text-center text-[10px] font-mono text-text-muted mt-2.5">
+                            {{ $lang.lang === 'fr' ? '✓ 5 licences perpétuelles · Support prioritaire' : '✓ 5 perpetual seats · Priority onboarding' }}
+                        </div>
+                    </div>
                 </div>
 
             </div>
