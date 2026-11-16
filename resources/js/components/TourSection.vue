@@ -4,6 +4,7 @@
             <div class="flex flex-col gap-3 max-w-[640px]">
                 <h2 id="how-title" class="lp-headline-section-sm text-ink">{{ $t('tour.title') }}</h2>
                 <p class="lp-body-lg text-ink-body">{{ $t('tour.sub') }}</p>
+                <p class="lp-body text-ink-muted">{{ $t('tour.more') }}</p>
             </div>
 
             <div class="flex flex-col desk:flex-row gap-8 desk:items-start">
@@ -31,7 +32,7 @@
                             <span :id="'tour-tab-' + i + '-body'" class="lp-body-sm text-ink-body">{{ step.body }}</span>
                         </button>
                     </div>
-                    <p v-if="!isDesktop" class="text-[13px] text-ink-muted mt-1">{{ $t('tour.note') }}</p>
+                    <p class="text-[13px] text-ink-muted mt-1">{{ $t('tour.note') }}</p>
                 </div>
 
                 <div
@@ -42,17 +43,9 @@
                     class="min-w-0 desk:flex-[999_1_600px] rounded-[14px]"
                 >
                     <figure class="m-0 flex flex-col gap-3">
-                        <div class="rounded-[14px] overflow-hidden border border-inverse-border bg-inverse-surface shadow-[0_40px_80px_-40px_var(--lp-frame-shadow)]">
-                            <!-- Desktop: the decorative simulator (steps 1–3). Step 4 and below desktop-min: real screenshots. -->
-                            <DesktopSimulator v-if="isDesktop && simulatorTab !== null" :active-tab="simulatorTab" />
-                            <img
-                                v-else
-                                :src="screenshot"
-                                :alt="steps[active].alt"
-                                width="1200"
-                                height="800"
-                                class="block w-full max-w-full aspect-[3/2] object-cover"
-                            >
+                        <div class="rounded-[14px] overflow-hidden border border-lp-border bg-surface-raised shadow-[0_40px_80px_-40px_var(--lp-frame-shadow)]">
+                            <!-- Real app screenshots (demo data) in the page language, played as a short sequence. -->
+                            <TourAnimation :key="active" :frames="frames" :alt="steps[active].alt" />
                         </div>
                         <figcaption class="font-mono text-[13px] text-ink-muted">{{ steps[active].caption }}</figcaption>
                     </figure>
@@ -63,48 +56,33 @@
 </template>
 
 <script>
-import DesktopSimulator from './DesktopSimulator.vue';
+import TourAnimation from './TourAnimation.vue';
+import { tourFrame } from '../theme.js';
 
-// Tour step → simulator page (0 Single PDF, 1 Batches, 2 Library, 3 Reports).
-// The simulator has no dashboard page, so step 4 shows the dashboard screenshot on desktop too.
-const SIMULATOR_TAB = [1, 0, 2, null];
-const SCREENSHOTS = [
-    '/screenshots/screenshot_batches.png',
-    '/screenshots/screenshot_single_pdf.png',
-    '/screenshots/screenshot_library.png',
-    '/screenshots/screenshot_dashboard.png'
+// Screenshot frames per tour step, captured from the desktop app with demo data
+// (public/tour/{en,fr}/{light,dark}/), matching the page language and theme. The last frame of each step is its resting frame.
+const FRAMES = [
+    ['batches-1', 'batches-2', 'batches-3'],
+    ['single-1', 'single-2'],
+    ['library-1', 'library-2'],
+    ['dashboard-1']
 ];
-const DESKTOP_QUERY = '(min-width: 1000px)';
 
 export default {
     name: 'TourSection',
-    components: { DesktopSimulator },
+    components: { TourAnimation },
     data() {
-        const mq = typeof window !== 'undefined' && window.matchMedia ? window.matchMedia(DESKTOP_QUERY) : null;
         return {
-            active: 0,
-            isDesktop: !!(mq && mq.matches)
+            active: 0
         };
     },
     computed: {
         steps() {
             return this.$t('tour.steps');
         },
-        simulatorTab() {
-            return SIMULATOR_TAB[this.active];
-        },
-        screenshot() {
-            return SCREENSHOTS[this.active];
+        frames() {
+            return FRAMES[this.active].map((name) => tourFrame(this.$lang.lang, name));
         }
-    },
-    mounted() {
-        if (!window.matchMedia) return;
-        this.mq = window.matchMedia(DESKTOP_QUERY);
-        this.onMq = (e) => { this.isDesktop = e.matches; };
-        if (this.mq.addEventListener) this.mq.addEventListener('change', this.onMq);
-    },
-    beforeUnmount() {
-        if (this.mq && this.mq.removeEventListener) this.mq.removeEventListener('change', this.onMq);
     },
     methods: {
         select(i) {

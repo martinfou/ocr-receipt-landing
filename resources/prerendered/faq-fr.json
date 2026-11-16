@@ -1,0 +1,55 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "fr-CA",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qu'arrive-t-il si vous passez sous un autobus?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L'application roule sur votre ordinateur et vos reçus sont des fichiers ordinaires, dans le dossier de votre choix. Votre licence s'active hors ligne et ne communique jamais avec un serveur. Si j'arrêtais de faire ocr-receipt demain, la version que vous possédez continuerait de fonctionner, et vos fichiers resteraient à vous."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment fonctionnent les mises à jour si je paie une seule fois?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Toutes les mises à jour publiées pendant vos 2 premières années sont incluses. Ensuite, votre version continue de fonctionner pour toujours. Si vous voulez les nouvelles versions, vous pouvez renouveler 2 autres années de mises à jour pour 79 $ CA. C'est facultatif, et personne ne vous facture automatiquement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment une IA peut-elle rouler sur mon ordi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Parce qu'elle est petite et qu'elle fait une seule chose. Les grands robots conversationnels savent un peu de tout et ont besoin d'un centre de données. Le modèle d'OCR Receipt compte environ un demi-milliard de paramètres, et il a seulement appris à extraire des champs comme le fournisseur, la date, le total et le numéro de facture. Ça tient sur un ordinateur ordinaire, ça fonctionne hors ligne, et rien ne sort de votre machine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Où vont mes données?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nulle part. L'IA lit vos reçus sur votre propre machine. Il n'y a aucun compte à créer, rien à téléverser, et vos reçus n'entraînent l'IA de personne."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Et si Pro ne me convient pas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Écrivez à support@ocrreceipt.com dans les 30 jours et je vous rembourse, sans poser de questions. Je lis chaque message moi-même."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pour qui ce n'est pas fait?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les équipes qui ont besoin que tout le monde synchronise ses reçus dans le même espace infonuagique. OCR Receipt est fait pour une équipe d'une personne."
+      }
+    }
+  ]
+}

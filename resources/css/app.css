@@ -99,6 +99,10 @@
     --lp-on-paper-tint: #f0fdf4;
     --lp-on-paper-rule: #d6d3d1;
 
+    /* Invariant: sticky note (Martin's pricing aside), paper-yellow in both themes */
+    --lp-note-paper: #fef3c7;
+    --lp-note-tape: rgba(214, 211, 209, 0.75);
+
     /* Invariant: closing CTA band */
     --lp-cta-band: #15803d;
     --lp-on-cta-band: #f0fdf4;
@@ -182,6 +186,7 @@
     --color-on-paper-tint: var(--lp-on-paper-tint);
     --color-on-paper-rule: var(--lp-on-paper-rule);
     --color-cta-band: var(--lp-cta-band);
+    --color-note-paper: var(--lp-note-paper);
     --color-on-cta-band: var(--lp-on-cta-band);
 }
 

@@ -7,6 +7,8 @@ export default defineConfig({
     plugins: [
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.js'],
+            // Build-time prerender of the landing page (scripts/prerender.mjs).
+            ssr: 'resources/js/ssr.js',
             refresh: true,
         }),
         tailwindcss(),

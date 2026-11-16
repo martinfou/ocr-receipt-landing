@@ -1,6 +1,6 @@
 @include('partials.landing-shell', [
     'lang' => 'en',
-    'title' => 'OCR Receipt — Stop renting your receipts',
-    'description' => 'Pay-once receipt app for freelancers and solo contractors. Local AI reads your receipts on your own computer: no subscription, no account, no upload. macOS, Windows and Linux.',
+    'title' => 'Receipt scanner app you pay for once | OCR Receipt',
+    'description' => 'Your own AI, on your own computer: a small model that reads receipts, invoices and business cards, then renames and files them. No subscription, nothing uploaded. Pay once. macOS, Windows and Linux.',
     'canonical' => 'https://ocrreceipt.com/',
 ])

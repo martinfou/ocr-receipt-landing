@@ -3,7 +3,7 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build",
+        "build": "vite build && vite build --ssr && node scripts/prerender.mjs",
         "dev": "vite",
         "test": "node --test tests/js/*.test.js"
     },

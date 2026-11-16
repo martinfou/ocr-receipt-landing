@@ -94,6 +94,7 @@ import PricingSection from './PricingSection.vue';
 import FaqSection from './FaqSection.vue';
 import ClosingBand from './ClosingBand.vue';
 import FooterSection from './FooterSection.vue';
+import { themeState } from '../theme.js';
 
 function storedTheme() {
     try {
@@ -121,7 +122,8 @@ export default {
     data() {
         return {
             menuOpen: false,
-            isDark: document.documentElement.classList.contains('dark'),
+            // Light on first render so prerendered markup hydrates cleanly; mounted() applies the real theme.
+            isDark: false,
             links: [
                 { href: '#how', label: 'nav.how' },
                 { href: '#math', label: 'nav.math' },
@@ -139,7 +141,7 @@ export default {
             };
             if (this.schemeQuery.addEventListener) this.schemeQuery.addEventListener('change', this.onSchemeChange);
         }
-        this.applyTheme(storedTheme() ? storedTheme() === 'dark' : this.isDark);
+        this.applyTheme(document.documentElement.classList.contains('dark'));
     },
     beforeUnmount() {
         if (this.schemeQuery && this.schemeQuery.removeEventListener) {
@@ -150,6 +152,7 @@ export default {
         applyTheme(dark) {
             this.isDark = dark;
             document.documentElement.classList.toggle('dark', dark);
+            themeState.dark = dark;
         },
         toggleTheme() {
             const dark = !this.isDark;

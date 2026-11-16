@@ -28,7 +28,15 @@
     <meta property="og:url" content="{{ $canonical }}">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="{{ $isFr ? 'fr_CA' : 'en_CA' }}">
-    <meta property="og:image" content="https://ocrreceipt.com/og-image.png">
+    <meta property="og:locale:alternate" content="{{ $isFr ? 'en_CA' : 'fr_CA' }}">
+    <meta property="og:site_name" content="OCR Receipt">
+    <meta property="og:image" content="https://ocrreceipt.com/og-landing-{{ $lang }}.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $title }}">
+    <meta name="twitter:description" content="{{ $description }}">
+    <meta name="twitter:image" content="https://ocrreceipt.com/og-landing-{{ $lang }}.png">
 
     <link rel="canonical" href="{{ $canonical }}">
     <link rel="alternate" hreflang="en" href="https://ocrreceipt.com/">
@@ -55,6 +63,13 @@
     }
     </script>
 
+    {{-- FAQ rich results, generated from the same FAQ strings at build time (scripts/prerender.mjs). --}}
+    @if (is_file(resource_path("prerendered/faq-{$lang}.json")))
+    <script type="application/ld+json">
+{!! str_replace('</', '<\/', file_get_contents(resource_path("prerendered/faq-{$lang}.json"))) !!}
+    </script>
+    @endif
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -64,7 +79,7 @@
 <body>
     <noscript>
         <div class="lp" style="max-width:1200px;margin:0 auto;padding:48px 24px;display:flex;flex-direction:column;gap:20px">
-            <h1 class="lp-display-hero">{{ $isFr ? 'Arrêtez de louer vos reçus.' : 'Stop renting your receipts.' }}</h1>
+            <p class="lp-display-hero">{{ $isFr ? 'Vos reçus, votre ordi, votre logiciel.' : 'Your receipts, your computer, your software.' }}</p>
             <p class="lp-lede">{{ $isFr
                 ? 'Gratuit pour toujours, pas un essai. Aucun compte requis. Pro : 149 $ CA, une seule fois, pour les 100 premiers acheteurs.'
                 : 'Free forever, not a trial. No account needed. Pro: $149 CAD, once, for the first 100 buyers.' }}</p>
@@ -76,6 +91,12 @@
             <p class="lp-body">{{ $isFr ? 'Des questions? Écrivez-moi :' : 'Questions? Write to me:' }} <a href="mailto:support@ocrreceipt.com">support@ocrreceipt.com</a></p>
         </div>
     </noscript>
+    {{-- The full page is prerendered at build time (scripts/prerender.mjs) so crawlers and
+         link previews see the text; the Vue app hydrates it. Falls back to client rendering. --}}
+    @if (is_file(resource_path("prerendered/landing-{$lang}.html")))
+    <div id="app" data-lang="{{ $lang }}" data-prerendered>{!! file_get_contents(resource_path("prerendered/landing-{$lang}.html")) !!}</div>
+    @else
     <div id="app" data-lang="{{ $lang }}"></div>
+    @endif
 </body>
 </html>

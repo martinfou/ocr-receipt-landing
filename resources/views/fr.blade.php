@@ -1,6 +1,6 @@
 @include('partials.landing-shell', [
     'lang' => 'fr',
-    'title' => 'OCR Receipt — Arrêtez de louer vos reçus',
-    'description' => 'Logiciel de reçus à payer une seule fois, pour les pigistes et les travailleurs autonomes. L\'IA locale lit vos reçus sur votre propre ordinateur : aucun abonnement, aucun compte, aucun téléversement. macOS, Windows et Linux.',
+    'title' => 'Logiciel pour numériser vos reçus, payé une seule fois | OCR Receipt',
+    'description' => 'Votre propre IA, sur votre propre ordi : un petit modèle qui lit vos reçus, factures et cartes d\'affaires, puis les renomme et les classe. Aucun abonnement, rien n\'est téléversé. Payé une seule fois. macOS, Windows et Linux.',
     'canonical' => 'https://ocrreceipt.com/fr',
 ])

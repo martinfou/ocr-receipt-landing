@@ -46,6 +46,24 @@
                 </div>
             </div>
 
+            <!-- Martin's handwritten-style aside: free users are welcome; Pro is how you help him out. -->
+            <!-- Sticky note: paper-yellow in both themes (invariant, like the receipt), slightly tilted, taped on. -->
+            <div class="relative self-start max-w-[560px] mt-2 ml-2 -rotate-[1.5deg] bg-note-paper text-on-paper px-7 pt-8 pb-6 shadow-[0_18px_30px_-18px_rgba(28,25,23,0.45)]">
+                <span aria-hidden="true" class="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-6 rotate-[2deg] bg-[var(--lp-note-tape)]"></span>
+                <p class="font-serif text-[21px] leading-[1.45]">{{ $t('pricing.fairUse') }}</p>
+                <p class="font-serif italic text-[24px] mt-3 text-right">— Martin</p>
+            </div>
+
+            <!-- Pay it forward: free users help by sharing the page. -->
+            <div class="flex flex-col items-start gap-3">
+                <p class="lp-body-lg text-ink font-semibold max-w-[62ch]">{{ $t('pricing.shareText') }}</p>
+                <button type="button" class="lp-btn lp-btn-outline-brand" @click="shareLink">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M12 3v12M12 3 7.5 7.5M12 3l4.5 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                    {{ $t('pricing.shareButton') }}
+                </button>
+                <p role="status" class="lp-caption font-semibold text-brand-ink">{{ shareCopied ? $t('pricing.shareCopied') : '' }}</p>
+            </div>
+
             <div class="flex flex-wrap justify-between items-center gap-4">
                 <p class="lp-body-sm text-ink-muted">
                     {{ $t('pricing.firmBefore') }}<button type="button" class="lp-link-button" aria-haspopup="dialog" @click="openCheckout('comptable', $event)">{{ $t('pricing.firmLink') }}</button>{{ $t('pricing.firmAfter') }}
@@ -112,6 +130,7 @@ export default {
         return {
             linuxReady: LINUX_READY,
             cancelRevealed: false,
+            shareCopied: false,
             tier: null,
             email: '',
             loading: false,
@@ -119,7 +138,25 @@ export default {
         };
     },
     methods: {
-        openCheckout(tier, event) {
+        // Native share sheet when the browser has one, otherwise copy the page URL.
+        async shareLink() {
+            const url = window.location.origin + (this.$lang.lang === 'fr' ? '/fr' : '/');
+            if (navigator.share) {
+                try {
+                    await navigator.share({ title: this.$t('pricing.shareTitle'), text: this.$t('pricing.shareText'), url });
+                    return;
+                } catch (e) {
+                    if (e && e.name === 'AbortError') return;
+                }
+            }
+            try {
+                await navigator.clipboard.writeText(url);
+                this.shareCopied = true;
+            } catch (e) {
+                window.prompt(this.$t('pricing.shareButton'), url);
+            }
+        },
+                openCheckout(tier, event) {
             this.tier = tier;
             this.errorMsg = '';
             this.trigger = event && event.currentTarget;

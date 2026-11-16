@@ -28,7 +28,7 @@ class LandingPagesTest extends TestCase
         $this->get('/fr')
             ->assertSee('<html lang="fr">', false)
             ->assertSee('id="app" data-lang="fr"', false)
-            ->assertSee('Arrêtez de louer vos reçus', false);
+            ->assertSee('Vos reçus, votre ordi, votre logiciel.', false);
     }
 
     public function test_both_landings_have_the_hreflang_pair(): void
@@ -58,8 +58,34 @@ class LandingPagesTest extends TestCase
         preg_match('#<script type="application/ld\+json">(.*?)</script>#s', $html, $m);
 
         $this->assertNotEmpty($m, 'JSON-LD block missing');
-        $this->assertStringContainsString("L'IA", $m[1]);
-        $this->assertStringNotContainsString('L&#039;IA', $m[1]);
+        $this->assertStringContainsString("cartes d'affaires", $m[1]);
+        $this->assertStringNotContainsString('&#039;', $m[1]);
         $this->assertNotNull(json_decode($m[1]), 'JSON-LD must be valid JSON');
+    }
+
+    public function test_landing_pages_ship_prerendered_text_for_crawlers(): void
+    {
+        $this->get('/')
+            ->assertSee('data-prerendered', false)
+            ->assertSee('Two plans. Neither is a subscription.', false)
+            ->assertSee('What happens if you get hit by a bus?', false);
+
+        $this->get('/fr')
+            ->assertSee('data-prerendered', false)
+            ->assertSee('Deux forfaits. Aucun abonnement.', false)
+            ->assertDontSee('Two plans. Neither is a subscription.', false);
+    }
+
+    public function test_landing_pages_have_faq_structured_data_and_social_cards(): void
+    {
+        foreach (['/' => 'en', '/fr' => 'fr'] as $url => $lang) {
+            $html = $this->get($url)->getContent();
+            preg_match_all('#<script type="application/ld\+json">(.*?)</script>#s', $html, $m);
+            $types = array_map(fn ($json) => json_decode($json, true)['@type'] ?? null, $m[1]);
+
+            $this->assertContains('FAQPage', $types, "$url has no FAQPage JSON-LD");
+            $this->assertStringContainsString('name="twitter:card" content="summary_large_image"', $html);
+            $this->assertStringContainsString("og-landing-$lang.png", $html);
+        }
     }
 }
