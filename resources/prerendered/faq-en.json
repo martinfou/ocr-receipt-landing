@@ -1,0 +1,55 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "en-CA",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What happens if you get hit by a bus?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The app runs on your computer and your receipts are ordinary files in a folder you choose. Your licence is activated offline and never checks in with a server. If I stopped making ocr-receipt tomorrow, the version you own would keep working, and your files would stay yours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do updates work if I only pay once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every update released in your first 2 years is included. After that, the version you have keeps working forever. If you want newer versions, you can renew for 2 more years of updates for $79 CAD. It's optional, and nobody bills you automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can an AI run on my computer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because it's small and does one thing. The big chatbots know a little about everything and need a data centre. The model in OCR Receipt is about half a billion parameters, and it only learned to pull fields like vendor, date, total and invoice number out of documents. That fits on an ordinary computer, works offline, and nothing leaves your machine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does my data go?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nowhere. The AI reads your receipts on your own machine. There is no account to create and nothing to upload, and your receipts aren't training anyone's AI."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if Pro isn't for me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Email support@ocrreceipt.com within 30 days and I'll refund you, no questions asked. I read every message myself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who is this not for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Teams that need everyone syncing receipts to the same cloud workspace. OCR Receipt is built for a team of one."
+      }
+    }
+  ]
+}

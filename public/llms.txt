@@ -1,27 +1,44 @@
 # OCR Receipt
 
-> 100% Offline Local AI & OCR receipt parser for Windows, macOS, and Linux.
+> Receipt software you pay for once. A desktop app for freelancers and solo business owners that reads receipts with local AI on your own computer, then renames and files them. macOS, Windows and Linux. No subscription, no account, nothing uploaded.
 
-OCR Receipt is a multi-platform desktop application built using PyQt6, Tesseract OCR, and local CPU-optimized LLM models (GGUF, NuExtract) that extracts structured data (vendor, date, taxes, line items, and totals) from invoices and PDF receipts without sending any client data to the cloud.
+OCR Receipt (written `ocr-receipt` in the app) is made by Martin Fournier, a one-person business in Québec. The app runs on your computer: OCR and a small local AI model read the vendor, date, total and invoice number from PDF receipts and photos. Receipts stay as ordinary files in a folder you choose. Pages: English https://ocrreceipt.com/ and French https://ocrreceipt.com/fr.
 
-## Core Features
+## Its own AI, on your machine
 
-- **Local AI Correction**: Automatic correction of OCR typos and intelligent category mapping using offline models.
-- **Batch Processing**: Background queue for importing and parsing up to 50 receipts concurrently with zero UI freeze.
-- **100% Confidential**: Zero cloud forced, zero servers, zero risk of data leaks.
-- **Fuzzy Matching**: Automated supplier matching to normalization lists (e.g. "Bell Canada Inc." to "Bell").
-- **Structured Export**: Compile all receipt metrics into Excel-compatible CSV formats or QBO-ready QuickBooks sheets.
-- **Native Experience**: Native client on Windows, macOS, and Linux with a one-time perpetual license.
+OCR Receipt ships with a small AI model (about 0.5 billion parameters) that only does one job: extracting fields such as vendor, date, total and invoice number from receipts and documents. Because it is small and specialised, it runs on an ordinary computer, works offline, and no document is ever sent to a cloud service.
 
-## Pricing (CAD — One-Time Perpetual Licenses)
+## What it does
 
-- **Free Lite ($0 CAD Forever)**: 15 AI extractions & auto-renames/month, unlimited local SQLite search, standard CSV and watermarked PDF reports (1 device).
-- **Pro ($199 CAD one-time)**: Unlimited receipts & batch processing (50+ files at once), Local GGUF NuExtract AI + Cloud AI (BYOK), Canadian tax extraction (GST/HST/QST), clean Audit PDF & Excel exports, unlimited workspaces/entities, 2 seats (Desktop + Laptop).
-- **Cabinet / Firm ($399 CAD one-time)**: Pack of 5 perpetual device licenses ($79.80 CAD/seat), all Pro features, multi-client dossier packaging, and priority onboarding.
+- **Batches**: drop a whole folder of PDFs or photos; they queue up and are read one after another.
+- **Check**: the receipt on the left, what the app read on the right (vendor, date, total, category). Fix anything in one click.
+- **File**: each receipt is renamed and filed in a folder you choose, searchable by vendor, project or category.
+- **More than receipts**: invoices, bank statements, quotes, tax documents and business cards are read, renamed and filed the same way.
+- **Dashboard**: how many receipts are done, which need a look, and whether the reader is ready.
+- **Offline**: the licence is activated offline and never checks in with a server. Nothing is uploaded, and receipts don't train anyone's AI.
 
-## FAQ & Competitor Comparisons
+## Pricing (CAD, before tax, one-time)
 
-- **Data Privacy**: All inference and OCR processing run 100% locally on the device CPU.
-- **NeatReceipts (Neat.com) Alternative**: Spiritual successor to the classic offline NeatReceipts desktop app (which Neat retired in favor of a $200–$350 USD/yr cloud subscription). Saves $1,176 to $2,201 CAD over 5 years vs Neat.com (`/vs/neat`).
-- **Dext Prepare Alternative**: Saves ~$1,876 CAD over 5 years compared to Dext Prepare (`/vs/dext`).
-- **Hubdoc Alternative**: Perfect offline-first alternative to Hubdoc following its retirement by Xero on May 8, 2026 (`/alternative-hubdoc`).
+- **Free: $0.** Free for good, not a trial. Up to 15 receipts a month, local AI that works offline, CSV export, macOS, Windows and Linux. No email or card needed to download.
+- **Pro: $199 once** (founder price **$149** for the first 100 buyers). Unlimited receipts and batch processing, local AI models on your machine, PDF and CSV reports by project, 2 devices.
+- **Updates**: every update released in your first 2 years is included. After that your version keeps working forever; renewing for 2 more years of updates is optional at $79 CAD and is never automatic.
+- **Refund**: email support@ocrreceipt.com within 30 days for a full refund, no questions asked.
+- **Firm licence** for bookkeeping firms: on request from the pricing section.
+
+## If the maker stops
+
+The app runs on your computer and your receipts are ordinary files. If OCR Receipt stopped being developed, the version you own keeps working and your files stay yours.
+
+## Who it's not for
+
+Teams that need everyone syncing receipts to the same cloud workspace. OCR Receipt is built for a team of one.
+
+## Comparisons
+
+- vs Dext: https://ocrreceipt.com/vs/dext
+- vs NeatReceipts (Neat.com): https://ocrreceipt.com/vs/neat
+- Hubdoc alternative: https://ocrreceipt.com/alternative-hubdoc
+
+## Contact
+
+support@ocrreceipt.com (answered by the maker)

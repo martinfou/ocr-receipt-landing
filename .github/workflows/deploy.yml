@@ -112,4 +112,13 @@ jobs:
             /usr/local/php84/bin/php artisan storage:link || true
             chmod -R 775 storage bootstrap/cache
 
+            # TEMPORARY: placeholder installers so /dl/{macos,windows,linux} work before the
+            # real builds are uploaded. Only created when missing, so real installers are never
+            # overwritten. Remove this block once all three real installers are on the server.
+            mkdir -p storage/app/installers
+            for f in OCR-Receipt.dmg OCR-Receipt-Setup.exe OCR-Receipt.AppImage; do
+              [ -f "storage/app/installers/$f" ] || \
+                printf 'Placeholder installer (%s). The real OCR Receipt installer is coming soon.\n' "$f" > "storage/app/installers/$f"
+            done
+
             echo "✅ Deploy complete"

@@ -31,3 +31,6 @@ _bmad/
 /public/fonts-manifest.dev.json
 /storage/pail/
 AGENTS.md
+
+# Build-time prerender bundle (scripts/prerender.mjs reads it; output goes to resources/prerendered/)
+/bootstrap/ssr

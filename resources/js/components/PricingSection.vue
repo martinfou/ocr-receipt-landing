@@ -1,303 +1,191 @@
 <template>
-    <section id="pricing" class="py-24 lg:py-32 bg-surface border-y border-border relative">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-20">
-                <div class="text-[10px] font-mono text-brand uppercase tracking-widest mb-3 flex items-center justify-center gap-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-brand"></span>
-                    {{ $lang.lang === 'fr' ? 'Licence Perpétuelle' : 'Perpetual Licensing' }}
-                </div>
-                <h2 class="text-3xl lg:text-4xl font-serif font-semibold mb-4 tracking-[-0.01em] text-wrap-balance text-text" v-html="$t('pricing.title')">
-                </h2>
-                <p class="text-text-muted max-w-xl mx-auto text-sm">
-                    {{ $t('pricing.subtitle') }}
+    <section id="pricing" class="bg-surface-raised border-y border-lp-border" aria-labelledby="pricing-title">
+        <div class="lp-wrap py-[88px] flex flex-col gap-10">
+            <div class="flex flex-col gap-3 max-w-[680px]">
+                <h2 id="pricing-title" class="lp-headline-section text-ink">{{ $t('pricing.title') }}</h2>
+                <p class="lp-body-lg text-ink-body">{{ $t('pricing.intro') }}</p>
+                <p class="lp-caption text-ink-muted flex flex-wrap gap-x-4 gap-y-1 items-center">
+                    <span>{{ $t('pricing.compareLabel') }}</span>
+                    <a href="/vs/dext" class="inline-flex items-center min-h-[44px]">vs Dext</a>
+                    <a href="/vs/neat" class="inline-flex items-center min-h-[44px]">vs NeatReceipts</a>
+                    <a href="/alternative-hubdoc" class="inline-flex items-center min-h-[44px]">vs Hubdoc</a>
                 </p>
             </div>
 
-            <!-- Subscription Fatigue & Data Ownership Comparison -->
-            <div class="mb-20 border border-border bg-surface-light/50 backdrop-blur-md rounded-2xl p-8 lg:p-10 shadow-xl max-w-4xl mx-auto">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    
-                    <!-- Left: Anti-SaaS Hook -->
-                    <div class="lg:col-span-5">
-                        <div class="text-[9px] font-mono text-brand uppercase tracking-wider mb-2">// OWNERSHIP REVOLUTION</div>
-                        <h3 class="font-serif font-semibold text-2xl text-text mb-4">
-                            {{ $lang.lang === 'fr' ? 'Fatigué des abonnements ?' : 'Tired of subscriptions?' }}
-                        </h3>
-                        <p class="text-xs text-text-muted leading-relaxed mb-6">
-                            {{ $lang.lang === 'fr' ? 'En tant que travailleur autonome, j\'ai créé OCR Receipt parce que j\'en avais assez de payer des abonnements mensuels pour un outil qui devrait simplement tourner sur mon ordinateur. Pire encore : la plupart des services cloud exigent d\'envoyer vos factures sur des serveurs distants. OCR Receipt fonctionne 100% localement à vie sur votre disque dur : aucun abonnement, aucune donnée partagée.' : 'As an independent contractor myself, I built OCR Receipt because I was tired of paying recurring monthly rent just to organize my own business receipts. Worse, cloud services force you to upload sensitive client and tax invoices to remote servers. OCR Receipt runs strictly on your machine: pay once, run 100% offline, and own your archive forever.' }}
-                        </p>
-                        
-                        <!-- Financial ROI highlight -->
-                        <div class="inline-flex items-center gap-3 px-4 py-2.5 rounded-lg border border-brand/20 bg-brand/[0.02] text-xs font-mono text-brand-dark">
-                            <span class="text-lg">🛡️</span>
-                            <div>
-                                <span class="font-bold">{{ $lang.lang === 'fr' ? 'Données 100% Souveraines' : '100% Sovereign Data' }}</span>
-                                <span class="text-[10px] text-text-muted block font-sans">{{ $lang.lang === 'fr' ? 'Aucune connexion requise, aucun cloud forced' : 'No connection required, zero cloud forced' }}</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right: Comparison Grid -->
-                    <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 border-l border-border/20 pl-0 lg:pl-8">
-                        
-                        <!-- Column 1: Renting (SaaS) -->
-                        <div class="p-4 rounded-xl border border-red-500/20 bg-red-500/[0.01]">
-                            <div class="text-[9px] font-mono text-red-400 uppercase tracking-widest mb-3 flex items-center gap-1.5">
-                                <span class="w-1.5 h-1.5 rounded-full bg-red-400"></span>
-                                {{ $lang.lang === 'fr' ? 'SaaS (Louer)' : 'SaaS (Rent)' }}
-                            </div>
-                            <ul class="space-y-3 text-[11px] text-text-muted">
-                                <li class="flex items-start gap-2">
-                                    <span class="text-red-400 font-bold select-none">&times;</span>
-                                    <span>{{ $lang.lang === 'fr' ? 'Facture mensuelle récurrente et prélèvements sans fin' : 'Endless monthly billing cycles and micro-transactions' }}</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="text-red-400 font-bold select-none">&times;</span>
-                                    <span>{{ $lang.lang === 'fr' ? 'Données hébergées sur le cloud (risque de piratage)' : 'Cloud database hosting (vulnerable to breaches)' }}</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="text-red-400 font-bold select-none">&times;</span>
-                                    <span>{{ $lang.lang === 'fr' ? 'Accès bloqué instantanément en cas d\'impayé' : 'Instant loss of tool access if billing lapses' }}</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="text-red-400 font-bold select-none">&times;</span>
-                                    <span>{{ $lang.lang === 'fr' ? 'Vos reçus confidentiels analysés par des tiers' : 'Your financial files processed by corporate clouds' }}</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- Column 2: Owning (OCR Receipt) -->
-                        <div class="p-4 rounded-xl border border-brand bg-brand/[0.01] shadow-[0_0_20px_rgba(34,197,94,0.03)]">
-                            <div class="text-[9px] font-mono text-brand-dark uppercase tracking-widest mb-3 flex items-center gap-1.5">
-                                <span class="w-1.5 h-1.5 rounded-full bg-brand shadow-[0_0_8px_rgba(34,197,94,0.4)]"></span>
-                                {{ $lang.lang === 'fr' ? 'OCR Receipt (Posséder)' : 'OCR Receipt (Own)' }}
-                            </div>
-                            <ul class="space-y-3 text-[11px] text-text">
-                                <li class="flex items-start gap-2">
-                                    <span class="text-[#27c93f] font-semibold select-none">✓</span>
-                                    <span>{{ $lang.lang === 'fr' ? 'Achat unique à vie, aucun frais récurrent' : 'One-time purchase, zero monthly billing cycles' }}</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="text-[#27c93f] font-semibold select-none">✓</span>
-                                    <span>{{ $lang.lang === 'fr' ? '100% stocké sur votre disque dur (sécurité absolue)' : '100% on your local drive (zero external access)' }}</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="text-[#27c93f] font-semibold select-none">✓</span>
-                                    <span>{{ $lang.lang === 'fr' ? 'Licence perpétuelle sans expiration' : 'Perpetual key that is yours to keep forever' }}</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="text-[#27c93f] font-semibold select-none">✓</span>
-                                    <span>{{ $lang.lang === 'fr' ? 'Aucune télémétrie, aucune donnée partagée' : 'Zero telemetry, zero remote server sharing' }}</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
+            <div class="flex flex-col desk:flex-row gap-6 desk:items-stretch">
+                <!-- Pricing card Free -->
+                <div class="min-w-0 desk:flex-[1_1_340px] flex flex-col gap-5 p-8 max-[480px]:p-6 rounded-[20px] border border-lp-border bg-lp-surface">
+                    <h3 class="lp-title text-ink">{{ $t('pricing.free.name') }}</h3>
+                    <p class="lp-numeral-price text-ink">{{ $t('pricing.free.price') }}</p>
+                    <p class="lp-body text-ink-body">{{ $t('pricing.free.tagline') }}</p>
+                    <ul class="m-0 p-0 list-none flex flex-col gap-2.5 lp-body text-ink">
+                        <li v-for="item in $t('pricing.free.features')" :key="item">{{ item }}</li>
+                        <li>{{ linuxReady ? $t('pricing.free.platformsAll') : $t('pricing.free.platformsNoLinux') }}</li>
+                        <li class="hidden desk:list-item">{{ $t('pricing.free.noEmailDesktop') }}</li>
+                        <li class="desk:hidden">{{ $t('pricing.free.noEmailPhone') }}</li>
+                    </ul>
+                    <DownloadLink variant="outline" class="mt-auto w-full" />
                 </div>
 
-                <!-- 5-Year Competitor TCO Comparison Bar (NeatReceipts, Dext, Hubdoc, Shoeboxed vs OCR Receipt) -->
-                <div class="mt-8 pt-6 border-t border-border/40">
-                    <div class="text-[10px] font-mono text-text-muted uppercase tracking-widest mb-4 flex items-center justify-between">
-                        <span>{{ $lang.lang === 'fr' ? '// COMPARATIF DU COÛT SUR 5 ANS (CAD)' : '// 5-YEAR TOTAL COST OF OWNERSHIP (CAD)' }}</span>
-                        <a href="/vs/neat" class="text-brand hover:underline">{{ $lang.lang === 'fr' ? 'Voir le comparatif NeatReceipts & Dext →' : 'Compare vs NeatReceipts & Dext →' }}</a>
+                <!-- Pricing card Pro, founder state with the counter hidden -->
+                <div class="min-w-0 desk:flex-[1_1_340px] relative flex flex-col gap-5 p-8 max-[480px]:p-6 rounded-[20px] border-2 border-ink bg-surface-raised shadow-[8px_8px_0_var(--lp-card-shadow)]">
+                    <div class="flex justify-between items-center gap-3">
+                        <h3 class="lp-title text-ink">{{ $t('pricing.pro.name') }}</h3>
+                        <span aria-hidden="true" class="font-mono text-[12px] font-bold leading-none tracking-[0.12em] text-brand-ink bg-brand-tint border-2 border-brand-ink px-2.5 py-1 rounded-md -rotate-3">{{ $t('pricing.pro.paidOnce') }}</span>
                     </div>
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-                        <div class="p-3 rounded-xl border border-brand/40 bg-brand/[0.04]">
-                            <div class="text-[10px] font-mono text-brand font-semibold">OCR Receipt Pro</div>
-                            <div class="text-lg font-bold text-text mt-0.5">{{ $lang.lang === 'fr' ? '199 $ CAD' : '$199 CAD' }}</div>
-                            <div class="text-[10px] text-text-muted">{{ $lang.lang === 'fr' ? 'Achat unique · 100% Local' : 'One-time · 100% Offline' }}</div>
-                        </div>
-                        <div class="p-3 rounded-xl border border-border bg-surface/60">
-                            <div class="text-[10px] font-mono text-red-400">NeatReceipts (Neat.com)</div>
-                            <div class="text-lg font-bold text-text-muted line-through decoration-red-500/60 mt-0.5">{{ $lang.lang === 'fr' ? '1 375 $ – 2 400 $' : '$1,375 – $2,400' }}</div>
-                            <div class="text-[10px] text-text-muted">{{ $lang.lang === 'fr' ? '~275–480 $/an · Cloud forcé' : '~$275–$480/yr · Forced Cloud' }}</div>
-                        </div>
-                        <div class="p-3 rounded-xl border border-border bg-surface/60">
-                            <div class="text-[10px] font-mono text-red-400">Dext Prepare</div>
-                            <div class="text-lg font-bold text-text-muted line-through decoration-red-500/60 mt-0.5">{{ $lang.lang === 'fr' ? '~2 075 $ CAD' : '~$2,075 CAD' }}</div>
-                            <div class="text-[10px] text-text-muted">{{ $lang.lang === 'fr' ? '~415 $/an · Abonnement' : '~$415/yr · Cloud SaaS' }}</div>
-                        </div>
-                        <div class="p-3 rounded-xl border border-border bg-surface/60">
-                            <div class="text-[10px] font-mono text-red-400">Shoeboxed Pro</div>
-                            <div class="text-lg font-bold text-text-muted line-through decoration-red-500/60 mt-0.5">{{ $lang.lang === 'fr' ? '~2 050 $ CAD' : '~$2,050 CAD' }}</div>
-                            <div class="text-[10px] text-text-muted">{{ $lang.lang === 'fr' ? '~410 $/an · Serveurs US' : '~$410/yr · US Cloud' }}</div>
-                        </div>
+                    <div class="flex flex-col gap-1.5">
+                        <p class="lp-body-sm text-ink-muted"><span class="sr-only">{{ $t('pricing.pro.wasSr') }}</span><s>{{ $t('pricing.pro.regular') }}</s>{{ $t('pricing.pro.regularSuffix') }}</p>
+                        <p class="lp-numeral-price text-ink"><span class="sr-only">{{ $t('pricing.pro.nowSr') }}</span>{{ $t('pricing.pro.price') }} <span class="text-[18px] font-semibold tracking-normal text-ink-muted">{{ $t('pricing.pro.priceSuffix') }}</span></p>
                     </div>
+                    <p class="lp-body text-ink-body">{{ $t('pricing.pro.founderLine') }} {{ $t('pricing.pro.after') }}</p>
+                    <ul class="m-0 p-0 list-none flex flex-col gap-2.5 lp-body text-ink">
+                        <li v-for="item in $t('pricing.pro.features')" :key="item">{{ item }}</li>
+                    </ul>
+                    <p class="lp-caption text-ink-muted">{{ $t('pricing.pro.upgrade') }}</p>
+                    <button type="button" class="lp-btn lp-btn-primary mt-auto w-full" aria-haspopup="dialog" @click="openCheckout('pro', $event)">{{ $t('pricing.pro.buy') }}</button>
                 </div>
             </div>
 
-            <!-- Pricing Grid (3-Tier Sovereign Architecture: Free Lite $0 / Pro $199 CAD / Cabinet $399 CAD) -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch max-w-5xl mx-auto">
-                
-                <!-- Free Lite Tier ($0 Forever) -->
-                <div class="card flex flex-col justify-between p-7 bg-surface-light border border-border hover:border-border/200 transition-all duration-300 rounded-2xl">
-                    <div class="mb-6">
-                        <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider mb-2">// FOREVER FREE</div>
-                        <h3 class="font-serif font-semibold text-xl text-text">{{ $t('pricing.freeLite.name') }}</h3>
-                        <p class="text-xs text-text-muted mt-1 min-h-[24px]">{{ $t('pricing.freeLite.desc') }}</p>
-                        <div class="mt-4">
-                            <span class="text-4xl font-semibold text-text">{{ $lang.lang === 'fr' ? '0 $' : '$0' }}</span>
-                            <span class="text-xs font-mono text-text-muted ml-1">CAD</span>
-                            <span class="text-[10px] font-mono text-text-muted block mt-1">({{ $lang.lang === 'fr' ? 'gratuit à vie · sans carte de crédit' : 'free forever · no credit card' }})</span>
-                        </div>
-                        <div class="border-b border-border my-5"></div>
-                        <ul class="space-y-3.5 text-xs">
-                            <li v-for="item in $t('pricing.freeLite.features')" :key="item" class="flex items-start gap-2.5">
-                                <span class="text-[#27c93f] text-[10px] font-semibold select-none mt-0.5">✓</span>
-                                <span class="text-text-muted">{{ item }}</span>
-                            </li>
-                            <li v-for="item in $t('pricing.freeLite.disabled')" :key="item" class="flex items-start gap-2.5 opacity-35">
-                                <span class="text-red-500 text-xs font-bold select-none">&times;</span>
-                                <span class="text-text-muted/60 line-through">{{ item }}</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <a href="#download" class="btn-outline w-full text-center py-3 text-xs font-mono uppercase tracking-wider mt-auto cursor-pointer">
-                        {{ $t('pricing.freeLite.btn') }}
-                    </a>
-                </div>
-
-                <!-- Pro Tier ($199 CAD — Recommended / Flagship) -->
-                <div class="card flex flex-col justify-between p-7 border-2 border-brand bg-brand/[0.02] shadow-[0_0_45px_rgba(34,197,94,0.08)] relative transition-all duration-300 hover:shadow-[0_0_50px_rgba(34,197,94,0.16)] hover:border-brand/90 rounded-2xl lg:-translate-y-2">
-                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-brand-dark text-white text-[9px] font-mono font-semibold tracking-wider rounded-full uppercase select-none shadow-[0_0_12px_rgba(34,197,94,0.3)] whitespace-nowrap">
-                        {{ $lang.lang === 'fr' ? '★ Le Choix des Indépendants & PME' : '★ Most Popular · Freelancers & SMBs' }}
-                    </div>
-                    <div class="mb-6">
-                        <div class="text-[9px] font-mono text-brand uppercase tracking-wider mb-2 mt-2">// PRO · 2 DEVICES</div>
-                        <h3 class="font-serif font-semibold text-xl text-text">{{ $t('pricing.pro.name') }}</h3>
-                        <p class="text-xs text-text-muted mt-1 min-h-[24px]">{{ $t('pricing.pro.desc') }}</p>
-                        <div class="mt-4">
-                            <span class="text-4xl font-semibold text-text">{{ $lang.lang === 'fr' ? '199 $' : '$199' }}</span>
-                            <span class="text-xs font-mono text-brand font-semibold ml-1">CAD</span>
-                            <span class="text-[10px] font-mono text-brand block mt-1">({{ $t('pricing.period') }} · ~145 $ USD)</span>
-                        </div>
-                        <div class="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-brand/10 border border-brand/20 text-[10px] font-mono text-brand-dark">
-                            <span>💰</span>
-                            <span>{{ $lang.lang === 'fr' ? 'Économisez 1 800 $+ sur 5 ans vs SaaS' : 'Save $1,800+ CAD over 5 yrs vs SaaS' }}</span>
-                        </div>
-                        <div class="border-b border-brand/20 my-5"></div>
-                        <ul class="space-y-3.5 text-xs">
-                            <li v-for="item in $t('pricing.pro.features')" :key="item" class="flex items-start gap-2.5">
-                                <span class="text-[#27c93f] text-[10px] font-semibold select-none mt-0.5">✓</span>
-                                <span class="text-text font-medium">{{ item }}</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <button @click="openCheckoutModal('pro')" class="btn-brand w-full py-3 text-xs font-mono uppercase tracking-wider mt-auto shadow-lg shadow-brand-dark/15 cursor-pointer">
-                            {{ $t('pricing.pro.btn') }}
-                        </button>
-                        <div class="text-center text-[10px] font-mono text-text-muted mt-2.5">
-                            {{ $lang.lang === 'fr' ? '✓ Garantie 30 jours · 100% déductible d\'impôt' : '✓ 30-day money-back guarantee · 100% tax-deductible' }}
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Comptable / Firm Tier ($399 CAD — 5 Seats) -->
-                <div class="card flex flex-col justify-between p-7 bg-surface-light border border-border hover:border-border/200 transition-all duration-300 rounded-2xl">
-                    <div class="mb-6">
-                        <div class="text-[9px] font-mono text-text-muted uppercase tracking-wider mb-2">// CABINET & ÉQUIPE (5 POSTES)</div>
-                        <h3 class="font-serif font-semibold text-xl text-text">{{ $t('pricing.comptable.name') }}</h3>
-                        <p class="text-xs text-text-muted mt-1 min-h-[24px]">{{ $t('pricing.comptable.desc') }}</p>
-                        <div class="mt-4">
-                            <span class="text-4xl font-semibold text-text">{{ $lang.lang === 'fr' ? '399 $' : '$399' }}</span>
-                            <span class="text-xs font-mono text-text-muted ml-1">CAD</span>
-                            <span class="text-[10px] font-mono text-text-muted block mt-1">({{ $t('pricing.period') }} · {{ $lang.lang === 'fr' ? '79,80 $ / poste' : '$79.80 CAD / seat' }})</span>
-                        </div>
-                        <div class="border-b border-border my-5"></div>
-                        <ul class="space-y-3.5 text-xs">
-                            <li v-for="item in $t('pricing.comptable.features')" :key="item" class="flex items-start gap-2.5">
-                                <span class="text-[#27c93f] text-[10px] font-semibold select-none mt-0.5">✓</span>
-                                <span class="text-text-muted">{{ item }}</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <button @click="openCheckoutModal('comptable')" class="btn-brand w-full py-3 text-xs font-mono uppercase tracking-wider mt-auto cursor-pointer">
-                            {{ $t('pricing.comptable.btn') }}
-                        </button>
-                        <div class="text-center text-[10px] font-mono text-text-muted mt-2.5">
-                            {{ $lang.lang === 'fr' ? '✓ 5 licences perpétuelles · Support prioritaire' : '✓ 5 perpetual seats · Priority onboarding' }}
-                        </div>
-                    </div>
-                </div>
-
+            <!-- Martin's handwritten-style aside: free users are welcome; Pro is how you help him out. -->
+            <!-- Sticky note: paper-yellow in both themes (invariant, like the receipt), slightly tilted, taped on. -->
+            <div class="relative self-start max-w-[560px] mt-2 ml-2 -rotate-[1.5deg] bg-note-paper text-on-paper px-7 pt-8 pb-6 shadow-[0_18px_30px_-18px_rgba(28,25,23,0.45)]">
+                <span aria-hidden="true" class="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-6 rotate-[2deg] bg-[var(--lp-note-tape)]"></span>
+                <p class="font-serif text-[21px] leading-[1.45]">{{ $t('pricing.fairUse') }}</p>
+                <p class="font-serif italic text-[24px] mt-3 text-right">— Martin</p>
             </div>
 
+            <!-- Pay it forward: free users help by sharing the page. -->
+            <div class="flex flex-col items-start gap-3">
+                <p class="lp-body-lg text-ink font-semibold max-w-[62ch]">{{ $t('pricing.shareText') }}</p>
+                <button type="button" class="lp-btn lp-btn-outline-brand" @click="shareLink">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M12 3v12M12 3 7.5 7.5M12 3l4.5 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                    {{ $t('pricing.shareButton') }}
+                </button>
+                <p role="status" class="lp-caption font-semibold text-brand-ink">{{ shareCopied ? $t('pricing.shareCopied') : '' }}</p>
+            </div>
+
+            <div class="flex flex-wrap justify-between items-center gap-4">
+                <p class="lp-body-sm text-ink-muted">
+                    {{ $t('pricing.firmBefore') }}<button type="button" class="lp-link-button" aria-haspopup="dialog" @click="openCheckout('comptable', $event)">{{ $t('pricing.firmLink') }}</button>{{ $t('pricing.firmAfter') }}
+                </p>
+                <div class="flex flex-wrap items-center gap-3">
+                    <button type="button" class="min-h-[44px] px-4 rounded-[10px] border border-border-strong bg-lp-surface text-ink-muted lp-caption cursor-pointer" @click="cancelRevealed = !cancelRevealed">{{ $t('pricing.cancelButton') }}</button>
+                    <p role="status" class="font-bold text-brand-ink">{{ cancelRevealed ? $t('pricing.cancelReveal') : '' }}</p>
+                </div>
+            </div>
         </div>
 
-        <!-- Checkout Email Modal Dialog -->
-        <div v-if="showModal" class="fixed inset-0 z-50 flex items-center justify-center p-6 bg-surface/80 backdrop-blur-md transition-all duration-300">
-            <div class="border border-border bg-surface-light rounded-2xl p-8 max-w-md w-full relative shadow-2xl transition-all hover:border-border/200">
-                <button @click="closeModal" class="absolute top-4 right-4 text-text-muted hover:text-text font-light text-xl select-none cursor-pointer">&times;</button>
-                
-                <h3 class="font-serif font-semibold text-xl mb-2 text-text">
-                    {{ $lang.lang === 'fr' ? 'Informations de facturation' : 'Billing Information' }}
-                </h3>
-                <p class="text-xs text-text-muted mb-6">
-                    {{ $lang.lang === 'fr' ? 'Saisissez votre adresse email pour recevoir votre licence après achat.' : 'Enter your email address to receive your license key after purchase.' }}
-                </p>
+        <!-- Checkout email step (POST /checkout {email, tier}) -->
+        <dialog
+            ref="dialog"
+            aria-labelledby="checkout-title"
+            class="m-auto w-[calc(100%-32px)] max-w-md p-0 rounded-[20px] border border-lp-border bg-surface-raised text-ink backdrop:bg-black/60"
+            @close="onDialogClose"
+        >
+            <div class="p-8 max-[480px]:p-6 flex flex-col gap-5">
+                <div class="flex justify-between items-start gap-4">
+                    <h2 id="checkout-title" class="lp-title text-ink">{{ tier === 'comptable' ? $t('checkout.titleFirm') : $t('checkout.titlePro') }}</h2>
+                    <button type="button" class="min-h-[44px] min-w-[44px] -mt-2 -mr-2 rounded-[10px] text-ink-muted text-[24px] leading-none cursor-pointer bg-transparent border-0" :aria-label="$t('checkout.close')" @click="closeCheckout">&times;</button>
+                </div>
+                <p class="lp-body-sm text-ink-body">{{ $t('checkout.intro') }}</p>
 
-                <form @submit.prevent="submitCheckout" class="space-y-5">
-                    <div>
-                        <label for="checkout-email" class="block text-xs font-mono text-text-muted uppercase tracking-wider mb-2">
-                            {{ $lang.lang === 'fr' ? 'Adresse email' : 'Email Address' }}
-                        </label>
-                        <input 
-                            type="email" 
-                            id="checkout-email" 
-                            v-model="email" 
-                            required 
-                            placeholder="you@example.com"
-                            class="w-full bg-surface border border-border focus:border-brand focus:ring-1 focus:ring-brand focus:shadow-[0_0_15px_rgba(34,197,94,0.12)] rounded-lg px-4 py-3 text-sm text-text outline-none transition-all"
-                        />
+                <form class="flex flex-col gap-5" novalidate @submit.prevent="submitCheckout">
+                    <div class="flex flex-col gap-2">
+                        <label for="checkout-email" class="lp-label text-ink">{{ $t('checkout.emailLabel') }}</label>
+                        <input
+                            id="checkout-email"
+                            ref="email"
+                            v-model="email"
+                            type="email"
+                            autocomplete="email"
+                            required
+                            :aria-invalid="errorMsg ? 'true' : 'false'"
+                            :aria-describedby="errorMsg ? 'checkout-error' : null"
+                            class="w-full min-h-[44px] rounded-[10px] border border-input-border bg-lp-surface px-4 text-[16px] text-ink"
+                        >
+                        <p v-if="errorMsg" id="checkout-error" role="alert" class="flex items-start gap-2 text-ink font-semibold lp-body-sm">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="shrink-0 mt-0.5"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" /><path d="M12 7v6M12 16.5v.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+                            <span>{{ errorMsg }}</span>
+                        </p>
                     </div>
 
-                    <div v-if="errorMsg" class="text-red-400 text-xs font-mono">
-                        {{ errorMsg }}
-                    </div>
-
-                    <div class="flex items-center gap-4 pt-2">
-                        <button type="button" @click="closeModal" class="btn-outline flex-1 py-3 text-xs font-mono uppercase tracking-wider cursor-pointer">
-                            {{ $lang.lang === 'fr' ? 'Annuler' : 'Cancel' }}
-                        </button>
-                        <button type="submit" :disabled="loading" class="btn-brand flex-1 py-3 text-xs font-mono uppercase tracking-wider cursor-pointer disabled:opacity-50">
-                            {{ loading ? ($lang.lang === 'fr' ? 'Redirection...' : 'Redirecting...') : ($lang.lang === 'fr' ? 'Continuer' : 'Continue') }}
-                        </button>
+                    <div class="flex flex-wrap gap-3">
+                        <button type="button" class="lp-btn lp-btn-secondary flex-1" @click="closeCheckout">{{ $t('checkout.cancel') }}</button>
+                        <button type="submit" class="lp-btn lp-btn-primary flex-1" :aria-disabled="loading ? 'true' : 'false'">{{ loading ? $t('checkout.redirecting') : $t('checkout.submit') }}</button>
                     </div>
                 </form>
             </div>
-        </div>
+        </dialog>
     </section>
 </template>
 
 <script>
+import DownloadLink from './DownloadLink.vue';
+import { LINUX_READY } from '../config.js';
+
 export default {
     name: 'PricingSection',
+    components: { DownloadLink },
     data() {
         return {
-            showModal: false,
-            selectedTier: null,
+            linuxReady: LINUX_READY,
+            cancelRevealed: false,
+            shareCopied: false,
+            tier: null,
             email: '',
             loading: false,
             errorMsg: ''
         };
     },
     methods: {
-        openCheckoutModal(tier) {
-            this.selectedTier = tier;
-            this.showModal = true;
-            this.errorMsg = '';
+        // Native share sheet when the browser has one, otherwise copy the page URL.
+        async shareLink() {
+            const url = window.location.origin + (this.$lang.lang === 'fr' ? '/fr' : '/');
+            if (navigator.share) {
+                try {
+                    await navigator.share({ title: this.$t('pricing.shareTitle'), text: this.$t('pricing.shareText'), url });
+                    return;
+                } catch (e) {
+                    if (e && e.name === 'AbortError') return;
+                }
+            }
+            try {
+                await navigator.clipboard.writeText(url);
+                this.shareCopied = true;
+            } catch (e) {
+                window.prompt(this.$t('pricing.shareButton'), url);
+            }
         },
-        closeModal() {
-            this.showModal = false;
-            this.selectedTier = null;
+                openCheckout(tier, event) {
+            this.tier = tier;
+            this.errorMsg = '';
+            this.trigger = event && event.currentTarget;
+            const dialog = this.$refs.dialog;
+            if (dialog && typeof dialog.showModal === 'function') {
+                dialog.showModal();
+                this.$nextTick(() => this.$refs.email && this.$refs.email.focus());
+            }
+        },
+        closeCheckout() {
+            const dialog = this.$refs.dialog;
+            if (dialog && dialog.open) dialog.close();
+        },
+        onDialogClose() {
+            this.tier = null;
             this.email = '';
             this.errorMsg = '';
+            this.loading = false;
+            if (this.trigger) this.trigger.focus();
         },
         submitCheckout() {
-            this.loading = true;
+            if (this.loading) return;
             this.errorMsg = '';
+            if (!this.email.trim() || !this.email.includes('@')) {
+                this.errorMsg = this.$t('checkout.emailRequired');
+                this.$nextTick(() => this.$refs.email && this.$refs.email.focus());
+                return;
+            }
+            this.loading = true;
 
             const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
 
@@ -309,28 +197,31 @@ export default {
                     'X-CSRF-TOKEN': csrfToken
                 },
                 body: JSON.stringify({
-                    tier: this.selectedTier,
+                    tier: this.tier,
                     email: this.email
                 })
             })
-            .then(async r => {
-                const data = await r.json();
-                if (!r.ok) {
-                    throw new Error(data.error || (this.$lang.lang === 'fr' ? 'Une erreur est survenue lors de l\'initialisation.' : 'An error occurred during initialization.'));
-                }
-                return data;
-            })
-            .then(data => {
-                if (data.url) {
-                    window.location.href = data.url;
-                }
-            })
-            .catch(err => {
-                this.errorMsg = err.message;
-            })
-            .finally(() => {
-                this.loading = false;
-            });
+                .then(async (r) => {
+                    let data = {};
+                    try { data = await r.json(); } catch (e) { /* non-JSON error page */ }
+                    if (!r.ok) {
+                        throw new Error(data.error || this.$t('checkout.error'));
+                    }
+                    return data;
+                })
+                .then((data) => {
+                    if (data.url) {
+                        window.location.href = data.url;
+                    } else {
+                        throw new Error(this.$t('checkout.error'));
+                    }
+                })
+                .catch((err) => {
+                    // Network failures (TypeError) carry a raw, untranslated browser message.
+                    this.errorMsg = err instanceof TypeError || !err.message ? this.$t('checkout.error') : err.message;
+                    this.loading = false;
+                    this.$nextTick(() => this.$refs.email && this.$refs.email.focus());
+                });
         }
     }
 };

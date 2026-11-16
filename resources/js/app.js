@@ -1,42 +1,24 @@
-import { createApp, reactive } from 'vue';
+import { createApp } from 'vue';
+import { createLandingApp } from './landing-app.js';
+import { initialLang } from './i18n.js';
 import App from './components/App.vue';
-import { locales } from './locales.js';
-
-// Create a reactive state for current language
-const storedLang = localStorage.getItem('lang');
-const browserLang = navigator.language && navigator.language.startsWith('fr') ? 'fr' : 'en';
-const langState = reactive({
-    lang: storedLang || browserLang
-});
-
-const app = createApp(App);
-
-// Attach language state and translate helper globally
-app.config.globalProperties.$lang = langState;
-app.config.globalProperties.$t = (key) => {
-    const keys = key.split('.');
-    let obj = locales[langState.lang];
-    for (const k of keys) {
-        if (!obj || obj[k] === undefined) {
-            // fallback to English
-            let fallbackObj = locales['en'];
-            for (const fk of keys) {
-                if (fallbackObj !== undefined) fallbackObj = fallbackObj[fk];
-            }
-            return fallbackObj !== undefined ? fallbackObj : key;
-        }
-        obj = obj[k];
-    }
-    return obj;
-};
-
-// Global helper to switch language
-app.config.globalProperties.$setLang = (newLang) => {
-    langState.lang = newLang;
-    localStorage.setItem('lang', newLang);
-};
 
 const appEl = document.getElementById('app');
-if (appEl && appEl.innerHTML.trim() === '') {
-    app.mount('#app');
+
+if (appEl) {
+    // The URL decides the language: both landing shells (/ and /fr) set data-lang on #app.
+    let storedLang = null;
+    try { storedLang = localStorage.getItem('lang'); } catch (e) { /* storage blocked */ }
+    const lang = initialLang(appEl.dataset ? appEl.dataset.lang : null, storedLang, navigator.language);
+
+    if (appEl.hasAttribute('data-prerendered')) {
+        // The page text was rendered at build time (resources/prerendered/); hydrate it.
+        createLandingApp(lang).mount(appEl);
+    } else if (appEl.innerHTML.trim() === '') {
+        // No prerendered markup: render on the client. Same globals, plain (non-hydrating) app.
+        const ssrApp = createLandingApp(lang);
+        const app = createApp(App);
+        Object.assign(app.config.globalProperties, ssrApp.config.globalProperties);
+        app.mount(appEl);
+    }
 }

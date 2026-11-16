@@ -1,21 +1,15 @@
 <template>
-    <footer class="border-t border-border py-12 bg-surface">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                <div class="text-sm text-text-muted">
-                    {{ $t('footer.rights') }}
-                </div>
-                <div class="flex items-center gap-6 text-sm text-text-muted">
-                    <span class="text-xs">{{ $t('footer.developedBy') }}</span>
-                    <span class="text-border">|</span>
-                    <a href="#features" class="hover:text-brand transition-colors">{{ $t('footer.links.product') }}</a>
-                    <a href="/vs/neat" class="hover:text-brand transition-colors">vs NeatReceipts</a>
-                    <a href="/vs/dext" class="hover:text-brand transition-colors">vs Dext</a>
-                    <a href="/alternative-hubdoc" class="hover:text-brand transition-colors">vs Hubdoc</a>
-                    <a href="https://github.com/martinfou" target="_blank" rel="noopener" class="hover:text-brand transition-colors">{{ $t('footer.links.github') }}</a>
-                    <a href="#beta" class="hover:text-brand transition-colors">{{ $t('footer.links.contact') }}</a>
-                </div>
-            </div>
+    <footer class="on-inverse bg-inverse-surface text-inverse-body">
+        <div class="lp-wrap py-10 flex flex-col desk:flex-row flex-wrap desk:justify-between gap-4 lp-caption">
+            <p :lang="$t('footer.madeInLang') || null">{{ $t('footer.madeIn') }}</p>
+            <nav :aria-label="$t('footer.linksLabel')" class="flex flex-wrap items-center gap-x-5 gap-y-1">
+                <a href="mailto:support@ocrreceipt.com" class="inline-flex items-center min-h-[44px] font-mono font-bold text-inverse-accent">support@ocrreceipt.com</a>
+                <a :href="$t('footer.blogHref')" class="inline-flex items-center min-h-[44px] text-inverse-body">{{ $t('footer.blog') }}</a>
+                <a href="/vs/dext" class="inline-flex items-center min-h-[44px] text-inverse-body">vs Dext</a>
+                <a href="/vs/neat" class="inline-flex items-center min-h-[44px] text-inverse-body">vs NeatReceipts</a>
+                <a href="/alternative-hubdoc" class="inline-flex items-center min-h-[44px] text-inverse-body">vs Hubdoc</a>
+            </nav>
+            <p class="text-inverse-muted">{{ $t('footer.noPopup') }}</p>
         </div>
     </footer>
 </template>

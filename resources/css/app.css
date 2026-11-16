@@ -47,6 +47,149 @@
     --color-border: var(--color-border);
 }
 
+/* ------------------------------------------------------------------
+ * Landing (pay-once) design tokens — DESIGN.md, ux-ocr-receipt-landing-2026-11-15.
+ * Light values on :root, theme-dependent `-dark` values on .dark.
+ * Tokens without a dark pair (inverse, paper, cta-band) are invariant.
+ * ------------------------------------------------------------------ */
+:root {
+    --lp-brand: #22c55e;
+    --lp-brand-strong: #15803d;
+    --lp-brand-ink: #15803d;
+    --lp-brand-ink-strong: #14532d;
+    --lp-brand-tint: #f0fdf4;
+    --lp-brand-tint-border: #bbf7d0;
+    --lp-brand-track: #dcfce7;
+    --lp-on-brand: #ffffff;
+    --lp-surface: #fafaf9;
+    --lp-surface-raised: #ffffff;
+    --lp-ink: #1c1917;
+    --lp-ink-body: #44403c;
+    --lp-ink-muted: #57534e;
+    --lp-ink-subtle: #78716c;
+    --lp-border: #e7e5e4;
+    --lp-border-strong: #d6d3d1;
+    --lp-input-border: #78716c;
+    --lp-loss: #b91c1c;
+    --lp-focus-ring: #15803d;
+    --lp-card-shadow: #1c1917;
+    --lp-soft-shadow: rgba(28, 25, 23, 0.35);
+    --lp-frame-shadow: rgba(28, 25, 23, 0.55);
+
+    /* Invariant: inverse bands */
+    --lp-inverse-surface: #0f110e;
+    --lp-inverse-raised: #161915;
+    --lp-inverse-border: #2d312c;
+    --lp-inverse-border-strong: #78716c;
+    --lp-inverse-ink: #f5f5f4;
+    --lp-inverse-body: #d6d3d1;
+    --lp-inverse-muted: #a8a29e;
+    --lp-inverse-accent: #4ade80;
+    --lp-loss-soft: #fca5a5;
+    --lp-loss-bar: #f87171;
+    --lp-focus-ring-inverse: #4ade80;
+
+    /* Invariant: paper */
+    --lp-paper: #ffffff;
+    --lp-on-paper: #1c1917;
+    --lp-on-paper-strong: #14532d;
+    --lp-on-paper-accent: #15803d;
+    --lp-on-paper-loss: #b91c1c;
+    --lp-on-paper-struck: #78716c;
+    --lp-on-paper-tint: #f0fdf4;
+    --lp-on-paper-rule: #d6d3d1;
+
+    /* Invariant: sticky note (Martin's pricing aside), paper-yellow in both themes */
+    --lp-note-paper: #fef3c7;
+    --lp-note-tape: rgba(214, 211, 209, 0.75);
+
+    /* Invariant: closing CTA band */
+    --lp-cta-band: #15803d;
+    --lp-on-cta-band: #f0fdf4;
+    --lp-focus-ring-on-band: #ffffff;
+
+    /* Spacing */
+    --lp-content-max: 1200px;
+    --lp-faq-max: 880px;
+    --lp-gutter: 24px;
+    --lp-hit-min: 44px;
+}
+
+.dark {
+    --lp-brand: #4ade80;
+    --lp-brand-strong: #22c55e;
+    --lp-brand-ink: #4ade80;
+    --lp-brand-ink-strong: #bbf7d0;
+    --lp-brand-tint: #052e16;
+    --lp-brand-tint-border: #166534;
+    --lp-brand-track: #14532d;
+    --lp-on-brand: #0f110e;
+    --lp-surface: #0f110e;
+    --lp-surface-raised: #161915;
+    --lp-ink: #f5f5f4;
+    --lp-ink-body: #d6d3d1;
+    --lp-ink-muted: #a8a29e;
+    --lp-ink-subtle: #8e8d88;
+    --lp-border: #2d312c;
+    --lp-border-strong: #44403c;
+    --lp-input-border: #8e8d88;
+    --lp-loss: #f87171;
+    --lp-focus-ring: #4ade80;
+    --lp-card-shadow: #44403c;
+    /* Soft shadows vanish on the dark surface; hairlines carry the edge. */
+    --lp-soft-shadow: transparent;
+    --lp-frame-shadow: transparent;
+}
+
+@theme {
+    /* {spacing.desktop-min}: two-column layout, simulator tour, inline nav. */
+    --breakpoint-desk: 1000px;
+}
+
+@theme inline {
+    --color-lp-brand: var(--lp-brand);
+    --color-brand-strong: var(--lp-brand-strong);
+    --color-brand-ink: var(--lp-brand-ink);
+    --color-brand-ink-strong: var(--lp-brand-ink-strong);
+    --color-brand-tint: var(--lp-brand-tint);
+    --color-brand-tint-border: var(--lp-brand-tint-border);
+    --color-brand-track: var(--lp-brand-track);
+    --color-on-brand: var(--lp-on-brand);
+    --color-lp-surface: var(--lp-surface);
+    --color-surface-raised: var(--lp-surface-raised);
+    --color-ink: var(--lp-ink);
+    --color-ink-body: var(--lp-ink-body);
+    --color-ink-muted: var(--lp-ink-muted);
+    --color-ink-subtle: var(--lp-ink-subtle);
+    --color-lp-border: var(--lp-border);
+    --color-border-strong: var(--lp-border-strong);
+    --color-input-border: var(--lp-input-border);
+    --color-loss: var(--lp-loss);
+    --color-focus-ring: var(--lp-focus-ring);
+    --color-card-shadow: var(--lp-card-shadow);
+    --color-inverse-surface: var(--lp-inverse-surface);
+    --color-inverse-raised: var(--lp-inverse-raised);
+    --color-inverse-border: var(--lp-inverse-border);
+    --color-inverse-border-strong: var(--lp-inverse-border-strong);
+    --color-inverse-ink: var(--lp-inverse-ink);
+    --color-inverse-body: var(--lp-inverse-body);
+    --color-inverse-muted: var(--lp-inverse-muted);
+    --color-inverse-accent: var(--lp-inverse-accent);
+    --color-loss-soft: var(--lp-loss-soft);
+    --color-loss-bar: var(--lp-loss-bar);
+    --color-paper: var(--lp-paper);
+    --color-on-paper: var(--lp-on-paper);
+    --color-on-paper-strong: var(--lp-on-paper-strong);
+    --color-on-paper-accent: var(--lp-on-paper-accent);
+    --color-on-paper-loss: var(--lp-on-paper-loss);
+    --color-on-paper-struck: var(--lp-on-paper-struck);
+    --color-on-paper-tint: var(--lp-on-paper-tint);
+    --color-on-paper-rule: var(--lp-on-paper-rule);
+    --color-cta-band: var(--lp-cta-band);
+    --color-note-paper: var(--lp-note-paper);
+    --color-on-cta-band: var(--lp-on-cta-band);
+}
+
 @layer base {
     body {
         background-color: var(--color-surface);
@@ -170,3 +313,164 @@
     }
 }
 
+
+/* ------------------------------------------------------------------
+ * Landing (pay-once) primitives. Scoped to .lp so the blog, vs-* and
+ * hubdoc pages keep the site's existing base styles.
+ * ------------------------------------------------------------------ */
+@layer base {
+    .lp {
+        background-color: var(--lp-surface);
+        color: var(--lp-ink);
+        font-family: var(--font-sans);
+    }
+
+    /* DESIGN.md delta: landing headings are sans 800, not the site serif. */
+    .lp h1, .lp h2, .lp h3, .lp h4 {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        text-wrap: balance;
+        margin: 0;
+    }
+
+    .lp p { margin: 0; }
+
+    .lp a { color: var(--lp-brand-ink); }
+
+    /* Focus: page surfaces / inverse bands / closing band. Also inputs and tabindex="-1" targets. */
+    .lp :focus-visible,
+    .lp [tabindex="-1"]:focus {
+        outline: 3px solid var(--lp-focus-ring);
+        outline-offset: 3px;
+    }
+    .lp [tabindex="-1"]:focus:not(:focus-visible) { outline: none; }
+    .lp .on-inverse :focus-visible { outline-color: var(--lp-focus-ring-inverse); }
+    .lp .on-band :focus-visible { outline-color: var(--lp-focus-ring-on-band); }
+
+    .lp summary { cursor: pointer; list-style: none; }
+    .lp summary::-webkit-details-marker { display: none; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html:has(.lp) { scroll-behavior: smooth; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .lp *, .lp *::before, .lp *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+@layer components {
+    .lp-wrap {
+        width: 100%;
+        max-width: var(--lp-content-max);
+        margin-inline: auto;
+        padding-inline: var(--lp-gutter);
+        box-sizing: border-box;
+    }
+
+    /* Typography tokens */
+    .lp-display-hero { font-size: clamp(44px, 6vw, 84px); font-weight: 800; line-height: 0.98; letter-spacing: -0.035em; }
+    .lp-headline-cta { font-size: clamp(36px, 5vw, 64px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; }
+    .lp-headline-section { font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; }
+    .lp-headline-section-sm { font-size: clamp(32px, 4vw, 48px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; }
+    .lp-numeral-xl { font-size: clamp(48px, 6vw, 72px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+    .lp-numeral-price { font-size: 56px; font-weight: 800; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+    .lp-title { font-size: 20px; font-weight: 700; line-height: 1.3; }
+    .lp-verdict { font-size: 22px; font-weight: 700; line-height: 1.3; }
+    .lp-lede { font-size: 20px; line-height: 1.55; }
+    .lp-body-lg { font-size: 18px; line-height: 1.6; }
+    .lp-body { font-size: 17px; line-height: 1.65; }
+    .lp-body-sm { font-size: 15px; line-height: 1.55; }
+    .lp-label { font-size: 15px; font-weight: 500; line-height: 1.5; }
+    .lp-caption { font-size: 14px; line-height: 1.5; }
+    .lp-kicker { font-family: var(--font-mono); font-size: 13px; line-height: 1.4; letter-spacing: 0.08em; text-transform: uppercase; }
+    .lp-mono-label { font-family: var(--font-mono); font-size: 12px; font-weight: 700; line-height: 1.4; letter-spacing: 0.06em; }
+    .lp-letter { font-family: var(--font-serif); font-size: 23px; line-height: 1.5; }
+    .lp-signature { font-family: var(--font-serif); font-style: italic; font-size: 26px; line-height: 1.3; }
+    .lp-measure { max-width: 65ch; }
+
+    /* Buttons */
+    .lp-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 52px;
+        padding: 0 24px;
+        border-radius: 12px;
+        font-family: var(--font-sans);
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 1;
+        text-decoration: none;
+        cursor: pointer;
+        box-sizing: border-box;
+    }
+    .lp .lp-btn-primary { background: var(--lp-brand-strong); color: var(--lp-on-brand); border: 0; }
+    .lp .lp-btn-secondary { border: 2px solid var(--lp-ink); color: var(--lp-ink); background: transparent; padding: 0 22px; }
+    .lp .lp-btn-outline-brand { border: 2px solid var(--lp-brand-strong); color: var(--lp-brand-ink); background: transparent; }
+    .lp .lp-btn-on-band { background: var(--lp-paper); color: var(--lp-on-paper-strong); min-height: 56px; padding: 0 28px; font-weight: 800; font-size: 18px; border: 0; }
+    .lp .lp-btn-nav { min-height: var(--lp-hit-min); padding: 0 18px; border-radius: 10px; background: var(--lp-brand-strong); color: var(--lp-on-brand); font-size: 15px; gap: 8px; }
+
+    /* Inline text button that looks like a link (Firm licence). */
+    .lp .lp-link-button {
+        background: none; border: 0; padding: 0; font: inherit;
+        color: var(--lp-brand-ink); text-decoration: underline; cursor: pointer;
+    }
+
+    /* Skip link */
+    .lp-skip {
+        position: absolute;
+        left: 8px;
+        top: -200px;
+        z-index: 100;
+        display: inline-flex;
+        align-items: center;
+        min-height: var(--lp-hit-min);
+        padding: 0 16px;
+        border-radius: 8px;
+        background: var(--lp-ink);
+        color: var(--lp-surface) !important;
+        font-weight: 700;
+        text-decoration: none;
+    }
+    .lp-skip:focus { top: 8px; }
+
+    /* Calculator pill: a native radio styled as a pill. */
+    .lp-calc-pill {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        min-height: var(--lp-hit-min);
+        padding: 0 18px;
+        border-radius: 9999px;
+        border: 2px solid var(--lp-inverse-border-strong);
+        color: var(--lp-inverse-ink);
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        user-select: none;
+    }
+    .lp-calc-pill:has(input:checked) {
+        background: var(--lp-inverse-accent);
+        border-color: var(--lp-inverse-accent);
+        color: var(--lp-inverse-surface);
+        font-weight: 700;
+    }
+    .lp-calc-pill:has(input:focus-visible) {
+        outline: 3px solid var(--lp-focus-ring-inverse);
+        outline-offset: 3px;
+    }
+
+    /* FAQ plus */
+    .lp-faq-plus { transition: transform 0.2s ease; }
+    .lp details[open] .lp-faq-plus { transform: rotate(45deg); }
+
+    /* Calculator bars */
+    @media (prefers-reduced-motion: no-preference) {
+        .lp-bar-fill { transition: width 0.35s ease; }
+    }
+}

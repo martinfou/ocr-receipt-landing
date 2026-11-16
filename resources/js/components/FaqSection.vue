@@ -1,35 +1,16 @@
 <template>
-    <section id="faq" class="py-24 lg:py-32">
-        <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-3xl lg:text-4xl font-serif font-semibold text-center mb-16 tracking-[-0.01em] text-text">
-                {{ $t('faq.title') }}
-            </h2>
-
-            <div class="space-y-4">
-                <div v-for="(item, i) in $t('faq.items')" :key="i"
-                     class="card cursor-pointer select-none transition-all duration-300"
-                     :class="openIndex === i ? 'border-brand/40 bg-surface-light' : 'hover:border-border'"
-                     @click="toggle(i)">
-                    
-                    <!-- Question Header -->
-                    <div class="flex items-center justify-between gap-4">
-                        <h3 class="font-medium text-base text-text">{{ item.q }}</h3>
-                        <span class="text-brand text-xl font-light shrink-0 transition-transform duration-300" 
-                              :class="openIndex === i ? 'rotate-45 text-brand' : 'text-text-muted'">
-                            +
-                        </span>
-                    </div>
-                    
-                    <!-- Answer Section with Grid Height Transition -->
-                    <div class="accordion-transition" :class="{ 'is-open': openIndex === i }">
-                        <div class="accordion-inner">
-                            <div class="pt-4 text-sm text-text-muted leading-relaxed">
-                                {{ item.a }}
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+    <section id="faq" class="bg-lp-surface" aria-labelledby="faq-title">
+        <div class="w-full max-w-[880px] mx-auto px-6 box-border py-24 flex flex-col gap-8">
+            <h2 id="faq-title" class="lp-headline-section-sm text-ink">{{ $t('faq.title') }}</h2>
+            <div class="flex flex-col border-t border-border-strong">
+                <details v-for="(item, i) in $t('faq.items')" :key="i" class="border-b border-border-strong" :open="i === 0">
+                    <summary class="flex justify-between items-center gap-4 py-[22px] text-[19px] font-bold leading-[1.35] text-ink">
+                        {{ item.q }}
+                        <span class="lp-faq-plus text-[28px] font-normal leading-none text-brand-ink" aria-hidden="true">+</span>
+                    </summary>
+                    <!-- Answers are static, trusted locale strings (one contains the support mailto link). -->
+                    <p class="mb-[22px] lp-body lp-measure text-ink-body" v-html="item.a"></p>
+                </details>
             </div>
         </div>
     </section>
@@ -37,16 +18,6 @@
 
 <script>
 export default {
-    name: 'FaqSection',
-    data() {
-        return {
-            openIndex: null
-        };
-    },
-    methods: {
-        toggle(i) {
-            this.openIndex = this.openIndex === i ? null : i;
-        }
-    }
+    name: 'FaqSection'
 };
 </script>
